@@ -42,6 +42,41 @@
     "totalRegions": 148
   },
   {
+    "id": "640-07",
+    "title": "文化史",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 17,
+    "totalRegions": 53
+  },
+  {
+    "id": "640-08",
+    "title": "外交史① アジア諸国との外交",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 18,
+    "totalRegions": 131
+  },
+  {
+    "id": "640-09",
+    "title": "外交史② 欧米諸国との外交",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 18,
+    "totalRegions": 62
+  },
+  {
+    "id": "640-10",
+    "title": "日本国憲法① 三大原則",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 16,
+    "totalRegions": 56
+  },
+  {
+    "id": "640-11",
+    "title": "日本国憲法② 基本的人権",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 16,
+    "totalRegions": 39
+  },
+  {
     "id": "640-12",
     "title": "三権分立①国会",
     "subject": "6年社会 デイリーサピックス",
@@ -54,5 +89,19 @@
     "subject": "6年社会 デイリーサピックス",
     "pageCount": 16,
     "totalRegions": 152
+  },
+  {
+    "id": "H64-01",
+    "title": "政治史⑦ 昭和〜現代",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 18,
+    "totalRegions": 178
+  },
+  {
+    "id": "H64-03",
+    "title": "社会・産業史② 商工業の発達",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 18,
+    "totalRegions": 40
   }
 ]
