@@ -21,20 +21,6 @@
     "totalRegions": 187
   },
   {
-    "id": "640-04",
-    "title": "政治史④ 安土桃山〜江戸",
-    "subject": "6年社会 デイリーサピックス",
-    "pageCount": 16,
-    "totalRegions": 45
-  },
-  {
-    "id": "640-05",
-    "title": "政治史⑤ 江戸〜明治",
-    "subject": "6年社会 デイリーサピックス",
-    "pageCount": 16,
-    "totalRegions": 46
-  },
-  {
     "id": "640-06",
     "title": "政治史⑥ 明治〜昭和",
     "subject": "6年社会 デイリーサピックス",
@@ -42,39 +28,11 @@
     "totalRegions": 148
   },
   {
-    "id": "640-07",
-    "title": "文化史",
-    "subject": "6年社会 デイリーサピックス",
-    "pageCount": 17,
-    "totalRegions": 53
-  },
-  {
     "id": "640-08",
     "title": "外交史① アジア諸国との外交",
     "subject": "6年社会 デイリーサピックス",
     "pageCount": 18,
     "totalRegions": 131
-  },
-  {
-    "id": "640-09",
-    "title": "外交史② 欧米諸国との外交",
-    "subject": "6年社会 デイリーサピックス",
-    "pageCount": 18,
-    "totalRegions": 62
-  },
-  {
-    "id": "640-10",
-    "title": "日本国憲法① 三大原則",
-    "subject": "6年社会 デイリーサピックス",
-    "pageCount": 16,
-    "totalRegions": 56
-  },
-  {
-    "id": "640-11",
-    "title": "日本国憲法② 基本的人権",
-    "subject": "6年社会 デイリーサピックス",
-    "pageCount": 16,
-    "totalRegions": 39
   },
   {
     "id": "640-12",
@@ -96,12 +54,5 @@
     "subject": "6年社会 デイリーサピックス",
     "pageCount": 18,
     "totalRegions": 178
-  },
-  {
-    "id": "H64-03",
-    "title": "社会・産業史② 商工業の発達",
-    "subject": "6年社会 デイリーサピックス",
-    "pageCount": 18,
-    "totalRegions": 40
   }
 ]
