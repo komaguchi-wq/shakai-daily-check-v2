@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>SAPIX社会 デイリーチェック v2</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- ユーザー選択画面 -->
+  <div id="screen-user" class="screen active">
+    <div class="user-select-body">
+      <h1 class="app-title">SAPIX社会 v2</h1>
+      <p class="app-subtitle">ユーザーを選んでください</p>
+      <div class="user-buttons">
+        <button class="btn-user" data-user="さと">さと</button>
+        <button class="btn-user" data-user="ぱぱ">ぱぱ</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- カテゴリ一覧画面 -->
+  <div id="screen-categories" class="screen">
+    <header class="header">
+      <button class="btn-icon" id="btn-switch-user">👤</button>
+      <h1 class="header-title">SAPIX社会 v2</h1>
+      <span class="header-user" id="header-user-name"></span>
+      <button class="btn-icon" id="btn-settings" style="font-size:18px;">⚙️</button>
+    </header>
+    <div class="unit-list" id="category-list"></div>
+  </div>
+
+  <!-- 単元一覧画面 -->
+  <div id="screen-units" class="screen">
+    <header class="header">
+      <button class="btn-icon" id="btn-back-categories">←</button>
+      <h1 class="header-title" id="units-header-title">単元一覧</h1>
+    </header>
+    <div class="unit-list" id="unit-list"></div>
+  </div>
+
+  <!-- 単元詳細画面（ページ一覧＋モード選択） -->
+  <div id="screen-unit-detail" class="screen">
+    <header class="header">
+      <button class="btn-icon" id="btn-back-units">←</button>
+      <h1 class="header-title" id="unit-detail-title"></h1>
+    </header>
+    <div class="unit-detail-body">
+      <div class="mode-section">
+        <h2 class="section-title">学習する</h2>
+        <div class="section-list" id="section-card-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- セクション詳細画面（モード選択 + ページ一覧 + 正答率） -->
+  <div id="screen-section-detail" class="screen">
+    <header class="header">
+      <button class="btn-icon" id="btn-back-section">←</button>
+      <h1 class="header-title" id="section-detail-title"></h1>
+    </header>
+    <div class="unit-detail-body">
+      <div class="mode-section">
+        <h2 class="section-title">学習モード</h2>
+        <div class="mode-buttons">
+          <div class="mode-row" data-mode-row="continue">
+            <button class="btn btn-primary btn-large" data-section-mode="continue">続きから再開</button>
+            <button class="btn btn-print btn-large" data-print-mode="continue">🖨 続きからを印刷</button>
+          </div>
+          <div class="mode-row" data-mode-row="all">
+            <button class="btn btn-secondary btn-large" data-section-mode="all">全問を解く</button>
+            <button class="btn btn-print btn-large" data-print-mode="all">🖨 全問を印刷</button>
+          </div>
+          <div class="mode-row" data-mode-row="below50">
+            <button class="btn btn-secondary btn-large" data-section-mode="below50">正答率 50% 以下を解く</button>
+            <button class="btn btn-print btn-large" data-print-mode="below50">🖨 50%以下を印刷</button>
+          </div>
+          <div class="mode-row" data-mode-row="below67">
+            <button class="btn btn-secondary btn-large" data-section-mode="below67">正答率 67% 以下を解く</button>
+            <button class="btn btn-print btn-large" data-print-mode="below67">🖨 67%以下を印刷</button>
+          </div>
+          <div class="mode-row" data-mode-row="below99">
+            <button class="btn btn-secondary btn-large" data-section-mode="below99">正答率 99% 以下を解く</button>
+            <button class="btn btn-print btn-large" data-print-mode="below99">🖨 99%以下を印刷</button>
+          </div>
+          <div class="mode-row" data-mode-row="unanswered">
+            <button class="btn btn-secondary btn-large" data-section-mode="unanswered">未回答問題を解く</button>
+            <button class="btn btn-print btn-large" data-print-mode="unanswered">🖨 未回答を印刷</button>
+          </div>
+          <div class="mode-row" data-mode-row="reading">
+            <button class="btn btn-reading btn-large" data-section-mode="reading">📖 順番に読む</button>
+            <button class="btn btn-print btn-large" data-print-mode="reading">🖨 全ページ印刷</button>
+          </div>
+        </div>
+      </div>
+      <div class="accuracy-section">
+        <h2 class="section-title">問題別正答率</h2>
+        <div class="accuracy-table-wrapper" id="section-accuracy-wrapper"></div>
+      </div>
+      <div class="page-section">
+        <h2 class="section-title">ページ一覧</h2>
+        <div class="page-list" id="section-page-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 閲覧モード画面（表紙・説明文・確認問題・発展問題を順に表示） -->
+  <div id="screen-reading" class="screen">
+    <header class="header">
+      <button class="btn-icon" id="btn-back-reading">←</button>
+      <span class="header-title" id="reading-title"></span>
+      <span class="header-page" id="reading-page-info"></span>
+      <button id="reading-print-btn" title="このページを印刷">🖨 印刷</button>
+    </header>
+    <div class="canvas-wrapper" id="reading-wrapper">
+      <img id="reading-image" alt="">
+    </div>
+    <div class="controls">
+      <button class="btn btn-explain hidden" id="btn-explain-reading">📖 解説を見る</button>
+      <div class="nav-row">
+        <button class="btn btn-nav" id="btn-reading-prev">◀ 前ページ</button>
+        <span class="page-indicator" id="reading-indicator">p1 / 1</span>
+        <button class="btn btn-nav" id="btn-reading-next">次ページ ▶</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- クイズ画面 -->
+  <div id="screen-quiz" class="screen">
+    <header class="header">
+      <button class="btn-icon" id="btn-back-detail">←</button>
+      <span class="header-title" id="quiz-title"></span>
+      <span class="header-page" id="quiz-page-info"></span>
+      <button id="print-btn" title="このページを印刷">🖨 印刷</button>
+    </header>
+
+    <div class="canvas-wrapper" id="canvas-wrapper">
+      <canvas id="quiz-canvas"></canvas>
+    </div>
+
+    <div class="controls">
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+
+      <div class="control-row" id="reveal-row">
+        <button class="btn btn-secondary" id="btn-undo">戻る</button>
+        <button class="btn btn-primary" id="btn-reveal">答えを表示</button>
+        <button class="btn btn-explain hidden" id="btn-explain-reveal">📖 解説を見る</button>
+      </div>
+
+      <div class="control-row hidden" id="judge-row">
+        <button class="btn btn-correct" id="btn-correct">⭕ 正解</button>
+        <button class="btn btn-incorrect" id="btn-incorrect">❌ 不正解</button>
+        <button class="btn btn-explain hidden" id="btn-explain-judge">📖 解説を見る</button>
+      </div>
+
+      <div class="control-row hidden" id="done-row">
+        <button class="btn btn-secondary" id="btn-back-done">← 戻る</button>
+        <button class="btn btn-primary" id="btn-results">結果を見る</button>
+      </div>
+
+      <div class="nav-row">
+        <button class="btn btn-nav" id="btn-prev-page">◀ 前ページ</button>
+        <span class="page-indicator" id="page-indicator">p1 / 1</span>
+        <button class="btn btn-nav" id="btn-next-page">次ページ ▶</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 結果画面 -->
+  <div id="screen-results" class="screen">
+    <header class="header">
+      <button class="btn-icon" id="btn-back-from-results">←</button>
+      <span class="header-title">結果</span>
+    </header>
+    <div class="results-body">
+      <div class="score-display">
+        <span class="score-emoji" id="score-emoji">📚</span>
+        <div class="score-numbers">
+          <span class="score-correct" id="score-correct">0</span>
+          <span class="score-divider">/</span>
+          <span class="score-total" id="score-total">0</span>
+        </div>
+        <div class="score-percent" id="score-percent">0%</div>
+      </div>
+      <div class="results-actions">
+        <button class="btn btn-primary btn-large" id="btn-retry-wrong">間違えた問題をやり直す</button>
+        <button class="btn btn-secondary btn-large" id="btn-back-unit-detail">単元に戻る</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 設定画面 -->
+  <div id="screen-settings" class="screen">
+    <header class="header">
+      <button class="btn-icon" id="btn-close-settings">←</button>
+      <h1 class="header-title">設定</h1>
+    </header>
+    <div style="padding: 24px; max-width: 600px;">
+      <h2 style="font-size: 16px; font-weight: 600; margin-bottom: 12px;">Google Sheets バックアップ</h2>
+      <p style="font-size: 13px; color: #86868b; margin-bottom: 12px;">
+        Google Apps ScriptのデプロイURLを入力してください。<br>
+        回答するたびにスプレッドシートに自動バックアップされます。
+      </p>
+      <input type="text" id="settings-url" placeholder="https://script.google.com/macros/s/..."
+        style="width: 100%; padding: 12px; border: 1px solid #e0e0e0; border-radius: 8px; font-size: 14px; margin-bottom: 12px;">
+      <div style="display: flex; gap: 10px; flex-direction: column;">
+        <button class="btn btn-primary" id="btn-save-settings">保存</button>
+        <button class="btn btn-secondary" id="btn-restore">スプレッドシートから復元</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 解説オーバーレイ -->
+  <div id="explain-overlay" class="explain-overlay hidden">
+    <div class="explain-bar">
+      <span class="explain-title">解説</span>
+      <span class="explain-indicator" id="explain-indicator"></span>
+      <button class="btn-icon" id="explain-close">✕</button>
+    </div>
+    <div class="explain-viewport" id="explain-viewport">
+      <img id="explain-img" alt="解説">
+    </div>
+    <div class="explain-nav hidden" id="explain-nav">
+      <button class="btn btn-nav" id="explain-prev">◀ 前</button>
+      <span class="page-indicator" id="explain-page-indicator"></span>
+      <button class="btn btn-nav" id="explain-next">次 ▶</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
