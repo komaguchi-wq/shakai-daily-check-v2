@@ -4,5 +4,23 @@
     "name": "デイリーサピックス",
     "icon": "🌟",
     "description": "640-XX 6年デイリーサピックス社会"
+  },
+  {
+    "id": "weekly-sapix",
+    "name": "Weekly SapiX",
+    "icon": "📘",
+    "description": "Weekly SapiX の問題"
+  },
+  {
+    "id": "coreplus",
+    "name": "コアプラス",
+    "icon": "📗",
+    "description": "コアプラス全範囲のオレンジ文字穴埋め問題"
+  },
+  {
+    "id": "nenpyo-training",
+    "name": "年表トレーニング帳",
+    "icon": "📅",
+    "description": "赤文字の年表穴埋め問題"
   }
 ]

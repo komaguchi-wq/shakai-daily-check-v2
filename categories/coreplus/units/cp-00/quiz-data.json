@@ -1,0 +1,123 @@
+{
+  "id": "cp-00",
+  "title": "巻頭資料",
+  "category": "coreplus",
+  "pages": [
+    {
+      "id": 1,
+      "type": "kakunin",
+      "containsSections": [
+        "kakunin"
+      ],
+      "src_phys_page": 1,
+      "width": 1532,
+      "height": 2169,
+      "image": "page_01_answer.jpg",
+      "imageMasked": "page_01_qmasked.jpg",
+      "regions": []
+    },
+    {
+      "id": 2,
+      "type": "kakunin",
+      "containsSections": [
+        "kakunin"
+      ],
+      "src_phys_page": 2,
+      "width": 1532,
+      "height": 2169,
+      "image": "page_02_answer.jpg",
+      "imageMasked": "page_02_qmasked.jpg",
+      "regions": []
+    },
+    {
+      "id": 3,
+      "type": "kakunin",
+      "containsSections": [
+        "kakunin"
+      ],
+      "src_phys_page": 3,
+      "width": 1532,
+      "height": 2169,
+      "image": "page_03_answer.jpg",
+      "imageMasked": "page_03_qmasked.jpg",
+      "regions": []
+    },
+    {
+      "id": 4,
+      "type": "kakunin",
+      "containsSections": [
+        "kakunin"
+      ],
+      "src_phys_page": 4,
+      "width": 1532,
+      "height": 2169,
+      "image": "page_04_answer.jpg",
+      "imageMasked": "page_04_qmasked.jpg",
+      "regions": []
+    },
+    {
+      "id": 5,
+      "type": "kakunin",
+      "containsSections": [
+        "kakunin"
+      ],
+      "src_phys_page": 5,
+      "width": 1532,
+      "height": 2171,
+      "image": "page_05_answer.jpg",
+      "imageMasked": "page_05_qmasked.jpg",
+      "regions": []
+    },
+    {
+      "id": 6,
+      "type": "kakunin",
+      "containsSections": [
+        "kakunin"
+      ],
+      "src_phys_page": 6,
+      "width": 1532,
+      "height": 2169,
+      "image": "page_06_answer.jpg",
+      "imageMasked": "page_06_qmasked.jpg",
+      "regions": []
+    },
+    {
+      "id": 7,
+      "type": "kakunin",
+      "containsSections": [
+        "kakunin"
+      ],
+      "src_phys_page": 7,
+      "width": 1532,
+      "height": 2169,
+      "image": "page_07_answer.jpg",
+      "imageMasked": "page_07_qmasked.jpg",
+      "regions": []
+    },
+    {
+      "id": 8,
+      "type": "kakunin",
+      "containsSections": [
+        "kakunin"
+      ],
+      "src_phys_page": 8,
+      "width": 1532,
+      "height": 2169,
+      "image": "page_08_answer.jpg",
+      "imageMasked": "page_08_qmasked.jpg",
+      "regions": []
+    }
+  ],
+  "sectionBreakdown": {
+    "kakunin": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  }
+}
