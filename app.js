@@ -972,22 +972,51 @@ async function printCurrentPage() {
   openPrintIframe(`${currentUnit.title} - ${getPageLabel(page)}`, pageSize, dataURL);
 }
 
+// dataURL を Blob URL に変換（iPad Safari の大 dataURL レンダ失敗対策）
+function _dataURLtoBlobURL(dataURL) {
+  const [head, b64] = dataURL.split(",");
+  const mime = (head.match(/data:([^;]+)/) || [, "image/png"])[1];
+  const bin = atob(b64);
+  const buf = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) buf[i] = bin.charCodeAt(i);
+  return URL.createObjectURL(new Blob([buf], { type: mime }));
+}
+
 function openPrintIframe(titleText, pageSize, dataURL) {
+  const blobURL = _dataURLtoBlobURL(dataURL);
   const iframe = document.createElement("iframe");
+  // iPad では完全 hidden だと印刷スナップショットが失敗するため、極小オフスクリーンに配置
   Object.assign(iframe.style, {
-    position: "fixed", right: 0, bottom: 0, width: 0, height: 0, border: 0, visibility: "hidden"
+    position: "fixed", left: "-10000px", top: 0, width: "1px", height: "1px", border: 0, opacity: 0
   });
   document.body.appendChild(iframe);
   let cleaned = false;
-  const cleanup = () => { if (cleaned) return; cleaned = true; setTimeout(() => iframe.remove(), 500); };
+  const cleanup = () => {
+    if (cleaned) return;
+    cleaned = true;
+    try { URL.revokeObjectURL(blobURL); } catch (e) {}
+    setTimeout(() => iframe.remove(), 500);
+  };
   const idoc = iframe.contentDocument || iframe.contentWindow.document;
   idoc.open();
   idoc.write(`<!DOCTYPE html><html><head><meta charset="utf-8"><title>${titleText}</title><style>
     @page { size: ${pageSize}; margin: 5mm; }
     *{box-sizing:border-box;} html,body{margin:0;padding:0;width:100%;height:100%;background:#fff;}
     img{display:block;width:100%;height:100%;object-fit:contain;}
-    </style></head><body><img src="${dataURL}" onload="setTimeout(()=>{try{window.focus();window.print();}catch(e){}}, 300)"></body></html>`);
+    </style></head><body><img id="pi" src="${blobURL}"></body></html>`);
   idoc.close();
+  const triggerPrint = () => {
+    try { iframe.contentWindow.focus(); iframe.contentWindow.print(); } catch (e) {}
+  };
+  const img = idoc.getElementById("pi");
+  const ready = () => requestAnimationFrame(() => setTimeout(triggerPrint, 100));
+  if (img && img.decode) {
+    img.decode().then(ready).catch(() => { img.onload = ready; });
+  } else if (img) {
+    img.onload = ready;
+  } else {
+    setTimeout(triggerPrint, 500);
+  }
   try { iframe.contentWindow.addEventListener("afterprint", cleanup); } catch (e) {}
   setTimeout(cleanup, 60000);
 }
@@ -1072,17 +1101,22 @@ async function bulkPrint(mode) {
 }
 
 function openPrintIframeMulti(titleText, pageSize, dataURLs) {
+  const blobURLs = dataURLs.map(_dataURLtoBlobURL);
   const iframe = document.createElement("iframe");
   Object.assign(iframe.style, {
-    position: "fixed", right: 0, bottom: 0, width: 0, height: 0, border: 0, visibility: "hidden"
+    position: "fixed", left: "-10000px", top: 0, width: "1px", height: "1px", border: 0, opacity: 0
   });
   document.body.appendChild(iframe);
   let cleaned = false;
-  const cleanup = () => { if (cleaned) return; cleaned = true; setTimeout(() => iframe.remove(), 500); };
+  const cleanup = () => {
+    if (cleaned) return;
+    cleaned = true;
+    blobURLs.forEach(u => { try { URL.revokeObjectURL(u); } catch (e) {} });
+    setTimeout(() => iframe.remove(), 500);
+  };
   const idoc = iframe.contentDocument || iframe.contentWindow.document;
-  // 各画像を1ページ枠(.pg)に入れ object-fit:contain で B4 1枚に収める（溢れ＝空白ページ防止）
-  const imgsHTML = dataURLs.map((u, i) =>
-    `<div class="pg${i < dataURLs.length - 1 ? ' pb' : ''}"><img src="${u}"></div>`).join("");
+  const imgsHTML = blobURLs.map((u, i) =>
+    `<div class="pg${i < blobURLs.length - 1 ? ' pb' : ''}"><img class="pi" src="${u}"></div>`).join("");
   idoc.open();
   idoc.write(`<!DOCTYPE html><html><head><meta charset="utf-8"><title>${titleText}</title><style>
     @page { size: ${pageSize}; margin: 5mm; }
@@ -1090,8 +1124,14 @@ function openPrintIframeMulti(titleText, pageSize, dataURLs) {
     .pg{width:100%;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;}
     .pg.pb{page-break-after:always;}
     .pg img{max-width:100%;max-height:100%;display:block;}
-    </style></head><body onload="setTimeout(function(){try{window.focus();window.print();}catch(e){}},400)">${imgsHTML}</body></html>`);
+    </style></head><body>${imgsHTML}</body></html>`);
   idoc.close();
+  const triggerPrint = () => {
+    try { iframe.contentWindow.focus(); iframe.contentWindow.print(); } catch (e) {}
+  };
+  const imgs = Array.from(idoc.querySelectorAll("img.pi"));
+  const waits = imgs.map(im => (im.decode ? im.decode().catch(() => {}) : new Promise(r => { im.onload = r; im.onerror = r; })));
+  Promise.all(waits).then(() => requestAnimationFrame(() => setTimeout(triggerPrint, 200)));
   try { iframe.contentWindow.addEventListener("afterprint", cleanup); } catch (e) {}
   setTimeout(cleanup, 120000);
 }
