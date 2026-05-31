@@ -985,7 +985,6 @@ function _dataURLtoBlobURL(dataURL) {
 function openPrintIframe(titleText, pageSize, dataURL) {
   const blobURL = _dataURLtoBlobURL(dataURL);
   const iframe = document.createElement("iframe");
-  // iPad では完全 hidden だと印刷スナップショットが失敗するため、極小オフスクリーンに配置
   Object.assign(iframe.style, {
     position: "fixed", left: "-10000px", top: 0, width: "1px", height: "1px", border: 0, opacity: 0
   });
@@ -998,25 +997,23 @@ function openPrintIframe(titleText, pageSize, dataURL) {
     setTimeout(() => iframe.remove(), 500);
   };
   const idoc = iframe.contentDocument || iframe.contentWindow.document;
+  // iOS Safari 「自動印刷禁止」警告対策: print() は必ず iframe 内部の inline script で呼ぶ
   idoc.open();
   idoc.write(`<!DOCTYPE html><html><head><meta charset="utf-8"><title>${titleText}</title><style>
     @page { size: ${pageSize}; margin: 5mm; }
     *{box-sizing:border-box;} html,body{margin:0;padding:0;width:100%;height:100%;background:#fff;}
     img{display:block;width:100%;height:100%;object-fit:contain;}
-    </style></head><body><img id="pi" src="${blobURL}"></body></html>`);
+    </style></head><body>
+    <img id="pi" src="${blobURL}">
+    <script>(function(){
+      var img=document.getElementById('pi');
+      function go(){ try{ window.focus(); window.print(); }catch(e){} }
+      if (img && img.decode){ img.decode().then(go).catch(go); }
+      else if (img){ if (img.complete) go(); else img.onload=go; }
+      else { setTimeout(go, 300); }
+    })();</script>
+    </body></html>`);
   idoc.close();
-  const triggerPrint = () => {
-    try { iframe.contentWindow.focus(); iframe.contentWindow.print(); } catch (e) {}
-  };
-  const img = idoc.getElementById("pi");
-  const ready = () => requestAnimationFrame(() => setTimeout(triggerPrint, 100));
-  if (img && img.decode) {
-    img.decode().then(ready).catch(() => { img.onload = ready; });
-  } else if (img) {
-    img.onload = ready;
-  } else {
-    setTimeout(triggerPrint, 500);
-  }
   try { iframe.contentWindow.addEventListener("afterprint", cleanup); } catch (e) {}
   setTimeout(cleanup, 60000);
 }
@@ -1124,14 +1121,18 @@ function openPrintIframeMulti(titleText, pageSize, dataURLs) {
     .pg{width:100%;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;}
     .pg.pb{page-break-after:always;}
     .pg img{max-width:100%;max-height:100%;display:block;}
-    </style></head><body>${imgsHTML}</body></html>`);
+    </style></head><body>${imgsHTML}
+    <script>(function(){
+      var imgs=document.querySelectorAll('img.pi');
+      function go(){ try{ window.focus(); window.print(); }catch(e){} }
+      var waits=Array.prototype.map.call(imgs, function(im){
+        if (im.decode) return im.decode().catch(function(){});
+        return new Promise(function(r){ im.onload=r; im.onerror=r; if (im.complete) r(); });
+      });
+      Promise.all(waits).then(go);
+    })();</script>
+    </body></html>`);
   idoc.close();
-  const triggerPrint = () => {
-    try { iframe.contentWindow.focus(); iframe.contentWindow.print(); } catch (e) {}
-  };
-  const imgs = Array.from(idoc.querySelectorAll("img.pi"));
-  const waits = imgs.map(im => (im.decode ? im.decode().catch(() => {}) : new Promise(r => { im.onload = r; im.onerror = r; })));
-  Promise.all(waits).then(() => requestAnimationFrame(() => setTimeout(triggerPrint, 200)));
   try { iframe.contentWindow.addEventListener("afterprint", cleanup); } catch (e) {}
   setTimeout(cleanup, 120000);
 }
