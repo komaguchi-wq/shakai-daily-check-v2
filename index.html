@@ -201,7 +201,8 @@
       <h2 style="font-size: 16px; font-weight: 600; margin-bottom: 12px;">Google Sheets バックアップ</h2>
       <p style="font-size: 13px; color: #86868b; margin-bottom: 12px;">
         Google Apps ScriptのデプロイURLを入力してください。<br>
-        回答するたびにスプレッドシートに自動バックアップされます。
+        回答するたびに自動バックアップ＋オフライン時はキューに保持し復帰時に再送、<br>
+        起動時にスプレッドシートから最新データを自動取得してマージします。
       </p>
       <input type="text" id="settings-url" placeholder="https://script.google.com/macros/s/..."
         style="width: 100%; padding: 12px; border: 1px solid #e0e0e0; border-radius: 8px; font-size: 14px; margin-bottom: 12px;">

@@ -71,8 +71,130 @@ function recordAnswer(unitId, pageId, regionIdx, isCorrect) {
   tracking[unitId][key].attempts++;
   if (isCorrect) tracking[unitId][key].correct++;
   setTracking(tracking);
-  backupToSheets();
+  appendEvent({ unitId, key, date: new Date().toISOString(), correct: isCorrect ? 1 : 0 });
+  flushSyncQueue();
 }
+
+// --- イベントログ（v1 互換のバックアップ方式）---
+function eventsKey() { return `shakai-events-v2-${currentUser}`; }
+function cursorKey() { return `shakai-cursor-v2-${currentUser}`; }
+function migratedKey() { return `shakai-migrated-v2-${currentUser}`; }
+
+function getEvents() {
+  try { return JSON.parse(localStorage.getItem(eventsKey())) || []; } catch { return []; }
+}
+function setEvents(evs) { localStorage.setItem(eventsKey(), JSON.stringify(evs)); }
+function getCursor() { return parseInt(localStorage.getItem(cursorKey()) || "0", 10); }
+function setCursor(i) { localStorage.setItem(cursorKey(), String(i)); }
+
+function appendEvent(ev) {
+  const evs = getEvents();
+  evs.push(ev);
+  // 過去500件超は古いものから削除（メモリ保護。GAS側には送信済み）
+  if (evs.length > 5000) evs.splice(0, evs.length - 5000);
+  setEvents(evs);
+}
+
+// 既存 tracking → events 1回限りマイグレーション（既存ユーザーのデータを GAS にバックアップ可能化）
+function migrateLegacyTrackingToEvents() {
+  if (!currentUser) return;
+  if (localStorage.getItem(migratedKey()) === "1") return;
+  const tracking = getTracking();
+  const synthetic = [];
+  let ts = new Date("2026-01-01T00:00:00Z").getTime();
+  for (const u in tracking) {
+    for (const k in tracking[u]) {
+      const t = tracking[u][k] || { attempts: 0, correct: 0 };
+      for (let i = 0; i < t.attempts; i++) {
+        synthetic.push({
+          unitId: u, key: k,
+          date: new Date(ts).toISOString(),
+          correct: i < t.correct ? 1 : 0,
+        });
+        ts += 1000;
+      }
+    }
+  }
+  if (synthetic.length > 0) {
+    const existing = getEvents();
+    setEvents([...synthetic, ...existing]);
+    setCursor(0);  // 全件未送信扱い
+  }
+  localStorage.setItem(migratedKey(), "1");
+}
+
+// オフライン時は失敗を無視し cursor を進めない → 次回送信時に未送信分まとめて送る
+async function flushSyncQueue() {
+  if (!SHEETS_API_URL || !currentUser) return;
+  const evs = getEvents();
+  const cur = getCursor();
+  if (cur >= evs.length) return;
+  const batch = evs.slice(cur);
+  try {
+    const res = await fetch(SHEETS_API_URL, {
+      method: "POST",
+      mode: "cors",
+      headers: { "Content-Type": "text/plain" },  // GAS は preflight 回避のため text/plain で受ける
+      body: JSON.stringify({ user: currentUser, entries: batch }),
+    });
+    // no-cors fallback: レスポンスが opaque な場合は楽観的にカーソル進行
+    if (res.type === "opaque" || res.ok) {
+      setCursor(evs.length);
+    } else {
+      const json = await res.json().catch(() => null);
+      if (json && json.status === "ok") setCursor(evs.length);
+    }
+  } catch (e) {
+    console.warn("flushSyncQueue failed (will retry):", e.message);
+  }
+}
+
+// 起動時自動復元: 未送信分を flush → GAS から全件 GET → イベント再構築でカウンタ更新
+async function autoSyncFromSheets() {
+  if (!SHEETS_API_URL || !currentUser) return;
+  await flushSyncQueue();
+  try {
+    const url = SHEETS_API_URL + "?user=" + encodeURIComponent(currentUser);
+    const res = await fetch(url, { method: "GET", mode: "cors" });
+    if (!res.ok) return;
+    const json = await res.json();
+    if (json.status !== "ok" || !Array.isArray(json.entries)) return;
+    // リモートイベント → tracking 再構築
+    const remote = {};
+    for (const e of json.entries) {
+      if (!remote[e.unitId]) remote[e.unitId] = {};
+      if (!remote[e.unitId][e.key]) remote[e.unitId][e.key] = { attempts: 0, correct: 0 };
+      remote[e.unitId][e.key].attempts++;
+      if (e.correct) remote[e.unitId][e.key].correct++;
+    }
+    // マージ: キーごとに attempts の多い方を採用（多端末対応）
+    const local = getTracking();
+    let changed = false;
+    for (const u in remote) {
+      if (!local[u]) local[u] = {};
+      for (const k in remote[u]) {
+        const rem = remote[u][k];
+        const loc = local[u][k] || { attempts: 0, correct: 0 };
+        if (rem.attempts > loc.attempts) {
+          local[u][k] = rem;
+          changed = true;
+        }
+      }
+    }
+    if (changed) {
+      setTracking(local);
+      if (currentCategory) renderUnits();
+    }
+  } catch (e) {
+    console.warn("autoSyncFromSheets failed:", e.message);
+  }
+}
+
+// ネットワーク復帰時の自動再送
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible") flushSyncQueue();
+});
+window.addEventListener("online", () => flushSyncQueue());
 
 function getAccuracy(unitId, pageId, regionIdx) {
   const t = getRegionTracking(unitId, pageId, regionIdx);
@@ -107,40 +229,13 @@ function getUnitProgress(unit) {
   return { total: unit.totalRegions || 0, attempted, goodCount };
 }
 
-// --- Google Sheets ---
-async function backupToSheets() {
-  if (!SHEETS_API_URL) return;
-  try {
-    const tracking = getTracking();
-    await fetch(SHEETS_API_URL, {
-      method: "POST", mode: "no-cors",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        user: currentUser,
-        timestamp: new Date().toISOString(),
-        data: tracking,
-      }),
-    });
-  } catch (e) { console.warn("Sheets backup failed:", e); }
-}
-
+// --- Google Sheets（手動復元ボタン用ラッパ）---
 async function restoreFromSheets() {
   if (!SHEETS_API_URL) { alert("URLが設定されていません"); return; }
-  if (!confirm("スプレッドシートから復元しますか？")) return;
-  try {
-    const url = SHEETS_API_URL + "?user=" + encodeURIComponent(currentUser);
-    const res = await fetch(url);
-    const json = await res.json();
-    if (json.status !== "ok" || !json.data) { alert("データなし"); return; }
-    const current = getTracking();
-    for (const u in json.data) {
-      if (!current[u]) current[u] = {};
-      for (const k in json.data[u]) current[u][k] = json.data[u][k];
-    }
-    setTracking(current);
-    alert("復元しました");
-    renderUnits();
-  } catch (e) { alert("失敗: " + e.message); }
+  if (!confirm("スプレッドシートから最新データを取得してマージしますか？\n（attempts数が多い側を優先）")) return;
+  await autoSyncFromSheets();
+  alert("復元しました");
+  if (currentCategory) renderUnits();
 }
 
 function openSettings() {
@@ -173,7 +268,9 @@ function selectUser(user) {
   currentUser = user;
   sessionStorage.setItem("shakai-current-user-v2", user);
   document.getElementById("header-user-name").textContent = user;
+  migrateLegacyTrackingToEvents();
   loadCategories();
+  autoSyncFromSheets();  // バックグラウンドで最新データ取得＋マージ
 }
 
 // ==============================
