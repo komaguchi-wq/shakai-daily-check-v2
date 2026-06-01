@@ -42,27 +42,6 @@
     "totalRegions": 163
   },
   {
-    "id": "H64-01",
-    "title": "政治史⑦ 昭和〜現代",
-    "subject": "6年社会 デイリーサピックス",
-    "pageCount": 18,
-    "totalRegions": 195
-  },
-  {
-    "id": "H64-02",
-    "title": "社会・産業史① 土地制度の移り変わり",
-    "subject": "6年社会 デイリーサピックス",
-    "pageCount": 18,
-    "totalRegions": 187
-  },
-  {
-    "id": "H64-03",
-    "title": "社会・産業史② 商工業の発達",
-    "subject": "6年社会 デイリーサピックス",
-    "pageCount": 18,
-    "totalRegions": 170
-  },
-  {
     "id": "640-07",
     "title": "文化史",
     "subject": "6年社会 デイリーサピックス",
@@ -110,5 +89,26 @@
     "subject": "6年社会 デイリーサピックス",
     "pageCount": 16,
     "totalRegions": 172
+  },
+  {
+    "id": "H64-01",
+    "title": "政治史⑦ 昭和〜現代",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 18,
+    "totalRegions": 195
+  },
+  {
+    "id": "H64-02",
+    "title": "社会・産業史① 土地制度の移り変わり",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 18,
+    "totalRegions": 187
+  },
+  {
+    "id": "H64-03",
+    "title": "社会・産業史② 商工業の発達",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 18,
+    "totalRegions": 170
   }
 ]
