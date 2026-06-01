@@ -972,7 +972,11 @@ async function printCurrentPage() {
   openPrintIframe(`${currentUnit.title} - ${getPageLabel(page)}`, pageSize, dataURL);
 }
 
-// dataURL を Blob URL に変換（iPad Safari の大 dataURL レンダ失敗対策）
+// ===== プリントオーバーレイ方式（iPad対応・同期 print()）=====
+// iOS Safari の「自動プリント禁止」警告と hidden iframe 起因の白紙印刷を回避。
+// 1. オーバーレイで画像を表示
+// 2. ユーザーが「プリント」ボタンタップ → そのハンドラ内で window.print() を同期呼び出し
+// 3. @media print でオーバーレイの画像のみ印刷、他要素は非表示
 function _dataURLtoBlobURL(dataURL) {
   const [head, b64] = dataURL.split(",");
   const mime = (head.match(/data:([^;]+)/) || [, "image/png"])[1];
@@ -982,40 +986,37 @@ function _dataURLtoBlobURL(dataURL) {
   return URL.createObjectURL(new Blob([buf], { type: mime }));
 }
 
-function openPrintIframe(titleText, pageSize, dataURL) {
-  const blobURL = _dataURLtoBlobURL(dataURL);
-  const iframe = document.createElement("iframe");
-  Object.assign(iframe.style, {
-    position: "fixed", left: "-10000px", top: 0, width: "1px", height: "1px", border: 0, opacity: 0
-  });
-  document.body.appendChild(iframe);
-  let cleaned = false;
-  const cleanup = () => {
-    if (cleaned) return;
-    cleaned = true;
-    try { URL.revokeObjectURL(blobURL); } catch (e) {}
-    setTimeout(() => iframe.remove(), 500);
-  };
-  const idoc = iframe.contentDocument || iframe.contentWindow.document;
-  // iOS Safari 「自動印刷禁止」警告対策: print() は必ず iframe 内部の inline script で呼ぶ
-  idoc.open();
-  idoc.write(`<!DOCTYPE html><html><head><meta charset="utf-8"><title>${titleText}</title><style>
-    @page { size: ${pageSize}; margin: 5mm; }
-    *{box-sizing:border-box;} html,body{margin:0;padding:0;width:100%;height:100%;background:#fff;}
-    img{display:block;width:100%;height:100%;object-fit:contain;}
-    </style></head><body>
-    <img id="pi" src="${blobURL}">
-    <script>(function(){
-      var img=document.getElementById('pi');
-      function go(){ try{ window.focus(); window.print(); }catch(e){} }
-      if (img && img.decode){ img.decode().then(go).catch(go); }
-      else if (img){ if (img.complete) go(); else img.onload=go; }
-      else { setTimeout(go, 300); }
-    })();</script>
-    </body></html>`);
-  idoc.close();
-  try { iframe.contentWindow.addEventListener("afterprint", cleanup); } catch (e) {}
-  setTimeout(cleanup, 60000);
+let _printActiveBlobURLs = [];
+
+function _resetPrintOverlay() {
+  const body = document.getElementById("print-overlay-body");
+  if (body) body.innerHTML = "";
+  _printActiveBlobURLs.forEach(u => { try { URL.revokeObjectURL(u); } catch (e) {} });
+  _printActiveBlobURLs = [];
+}
+
+function _closePrintOverlay() {
+  const ov = document.getElementById("print-overlay");
+  if (ov) ov.classList.remove("active");
+  _resetPrintOverlay();
+}
+
+function _openPrintOverlay(titleText, dataURLs) {
+  const ov = document.getElementById("print-overlay");
+  const body = document.getElementById("print-overlay-body");
+  const title = document.getElementById("print-overlay-title");
+  if (!ov || !body) return;
+  _resetPrintOverlay();
+  if (title) title.textContent = titleText || "印刷プレビュー";
+  const urls = Array.isArray(dataURLs) ? dataURLs : [dataURLs];
+  _printActiveBlobURLs = urls.map(_dataURLtoBlobURL);
+  body.innerHTML = _printActiveBlobURLs
+    .map(u => `<div class="pg"><img src="${u}"></div>`).join("");
+  ov.classList.add("active");
+}
+
+function openPrintIframe(titleText, _pageSize, dataURL) {
+  _openPrintOverlay(titleText, [dataURL]);
 }
 
 async function renderFilteredPrintCanvas(page, origPath, maskPath, mode = currentMode) {
@@ -1097,44 +1098,8 @@ async function bulkPrint(mode) {
   openPrintIframeMulti(`${currentUnit.title} - ${meta.label}（${targetPages.length}枚）`, pageSize, dataURLs);
 }
 
-function openPrintIframeMulti(titleText, pageSize, dataURLs) {
-  const blobURLs = dataURLs.map(_dataURLtoBlobURL);
-  const iframe = document.createElement("iframe");
-  Object.assign(iframe.style, {
-    position: "fixed", left: "-10000px", top: 0, width: "1px", height: "1px", border: 0, opacity: 0
-  });
-  document.body.appendChild(iframe);
-  let cleaned = false;
-  const cleanup = () => {
-    if (cleaned) return;
-    cleaned = true;
-    blobURLs.forEach(u => { try { URL.revokeObjectURL(u); } catch (e) {} });
-    setTimeout(() => iframe.remove(), 500);
-  };
-  const idoc = iframe.contentDocument || iframe.contentWindow.document;
-  const imgsHTML = blobURLs.map((u, i) =>
-    `<div class="pg${i < blobURLs.length - 1 ? ' pb' : ''}"><img class="pi" src="${u}"></div>`).join("");
-  idoc.open();
-  idoc.write(`<!DOCTYPE html><html><head><meta charset="utf-8"><title>${titleText}</title><style>
-    @page { size: ${pageSize}; margin: 5mm; }
-    *{box-sizing:border-box;} html,body{margin:0;padding:0;background:#fff;}
-    .pg{width:100%;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;}
-    .pg.pb{page-break-after:always;}
-    .pg img{max-width:100%;max-height:100%;display:block;}
-    </style></head><body>${imgsHTML}
-    <script>(function(){
-      var imgs=document.querySelectorAll('img.pi');
-      function go(){ try{ window.focus(); window.print(); }catch(e){} }
-      var waits=Array.prototype.map.call(imgs, function(im){
-        if (im.decode) return im.decode().catch(function(){});
-        return new Promise(function(r){ im.onload=r; im.onerror=r; if (im.complete) r(); });
-      });
-      Promise.all(waits).then(go);
-    })();</script>
-    </body></html>`);
-  idoc.close();
-  try { iframe.contentWindow.addEventListener("afterprint", cleanup); } catch (e) {}
-  setTimeout(cleanup, 120000);
+function openPrintIframeMulti(titleText, _pageSize, dataURLs) {
+  _openPrintOverlay(titleText, dataURLs);
 }
 
 function getVisibleSourceRegion(srcW, srcH) {
@@ -1185,6 +1150,14 @@ function setupEventListeners() {
   document.getElementById("btn-save-settings").addEventListener("click", saveSettings);
   document.getElementById("btn-restore").addEventListener("click", restoreFromSheets);
   document.getElementById("btn-close-settings").addEventListener("click", closeSettings);
+
+  // プリントオーバーレイ: 「プリント」ボタンを押した瞬間に同期 print() を呼ぶ
+  document.getElementById("print-overlay-print").addEventListener("click", () => {
+    try { window.print(); } catch (e) { console.warn("print err", e); }
+  });
+  document.getElementById("print-overlay-close").addEventListener("click", _closePrintOverlay);
+  window.addEventListener("afterprint", _closePrintOverlay);
+
   document.getElementById("btn-back-categories").addEventListener("click", () => {
     renderCategories(); showScreen("screen-categories");
   });
