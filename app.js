@@ -45,7 +45,7 @@ const SECTION_LABELS = Object.fromEntries(
 );
 
 // Google Sheets バックアップ用（v2は別キーで管理）
-let SHEETS_API_URL = localStorage.getItem("shakai-v2-sheets-api-url") || "";
+let SHEETS_API_URL = localStorage.getItem("shakai-v2-sheets-api-url") || "https://script.google.com/macros/s/AKfycbzMudApjWjGc3OkrRA6iwHCTVclVWe3ht2fxDUd6_1uBcHKwcxDOCcGhEiYTqFfDCqZ/exec";
 
 // --- トラッキングデータ ---
 function getTracking() {
