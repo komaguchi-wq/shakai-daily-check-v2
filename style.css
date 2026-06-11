@@ -303,7 +303,7 @@ body {
   display: flex;
   gap: 8px;
 }
-.mode-row > [data-section-mode] { flex: 1; }
+.mode-row > [data-section-mode], .mode-row > [data-ws-mode] { flex: 1; }
 .mode-row.hidden { display: none; }
 
 .btn-print {
