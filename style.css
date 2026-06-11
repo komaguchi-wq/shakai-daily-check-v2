@@ -827,7 +827,13 @@ body {
   font-size: 14px; font-weight: 700; color: #1d1d1f;
   margin-bottom: 5px;
 }
-.wsm-sub-row { display: flex; flex-wrap: wrap; gap: 6px; }
+/* 小問(集合)ごとに1行。次の小問は改行して切れ目を明確にする */
+.wsm-sub-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.wsm-sub-row + .wsm-sub-row { margin-top: 5px; }
+.wsm-group-label {
+  font-size: 13px; font-weight: 700; color: #555;
+  min-width: 34px; flex-shrink: 0;
+}
 .wsm-sub {
   display: flex; align-items: center; gap: 3px;
   border: 1px solid #e0e0e0; border-radius: 8px;

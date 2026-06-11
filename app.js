@@ -1471,28 +1471,44 @@ function renderXyzTable() {
   const el = document.getElementById("wsm-table");
   if (!xyz) { el.innerHTML = ""; return; }
   const prevScroll = el.scrollTop;
+  const renderChip = (q, groupLabel) => {
+    const t = getXyzTracking(currentUnit.id, q.id);
+    const pend = pendingXyz[q.id];
+    let tint = "";
+    if (t.attempts > 0) {
+      const acc = t.correct / t.attempts;
+      tint = acc >= 0.999 ? "sub-perfect" : acc >= 0.5 ? "sub-mid" : "sub-low";
+    }
+    const dim = wsmFilteredIds && !wsmFilteredIds.has(q.id) ? "ws-dim" : "";
+    const idEsc = q.id.replace(/'/g, "\\'");
+    const cnt = t.attempts > 0 ? `${t.correct}/${t.attempts}` : "";
+    // group ラベルは行頭に1つだけ出すので、チップは小問内のサブ部分のみ表示
+    const sub = (groupLabel && q.label.startsWith(groupLabel)) ? q.label.slice(groupLabel.length) : q.label;
+    const labelHtml = sub ? `<span class="wsm-sub-label">${sub}</span>` : "";
+    return `<span class="wsm-sub ${tint} ${dim}" data-qid="${q.id}">
+      ${labelHtml}
+      <button class="wsm-qc-btn ok ${pend === "correct" ? "selected" : ""}" onclick="markXyz('${idEsc}', true)">○</button>
+      <button class="wsm-qc-btn ng ${pend === "wrong" ? "selected" : ""}" onclick="markXyz('${idEsc}', false)">✕</button>
+      <span class="wsm-sub-count">${cnt}</span>
+    </span>`;
+  };
   el.innerHTML = xyz.daimons.map(dm => {
-    const subs = dm.questions.map(q => {
-      const t = getXyzTracking(currentUnit.id, q.id);
-      const pend = pendingXyz[q.id];
-      let tint = "";
-      if (t.attempts > 0) {
-        const acc = t.correct / t.attempts;
-        tint = acc >= 0.999 ? "sub-perfect" : acc >= 0.5 ? "sub-mid" : "sub-low";
-      }
-      const dim = wsmFilteredIds && !wsmFilteredIds.has(q.id) ? "ws-dim" : "";
-      const idEsc = q.id.replace(/'/g, "\\'");
-      const cnt = t.attempts > 0 ? `${t.correct}/${t.attempts}` : "";
-      return `<span class="wsm-sub ${tint} ${dim}" data-qid="${q.id}">
-        <span class="wsm-sub-label">${q.label}</span>
-        <button class="wsm-qc-btn ok ${pend === "correct" ? "selected" : ""}" onclick="markXyz('${idEsc}', true)">○</button>
-        <button class="wsm-qc-btn ng ${pend === "wrong" ? "selected" : ""}" onclick="markXyz('${idEsc}', false)">✕</button>
-        <span class="wsm-sub-count">${cnt}</span>
-      </span>`;
+    // 小問(group)ごとに行を分ける（連続する同groupをまとめ、各小問の集合を独立行に）
+    const groups = [];
+    dm.questions.forEach(q => {
+      const g = q.group != null ? q.group : "";
+      const last = groups[groups.length - 1];
+      if (last && last.g === g) last.items.push(q);
+      else groups.push({ g, items: [q] });
+    });
+    const rowsHtml = groups.map(gr => {
+      const chips = gr.items.map(q => renderChip(q, gr.g)).join("");
+      const prefix = gr.g ? `<span class="wsm-group-label">${gr.g}</span>` : "";
+      return `<div class="wsm-sub-row">${prefix}${chips}</div>`;
     }).join("");
     return `<div class="wsm-daimon">
       <div class="wsm-daimon-head">${dm.id}</div>
-      <div class="wsm-sub-row">${subs}</div>
+      ${rowsHtml}
     </div>`;
   }).join("");
   el.scrollTop = prevScroll;
