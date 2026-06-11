@@ -53,6 +53,59 @@
     </div>
   </div>
 
+  <!-- 授業の確認問題（X/Y/Z方式: 問題/解答タブ + 正誤表） モード選択画面 -->
+  <div id="screen-wsmode" class="screen">
+    <header class="header">
+      <button class="btn-icon" id="btn-back-wsmode">←</button>
+      <h1 class="header-title" id="wsmode-title">授業の確認問題</h1>
+    </header>
+    <div class="unit-detail-body">
+      <div class="mode-section">
+        <h2 class="section-title">学習モード</h2>
+        <div class="mode-buttons">
+          <div class="mode-row">
+            <button class="btn btn-primary btn-large" data-ws-mode="all">全問を解く</button>
+            <button class="btn btn-print btn-large" data-ws-print="all">🖨 全問を印刷</button>
+          </div>
+          <div class="mode-row">
+            <button class="btn btn-secondary btn-large" data-ws-mode="below50">正答率 50% 以下を解く</button>
+            <button class="btn btn-print btn-large" data-ws-print="below50">🖨 50%以下を印刷</button>
+          </div>
+          <div class="mode-row">
+            <button class="btn btn-secondary btn-large" data-ws-mode="below67">正答率 67% 以下を解く</button>
+            <button class="btn btn-print btn-large" data-ws-print="below67">🖨 67%以下を印刷</button>
+          </div>
+          <div class="mode-row">
+            <button class="btn btn-secondary btn-large" data-ws-mode="below99">正答率 99% 以下を解く</button>
+            <button class="btn btn-print btn-large" data-ws-print="below99">🖨 99%以下を印刷</button>
+          </div>
+          <div class="mode-row">
+            <button class="btn btn-secondary btn-large" data-ws-mode="unanswered">未回答問題を解く</button>
+            <button class="btn btn-print btn-large" data-ws-print="unanswered">🖨 未回答を印刷</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 授業の確認問題 問題画面（問題/解答タブ + 正誤表 + 印刷） -->
+  <div id="screen-wsmondai" class="screen">
+    <header class="header">
+      <button class="btn-icon" id="btn-back-wsmondai">←</button>
+      <h1 class="header-title" id="wsmondai-title">授業の確認問題</h1>
+      <button id="wsm-print-btn" title="表示中のタブを印刷">🖨 印刷</button>
+    </header>
+    <div class="wsm-fixed-top">
+      <div class="wsm-tabbar">
+        <button class="wsm-tab active" id="wsm-tab-q">問題</button>
+        <button class="wsm-tab" id="wsm-tab-a">解答</button>
+      </div>
+      <div class="wsm-table-title">正誤表（小問ごとに ○ / ✕）</div>
+      <div class="wsm-table" id="wsm-table"></div>
+    </div>
+    <div class="wsm-pages" id="wsm-pages"><div id="wsm-pages-inner"></div></div>
+  </div>
+
   <!-- セクション詳細画面（モード選択 + ページ一覧 + 正答率） -->
   <div id="screen-section-detail" class="screen">
     <header class="header">

@@ -199,7 +199,7 @@ body {
 }
 
 /* 単元詳細・セクション詳細画面 */
-#screen-unit-detail, #screen-section-detail {
+#screen-unit-detail, #screen-section-detail, #screen-wsmode {
   overflow-y: auto;
 }
 
@@ -764,4 +764,141 @@ body {
     display: block !important;
     visibility: visible !important;
   }
+}
+
+/* ===== 授業の確認問題 X/Y/Z方式（問題/解答タブ + 正誤表）===== */
+#screen-wsmondai { overflow: hidden; }
+#wsm-print-btn {
+  background: none; border: none; color: #007aff;
+  font-size: 14px; cursor: pointer; padding: 4px 10px; white-space: nowrap;
+}
+#wsm-print-btn:hover { background: #f5f5f7; border-radius: 6px; }
+
+.wsm-fixed-top {
+  flex-shrink: 0;
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 10px 12px;
+}
+.wsm-tabbar {
+  display: flex;
+  background: #e8e8ed;
+  border-radius: 10px;
+  padding: 3px;
+  margin-bottom: 10px;
+}
+.wsm-tab {
+  flex: 1;
+  border: none;
+  background: none;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 9px 0;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #6e6e73;
+}
+.wsm-tab.active {
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+  color: #007aff;
+}
+#wsm-tab-a.active { color: #ff9500; }
+
+.wsm-table-title {
+  font-size: 12px;
+  color: #86868b;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+/* 正誤表: 大問ごとにグループ化、小問単位で○✕。高さが出たらこの中だけスクロール */
+.wsm-table {
+  max-height: 21vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.wsm-daimon {
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f0f0f0;
+}
+.wsm-daimon:last-child { border-bottom: none; margin-bottom: 0; }
+.wsm-daimon-head {
+  font-size: 14px; font-weight: 700; color: #1d1d1f;
+  margin-bottom: 5px;
+}
+.wsm-sub-row { display: flex; flex-wrap: wrap; gap: 6px; }
+.wsm-sub {
+  display: flex; align-items: center; gap: 3px;
+  border: 1px solid #e0e0e0; border-radius: 8px;
+  padding: 2px 5px 2px 6px; background: #fff;
+}
+.wsm-sub.sub-perfect { background: #eafaef; border-color: #b6e7c4; }
+.wsm-sub.sub-mid { background: #fff6e6; border-color: #f3d9a6; }
+.wsm-sub.sub-low { background: #fdeceb; border-color: #f3bdb8; }
+.wsm-sub-label { font-size: 12px; font-weight: 700; min-width: 26px; color: #444; }
+.wsm-sub-count {
+  font-size: 10px; color: #86868b; font-weight: 600;
+  min-width: 22px; text-align: center;
+}
+.wsm-qc-btn {
+  width: 30px; height: 17px;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 13px; font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.wsm-qc-btn:active { opacity: 0.7; }
+.wsm-qc-btn.ok { color: #34c759; }
+.wsm-qc-btn.ng { color: #ff3b30; }
+.wsm-qc-btn.ok.selected {
+  border-color: #34c759; background: #c8f7d0; border-width: 2.5px;
+}
+.wsm-qc-btn.ng.selected {
+  border-color: #ff3b30; background: #ffd4d1; border-width: 2.5px;
+}
+.wsm-sub:has(.ok.selected) .ng:not(.selected),
+.wsm-sub:has(.ng.selected) .ok:not(.selected) { opacity: 0.3; }
+.wsm-sub.ws-dim { opacity: 0.3; }
+
+/* 対象問題の赤文字バナー（フィルタ選択時に問題ページ上部に表示・問題文に被らない小さめ） */
+.wsm-target-banner {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ff3b30;
+  background: #fff3f2;
+  border: 1px solid #ff3b30;
+  border-radius: 6px;
+  padding: 5px 9px;
+  margin-bottom: 5px;
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+@media (min-width: 768px) {
+  .wsm-target-banner { font-size: 15px; }
+}
+
+.wsm-pages {
+  flex: 1 1 0;
+  min-height: 0;
+  overflow: auto;
+  background: #e8e8ed;
+  padding: 10px;
+  touch-action: none;
+}
+#wsm-pages-inner { width: 100%; transform-origin: 0 0; }
+.wsm-page { margin-bottom: 14px; }
+.wsm-page-label {
+  font-size: 12px; color: #6e6e73; font-weight: 600;
+  margin-bottom: 4px; padding-left: 2px;
+}
+.wsm-page img {
+  width: 100%; height: auto; display: block;
+  background: #fff; border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
