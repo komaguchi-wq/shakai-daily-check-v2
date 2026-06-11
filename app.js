@@ -1328,6 +1328,14 @@ function setupEventListeners() {
   document.getElementById("wsm-tab-q").addEventListener("click", () => setWsTab(false));
   document.getElementById("wsm-tab-a").addEventListener("click", () => setWsTab(true));
   document.getElementById("wsm-print-btn").addEventListener("click", wsmPrint);
+  // 正誤表の縦幅トグル（まとめて入力したいとき広げる）
+  const wsmToggle = document.getElementById("wsm-table-toggle");
+  if (wsmToggle) wsmToggle.addEventListener("click", () => {
+    const t = document.getElementById("wsm-table");
+    const expanded = t.classList.toggle("expanded");
+    const chev = wsmToggle.querySelector(".wsm-table-chev");
+    if (chev) chev.textContent = expanded ? "△ 閉じる" : "▽ 広げる";
+  });
 }
 
 // ==============================

@@ -810,13 +810,23 @@ body {
   color: #86868b;
   font-weight: 600;
   margin-bottom: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
 }
-/* 正誤表: 大問ごとにグループ化、小問単位で○✕。高さが出たらこの中だけスクロール */
+.wsm-table-chev { color: #007aff; font-weight: 700; white-space: nowrap; }
+/* 正誤表: 大問ごとにグループ化、小問単位で○✕。デフォルトは狭め、タイトルをタップで展開して
+   まとめて入力できる。高さが出たらこの中だけスクロール */
 .wsm-table {
-  max-height: 21vh;
+  max-height: 13vh;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  transition: max-height 0.2s ease;
 }
+.wsm-table.expanded { max-height: 72vh; }
 .wsm-daimon {
   margin-bottom: 8px;
   padding-bottom: 8px;
