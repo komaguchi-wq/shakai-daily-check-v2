@@ -1011,6 +1011,26 @@ function _closePrintOverlay() {
   _resetPrintOverlay();
 }
 
+// 印刷用紙の向きと「1画像=1ページ」用の高さ上限を、先頭画像の向きから決める。
+// ★高さ上限は vh(画面基準)ではなく物理mmで指定する。vh だと iOS Safari の印刷で
+//   画面px→紙mm 換算が端末ごとに狂い、特定iPadで「次ページが前ページに食い込む」
+//   ドリフトが出る(算数アプリで実際に発生→mm化で解消)。
+function _setPrintPageGeometry(img) {
+  const portrait = !!(img && img.naturalHeight > img.naturalWidth);
+  const pageSize = portrait ? "A4 portrait" : "B4 landscape";
+  // 印刷可能高(mm)=用紙高-余白10mm。A4縦=297-10=287→285、B4横=257-10=247→245(安全側)。
+  const maxH = portrait ? 285 : 245;
+  let style = document.getElementById("dynamic-print-page");
+  if (!style) {
+    style = document.createElement("style");
+    style.id = "dynamic-print-page";
+    document.head.appendChild(style);
+  }
+  style.textContent =
+    `@page { size: ${pageSize}; margin: 5mm; }\n` +
+    `@media print { #print-overlay-body .pg img { max-height: ${maxH}mm !important; } }`;
+}
+
 function _openPrintOverlay(titleText, dataURLs) {
   const ov = document.getElementById("print-overlay");
   const body = document.getElementById("print-overlay-body");
@@ -1026,6 +1046,7 @@ function _openPrintOverlay(titleText, dataURLs) {
     ? im.decode().catch(() => {})
     : new Promise(r => { im.onload = r; im.onerror = r; if (im.complete) r(); }));
   Promise.all(waits).then(() => {
+    _setPrintPageGeometry(imgs[0]);  // 向き判定は先頭画像の実寸で
     requestAnimationFrame(() => {
       try { window.print(); } catch (e) { console.warn("print err", e); }
     });

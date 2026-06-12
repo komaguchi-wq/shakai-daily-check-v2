@@ -751,16 +751,26 @@ body {
   #print-overlay-body .pg {
     width: 100% !important;
     page-break-after: always;
+    break-after: page;
+    page-break-inside: avoid;
+    break-inside: avoid;
     background: #fff !important;
     display: block !important;
     height: auto !important;
     visibility: visible !important;
   }
-  #print-overlay-body .pg:last-child { page-break-after: auto; }
+  #print-overlay-body .pg:last-child { page-break-after: auto; break-after: auto; }
   #print-overlay-body .pg img {
     width: 100% !important;
     max-width: 100% !important;
     height: auto !important;
+    /* ★1画像=紙1枚を保証する高さ上限。vh(画面基準)は iOS Safari の印刷で端末ごとに
+       狂うため使わず物理mmで指定。JS(_setPrintPageGeometry)が向きに応じ上書きする。
+       object-fit:contain で max-height 適用時も縦横比を保つ(歪み防止)。 */
+    max-height: 245mm;
+    object-fit: contain;
+    page-break-inside: avoid;
+    break-inside: avoid;
     display: block !important;
     visibility: visible !important;
   }
