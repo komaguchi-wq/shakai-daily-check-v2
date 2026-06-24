@@ -302,6 +302,8 @@ function renderCategories() {
 }
 
 async function openCategory(cat) {
+  // 独立ページを持つカテゴリ（重要年代150問など）はそのページへ遷移
+  if (cat.url) { location.href = cat.url; return; }
   currentCategory = cat;
   document.getElementById("units-header-title").textContent = cat.name;
   const res = await fetch(`categories/${cat.id}/units.json`);

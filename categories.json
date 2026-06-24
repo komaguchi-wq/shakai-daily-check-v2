@@ -22,5 +22,12 @@
     "name": "年表トレーニング帳",
     "icon": "📅",
     "description": "赤文字の年表穴埋め問題"
+  },
+  {
+    "id": "juyo-nendai",
+    "name": "重要年代150問",
+    "icon": "🗓️",
+    "description": "できごと⇔年代の一問一答（できごと/年代/解答）",
+    "url": "categories/juyo-nendai/index.html"
   }
 ]

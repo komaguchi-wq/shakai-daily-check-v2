@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>重要年代150問</title>
+<style>
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Segoe UI", sans-serif;
+    background: #f2f2f7; color: #1c1c1e;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* ===== ヘッダー ===== */
+  .header {
+    position: sticky; top: 0; z-index: 30;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: saturate(180%) blur(12px);
+    border-bottom: 1px solid #d8d8dd;
+    display: flex; align-items: center; gap: 8px;
+    padding: 10px 12px;
+  }
+  .back-link {
+    flex-shrink: 0; display: inline-flex; align-items: center; gap: 3px;
+    font-size: 13px; font-weight: 600; color: #007aff;
+    background: #eaf2ff; border: 1px solid #cfe0ff; border-radius: 999px;
+    padding: 6px 12px; text-decoration: none; white-space: nowrap;
+  }
+  .header-title { font-size: 17px; font-weight: 700; margin: 0; }
+  .header-count { margin-left: auto; font-size: 12px; color: #8e8e93; font-weight: 600; }
+
+  /* ===== モードタブ ===== */
+  .tabbar {
+    position: sticky; top: 53px; z-index: 29;
+    display: flex; gap: 6px; padding: 10px 12px;
+    background: #f2f2f7; border-bottom: 1px solid #e2e2e7;
+  }
+  .tab {
+    flex: 1; padding: 11px 4px; border: none; border-radius: 11px;
+    font-size: 14px; font-weight: 700; cursor: pointer;
+    background: #e4e4ea; color: #3a3a3c; transition: all .15s;
+  }
+  .tab.active { background: #007aff; color: #fff; box-shadow: 0 2px 6px rgba(0,122,255,.3); }
+
+  /* ===== ツールバー ===== */
+  .toolbar {
+    display: flex; gap: 8px; align-items: center;
+    padding: 10px 12px 4px;
+  }
+  .toolbar .hint { font-size: 12px; color: #8e8e93; margin-right: auto; }
+  .tool-btn {
+    padding: 7px 13px; border: 1px solid #cfcfd4; border-radius: 999px;
+    background: #fff; font-size: 12.5px; font-weight: 600; color: #1c1c1e; cursor: pointer;
+  }
+  .tool-btn:active { background: #ececf1; }
+
+  /* ===== カード一覧 ===== */
+  .list { padding: 8px 12px 60px; max-width: 760px; margin: 0 auto; }
+  .card {
+    display: flex; align-items: stretch; gap: 8px;
+    background: #fff; border: 1px solid #e2e2e7; border-radius: 14px;
+    margin-bottom: 9px; overflow: hidden;
+    box-shadow: 0 1px 2px rgba(0,0,0,.04);
+  }
+  .num {
+    flex-shrink: 0; width: 40px; display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700; color: #aeaeb2; background: #fafafc;
+    border-right: 1px solid #f0f0f3;
+  }
+  /* できごと パネル */
+  .event {
+    flex: 1; min-width: 0; display: flex; align-items: center;
+    padding: 6px 8px; position: relative;
+  }
+  .event img { max-width: 100%; max-height: 64px; display: block; }
+  /* 年代 パネル */
+  .year {
+    flex-shrink: 0; width: 116px; display: flex; align-items: center; justify-content: center;
+    border-left: 1px dashed #e2e2e7; position: relative;
+    font-size: 22px; font-weight: 700; letter-spacing: .5px; color: #1c1c1e;
+  }
+  .year .suffix { font-size: 13px; font-weight: 600; color: #8e8e93; margin-left: 2px; }
+
+  /* 隠しカバー */
+  .cover {
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    gap: 5px; cursor: pointer;
+    background: repeating-linear-gradient(135deg,#eef3ff,#eef3ff 10px,#e3ecff 10px,#e3ecff 20px);
+    color: #5b7fd6; font-size: 13px; font-weight: 700;
+    border-radius: 8px;
+  }
+  .cover .q { font-size: 17px; }
+  .card.revealed .cover { display: none; }
+
+  .empty { text-align: center; color: #8e8e93; padding: 40px; font-size: 14px; }
+</style>
+</head>
+<body>
+  <header class="header">
+    <a class="back-link" href="../../index.html">← 社会v2へ</a>
+    <h1 class="header-title">📅 重要年代150問</h1>
+    <span class="header-count" id="count"></span>
+  </header>
+
+  <div class="tabbar">
+    <button class="tab active" data-mode="event">できごとを解く</button>
+    <button class="tab" data-mode="year">年代を解く</button>
+    <button class="tab" data-mode="answer">解答</button>
+  </div>
+
+  <div class="toolbar">
+    <span class="hint" id="hint"></span>
+    <button class="tool-btn" id="btn-show">すべて表示</button>
+    <button class="tool-btn" id="btn-hide">すべて隠す</button>
+  </div>
+
+  <div class="list" id="list"></div>
+
+<script>
+let DATA = [];
+let mode = "event"; // event | year | answer
+const revealed = new Set(); // n -> revealed in current solving mode
+
+const listEl = document.getElementById("list");
+const hintEl = document.getElementById("hint");
+
+const HINTS = {
+  event: "年代を見て「できごと」を答える → カードをタップで表示",
+  year:  "できごとを見て「年代」を答える → カードをタップで表示",
+  answer:"すべての年代とできごとを表示しています",
+};
+
+function render() {
+  hintEl.textContent = HINTS[mode];
+  document.querySelectorAll(".tab").forEach(t =>
+    t.classList.toggle("active", t.dataset.mode === mode));
+  // 解答モードはツールボタン不要
+  const show = document.getElementById("btn-show"), hide = document.getElementById("btn-hide");
+  const isSolve = mode !== "answer";
+  show.style.display = hide.style.display = isSolve ? "" : "none";
+
+  listEl.innerHTML = "";
+  DATA.forEach(e => {
+    const card = document.createElement("div");
+    card.className = "card";
+    const isRevealed = mode === "answer" || revealed.has(e.n);
+    if (isRevealed) card.classList.add("revealed");
+
+    // どちらを隠すか: event=できごとを隠す / year=年代を隠す / answer=隠さない
+    const hideEvent = mode === "event";
+    const hideYear  = mode === "year";
+
+    card.innerHTML = `
+      <div class="num">${e.n}</div>
+      <div class="event">
+        <img src="${e.event}" alt="できごと${e.n}" loading="lazy">
+        ${hideEvent ? '<div class="cover"><span class="q">？</span>できごと</div>' : ''}
+      </div>
+      <div class="year">
+        <span>${e.year}</span><span class="suffix">年</span>
+        ${hideYear ? '<div class="cover"><span class="q">？</span>年代</div>' : ''}
+      </div>`;
+
+    if (mode !== "answer") {
+      card.addEventListener("click", () => {
+        if (revealed.has(e.n)) { revealed.delete(e.n); card.classList.remove("revealed"); }
+        else { revealed.add(e.n); card.classList.add("revealed"); }
+      });
+    }
+    listEl.appendChild(card);
+  });
+}
+
+function setMode(m) {
+  if (m === mode) return;
+  mode = m;
+  revealed.clear();
+  render();
+  window.scrollTo({ top: 0 });
+}
+
+document.querySelectorAll(".tab").forEach(t =>
+  t.addEventListener("click", () => setMode(t.dataset.mode)));
+document.getElementById("btn-show").addEventListener("click", () => {
+  DATA.forEach(e => revealed.add(e.n)); render();
+});
+document.getElementById("btn-hide").addEventListener("click", () => {
+  revealed.clear(); render();
+});
+
+fetch("quiz-data.json")
+  .then(r => r.json())
+  .then(d => {
+    DATA = d;
+    document.getElementById("count").textContent = DATA.length + "問";
+    render();
+  })
+  .catch(() => { listEl.innerHTML = '<div class="empty">データを読み込めませんでした</div>'; });
+</script>
+</body>
+</html>
