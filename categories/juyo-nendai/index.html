@@ -2,25 +2,23 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
 <title>重要年代150問</title>
 <style>
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html, body { margin: 0; padding: 0; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Segoe UI", sans-serif;
-    background: #f2f2f7; color: #1c1c1e;
-    -webkit-text-size-adjust: 100%;
+    background: #f2f2f7; color: #1c1c1e; -webkit-text-size-adjust: 100%;
   }
 
   /* ===== ヘッダー ===== */
   .header {
     position: sticky; top: 0; z-index: 30;
-    background: rgba(255,255,255,0.92);
+    background: rgba(255,255,255,0.94);
     backdrop-filter: saturate(180%) blur(12px);
     border-bottom: 1px solid #d8d8dd;
-    display: flex; align-items: center; gap: 8px;
-    padding: 10px 12px;
+    display: flex; align-items: center; gap: 8px; padding: 9px 12px;
   }
   .back-link {
     flex-shrink: 0; display: inline-flex; align-items: center; gap: 3px;
@@ -28,80 +26,74 @@
     background: #eaf2ff; border: 1px solid #cfe0ff; border-radius: 999px;
     padding: 6px 12px; text-decoration: none; white-space: nowrap;
   }
-  .header-title { font-size: 17px; font-weight: 700; margin: 0; }
-  .header-count { margin-left: auto; font-size: 12px; color: #8e8e93; font-weight: 600; }
+  .header-title { font-size: 16px; font-weight: 700; margin: 0; white-space: nowrap; }
+  .print-btn {
+    margin-left: auto; flex-shrink: 0;
+    padding: 7px 14px; border: 1px solid #cfcfd4; border-radius: 999px;
+    background: #fff; font-size: 13px; font-weight: 700; color: #1c1c1e; cursor: pointer;
+  }
+  .print-btn:active { background: #ececf1; }
 
   /* ===== モードタブ ===== */
   .tabbar {
-    position: sticky; top: 53px; z-index: 29;
-    display: flex; gap: 6px; padding: 10px 12px;
+    position: sticky; top: 51px; z-index: 29;
+    display: flex; gap: 6px; padding: 9px 12px;
     background: #f2f2f7; border-bottom: 1px solid #e2e2e7;
   }
   .tab {
-    flex: 1; padding: 11px 4px; border: none; border-radius: 11px;
+    flex: 1; padding: 10px 4px; border: none; border-radius: 11px;
     font-size: 14px; font-weight: 700; cursor: pointer;
     background: #e4e4ea; color: #3a3a3c; transition: all .15s;
   }
   .tab.active { background: #007aff; color: #fff; box-shadow: 0 2px 6px rgba(0,122,255,.3); }
 
   /* ===== ツールバー ===== */
-  .toolbar {
-    display: flex; gap: 8px; align-items: center;
-    padding: 10px 12px 4px;
-  }
-  .toolbar .hint { font-size: 12px; color: #8e8e93; margin-right: auto; }
+  .toolbar { display: flex; gap: 8px; align-items: center; padding: 9px 12px 2px; }
+  .toolbar .hint { font-size: 12px; color: #8e8e93; margin-right: auto; line-height: 1.3; }
   .tool-btn {
-    padding: 7px 13px; border: 1px solid #cfcfd4; border-radius: 999px;
+    padding: 6px 12px; border: 1px solid #cfcfd4; border-radius: 999px;
     background: #fff; font-size: 12.5px; font-weight: 600; color: #1c1c1e; cursor: pointer;
   }
   .tool-btn:active { background: #ececf1; }
+  .tool-btn[hidden] { display: none; }
 
-  /* ===== カード一覧 ===== */
-  .list { padding: 8px 12px 60px; max-width: 760px; margin: 0 auto; }
-  .card {
-    display: flex; align-items: stretch; gap: 8px;
-    background: #fff; border: 1px solid #e2e2e7; border-radius: 14px;
-    margin-bottom: 9px; overflow: hidden;
-    box-shadow: 0 1px 2px rgba(0,0,0,.04);
+  /* ===== シート（画面表示） ===== */
+  .sheet-wrap { padding: 10px 12px 40px; overflow-x: auto; }
+  .sheet {
+    position: relative; width: 100%; max-width: 1400px; margin: 0 auto;
+    background: #fff; box-shadow: 0 1px 6px rgba(0,0,0,.1); border-radius: 6px;
   }
-  .num {
-    flex-shrink: 0; width: 40px; display: flex; align-items: center; justify-content: center;
-    font-size: 13px; font-weight: 700; color: #aeaeb2; background: #fafafc;
-    border-right: 1px solid #f0f0f3;
+  .sheet img { display: block; width: 100%; height: auto; border-radius: 6px; }
+  /* 白マスク（タップで個別に表示） */
+  .mask {
+    position: absolute; cursor: pointer;
+    background: #fff;
+    border: 1px solid #cfe0ff;
+    box-shadow: inset 0 0 0 1px #fff;
+    border-radius: 2px;
   }
-  /* できごと パネル */
-  .event {
-    flex: 1; min-width: 0; display: flex; align-items: center;
-    padding: 6px 8px; position: relative;
+  .mask::after {
+    content: "？"; position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    color: #9ab4ec; font-size: 12px; font-weight: 700;
   }
-  .event img { max-width: 100%; max-height: 64px; display: block; }
-  /* 年代 パネル */
-  .year {
-    flex-shrink: 0; width: 116px; display: flex; align-items: center; justify-content: center;
-    border-left: 1px dashed #e2e2e7; position: relative;
-    font-size: 22px; font-weight: 700; letter-spacing: .5px; color: #1c1c1e;
-  }
-  .year .suffix { font-size: 13px; font-weight: 600; color: #8e8e93; margin-left: 2px; }
+  .mask.revealed { display: none; }
 
-  /* 隠しカバー */
-  .cover {
-    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-    gap: 5px; cursor: pointer;
-    background: repeating-linear-gradient(135deg,#eef3ff,#eef3ff 10px,#e3ecff 10px,#e3ecff 20px);
-    color: #5b7fd6; font-size: 13px; font-weight: 700;
-    border-radius: 8px;
+  /* ===== 印刷（B4横・1枚） ===== */
+  #print-area { display: none; }
+  @media print {
+    @page { size: B4 landscape; margin: 0; }
+    .header, .tabbar, .toolbar, .sheet-wrap { display: none !important; }
+    #print-area { display: block; }
+    #print-img { display: block; width: 364mm; height: auto; }
   }
-  .cover .q { font-size: 17px; }
-  .card.revealed .cover { display: none; }
-
-  .empty { text-align: center; color: #8e8e93; padding: 40px; font-size: 14px; }
 </style>
 </head>
 <body>
   <header class="header">
     <a class="back-link" href="../../index.html">← 社会v2へ</a>
-    <h1 class="header-title">📅 重要年代150問</h1>
-    <span class="header-count" id="count"></span>
+    <h1 class="header-title">🗓️ 重要年代150問</h1>
+    <button class="print-btn" id="btn-print">🖨 B4で印刷</button>
   </header>
 
   <div class="tabbar">
@@ -116,88 +108,82 @@
     <button class="tool-btn" id="btn-hide">すべて隠す</button>
   </div>
 
-  <div class="list" id="list"></div>
+  <div class="sheet-wrap">
+    <div class="sheet" id="sheet">
+      <img id="sheet-img" src="page_full.jpg" alt="重要年代150問">
+      <!-- マスクはJSで配置 -->
+    </div>
+  </div>
+
+  <!-- 印刷専用（モードに応じた静的マスク画像をB4横1枚で印刷） -->
+  <div id="print-area"><img id="print-img" alt=""></div>
 
 <script>
-let DATA = [];
-let mode = "event"; // event | year | answer
-const revealed = new Set(); // n -> revealed in current solving mode
-
-const listEl = document.getElementById("list");
+let DATA = null;
+let mode = "event"; // event(できごとを隠す) | year(年代を隠す) | answer
+const sheet = document.getElementById("sheet");
 const hintEl = document.getElementById("hint");
 
 const HINTS = {
-  event: "年代を見て「できごと」を答える → カードをタップで表示",
-  year:  "できごとを見て「年代」を答える → カードをタップで表示",
-  answer:"すべての年代とできごとを表示しています",
+  event: "年代を見て「できごと」を答える（白い枠＝記入欄）。枠タップでその場で確認できます",
+  year:  "できごとを見て「年代」を答える（白い枠＝記入欄）。枠タップでその場で確認できます",
+  answer:"すべて表示しています",
+};
+const PRINT_IMG = {
+  event: "page_hide_event.jpg",
+  year:  "page_hide_year.jpg",
+  answer:"page_full.jpg",
 };
 
 function render() {
   hintEl.textContent = HINTS[mode];
   document.querySelectorAll(".tab").forEach(t =>
     t.classList.toggle("active", t.dataset.mode === mode));
-  // 解答モードはツールボタン不要
-  const show = document.getElementById("btn-show"), hide = document.getElementById("btn-hide");
-  const isSolve = mode !== "answer";
-  show.style.display = hide.style.display = isSolve ? "" : "none";
+  const solve = mode !== "answer";
+  document.getElementById("btn-show").hidden = !solve;
+  document.getElementById("btn-hide").hidden = !solve;
 
-  listEl.innerHTML = "";
-  DATA.forEach(e => {
-    const card = document.createElement("div");
-    card.className = "card";
-    const isRevealed = mode === "answer" || revealed.has(e.n);
-    if (isRevealed) card.classList.add("revealed");
+  // 既存マスク除去
+  sheet.querySelectorAll(".mask").forEach(m => m.remove());
+  if (!solve || !DATA) return;
 
-    // どちらを隠すか: event=できごとを隠す / year=年代を隠す / answer=隠さない
-    const hideEvent = mode === "event";
-    const hideYear  = mode === "year";
-
-    card.innerHTML = `
-      <div class="num">${e.n}</div>
-      <div class="event">
-        <img src="${e.event}" alt="できごと${e.n}" loading="lazy">
-        ${hideEvent ? '<div class="cover"><span class="q">？</span>できごと</div>' : ''}
-      </div>
-      <div class="year">
-        <span>${e.year}</span><span class="suffix">年</span>
-        ${hideYear ? '<div class="cover"><span class="q">？</span>年代</div>' : ''}
-      </div>`;
-
-    if (mode !== "answer") {
-      card.addEventListener("click", () => {
-        if (revealed.has(e.n)) { revealed.delete(e.n); card.classList.remove("revealed"); }
-        else { revealed.add(e.n); card.classList.add("revealed"); }
-      });
-    }
-    listEl.appendChild(card);
+  const boxes = mode === "event" ? DATA.events : DATA.years;
+  const W = DATA.width, H = DATA.height;
+  boxes.forEach(b => {
+    const m = document.createElement("div");
+    m.className = "mask";
+    m.style.left   = (b.x / W * 100) + "%";
+    m.style.top    = (b.y / H * 100) + "%";
+    m.style.width  = (b.w / W * 100) + "%";
+    m.style.height = (b.h / H * 100) + "%";
+    m.addEventListener("click", () => m.classList.toggle("revealed"));
+    sheet.appendChild(m);
   });
 }
 
 function setMode(m) {
   if (m === mode) return;
   mode = m;
-  revealed.clear();
   render();
   window.scrollTo({ top: 0 });
 }
 
 document.querySelectorAll(".tab").forEach(t =>
   t.addEventListener("click", () => setMode(t.dataset.mode)));
-document.getElementById("btn-show").addEventListener("click", () => {
-  DATA.forEach(e => revealed.add(e.n)); render();
-});
-document.getElementById("btn-hide").addEventListener("click", () => {
-  revealed.clear(); render();
+document.getElementById("btn-show").addEventListener("click", () =>
+  sheet.querySelectorAll(".mask").forEach(m => m.classList.add("revealed")));
+document.getElementById("btn-hide").addEventListener("click", () =>
+  sheet.querySelectorAll(".mask").forEach(m => m.classList.remove("revealed")));
+
+document.getElementById("btn-print").addEventListener("click", () => {
+  document.getElementById("print-img").src = PRINT_IMG[mode];
+  setTimeout(() => window.print(), 60);
 });
 
 fetch("quiz-data.json")
   .then(r => r.json())
-  .then(d => {
-    DATA = d;
-    document.getElementById("count").textContent = DATA.length + "問";
-    render();
-  })
-  .catch(() => { listEl.innerHTML = '<div class="empty">データを読み込めませんでした</div>'; });
+  .then(d => { DATA = d; render(); })
+  .catch(() => { hintEl.textContent = "データを読み込めませんでした"; });
 </script>
 </body>
 </html>
