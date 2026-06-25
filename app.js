@@ -269,6 +269,7 @@ function showScreen(id) {
 function selectUser(user) {
   currentUser = user;
   sessionStorage.setItem("shakai-current-user-v2", user);
+  try { localStorage.setItem('study-user', user); } catch (e) {}
   document.getElementById("header-user-name").textContent = user;
   migrateLegacyTrackingToEvents();
   loadCategories();
@@ -1184,6 +1185,7 @@ function setupEventListeners() {
   document.getElementById("btn-switch-user").addEventListener("click", () => {
     currentUser = null;
     sessionStorage.removeItem("shakai-current-user-v2");
+    try { localStorage.removeItem('study-user'); } catch (e) {}
     showScreen("screen-user");
   });
   document.getElementById("btn-settings").addEventListener("click", openSettings);
@@ -1698,8 +1700,8 @@ async function wsmPrint() {
 // ==============================
 function init() {
   setupEventListeners();
-  const savedUser = sessionStorage.getItem("shakai-current-user-v2");
-  if (savedUser) selectUser(savedUser);
+  const savedUser = localStorage.getItem('study-user') || sessionStorage.getItem("shakai-current-user-v2");
+  if (savedUser === 'さと' || savedUser === 'ぱぱ') selectUser(savedUser);
 }
 
 init();
