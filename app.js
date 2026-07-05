@@ -753,9 +753,10 @@ async function renderQuiz() {
     const region = page.regions[currentRegionIndex];
     const key = `${page.id}-${currentRegionIndex}`;
     if (!isAnswered(key)) {
-      const pad = 6;
+      const lw = markLineWidth(ctx);
+      const pad = 6 + lw / 2;
       ctx.strokeStyle = "#e8a040";
-      ctx.lineWidth = 3;
+      ctx.lineWidth = lw;
       ctx.strokeRect(region.x - pad, region.y - pad, region.w + pad * 2, region.h + pad * 2);
     }
   }
@@ -763,18 +764,25 @@ async function renderQuiz() {
   updateControlVisibility();
 }
 
+// 画像は300DPI(横4000px超)で画面では約1/4に縮小されるため、線幅は画像幅に比例させる
+function markLineWidth(ctx) {
+  return Math.max(8, Math.round(ctx.canvas.width * 0.004));
+}
+
 function drawResultMark(ctx, region, result) {
-  const pad = 4;
-  ctx.strokeStyle = result === "correct" ? "rgba(52,199,89,0.6)" : "rgba(255,59,48,0.6)";
-  ctx.lineWidth = 2;
+  const lw = markLineWidth(ctx);
+  const pad = 4 + lw / 2;
+  ctx.strokeStyle = result === "correct" ? "rgba(52,199,89,0.85)" : "rgba(255,59,48,0.85)";
+  ctx.lineWidth = lw;
   ctx.strokeRect(region.x - pad, region.y - pad, region.w + pad * 2, region.h + pad * 2);
 }
 
 function drawPendingMark(ctx, region, result) {
-  const pad = 4;
-  ctx.strokeStyle = result === "correct" ? "rgba(52,199,89,0.7)" : "rgba(255,59,48,0.7)";
-  ctx.lineWidth = 2;
-  ctx.setLineDash([6, 4]);
+  const lw = markLineWidth(ctx);
+  const pad = 4 + lw / 2;
+  ctx.strokeStyle = result === "correct" ? "rgba(52,199,89,0.85)" : "rgba(255,59,48,0.85)";
+  ctx.lineWidth = lw;
+  ctx.setLineDash([lw * 2.5, lw * 1.5]);
   ctx.strokeRect(region.x - pad, region.y - pad, region.w + pad * 2, region.h + pad * 2);
   ctx.setLineDash([]);
 }
@@ -861,9 +869,10 @@ async function revealAnswer() {
   const sh = Math.min(page.height - sy, region.h + pad * 2);
   ctx.drawImage(origImg, sx, sy, sw, sh, sx, sy, sw, sh);
   enhanceOrangeRegion(ctx, sx, sy, sw, sh);
+  const lw = markLineWidth(ctx);
   ctx.strokeStyle = "#e8a040";
-  ctx.lineWidth = 3;
-  ctx.strokeRect(sx - 2, sy - 2, sw + 4, sh + 4);
+  ctx.lineWidth = lw;
+  ctx.strokeRect(sx - 2 - lw / 2, sy - 2 - lw / 2, sw + 4 + lw, sh + 4 + lw);
   answerRevealed = true;
   updateControlVisibility();
 }
