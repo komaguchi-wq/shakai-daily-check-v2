@@ -517,7 +517,7 @@ function renderSectionDetail() {
       badge = `<span class="badge badge-in-progress">${Math.round(correctCount/regionCount*100)}%</span>`;
     }
     const label = getPageLabel(page);
-    const imgPath = `categories/${currentCategory.id}/units/${currentUnit.id}/images/${page.imageMasked || page.image}`;
+    const imgPath = unitImagesBase() + (page.imageMasked || page.image);
     card.innerHTML = `
       <div class="page-card-thumb"><img src="${imgPath}" loading="lazy" alt="${label}"></div>
       <div class="page-card-title">${label}</div>
@@ -596,7 +596,7 @@ function renderReading() {
   document.getElementById("btn-reading-prev").disabled = readingIndex === 0;
   document.getElementById("btn-reading-next").disabled = readingIndex === readingPages.length - 1;
   const img = document.getElementById("reading-image");
-  img.src = `categories/${currentCategory.id}/units/${currentUnit.id}/images/${page.image}`;
+  img.src = unitImagesBase() + page.image;
   const hasExpl = Array.isArray(page.explanationImages) && page.explanationImages.length > 0;
   document.getElementById("btn-explain-reading").classList.toggle("hidden", !hasExpl);
 }
@@ -716,7 +716,7 @@ async function renderQuiz() {
   document.getElementById("progress-fill").style.width =
     targetCount > 0 ? `${(answeredCount / targetCount) * 100}%` : "0%";
 
-  const imgBase = `categories/${currentCategory.id}/units/${currentUnit.id}/images/`;
+  const imgBase = unitImagesBase();
   const origImg = await loadImage(imgBase + page.image);
   const maskImg = await loadImage(imgBase + page.imageMasked);
 
@@ -822,7 +822,7 @@ function openExplanation() {
 }
 
 function renderExplanation() {
-  const base = `categories/${currentCategory.id}/units/${currentUnit.id}/images/`;
+  const base = unitImagesBase();
   const img = document.getElementById("explain-img");
   img.style.transform = "";
   img.src = base + explainImages[explainIndex];
@@ -861,7 +861,7 @@ async function revealAnswer() {
   const region = page.regions[currentRegionIndex];
   const canvas = document.getElementById("quiz-canvas");
   const ctx = canvas.getContext("2d");
-  const origImg = await loadImage(`categories/${currentCategory.id}/units/${currentUnit.id}/images/${page.image}`);
+  const origImg = await loadImage(unitImagesBase() + page.image);
   const pad = 4;
   const sx = Math.max(0, region.x - pad);
   const sy = Math.max(0, region.y - pad);
@@ -977,8 +977,8 @@ async function printCurrentPage() {
   const page = activePages[currentPageIndex];
   if (!page) return;
   const isFiltered = ["below50", "below67", "below99"].includes(currentMode);
-  const origPath = `categories/${currentCategory.id}/units/${currentUnit.id}/images/${page.image}`;
-  const maskPath = `categories/${currentCategory.id}/units/${currentUnit.id}/images/${page.imageMasked}`;
+  const origPath = unitImagesBase() + page.image;
+  const maskPath = unitImagesBase() + page.imageMasked;
   let baseImage;
   try {
     baseImage = isFiltered
@@ -1100,7 +1100,7 @@ async function renderFilteredPrintCanvas(page, origPath, maskPath, mode = curren
 async function printReadingPage() {
   const page = readingPages[readingIndex];
   if (!page) return;
-  const imgPath = `categories/${currentCategory.id}/units/${currentUnit.id}/images/${page.image}`;
+  const imgPath = unitImagesBase() + page.image;
   let baseImage;
   try { baseImage = await loadImage(imgPath); }
   catch (e) { alert("画像の読み込みに失敗しました"); return; }
@@ -1126,7 +1126,7 @@ async function bulkPrint(mode) {
   }
   if (targetPages.length === 0) { alert("対象ページがありません"); return; }
 
-  const base = `categories/${currentCategory.id}/units/${currentUnit.id}/images/`;
+  const base = unitImagesBase();
   const dataURLs = [];
   for (const page of targetPages) {
     let img;
@@ -1179,10 +1179,18 @@ function loadImage(src) {
   if (imageCache[src]) return Promise.resolve(imageCache[src]);
   return new Promise((resolve, reject) => {
     const img = new Image();
+    // 画像repo分離(絶対URL)時もcanvasが汚染されないように（GitHub PagesはACAO:*を返す）
+    if (/^https?:/.test(src)) img.crossOrigin = "anonymous";
     img.onload = () => { imageCache[src] = img; resolve(img); };
     img.onerror = reject;
     img.src = src;
   });
+}
+
+// 単元画像のベースURL。quizData.imageBase（画像repo分離時の絶対URL）があればそちらを使う
+function unitImagesBase() {
+  if (quizData && quizData.imageBase) return quizData.imageBase;
+  return "categories/" + currentCategory.id + "/units/" + currentUnit.id + "/images/";
 }
 
 // ==============================
@@ -1581,7 +1589,7 @@ function commitXyz() {
 
 function renderWsPages() {
   const xyz = quizData.xyz;
-  const base = `categories/${currentCategory.id}/units/${currentUnit.id}/images/`;
+  const base = unitImagesBase();
   const el = document.getElementById("wsm-pages-inner");
   const q = xyz.questionPages.map((p, i) =>
     `<div class="wsm-page" data-pt="q" data-idx="${i}">
@@ -1668,7 +1676,7 @@ async function printWsMode(mode) {
   const xyz = quizData.xyz;
   if (!xyz) return;
   const ids = computeWsFilterIds(mode);
-  const base = `categories/${currentCategory.id}/units/${currentUnit.id}/images/`;
+  const base = unitImagesBase();
   const dataURLs = [];
   for (let i = 0; i < xyz.questionPages.length; i++) {
     let img;
@@ -1690,7 +1698,7 @@ async function wsmPrint() {
   const xyz = quizData.xyz;
   if (!xyz) return;
   if (!wsmShowingAnswer) { return printWsMode(wsmFilter || "all"); }
-  const base = `categories/${currentCategory.id}/units/${currentUnit.id}/images/`;
+  const base = unitImagesBase();
   const dataURLs = [];
   for (const p of xyz.answerPages) {
     let img;
