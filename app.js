@@ -123,6 +123,22 @@ function migrateLegacyTrackingToEvents() {
   localStorage.setItem(migratedKey(), "1");
 }
 
+// Sheets のセル自動変換対策: "1-1" 等のキーは日付として保存されてしまうため
+// 送信時は "k:" を付けてテキスト化し、受信時は旧形式（素のキー／日付に化けた値）も復元する
+function encodeSyncKey(k) { return "k:" + k; }
+function decodeSyncKey(raw) {
+  const s = String(raw);
+  if (s.startsWith("k:")) return s.slice(2);
+  if (/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}/.test(s) || /GMT[+-]\d{4}/.test(s)) {
+    const d = new Date(s);
+    if (!isNaN(d)) {
+      const jst = new Date(d.getTime() + 9 * 3600 * 1000);
+      return (jst.getUTCMonth() + 1) + "-" + jst.getUTCDate();
+    }
+  }
+  return s;
+}
+
 // オフライン時は失敗を無視し cursor を進めない → 次回送信時に未送信分まとめて送る
 async function flushSyncQueue() {
   if (!SHEETS_API_URL || !currentUser) return;
@@ -135,7 +151,7 @@ async function flushSyncQueue() {
       method: "POST",
       mode: "cors",
       headers: { "Content-Type": "text/plain" },  // GAS は preflight 回避のため text/plain で受ける
-      body: JSON.stringify({ user: currentUser, entries: batch }),
+      body: JSON.stringify({ user: currentUser, entries: batch.map((ev) => ({ ...ev, key: encodeSyncKey(ev.key) })) }),
     });
     // no-cors fallback: レスポンスが opaque な場合は楽観的にカーソル進行
     if (res.type === "opaque" || res.ok) {
@@ -162,10 +178,11 @@ async function autoSyncFromSheets() {
     // リモートイベント → tracking 再構築
     const remote = {};
     for (const e of json.entries) {
+      const k = decodeSyncKey(e.key);
       if (!remote[e.unitId]) remote[e.unitId] = {};
-      if (!remote[e.unitId][e.key]) remote[e.unitId][e.key] = { attempts: 0, correct: 0 };
-      remote[e.unitId][e.key].attempts++;
-      if (e.correct) remote[e.unitId][e.key].correct++;
+      if (!remote[e.unitId][k]) remote[e.unitId][k] = { attempts: 0, correct: 0 };
+      remote[e.unitId][k].attempts++;
+      if (e.correct) remote[e.unitId][k].correct++;
     }
     // マージ: キーごとに attempts の多い方を採用（多端末対応）
     const local = getTracking();

@@ -36,6 +36,7 @@ function getOrCreateUserSheet(user) {
   let sheet = ss.getSheetByName(name);
   if (!sheet) {
     sheet = ss.insertSheet(name);
+    sheet.getRange("A:C").setNumberFormat("@");  // "1-1"等のキーが日付に自動変換されるのを防ぐ
     sheet.appendRow(["unitId", "key", "date", "correct"]);
   }
   return sheet;
@@ -58,7 +59,9 @@ function doPost(e) {
       ev.correct ? 1 : 0,
     ]);
     if (rows.length > 0) {
-      sheet.getRange(sheet.getLastRow() + 1, 1, rows.length, 4).setValues(rows);
+      const range = sheet.getRange(sheet.getLastRow() + 1, 1, rows.length, 4);
+      range.setNumberFormat("@");  // 既存シートでも書込行をテキスト固定
+      range.setValues(rows);
     }
     return ContentService.createTextOutput(JSON.stringify({ status: "ok", added: rows.length }))
       .setMimeType(ContentService.MimeType.JSON);
