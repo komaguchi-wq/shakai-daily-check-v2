@@ -1,156 +1,454 @@
 [
-  {
-    "id": "cp-00",
-    "title": "巻頭資料",
-    "subject": "コアプラス",
-    "pageCount": 8,
-    "totalRegions": 0
+ {
+  "id": "cp-00",
+  "title": "巻頭資料",
+  "subject": "コアプラス",
+  "pageCount": 8,
+  "totalRegions": 0,
+  "sectionRegions": {},
+  "sectionPages": {},
+  "xyzCount": 0
+ },
+ {
+  "id": "cp-01",
+  "title": "第1節 国土・自然・人口",
+  "subject": "コアプラス",
+  "pageCount": 10,
+  "totalRegions": 160,
+  "sectionRegions": {
+   "kakunin": 160
   },
-  {
-    "id": "cp-01",
-    "title": "第1節 国土・自然・人口",
-    "subject": "コアプラス",
-    "pageCount": 10,
-    "totalRegions": 160
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin",
+   "3": "kakunin",
+   "4": "kakunin",
+   "5": "kakunin",
+   "6": "kakunin",
+   "7": "kakunin",
+   "8": "kakunin",
+   "9": "kakunin",
+   "10": "kakunin"
   },
-  {
-    "id": "cp-02",
-    "title": "第2節 都道府県・都市",
-    "subject": "コアプラス",
-    "pageCount": 15,
-    "totalRegions": 152
+  "xyzCount": 0
+ },
+ {
+  "id": "cp-02",
+  "title": "第2節 都道府県・都市",
+  "subject": "コアプラス",
+  "pageCount": 15,
+  "totalRegions": 152,
+  "sectionRegions": {
+   "kakunin": 152
   },
-  {
-    "id": "cp-03",
-    "title": "第3節 重要地名（山・川・平地）",
-    "subject": "コアプラス",
-    "pageCount": 8,
-    "totalRegions": 145
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin",
+   "3": "kakunin",
+   "4": "kakunin",
+   "5": "kakunin",
+   "6": "kakunin",
+   "7": "kakunin",
+   "8": "kakunin",
+   "9": "kakunin",
+   "10": "kakunin",
+   "11": "kakunin",
+   "12": "kakunin",
+   "13": "kakunin",
+   "14": "kakunin",
+   "15": "kakunin"
   },
-  {
-    "id": "cp-04",
-    "title": "第4節 重要地名（岬・湾・その他）",
-    "subject": "コアプラス",
-    "pageCount": 4,
-    "totalRegions": 47
+  "xyzCount": 0
+ },
+ {
+  "id": "cp-03",
+  "title": "第3節 重要地名（山・川・平地）",
+  "subject": "コアプラス",
+  "pageCount": 8,
+  "totalRegions": 145,
+  "sectionRegions": {
+   "kakunin": 145
   },
-  {
-    "id": "cp-05",
-    "title": "第5節 第1次産業",
-    "subject": "コアプラス",
-    "pageCount": 18,
-    "totalRegions": 213
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin",
+   "3": "kakunin",
+   "4": "kakunin",
+   "5": "kakunin",
+   "6": "kakunin",
+   "7": "kakunin",
+   "8": "kakunin"
   },
-  {
-    "id": "cp-06",
-    "title": "第6節 第2次産業・公害・環境問題",
-    "subject": "コアプラス",
-    "pageCount": 9,
-    "totalRegions": 113
+  "xyzCount": 0
+ },
+ {
+  "id": "cp-04",
+  "title": "第4節 重要地名（岬・湾・その他）",
+  "subject": "コアプラス",
+  "pageCount": 4,
+  "totalRegions": 47,
+  "sectionRegions": {
+   "kakunin": 47
   },
-  {
-    "id": "cp-07",
-    "title": "第7節 貿易・交通・通信・世界地理",
-    "subject": "コアプラス",
-    "pageCount": 10,
-    "totalRegions": 145
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin",
+   "3": "kakunin",
+   "4": "kakunin"
   },
-  {
-    "id": "cp-08",
-    "title": "第8節 古代（旧石器〜平安時代）",
-    "subject": "コアプラス",
-    "pageCount": 9,
-    "totalRegions": 115
+  "xyzCount": 0
+ },
+ {
+  "id": "cp-05",
+  "title": "第5節 第1次産業",
+  "subject": "コアプラス",
+  "pageCount": 18,
+  "totalRegions": 213,
+  "sectionRegions": {
+   "kakunin": 213
   },
-  {
-    "id": "cp-09",
-    "title": "第9節 中世（鎌倉〜室町時代）",
-    "subject": "コアプラス",
-    "pageCount": 11,
-    "totalRegions": 140
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin",
+   "3": "kakunin",
+   "4": "kakunin",
+   "5": "kakunin",
+   "6": "kakunin",
+   "7": "kakunin",
+   "8": "kakunin",
+   "9": "kakunin",
+   "10": "kakunin",
+   "11": "kakunin",
+   "12": "kakunin",
+   "13": "kakunin",
+   "14": "kakunin",
+   "15": "kakunin",
+   "16": "kakunin",
+   "17": "kakunin",
+   "18": "kakunin"
   },
-  {
-    "id": "cp-10",
-    "title": "第10節 近世（安土桃山〜江戸時代）",
-    "subject": "コアプラス",
-    "pageCount": 13,
-    "totalRegions": 170
+  "xyzCount": 0
+ },
+ {
+  "id": "cp-06",
+  "title": "第6節 第2次産業・公害・環境問題",
+  "subject": "コアプラス",
+  "pageCount": 9,
+  "totalRegions": 113,
+  "sectionRegions": {
+   "kakunin": 113
   },
-  {
-    "id": "cp-11",
-    "title": "第11節 近代（明治〜昭和・戦前）",
-    "subject": "コアプラス",
-    "pageCount": 12,
-    "totalRegions": 137
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin",
+   "3": "kakunin",
+   "4": "kakunin",
+   "5": "kakunin",
+   "6": "kakunin",
+   "7": "kakunin",
+   "8": "kakunin",
+   "9": "kakunin"
   },
-  {
-    "id": "cp-12",
-    "title": "第12節 現代（昭和・戦後〜現代）",
-    "subject": "コアプラス",
-    "pageCount": 4,
-    "totalRegions": 43
+  "xyzCount": 0
+ },
+ {
+  "id": "cp-07",
+  "title": "第7節 貿易・交通・通信・世界地理",
+  "subject": "コアプラス",
+  "pageCount": 10,
+  "totalRegions": 145,
+  "sectionRegions": {
+   "kakunin": 145
   },
-  {
-    "id": "cp-13",
-    "title": "第13節 歴史重要資料のまとめ",
-    "subject": "コアプラス",
-    "pageCount": 12,
-    "totalRegions": 83
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin",
+   "3": "kakunin",
+   "4": "kakunin",
+   "5": "kakunin",
+   "6": "kakunin",
+   "7": "kakunin",
+   "8": "kakunin",
+   "9": "kakunin",
+   "10": "kakunin"
   },
-  {
-    "id": "cp-14",
-    "title": "第14節 日本国憲法",
-    "subject": "コアプラス",
-    "pageCount": 4,
-    "totalRegions": 62
+  "xyzCount": 0
+ },
+ {
+  "id": "cp-08",
+  "title": "第8節 古代（旧石器〜平安時代）",
+  "subject": "コアプラス",
+  "pageCount": 9,
+  "totalRegions": 115,
+  "sectionRegions": {
+   "kakunin": 115
   },
-  {
-    "id": "cp-15",
-    "title": "第15節 三権分立",
-    "subject": "コアプラス",
-    "pageCount": 6,
-    "totalRegions": 91
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin",
+   "3": "kakunin",
+   "4": "kakunin",
+   "5": "kakunin",
+   "6": "kakunin",
+   "7": "kakunin",
+   "8": "kakunin",
+   "9": "kakunin"
   },
-  {
-    "id": "cp-16",
-    "title": "第16節 私たちの生活・現代日本",
-    "subject": "コアプラス",
-    "pageCount": 4,
-    "totalRegions": 65
+  "xyzCount": 0
+ },
+ {
+  "id": "cp-09",
+  "title": "第9節 中世（鎌倉〜室町時代）",
+  "subject": "コアプラス",
+  "pageCount": 11,
+  "totalRegions": 140,
+  "sectionRegions": {
+   "kakunin": 140
   },
-  {
-    "id": "cp-17",
-    "title": "第17節 国際連合・国際社会",
-    "subject": "コアプラス",
-    "pageCount": 4,
-    "totalRegions": 41
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin",
+   "3": "kakunin",
+   "4": "kakunin",
+   "5": "kakunin",
+   "6": "kakunin",
+   "7": "kakunin",
+   "8": "kakunin",
+   "9": "kakunin",
+   "10": "kakunin",
+   "11": "kakunin"
   },
-  {
-    "id": "cp-18",
-    "title": "第II部第1節 地理のプラス知識",
-    "subject": "コアプラス",
-    "pageCount": 7,
-    "totalRegions": 58
+  "xyzCount": 0
+ },
+ {
+  "id": "cp-10",
+  "title": "第10節 近世（安土桃山〜江戸時代）",
+  "subject": "コアプラス",
+  "pageCount": 13,
+  "totalRegions": 170,
+  "sectionRegions": {
+   "kakunin": 170
   },
-  {
-    "id": "cp-19",
-    "title": "第II部第2節 歴史のプラス知識",
-    "subject": "コアプラス",
-    "pageCount": 4,
-    "totalRegions": 50
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin",
+   "3": "kakunin",
+   "4": "kakunin",
+   "5": "kakunin",
+   "6": "kakunin",
+   "7": "kakunin",
+   "8": "kakunin",
+   "9": "kakunin",
+   "10": "kakunin",
+   "11": "kakunin",
+   "12": "kakunin",
+   "13": "kakunin"
   },
-  {
-    "id": "cp-20",
-    "title": "第II部第3節 公民・国際社会のプラス知識",
-    "subject": "コアプラス",
-    "pageCount": 4,
-    "totalRegions": 36
+  "xyzCount": 0
+ },
+ {
+  "id": "cp-11",
+  "title": "第11節 近代（明治〜昭和・戦前）",
+  "subject": "コアプラス",
+  "pageCount": 12,
+  "totalRegions": 137,
+  "sectionRegions": {
+   "kakunin": 137
   },
-  {
-    "id": "cp-21",
-    "title": "第II部第4節 日本の伝統文化のプラス知識",
-    "subject": "コアプラス",
-    "pageCount": 2,
-    "totalRegions": 20
-  }
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin",
+   "3": "kakunin",
+   "4": "kakunin",
+   "5": "kakunin",
+   "6": "kakunin",
+   "7": "kakunin",
+   "8": "kakunin",
+   "9": "kakunin",
+   "10": "kakunin",
+   "11": "kakunin",
+   "12": "kakunin"
+  },
+  "xyzCount": 0
+ },
+ {
+  "id": "cp-12",
+  "title": "第12節 現代（昭和・戦後〜現代）",
+  "subject": "コアプラス",
+  "pageCount": 4,
+  "totalRegions": 43,
+  "sectionRegions": {
+   "kakunin": 43
+  },
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin",
+   "3": "kakunin",
+   "4": "kakunin"
+  },
+  "xyzCount": 0
+ },
+ {
+  "id": "cp-13",
+  "title": "第13節 歴史重要資料のまとめ",
+  "subject": "コアプラス",
+  "pageCount": 12,
+  "totalRegions": 83,
+  "sectionRegions": {
+   "kakunin": 83
+  },
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin",
+   "3": "kakunin",
+   "4": "kakunin",
+   "5": "kakunin",
+   "6": "kakunin",
+   "7": "kakunin",
+   "8": "kakunin",
+   "9": "kakunin",
+   "10": "kakunin",
+   "11": "kakunin",
+   "12": "kakunin"
+  },
+  "xyzCount": 0
+ },
+ {
+  "id": "cp-14",
+  "title": "第14節 日本国憲法",
+  "subject": "コアプラス",
+  "pageCount": 4,
+  "totalRegions": 62,
+  "sectionRegions": {
+   "kakunin": 62
+  },
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin",
+   "3": "kakunin",
+   "4": "kakunin"
+  },
+  "xyzCount": 0
+ },
+ {
+  "id": "cp-15",
+  "title": "第15節 三権分立",
+  "subject": "コアプラス",
+  "pageCount": 6,
+  "totalRegions": 91,
+  "sectionRegions": {
+   "kakunin": 91
+  },
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin",
+   "3": "kakunin",
+   "4": "kakunin",
+   "5": "kakunin",
+   "6": "kakunin"
+  },
+  "xyzCount": 0
+ },
+ {
+  "id": "cp-16",
+  "title": "第16節 私たちの生活・現代日本",
+  "subject": "コアプラス",
+  "pageCount": 4,
+  "totalRegions": 65,
+  "sectionRegions": {
+   "kakunin": 65
+  },
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin",
+   "3": "kakunin",
+   "4": "kakunin"
+  },
+  "xyzCount": 0
+ },
+ {
+  "id": "cp-17",
+  "title": "第17節 国際連合・国際社会",
+  "subject": "コアプラス",
+  "pageCount": 4,
+  "totalRegions": 41,
+  "sectionRegions": {
+   "kakunin": 41
+  },
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin",
+   "4": "kakunin"
+  },
+  "xyzCount": 0
+ },
+ {
+  "id": "cp-18",
+  "title": "第II部第1節 地理のプラス知識",
+  "subject": "コアプラス",
+  "pageCount": 7,
+  "totalRegions": 58,
+  "sectionRegions": {
+   "kakunin": 58
+  },
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin",
+   "3": "kakunin",
+   "4": "kakunin",
+   "5": "kakunin",
+   "6": "kakunin",
+   "7": "kakunin"
+  },
+  "xyzCount": 0
+ },
+ {
+  "id": "cp-19",
+  "title": "第II部第2節 歴史のプラス知識",
+  "subject": "コアプラス",
+  "pageCount": 4,
+  "totalRegions": 50,
+  "sectionRegions": {
+   "kakunin": 50
+  },
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin",
+   "3": "kakunin",
+   "4": "kakunin"
+  },
+  "xyzCount": 0
+ },
+ {
+  "id": "cp-20",
+  "title": "第II部第3節 公民・国際社会のプラス知識",
+  "subject": "コアプラス",
+  "pageCount": 4,
+  "totalRegions": 36,
+  "sectionRegions": {
+   "kakunin": 36
+  },
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin",
+   "3": "kakunin",
+   "4": "kakunin"
+  },
+  "xyzCount": 0
+ },
+ {
+  "id": "cp-21",
+  "title": "第II部第4節 日本の伝統文化のプラス知識",
+  "subject": "コアプラス",
+  "pageCount": 2,
+  "totalRegions": 20,
+  "sectionRegions": {
+   "kakunin": 20
+  },
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin"
+  },
+  "xyzCount": 0
+ }
 ]

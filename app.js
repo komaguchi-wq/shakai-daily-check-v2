@@ -232,20 +232,38 @@ function getUnitStats(unitId) {
   return { totalQuestions, totalAttempts, totalCorrect };
 }
 
-// 単元カード用: 単元全体の 回答済み数 / 全問数 と 67%以上達成数（単元内表示と合致）
-// 全問数は units.json の totalRegions（quiz-data未ロードでも使える）
+// 単元カード用: 「解いた問数 / 対象問数」の達成率。
+// デイリーチェックは 授業の確認問題(X/Y/Z)＋デイリーステップ のみを分母にし、コアプラスは外す。
+// X/Y/Zがある単元では確認問題のマスクregion（X/Y/Zカードに置き換わり解けない分）も分母から外す。
+// 対象セクションが無いカテゴリ（Weekly・コアプラス等）は従来通り全問数（totalRegions）。
+// 「解いた」= 正誤表に1度でもチェックが入っている（attempts > 0）。
+// セクション情報は units.json の sectionRegions / sectionPages / xyzCount（無い単元は全問数へフォールバック）
 function getUnitProgress(unit) {
+  const sr = unit.sectionRegions || null;
+  const xyzN = unit.xyzCount || 0;
+  const filtered = !!(sr && ((sr.dailystep || 0) > 0 || xyzN > 0));
+  const total = filtered
+    ? (sr.dailystep || 0) + (xyzN > 0 ? xyzN : (sr.kakunin || 0))
+    : (unit.totalRegions || 0);
+  const pageSections = unit.sectionPages || {};
   const unitData = getTracking()[unit.id] || {};
-  let attempted = 0, goodCount = 0;
+  let attempted = 0;
   for (const key in unitData) {
-    if (key.startsWith("xyz-")) continue; // 授業の確認問題(X/Y/Z)は専用カードで集計するため除外
     const t = unitData[key];
-    if (t && t.attempts > 0) {
-      attempted++;
-      if (t.correct / t.attempts >= 0.67) goodCount++;
+    if (!t || !(t.attempts > 0)) continue;
+    if (key.startsWith("xyz-")) {
+      // 授業の確認問題(X/Y/Z)。filtered時は分母に入っている場合のみ数える
+      if (!filtered) continue; // フォールバック時の分母(totalRegions)はxyzを含まないため除外
+      if (xyzN > 0) attempted++;
+      continue;
     }
+    if (filtered) {
+      const sec = pageSections[key.slice(0, key.lastIndexOf("-"))];
+      if (!(sec === "dailystep" || (xyzN === 0 && sec === "kakunin"))) continue;
+    }
+    attempted++;
   }
-  return { total: unit.totalRegions || 0, attempted, goodCount };
+  return { total, attempted: Math.min(attempted, total) };
 }
 
 // --- Google Sheets（手動復元ボタン用ラッパ）---
@@ -339,10 +357,10 @@ function renderUnits() {
   unitsList.forEach(unit => {
     const card = document.createElement("div");
     card.className = "unit-card";
-    // 単元内の表示（67%以上達成 / 全問数）と合致させる
+    // 解いた問数 / 対象問数（授業の確認問題＋デイリーステップ）の達成率
     const prog = getUnitProgress(unit);
     const accuracy = prog.total > 0
-      ? Math.round((prog.goodCount / prog.total) * 100) + "%"
+      ? Math.round((prog.attempted / prog.total) * 100) + "%"
       : "---";
     card.innerHTML = `
       <div class="unit-card-info">
