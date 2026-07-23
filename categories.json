@@ -6,6 +6,12 @@
     "description": "640-XX 6年デイリーサピックス社会"
   },
   {
+    "id": "databank",
+    "name": "データバンク",
+    "icon": "📊",
+    "description": "夏期地理 N64-XX資料データバンク＋復習テスト"
+  },
+  {
     "id": "weekly-sapix",
     "name": "Weekly SapiX",
     "icon": "📘",

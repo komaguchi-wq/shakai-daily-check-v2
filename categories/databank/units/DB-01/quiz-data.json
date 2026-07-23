@@ -1,0 +1,32 @@
+{
+  "unitId": "DB-01",
+  "title": "日本の国土",
+  "imageBase": "https://komaguchi-wq.github.io/shakai-daily-check-v2-images-01/databank/DB-01/",
+  "pages": [
+    {
+      "id": 1,
+      "type": "description",
+      "image": "shiryo_01.jpg",
+      "width": 3993,
+      "height": 2806,
+      "regions": []
+    },
+    {
+      "id": 2,
+      "type": "description",
+      "image": "shiryo_02.jpg",
+      "width": 3988,
+      "height": 2806,
+      "regions": []
+    }
+  ],
+  "review": {
+    "label": "データバンク01の復習",
+    "questionPages": [
+      "review_q_01.jpg"
+    ],
+    "answerPages": [
+      "review_a_01.jpg"
+    ]
+  }
+}

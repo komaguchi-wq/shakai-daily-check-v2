@@ -107,6 +107,22 @@
     <div class="wsm-pages" id="wsm-pages"><div id="wsm-pages-inner"></div></div>
   </div>
 
+  <!-- データバンク復習画面（問題/解答タブ + 印刷。正誤表なしの閲覧型） -->
+  <div id="screen-review" class="screen">
+    <header class="header">
+      <button class="btn-icon" id="btn-back-review">←</button>
+      <h1 class="header-title" id="review-title">復習</h1>
+      <button id="rvw-print-btn" title="表示中のタブを印刷">🖨 印刷</button>
+    </header>
+    <div class="wsm-fixed-top">
+      <div class="wsm-tabbar">
+        <button class="wsm-tab active" id="rvw-tab-q">問題</button>
+        <button class="wsm-tab" id="rvw-tab-a">解答</button>
+      </div>
+    </div>
+    <div class="wsm-pages" id="rvw-pages"><div id="rvw-pages-inner"></div></div>
+  </div>
+
   <!-- セクション詳細画面（モード選択 + ページ一覧 + 正答率） -->
   <div id="screen-section-detail" class="screen">
     <header class="header">
@@ -289,6 +305,6 @@
     <div id="print-overlay-body"></div>
   </div>
 
-  <script src="app.js?v=20260719"></script>
+  <script src="app.js?v=20260723"></script>
 </body>
 </html>

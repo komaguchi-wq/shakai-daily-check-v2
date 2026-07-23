@@ -469,6 +469,12 @@ function renderUnitDetail() {
     card.addEventListener("click", () => openSection(sec));
     list.appendChild(card);
   });
+
+  // データバンク単元: 復習（問題/解答タブ）カードを説明文の後に出す
+  if (quizData && quizData.review
+      && Array.isArray(quizData.review.questionPages) && quizData.review.questionPages.length > 0) {
+    list.appendChild(buildReviewCard());
+  }
 }
 
 function openSection(section) {
@@ -1405,6 +1411,15 @@ function setupEventListeners() {
   document.getElementById("wsm-tab-q").addEventListener("click", () => setWsTab(false));
   document.getElementById("wsm-tab-a").addEventListener("click", () => setWsTab(true));
   document.getElementById("wsm-print-btn").addEventListener("click", wsmPrint);
+
+  // データバンク復習画面
+  document.getElementById("btn-back-review").addEventListener("click", () => {
+    showScreen("screen-unit-detail");
+    renderUnitDetail();
+  });
+  document.getElementById("rvw-tab-q").addEventListener("click", () => setReviewTab(false));
+  document.getElementById("rvw-tab-a").addEventListener("click", () => setReviewTab(true));
+  document.getElementById("rvw-print-btn").addEventListener("click", reviewPrint);
   // 正誤表の縦幅トグル（まとめて入力したいとき広げる）
   const wsmToggle = document.getElementById("wsm-table-toggle");
   if (wsmToggle) wsmToggle.addEventListener("click", () => {
@@ -1748,6 +1763,97 @@ async function wsmPrint() {
 }
 
 // ==============================
+// データバンク復習（問題/解答タブ + 印刷。正誤表なしの閲覧型）
+// ==============================
+let rvwShowingAnswer = false;
+
+function buildReviewCard() {
+  const rv = quizData.review;
+  const card = document.createElement("div");
+  card.className = "section-card";
+  card.innerHTML = `
+    <div class="section-card-icon">✏️</div>
+    <div class="section-card-body">
+      <div class="section-card-title">${rv.label || "復習"}</div>
+      <div class="section-card-meta">問題${rv.questionPages.length}ページ ・ 問題/解答タブ</div>
+    </div>
+    <div class="section-card-stats">
+      <div class="section-card-stats-main" style="color:#86868b">📄</div>
+      <div class="section-card-stats-sub">閲覧・印刷</div>
+    </div>`;
+  card.addEventListener("click", openReview);
+  return card;
+}
+
+function reviewTitle() {
+  return (quizData && quizData.review && quizData.review.label) || "復習";
+}
+
+function openReview() {
+  rvwShowingAnswer = false;
+  document.getElementById("review-title").textContent =
+    `${currentUnit.title} ${reviewTitle()}`;
+  renderReviewPages();
+  updateReviewTabUI();
+  showScreen("screen-review");
+  document.getElementById("rvw-pages").scrollTop = 0;
+}
+
+function renderReviewPages() {
+  const rv = quizData.review;
+  const base = unitImagesBase();
+  const el = document.getElementById("rvw-pages-inner");
+  const q = rv.questionPages.map((p, i) =>
+    `<div class="wsm-page" data-pt="q">
+       <div class="wsm-page-label">問題 ${i + 1} / ${rv.questionPages.length}</div>
+       <img src="${base}${p}" loading="lazy" alt="問題${i + 1}">
+     </div>`).join("");
+  const a = rv.answerPages.map((p, i) =>
+    `<div class="wsm-page" data-pt="a" style="display:none">
+       <div class="wsm-page-label">解答 ${i + 1} / ${rv.answerPages.length}</div>
+       <img src="${base}${p}" loading="lazy" alt="解答${i + 1}"></div>`).join("");
+  el.innerHTML = q + a;
+  applyReviewTabVisibility();
+}
+
+function applyReviewTabVisibility() {
+  document.querySelectorAll('#rvw-pages .wsm-page[data-pt="q"]').forEach(e => e.style.display = rvwShowingAnswer ? "none" : "");
+  document.querySelectorAll('#rvw-pages .wsm-page[data-pt="a"]').forEach(e => e.style.display = rvwShowingAnswer ? "" : "none");
+}
+
+function updateReviewTabUI() {
+  document.getElementById("rvw-tab-q").classList.toggle("active", !rvwShowingAnswer);
+  document.getElementById("rvw-tab-a").classList.toggle("active", rvwShowingAnswer);
+}
+
+function setReviewTab(showAnswer) {
+  if (rvwShowingAnswer === showAnswer) return;
+  rvwShowingAnswer = showAnswer;
+  applyReviewTabVisibility();
+  updateReviewTabUI();
+  document.getElementById("rvw-pages").scrollTop = 0;
+}
+
+// 表示中タブ（問題 or 解答）の全ページを印刷
+async function reviewPrint() {
+  const rv = quizData.review;
+  if (!rv) return;
+  const files = rvwShowingAnswer ? rv.answerPages : rv.questionPages;
+  const base = unitImagesBase();
+  const dataURLs = [];
+  for (const p of files) {
+    let img;
+    try { img = await loadImage(base + p); } catch (e) { continue; }
+    const cc = document.createElement("canvas");
+    cc.width = img.width; cc.height = img.height;
+    cc.getContext("2d").drawImage(img, 0, 0);
+    dataURLs.push(cc.toDataURL("image/jpeg", 0.92));
+  }
+  if (dataURLs.length === 0) { alert("画像の読み込みに失敗しました"); return; }
+  _openPrintOverlay(`${currentUnit.title} ${reviewTitle()}（${rvwShowingAnswer ? "解答" : "問題"}）`, dataURLs);
+}
+
+// ==============================
 // 起動
 // ==============================
 function init() {
@@ -1890,3 +1996,4 @@ attachPinchZoom('canvas-wrapper', '#quiz-canvas');
 attachPinchZoom('reading-wrapper', '#reading-image');
 attachPinchZoom('explain-viewport', '#explain-img');
 attachPinchZoom('wsm-pages', '#wsm-pages-inner');
+attachPinchZoom('rvw-pages', '#rvw-pages-inner');
