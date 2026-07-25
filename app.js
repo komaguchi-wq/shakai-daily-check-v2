@@ -470,8 +470,9 @@ function renderUnitDetail() {
     list.appendChild(card);
   });
 
-  // データバンク単元: 復習（問題/解答タブ）カードを説明文の後に出す
-  if (quizData && quizData.review
+  // データバンク単元: 復習（問題/解答タブ）カードを説明文の後に出す。
+  // xyz(正誤表付き)がある単元は上の kakunin 分岐で X/Y/Z カードが出るため、こちらは出さない
+  if (quizData && !quizData.xyz && quizData.review
       && Array.isArray(quizData.review.questionPages) && quizData.review.questionPages.length > 0) {
     list.appendChild(buildReviewCard());
   }
