@@ -570,5 +570,22 @@
    "12": "coreplus"
   },
   "xyzCount": 186
+ },
+ {
+  "id": "N64-03",
+  "title": "地理総合問題演習③〜日本の第2次産業〜",
+  "subject": "6年社会 デイリーサピックス",
+  "pageCount": 12,
+  "totalRegions": 56,
+  "sectionRegions": {
+   "dailystep": 46,
+   "coreplus": 10
+  },
+  "sectionPages": {
+   "6": "dailystep",
+   "7": "dailystep",
+   "12": "coreplus"
+  },
+  "xyzCount": 155
  }
 ]
