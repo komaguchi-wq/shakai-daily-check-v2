@@ -1608,7 +1608,7 @@ function renderXyzTable() {
       return `<div class="wsm-sub-row">${prefix}${chips}</div>`;
     }).join("");
     return `<div class="wsm-daimon">
-      <div class="wsm-daimon-head">${dm.id}</div>
+      <div class="wsm-daimon-head">${dm.label || dm.id}</div>
       ${rowsHtml}
     </div>`;
   }).join("");
@@ -1664,7 +1664,7 @@ function wsTargetTextForPage(idx, idsSet) {
     if (dm.qpage !== idx) return;
     const subs = dm.questions.filter(q => idsSet.has(q.id));
     if (!subs.length) return;
-    parts.push(`${dm.id}-${subs.map(q => q.label).join(",")}`);
+    parts.push(`${dm.label || dm.id}-${subs.map(q => q.label).join(",")}`);
   });
   return parts.length ? "対象 " + parts.join("　/　") : "";
 }
