@@ -1,0 +1,31 @@
+{
+  "unitId": "DB-03",
+  "title": "第2次産業",
+  "imageBase": "https://komaguchi-wq.github.io/shakai-daily-check-v2-images-01/databank/DB-03/",
+  "pages": [
+    {
+      "id": 1,
+      "type": "description",
+      "image": "shiryo_01.jpg",
+      "width": 3993,
+      "height": 2806,
+      "regions": []
+    },
+    {
+      "id": 2,
+      "type": "description",
+      "image": "shiryo_02.jpg",
+      "width": 3988,
+      "height": 2806,
+      "regions": []
+    },
+    {
+      "id": 3,
+      "type": "description",
+      "image": "shiryo_03.jpg",
+      "width": 3996,
+      "height": 2816,
+      "regions": []
+    }
+  ]
+}
