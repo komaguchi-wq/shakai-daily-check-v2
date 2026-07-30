@@ -1,0 +1,31 @@
+{
+  "unitId": "DB-04",
+  "title": "交通・貿易・資源",
+  "imageBase": "https://komaguchi-wq.github.io/shakai-daily-check-v2-images-01/databank/DB-04/",
+  "pages": [
+    {
+      "id": 1,
+      "type": "description",
+      "image": "shiryo_01.jpg",
+      "width": 3988,
+      "height": 2806,
+      "regions": []
+    },
+    {
+      "id": 2,
+      "type": "description",
+      "image": "shiryo_02.jpg",
+      "width": 3994,
+      "height": 2816,
+      "regions": []
+    },
+    {
+      "id": 3,
+      "type": "description",
+      "image": "shiryo_03.jpg",
+      "width": 3990,
+      "height": 2806,
+      "regions": []
+    }
+  ]
+}

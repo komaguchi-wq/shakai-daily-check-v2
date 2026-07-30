@@ -25,6 +25,16 @@
     "subject": "夏期地理 N64-03資料 データバンク",
     "pageCount": 3,
     "totalRegions": 0,
+    "hasReview": true,
+    "sectionRegions": {},
+    "xyzCount": 24
+  },
+  {
+    "id": "DB-04",
+    "title": "交通・貿易・資源",
+    "subject": "夏期地理 N64-04資料 データバンク",
+    "pageCount": 3,
+    "totalRegions": 0,
     "hasReview": false
   }
 ]
