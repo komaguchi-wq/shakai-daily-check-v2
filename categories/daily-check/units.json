@@ -587,5 +587,22 @@
    "12": "coreplus"
   },
   "xyzCount": 155
+ },
+ {
+  "id": "N64-04",
+  "title": "地理総合問題演習④〜日本の交通と貿易〜",
+  "subject": "6年社会 デイリーサピックス",
+  "pageCount": 12,
+  "totalRegions": 52,
+  "sectionRegions": {
+   "dailystep": 42,
+   "coreplus": 10
+  },
+  "sectionPages": {
+   "6": "dailystep",
+   "7": "dailystep",
+   "12": "coreplus"
+  },
+  "xyzCount": 163
  }
 ]
