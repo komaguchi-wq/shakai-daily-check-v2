@@ -604,5 +604,22 @@
    "12": "coreplus"
   },
   "xyzCount": 163
+ },
+ {
+  "id": "N64-05",
+  "title": "歴史総合問題演習①　旧石器時代〜平安時代",
+  "subject": "6年社会 デイリーサピックス",
+  "pageCount": 12,
+  "totalRegions": 57,
+  "sectionRegions": {
+   "dailystep": 47,
+   "coreplus": 10
+  },
+  "sectionPages": {
+   "6": "dailystep",
+   "7": "dailystep",
+   "12": "coreplus"
+  },
+  "xyzCount": 175
  }
 ]
