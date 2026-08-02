@@ -621,5 +621,22 @@
    "12": "coreplus"
   },
   "xyzCount": 175
+ },
+ {
+  "id": "N64-06",
+  "title": "歴史総合問題演習②　鎌倉時代〜安土桃山時代",
+  "subject": "6年社会 デイリーサピックス",
+  "pageCount": 12,
+  "totalRegions": 58,
+  "sectionRegions": {
+   "dailystep": 48,
+   "coreplus": 10
+  },
+  "sectionPages": {
+   "6": "dailystep",
+   "7": "dailystep",
+   "12": "coreplus"
+  },
+  "xyzCount": 149
  }
 ]
