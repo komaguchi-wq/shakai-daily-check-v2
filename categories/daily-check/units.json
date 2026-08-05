@@ -638,5 +638,22 @@
    "12": "coreplus"
   },
   "xyzCount": 149
+ },
+ {
+  "id": "N64-07",
+  "title": "歴史総合問題演習③　江戸時代〜明治時代",
+  "subject": "6年社会 デイリーサピックス",
+  "pageCount": 12,
+  "totalRegions": 67,
+  "sectionRegions": {
+   "dailystep": 57,
+   "coreplus": 10
+  },
+  "sectionPages": {
+   "6": "dailystep",
+   "7": "dailystep",
+   "12": "coreplus"
+  },
+  "xyzCount": 168
  }
 ]
