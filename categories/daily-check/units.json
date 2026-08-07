@@ -655,5 +655,22 @@
    "12": "coreplus"
   },
   "xyzCount": 168
+ },
+ {
+  "id": "N64-08",
+  "title": "歴史総合問題演習④　大正時代〜現代",
+  "subject": "6年社会 デイリーサピックス",
+  "pageCount": 13,
+  "totalRegions": 67,
+  "sectionRegions": {
+   "dailystep": 57,
+   "coreplus": 10
+  },
+  "sectionPages": {
+   "6": "dailystep",
+   "7": "dailystep",
+   "13": "coreplus"
+  },
+  "xyzCount": 174
  }
 ]
