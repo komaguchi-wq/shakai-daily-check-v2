@@ -672,5 +672,24 @@
    "13": "coreplus"
   },
   "xyzCount": 174
+ },
+ {
+  "id": "N64-09",
+  "title": "公民総合問題演習",
+  "subject": "6年社会 デイリーサピックス",
+  "pageCount": 18,
+  "totalRegions": 105,
+  "sectionRegions": {
+   "dailystep": 95,
+   "coreplus": 10
+  },
+  "sectionPages": {
+   "6": "dailystep",
+   "7": "dailystep",
+   "8": "dailystep",
+   "9": "dailystep",
+   "18": "coreplus"
+  },
+  "xyzCount": 270
  }
 ]
