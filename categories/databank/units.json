@@ -48,5 +48,35 @@
     "hasReview": true,
     "sectionRegions": {},
     "xyzCount": 45
+  },
+  {
+    "id": "DB-06",
+    "title": "歴史ステップ〈その2〉",
+    "subject": "夏期歴史ステップ〈その2〉N64-07",
+    "pageCount": 0,
+    "totalRegions": 0,
+    "hasReview": true,
+    "sectionRegions": {},
+    "xyzCount": 48
+  },
+  {
+    "id": "DB-07",
+    "title": "歴史ステップ〈その3〉",
+    "subject": "夏期歴史ステップ〈その3〉N64-08",
+    "pageCount": 0,
+    "totalRegions": 0,
+    "hasReview": true,
+    "sectionRegions": {},
+    "xyzCount": 49
+  },
+  {
+    "id": "DB-08",
+    "title": "歴史ステップ〈その4〉",
+    "subject": "夏期歴史ステップ〈その4〉N64-09",
+    "pageCount": 0,
+    "totalRegions": 0,
+    "hasReview": true,
+    "sectionRegions": {},
+    "xyzCount": 48
   }
 ]
