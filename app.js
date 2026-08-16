@@ -511,9 +511,9 @@ function renderSectionDetail() {
       totalAll++;
       const acc = getAccuracy(currentUnit.id, page.id, ri);
       if (acc === null) countUnanswered++;
-      if (acc !== null && acc <= 0.5) countBelow50++;
-      if (acc !== null && acc <= 0.67) countBelow67++;
-      if (acc !== null && acc < 1.0) countBelow99++;
+      if (acc !== null && acc < 0.5) countBelow50++;
+      if (acc !== null && acc < 0.66) countBelow67++;
+      if (acc !== null && acc < 0.8) countBelow99++;
     });
   });
   const setBtn = (mode, count) => {
@@ -659,9 +659,9 @@ function isTargetForMode(pageId, regionIdx, mode) {
   if (mode === "all") return true;
   const acc = getAccuracy(currentUnit.id, pageId, regionIdx);
   if (mode === "continue" || mode === "unanswered") return acc === null;
-  if (mode === "below50") return acc !== null && acc <= 0.5;
-  if (mode === "below67") return acc !== null && acc <= 0.67;
-  if (mode === "below99") return acc !== null && acc < 1.0;
+  if (mode === "below50") return acc !== null && acc < 0.5;
+  if (mode === "below67") return acc !== null && acc < 0.66;
+  if (mode === "below99") return acc !== null && acc < 0.8;
   return true;
 }
 
@@ -698,11 +698,11 @@ function startWithMode(mode) {
     sessionResults = {};
     if (activePages.length > 0) startQuiz(0);
   } else {
-    const threshold = mode === "below50" ? 0.5 : mode === "below67" ? 0.67 : 0.99;
+    const threshold = mode === "below50" ? 0.5 : mode === "below67" ? 0.66 : 0.8;
     activePages = allPages.filter(p =>
       p.regions.some((_, ri) => {
         const a = getAccuracy(currentUnit.id, p.id, ri);
-        return a !== null && a <= threshold;
+        return a !== null && a < threshold;
       }));
     sessionResults = {};
     if (activePages.length > 0) startQuiz(0);
@@ -1443,12 +1443,12 @@ let wsmFilter = "all";     // all | below50 | below67 | below99 | unanswered
 let wsmFilteredIds = null; // Set of target 小問id（all のとき null）
 
 const WS_MODE_LABELS = {
-  all: "全問", below50: "正答率50%以下", below67: "正答率67%以下",
-  below99: "正答率99%以下", unanswered: "未回答",
+  all: "全問", below50: "正答率50%未満", below67: "正答率66%未満",
+  below99: "正答率80%未満", unanswered: "未回答",
 };
 const WS_MODE_BASE = {
-  all: "全問を解く", below50: "正答率 50% 以下を解く", below67: "正答率 67% 以下を解く",
-  below99: "正答率 99% 以下を解く", unanswered: "未回答問題を解く",
+  all: "全問を解く", below50: "正答率 50% 未満を解く", below67: "正答率 66% 未満を解く",
+  below99: "正答率 80% 未満を解く", unanswered: "未回答問題を解く",
 };
 
 // 旧マスク方式の確認問題の正誤履歴を「消さずに退避」: 初回1度だけ tracking 全体をバックアップキーへ複製
@@ -1483,9 +1483,9 @@ function xyzSubMatchesMode(subId, mode) {
   const t = getXyzTracking(currentUnit.id, subId);
   const pct = t.attempts ? Math.round(t.correct / t.attempts * 100) : null;
   if (mode === "unanswered") return t.attempts === 0;
-  if (mode === "below50") return pct === null || pct <= 50;
-  if (mode === "below67") return pct === null || pct <= 67;
-  if (mode === "below99") return pct === null || pct <= 99;
+  if (mode === "below50") return pct === null || pct < 50;
+  if (mode === "below67") return pct === null || pct < 66;
+  if (mode === "below99") return pct === null || pct < 80;
   return true; // all
 }
 
