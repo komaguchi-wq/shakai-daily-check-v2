@@ -1,0 +1,488 @@
+{
+ "unitId": "NS-01",
+ "title": "地図からわかること",
+ "category": "kaki-shibo",
+ "imageBase": "https://komaguchi-wq.github.io/shakai-daily-check-v2-images-01/kaki-shibo/NS-01/",
+ "pages": [
+  {
+   "id": "cover",
+   "type": "description",
+   "image": "cover_01.jpg",
+   "width": 4000,
+   "height": 2815,
+   "regions": []
+  }
+ ],
+ "xyz": {
+  "label": "問題演習",
+  "questionPages": [
+   "q_01.jpg",
+   "q_02.jpg",
+   "q_03.jpg",
+   "q_04.jpg",
+   "q_05.jpg",
+   "q_06.jpg",
+   "q_07.jpg",
+   "q_08.jpg",
+   "q_09.jpg",
+   "q_10.jpg",
+   "q_11.jpg",
+   "q_12.jpg",
+   "q_13.jpg",
+   "q_14.jpg"
+  ],
+  "answerPages": [
+   "a_01.jpg",
+   "a_02.jpg"
+  ],
+  "daimons": [
+   {
+    "id": "A1",
+    "label": "A1（1ページ・地図の基礎知識）",
+    "qpage": 0,
+    "questions": [
+     {
+      "id": "A1-A",
+      "label": "A",
+      "group": ""
+     },
+     {
+      "id": "A1-1",
+      "label": "1",
+      "group": ""
+     },
+     {
+      "id": "A1-2",
+      "label": "2",
+      "group": ""
+     },
+     {
+      "id": "A1-3",
+      "label": "3",
+      "group": ""
+     },
+     {
+      "id": "A1-4",
+      "label": "4",
+      "group": ""
+     },
+     {
+      "id": "A1-5",
+      "label": "5",
+      "group": ""
+     },
+     {
+      "id": "A1-6",
+      "label": "6",
+      "group": ""
+     },
+     {
+      "id": "A1-7",
+      "label": "7",
+      "group": ""
+     },
+     {
+      "id": "A1-8",
+      "label": "8",
+      "group": ""
+     },
+     {
+      "id": "A1-9",
+      "label": "9",
+      "group": ""
+     },
+     {
+      "id": "A1-10",
+      "label": "10",
+      "group": ""
+     },
+     {
+      "id": "A1-11",
+      "label": "11",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "A2",
+    "label": "A2（1〜2ページ・さまざまな地図）",
+    "qpage": 0,
+    "questions": [
+     {
+      "id": "A2-(1)①",
+      "label": "①",
+      "group": "(1)"
+     },
+     {
+      "id": "A2-(1)②",
+      "label": "②",
+      "group": "(1)"
+     },
+     {
+      "id": "A2-(1)③",
+      "label": "③",
+      "group": "(1)"
+     },
+     {
+      "id": "A2-(1)④",
+      "label": "④",
+      "group": "(1)"
+     },
+     {
+      "id": "A2-(1)A",
+      "label": "A",
+      "group": "(1)"
+     },
+     {
+      "id": "A2-(2)⑤",
+      "label": "⑤",
+      "group": "(2)"
+     },
+     {
+      "id": "A2-(2)⑥",
+      "label": "⑥",
+      "group": "(2)"
+     },
+     {
+      "id": "A2-(2)⑦",
+      "label": "⑦",
+      "group": "(2)"
+     },
+     {
+      "id": "A2-(2)B",
+      "label": "B",
+      "group": "(2)"
+     },
+     {
+      "id": "A2-(3)⑧",
+      "label": "⑧",
+      "group": "(3)"
+     },
+     {
+      "id": "A2-(3)⑨",
+      "label": "⑨",
+      "group": "(3)"
+     },
+     {
+      "id": "A2-(4)⑩",
+      "label": "⑩",
+      "group": "(4)"
+     }
+    ]
+   },
+   {
+    "id": "B1",
+    "label": "B1（3ページ・地形図の読みとり）",
+    "qpage": 2,
+    "questions": [
+     {
+      "id": "B1-(1)",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "B1-(2)",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "B1-(3)",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "B1-(4)",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "B1-(5)①",
+      "label": "①",
+      "group": "(5)"
+     },
+     {
+      "id": "B1-(5)②",
+      "label": "②",
+      "group": "(5)"
+     }
+    ]
+   },
+   {
+    "id": "B2",
+    "label": "B2（4ページ・地形図の読みとり）",
+    "qpage": 3,
+    "questions": [
+     {
+      "id": "B2-(1)",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "B2-(2)",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "B2-(3)",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "B2-(4)",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "B2-(5)",
+      "label": "(5)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "B3",
+    "label": "B3（4ページ・地形図の読みとり）",
+    "qpage": 3,
+    "questions": [
+     {
+      "id": "B3-1",
+      "label": "",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "C1",
+    "label": "C1（5ページ・地形図の読みとり）",
+    "qpage": 4,
+    "questions": [
+     {
+      "id": "C1-(1)",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "C1-(2)",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "C1-(3)",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "C1-(4)A",
+      "label": "A",
+      "group": "(4)"
+     },
+     {
+      "id": "C1-(4)B",
+      "label": "B",
+      "group": "(4)"
+     },
+     {
+      "id": "C1-(5)",
+      "label": "(5)",
+      "group": ""
+     },
+     {
+      "id": "C1-(6)",
+      "label": "(6)",
+      "group": ""
+     },
+     {
+      "id": "C1-(7)",
+      "label": "(7)",
+      "group": ""
+     },
+     {
+      "id": "C1-(8)",
+      "label": "(8)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "C2",
+    "label": "C2（6ページ・地形図の読みとり）",
+    "qpage": 5,
+    "questions": [
+     {
+      "id": "C2-(1)完答",
+      "label": "(1)完答",
+      "group": ""
+     },
+     {
+      "id": "C2-(2)1",
+      "label": "1",
+      "group": "(2)"
+     },
+     {
+      "id": "C2-(2)2",
+      "label": "2",
+      "group": "(2)"
+     },
+     {
+      "id": "C2-(2)3",
+      "label": "3",
+      "group": "(2)"
+     },
+     {
+      "id": "C2-(2)4",
+      "label": "4",
+      "group": "(2)"
+     },
+     {
+      "id": "C2-(2)5",
+      "label": "5",
+      "group": "(2)"
+     }
+    ]
+   },
+   {
+    "id": "C3",
+    "label": "C3（7ページ・地形図の読みとり）",
+    "qpage": 6,
+    "questions": [
+     {
+      "id": "C3-(1)",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "C3-(2)",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "C3-(3)完答",
+      "label": "(3)完答",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "D1",
+    "label": "D1（8〜9ページ・記述）",
+    "qpage": 7,
+    "questions": [
+     {
+      "id": "D1-(1)①",
+      "label": "①",
+      "group": "(1)"
+     },
+     {
+      "id": "D1-(1)②",
+      "label": "②",
+      "group": "(1)"
+     },
+     {
+      "id": "D1-(2)①",
+      "label": "①",
+      "group": "(2)"
+     },
+     {
+      "id": "D1-(2)②",
+      "label": "②",
+      "group": "(2)"
+     },
+     {
+      "id": "D1-(3)①",
+      "label": "①",
+      "group": "(3)"
+     },
+     {
+      "id": "D1-(3)②",
+      "label": "②",
+      "group": "(3)"
+     },
+     {
+      "id": "D1-(3)③",
+      "label": "③",
+      "group": "(3)"
+     }
+    ]
+   },
+   {
+    "id": "D2",
+    "label": "D2（9〜10ページ・記述）",
+    "qpage": 8,
+    "questions": [
+     {
+      "id": "D2-(1)",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "D2-(2)",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "D2-(3)",
+      "label": "(3)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "E1",
+    "label": "E1（11〜14ページ・記述）",
+    "qpage": 10,
+    "questions": [
+     {
+      "id": "E1-問1",
+      "label": "問1",
+      "group": ""
+     },
+     {
+      "id": "E1-問2(1)",
+      "label": "(1)",
+      "group": "問2"
+     },
+     {
+      "id": "E1-問2(2)理由",
+      "label": "(2)理由",
+      "group": "問2"
+     },
+     {
+      "id": "E1-問2(2)反対意見",
+      "label": "(2)反対意見",
+      "group": "問2"
+     },
+     {
+      "id": "E1-問3",
+      "label": "問3",
+      "group": ""
+     },
+     {
+      "id": "E1-問4",
+      "label": "問4",
+      "group": ""
+     },
+     {
+      "id": "E1-問5",
+      "label": "問5",
+      "group": ""
+     },
+     {
+      "id": "E1-問6(1)",
+      "label": "(1)",
+      "group": "問6"
+     },
+     {
+      "id": "E1-問6(2)",
+      "label": "(2)",
+      "group": "問6"
+     },
+     {
+      "id": "E1-問6(3)",
+      "label": "(3)",
+      "group": "問6"
+     }
+    ]
+   }
+  ]
+ }
+}
