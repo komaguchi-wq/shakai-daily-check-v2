@@ -1,8 +1,8 @@
 {
  "unitId": "NS-01",
  "title": "地図からわかること",
- "category": "kaki-shibo",
- "imageBase": "https://komaguchi-wq.github.io/shakai-daily-check-v2-images-01/kaki-shibo/NS-01/",
+ "category": "kaki-rensei",
+ "imageBase": "https://komaguchi-wq.github.io/shakai-daily-check-v2-images-01/kaki-rensei/NS-01/",
  "pages": [
   {
    "id": "cover",

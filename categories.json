@@ -12,10 +12,10 @@
     "description": "夏期地理 N64-XX資料データバンク＋復習テスト"
   },
   {
-    "id": "kaki-shibo",
-    "name": "志望校錬成特訓",
-    "icon": "🎯",
-    "description": "NS-XX 夏期集中志望校錬成特訓"
+    "id": "kaki-rensei",
+    "name": "夏期集中志望校錬成特訓",
+    "icon": "🔥",
+    "description": "NS-XX 夏期集中志望校錬成特訓 社会"
   },
   {
     "id": "weekly-sapix",
