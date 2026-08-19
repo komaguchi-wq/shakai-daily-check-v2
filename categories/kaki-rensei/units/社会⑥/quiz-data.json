@@ -1,0 +1,306 @@
+{
+ "unitId": "社会⑥",
+ "title": "デイリートレーニング（第18日目）",
+ "category": "kaki-rensei",
+ "imageBase": "https://komaguchi-wq.github.io/shakai-daily-check-v2-images-01/kaki-rensei/社会⑥/",
+ "pages": [],
+ "xyz": {
+  "label": "問題演習",
+  "questionPages": [
+   "q_01.jpg",
+   "q_02.jpg",
+   "q_03.jpg"
+  ],
+  "answerPages": [
+   "a_01.jpg",
+   "a_02.jpg"
+  ],
+  "daimons": [
+   {
+    "id": "Ⅰ",
+    "label": "Ⅰ（1枚目・県の特徴）",
+    "qpage": 0,
+    "questions": [
+     {
+      "id": "I-1",
+      "label": "(1)文1",
+      "group": ""
+     },
+     {
+      "id": "I-2",
+      "label": "(1)文2",
+      "group": ""
+     },
+     {
+      "id": "I-3",
+      "label": "(2)文1",
+      "group": ""
+     },
+     {
+      "id": "I-4",
+      "label": "(2)文2",
+      "group": ""
+     },
+     {
+      "id": "I-5",
+      "label": "(3)文1",
+      "group": ""
+     },
+     {
+      "id": "I-6",
+      "label": "(3)文2",
+      "group": ""
+     },
+     {
+      "id": "I-7",
+      "label": "(4)文1",
+      "group": ""
+     },
+     {
+      "id": "I-8",
+      "label": "(4)文2",
+      "group": ""
+     },
+     {
+      "id": "I-9",
+      "label": "(5)文1",
+      "group": ""
+     },
+     {
+      "id": "I-10",
+      "label": "(5)文2",
+      "group": ""
+     },
+     {
+      "id": "I-11",
+      "label": "(6)文1",
+      "group": ""
+     },
+     {
+      "id": "I-12",
+      "label": "(6)文2",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "Ⅱ",
+    "label": "Ⅱ（1枚目・日本と朝鮮の歴史）",
+    "qpage": 0,
+    "questions": [
+     {
+      "id": "II-1",
+      "label": "(1)1",
+      "group": ""
+     },
+     {
+      "id": "II-2",
+      "label": "(1)2",
+      "group": ""
+     },
+     {
+      "id": "II-3",
+      "label": "(1)3",
+      "group": ""
+     },
+     {
+      "id": "II-4",
+      "label": "(1)4",
+      "group": ""
+     },
+     {
+      "id": "II-5",
+      "label": "(1)5",
+      "group": ""
+     },
+     {
+      "id": "II-6",
+      "label": "(1)6",
+      "group": ""
+     },
+     {
+      "id": "II-7",
+      "label": "(2)A",
+      "group": ""
+     },
+     {
+      "id": "II-8",
+      "label": "(2)B",
+      "group": ""
+     },
+     {
+      "id": "II-9",
+      "label": "(2)C",
+      "group": ""
+     },
+     {
+      "id": "II-10",
+      "label": "(2)D",
+      "group": ""
+     },
+     {
+      "id": "II-11",
+      "label": "(2)E",
+      "group": ""
+     },
+     {
+      "id": "II-12",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "II-13",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "II-14",
+      "label": "(5)",
+      "group": ""
+     },
+     {
+      "id": "II-15",
+      "label": "(6)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "Ⅲ",
+    "label": "Ⅲ（2枚目・裁判制度）",
+    "qpage": 1,
+    "questions": [
+     {
+      "id": "III-1",
+      "label": "(1)1",
+      "group": ""
+     },
+     {
+      "id": "III-2",
+      "label": "(1)2",
+      "group": ""
+     },
+     {
+      "id": "III-3",
+      "label": "(1)3",
+      "group": ""
+     },
+     {
+      "id": "III-4",
+      "label": "(1)4",
+      "group": ""
+     },
+     {
+      "id": "III-5",
+      "label": "(1)5",
+      "group": ""
+     },
+     {
+      "id": "III-6",
+      "label": "(2)①",
+      "group": ""
+     },
+     {
+      "id": "III-7",
+      "label": "(2)②",
+      "group": ""
+     },
+     {
+      "id": "III-8",
+      "label": "(2)③",
+      "group": ""
+     },
+     {
+      "id": "III-9",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "III-10",
+      "label": "(4)①",
+      "group": ""
+     },
+     {
+      "id": "III-11",
+      "label": "(4)②",
+      "group": ""
+     },
+     {
+      "id": "III-12",
+      "label": "(4)③",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "Ⅳ",
+    "label": "Ⅳ（3枚目・憲法と日本の政治）",
+    "qpage": 2,
+    "questions": [
+     {
+      "id": "IV-1",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "IV-2",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "IV-3",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "IV-4",
+      "label": "(4)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "Ⅴ",
+    "label": "Ⅴ（3枚目・環境問題）",
+    "qpage": 2,
+    "questions": [
+     {
+      "id": "V-1",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "V-2",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "V-3",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "V-4",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "V-5",
+      "label": "(5)",
+      "group": ""
+     },
+     {
+      "id": "V-6",
+      "label": "(6)",
+      "group": ""
+     },
+     {
+      "id": "V-7",
+      "label": "(7)",
+      "group": ""
+     }
+    ]
+   }
+  ]
+ }
+}
