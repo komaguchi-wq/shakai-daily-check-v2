@@ -1,0 +1,701 @@
+{
+ "unitId": "NS-02",
+ "title": "こよみ・伝統文化・年代・時間",
+ "category": "kaki-rensei",
+ "imageBase": "https://komaguchi-wq.github.io/shakai-daily-check-v2-images-01/kaki-rensei/NS-02/",
+ "pages": [
+  {
+   "id": "cover",
+   "type": "description",
+   "image": "cover_01.jpg",
+   "width": 4000,
+   "height": 2811,
+   "regions": []
+  }
+ ],
+ "xyz": {
+  "label": "問題演習",
+  "questionPages": [
+   "q_01.jpg",
+   "q_02.jpg",
+   "q_03.jpg",
+   "q_04.jpg",
+   "q_05.jpg",
+   "q_06.jpg",
+   "q_07.jpg",
+   "q_08.jpg",
+   "q_09.jpg",
+   "q_10.jpg",
+   "q_11.jpg",
+   "q_12.jpg"
+  ],
+  "answerPages": [
+   "a_01.jpg",
+   "a_02.jpg"
+  ],
+  "daimons": [
+   {
+    "id": "A1",
+    "label": "A1（1ページ・こよみと伝統行事）",
+    "qpage": 0,
+    "questions": [
+     {
+      "id": "A1-1",
+      "label": "1",
+      "group": ""
+     },
+     {
+      "id": "A1-2",
+      "label": "2",
+      "group": ""
+     },
+     {
+      "id": "A1-3",
+      "label": "3",
+      "group": ""
+     },
+     {
+      "id": "A1-4",
+      "label": "4",
+      "group": ""
+     },
+     {
+      "id": "A1-5",
+      "label": "5",
+      "group": ""
+     },
+     {
+      "id": "A1-6",
+      "label": "6",
+      "group": ""
+     },
+     {
+      "id": "A1-7",
+      "label": "7",
+      "group": ""
+     },
+     {
+      "id": "A1-8",
+      "label": "8",
+      "group": ""
+     },
+     {
+      "id": "A1-9",
+      "label": "9",
+      "group": ""
+     },
+     {
+      "id": "A1-10",
+      "label": "10",
+      "group": ""
+     },
+     {
+      "id": "A1-11",
+      "label": "11",
+      "group": ""
+     },
+     {
+      "id": "A1-12",
+      "label": "12",
+      "group": ""
+     },
+     {
+      "id": "A1-13",
+      "label": "13",
+      "group": ""
+     },
+     {
+      "id": "A1-14",
+      "label": "14",
+      "group": ""
+     },
+     {
+      "id": "A1-15",
+      "label": "15",
+      "group": ""
+     },
+     {
+      "id": "A1-16",
+      "label": "16",
+      "group": ""
+     },
+     {
+      "id": "A1-17",
+      "label": "17",
+      "group": ""
+     },
+     {
+      "id": "A1-18",
+      "label": "18",
+      "group": ""
+     },
+     {
+      "id": "A1-19",
+      "label": "(1)A",
+      "group": ""
+     },
+     {
+      "id": "A1-20",
+      "label": "(1)B",
+      "group": ""
+     },
+     {
+      "id": "A1-21",
+      "label": "(2)3月",
+      "group": ""
+     },
+     {
+      "id": "A1-22",
+      "label": "(2)5月",
+      "group": ""
+     },
+     {
+      "id": "A1-23",
+      "label": "(2)12月",
+      "group": ""
+     },
+     {
+      "id": "A1-24",
+      "label": "(3)①",
+      "group": ""
+     },
+     {
+      "id": "A1-25",
+      "label": "(3)②",
+      "group": ""
+     },
+     {
+      "id": "A1-26",
+      "label": "(3)③",
+      "group": ""
+     },
+     {
+      "id": "A1-27",
+      "label": "(3)④",
+      "group": ""
+     },
+     {
+      "id": "A1-28",
+      "label": "(4)①",
+      "group": ""
+     },
+     {
+      "id": "A1-29",
+      "label": "(4)②",
+      "group": ""
+     },
+     {
+      "id": "A1-30",
+      "label": "(4)③",
+      "group": ""
+     },
+     {
+      "id": "A1-31",
+      "label": "(4)④",
+      "group": ""
+     },
+     {
+      "id": "A1-32",
+      "label": "(5)①",
+      "group": ""
+     },
+     {
+      "id": "A1-33",
+      "label": "(5)②",
+      "group": ""
+     },
+     {
+      "id": "A1-34",
+      "label": "(5)③",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "A2",
+    "label": "A2（2ページ・年代の数え方・時刻）",
+    "qpage": 1,
+    "questions": [
+     {
+      "id": "A2-1",
+      "label": "A",
+      "group": ""
+     },
+     {
+      "id": "A2-2",
+      "label": "B",
+      "group": ""
+     },
+     {
+      "id": "A2-3",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "A2-4",
+      "label": "(2)①",
+      "group": ""
+     },
+     {
+      "id": "A2-5",
+      "label": "(2)②",
+      "group": ""
+     },
+     {
+      "id": "A2-6",
+      "label": "(2)③",
+      "group": ""
+     },
+     {
+      "id": "A2-7",
+      "label": "(2)④",
+      "group": ""
+     },
+     {
+      "id": "A2-8",
+      "label": "(3)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "B1",
+    "label": "B1（3ページ・国民の祝日）",
+    "qpage": 2,
+    "questions": [
+     {
+      "id": "B1-1",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "B1-2",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "B1-3",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "B1-4",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "B1-5",
+      "label": "(5)",
+      "group": ""
+     },
+     {
+      "id": "B1-6",
+      "label": "(6)",
+      "group": ""
+     },
+     {
+      "id": "B1-7",
+      "label": "(7)",
+      "group": ""
+     },
+     {
+      "id": "B1-8",
+      "label": "(8)",
+      "group": ""
+     },
+     {
+      "id": "B1-9",
+      "label": "(9)",
+      "group": ""
+     },
+     {
+      "id": "B1-10",
+      "label": "(10)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "B2",
+    "label": "B2（4ページ・日本の家屋）",
+    "qpage": 3,
+    "questions": [
+     {
+      "id": "B2-1",
+      "label": "(1)あ",
+      "group": ""
+     },
+     {
+      "id": "B2-2",
+      "label": "(1)い",
+      "group": ""
+     },
+     {
+      "id": "B2-3",
+      "label": "(2)①",
+      "group": ""
+     },
+     {
+      "id": "B2-4",
+      "label": "(2)②",
+      "group": ""
+     },
+     {
+      "id": "B2-5",
+      "label": "(2)③",
+      "group": ""
+     },
+     {
+      "id": "B2-6",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "B2-7",
+      "label": "(4)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "B3",
+    "label": "B3（5ページ・干支であらわす出来事）",
+    "qpage": 4,
+    "questions": [
+     {
+      "id": "B3-1",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "B3-2",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "B3-3",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "B3-4",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "B3-5",
+      "label": "(5)①",
+      "group": ""
+     },
+     {
+      "id": "B3-6",
+      "label": "(5)②",
+      "group": ""
+     },
+     {
+      "id": "B3-7",
+      "label": "(6)",
+      "group": ""
+     },
+     {
+      "id": "B3-8",
+      "label": "(7)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "C1",
+    "label": "C1（6〜8ページ・こよみと世界）",
+    "qpage": 5,
+    "questions": [
+     {
+      "id": "C1-1",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "C1-2",
+      "label": "(2)①",
+      "group": ""
+     },
+     {
+      "id": "C1-3",
+      "label": "(2)②",
+      "group": ""
+     },
+     {
+      "id": "C1-4",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "C1-5",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "C1-6",
+      "label": "(5)",
+      "group": ""
+     },
+     {
+      "id": "C1-7",
+      "label": "(6)①",
+      "group": ""
+     },
+     {
+      "id": "C1-8",
+      "label": "(6)②",
+      "group": ""
+     },
+     {
+      "id": "C1-9",
+      "label": "(7)",
+      "group": ""
+     },
+     {
+      "id": "C1-10",
+      "label": "(8)",
+      "group": ""
+     },
+     {
+      "id": "C1-11",
+      "label": "(9)",
+      "group": ""
+     },
+     {
+      "id": "C1-12",
+      "label": "(10)",
+      "group": ""
+     },
+     {
+      "id": "C1-13",
+      "label": "(11)",
+      "group": ""
+     },
+     {
+      "id": "C1-14",
+      "label": "(12)①",
+      "group": ""
+     },
+     {
+      "id": "C1-15",
+      "label": "(12)②",
+      "group": ""
+     },
+     {
+      "id": "C1-16",
+      "label": "(13)",
+      "group": ""
+     },
+     {
+      "id": "C1-17",
+      "label": "(14)",
+      "group": ""
+     },
+     {
+      "id": "C1-18",
+      "label": "(15)",
+      "group": ""
+     },
+     {
+      "id": "C1-19",
+      "label": "(16)",
+      "group": ""
+     },
+     {
+      "id": "C1-20",
+      "label": "(17)",
+      "group": ""
+     },
+     {
+      "id": "C1-21",
+      "label": "(18)①A",
+      "group": ""
+     },
+     {
+      "id": "C1-22",
+      "label": "(18)①B",
+      "group": ""
+     },
+     {
+      "id": "C1-23",
+      "label": "(18)②",
+      "group": ""
+     },
+     {
+      "id": "C1-24",
+      "label": "(18)③",
+      "group": ""
+     },
+     {
+      "id": "C1-25",
+      "label": "(18)記号",
+      "group": ""
+     },
+     {
+      "id": "C1-26",
+      "label": "(19)地図",
+      "group": ""
+     },
+     {
+      "id": "C1-27",
+      "label": "(20)",
+      "group": ""
+     },
+     {
+      "id": "C1-28",
+      "label": "(21)",
+      "group": ""
+     },
+     {
+      "id": "C1-29",
+      "label": "(22)",
+      "group": ""
+     },
+     {
+      "id": "C1-30",
+      "label": "(23)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "D1",
+    "label": "D1（9〜10ページ・「旬」とこよみ）",
+    "qpage": 8,
+    "questions": [
+     {
+      "id": "D1-1",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "D1-2",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "D1-3",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "D1-4",
+      "label": "(4)①Ⅰ",
+      "group": ""
+     },
+     {
+      "id": "D1-5",
+      "label": "(4)①Ⅱ",
+      "group": ""
+     },
+     {
+      "id": "D1-6",
+      "label": "(4)①Ⅲ",
+      "group": ""
+     },
+     {
+      "id": "D1-7",
+      "label": "(4)②",
+      "group": ""
+     },
+     {
+      "id": "D1-8",
+      "label": "(5)",
+      "group": ""
+     },
+     {
+      "id": "D1-9",
+      "label": "(6)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "D2",
+    "label": "D2（10ページ・食文化のちがい）",
+    "qpage": 9,
+    "questions": [
+     {
+      "id": "D2-1",
+      "label": "記述",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "D3",
+    "label": "D3（10ページ・史跡）",
+    "qpage": 9,
+    "questions": [
+     {
+      "id": "D3-1",
+      "label": "記述",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "D4",
+    "label": "D4（10ページ・江戸時代の方角）",
+    "qpage": 9,
+    "questions": [
+     {
+      "id": "D4-1",
+      "label": "記述",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "E1",
+    "label": "E1（11〜12ページ・こよみと人々とのかかわり）",
+    "qpage": 10,
+    "questions": [
+     {
+      "id": "E1-1",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "E1-2",
+      "label": "(2)①",
+      "group": ""
+     },
+     {
+      "id": "E1-3",
+      "label": "(2)②",
+      "group": ""
+     },
+     {
+      "id": "E1-4",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "E1-5",
+      "label": "(4)①",
+      "group": ""
+     },
+     {
+      "id": "E1-6",
+      "label": "(4)②",
+      "group": ""
+     },
+     {
+      "id": "E1-7",
+      "label": "(5)",
+      "group": ""
+     },
+     {
+      "id": "E1-8",
+      "label": "(6)",
+      "group": ""
+     }
+    ]
+   }
+  ]
+ }
+}
