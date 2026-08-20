@@ -1,0 +1,1078 @@
+{
+ "unitId": "NS-03",
+ "title": "身近な地域の歴史と地理",
+ "category": "kaki-rensei",
+ "imageBase": "https://komaguchi-wq.github.io/shakai-daily-check-v2-images-01/kaki-rensei/NS-03/",
+ "pages": [
+  {
+   "id": "cover",
+   "type": "description",
+   "image": "cover_01.jpg",
+   "width": 4000,
+   "height": 2813,
+   "regions": []
+  }
+ ],
+ "xyz": {
+  "label": "問題演習",
+  "questionPages": [
+   "q_01.jpg",
+   "q_02.jpg",
+   "q_03.jpg",
+   "q_04.jpg",
+   "q_05.jpg",
+   "q_06.jpg",
+   "q_07.jpg",
+   "q_08.jpg",
+   "q_09.jpg",
+   "q_10.jpg",
+   "q_11.jpg",
+   "q_12.jpg",
+   "q_13.jpg",
+   "q_14.jpg"
+  ],
+  "answerPages": [
+   "a_01.jpg",
+   "a_02.jpg"
+  ],
+  "daimons": [
+   {
+    "id": "A1",
+    "label": "A1（1ページ・東京都の歴史と地理）",
+    "qpage": 0,
+    "questions": [
+     {
+      "id": "A1-1",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "A1-2",
+      "label": "(2)完答",
+      "group": ""
+     },
+     {
+      "id": "A1-3",
+      "label": "(3)完答",
+      "group": ""
+     },
+     {
+      "id": "A1-4",
+      "label": "(4)完答",
+      "group": ""
+     },
+     {
+      "id": "A1-5",
+      "label": "(5)完答",
+      "group": ""
+     },
+     {
+      "id": "A1-6",
+      "label": "(6)",
+      "group": ""
+     },
+     {
+      "id": "A1-7",
+      "label": "(7)完答",
+      "group": ""
+     },
+     {
+      "id": "A1-8",
+      "label": "(8)",
+      "group": ""
+     },
+     {
+      "id": "A1-9",
+      "label": "(9)",
+      "group": ""
+     },
+     {
+      "id": "A1-10",
+      "label": "①",
+      "group": "(10)"
+     },
+     {
+      "id": "A1-11",
+      "label": "②",
+      "group": "(10)"
+     },
+     {
+      "id": "A1-12",
+      "label": "③",
+      "group": "(10)"
+     },
+     {
+      "id": "A1-13",
+      "label": "④",
+      "group": "(10)"
+     },
+     {
+      "id": "A1-14",
+      "label": "⑤",
+      "group": "(10)"
+     },
+     {
+      "id": "A1-15",
+      "label": "⑥",
+      "group": "(10)"
+     },
+     {
+      "id": "A1-16",
+      "label": "(11)完答",
+      "group": ""
+     },
+     {
+      "id": "A1-17",
+      "label": "(12)完答",
+      "group": ""
+     },
+     {
+      "id": "A1-18",
+      "label": "(13)",
+      "group": ""
+     },
+     {
+      "id": "A1-19",
+      "label": "(14)",
+      "group": ""
+     },
+     {
+      "id": "A1-20",
+      "label": "(15)",
+      "group": ""
+     },
+     {
+      "id": "A1-21",
+      "label": "(16)",
+      "group": ""
+     },
+     {
+      "id": "A1-22",
+      "label": "(17)",
+      "group": ""
+     },
+     {
+      "id": "A1-23",
+      "label": "(18)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "A2",
+    "label": "A2（2ページ・神奈川県の歴史と地理）",
+    "qpage": 1,
+    "questions": [
+     {
+      "id": "A2-1",
+      "label": "(1)完答",
+      "group": ""
+     },
+     {
+      "id": "A2-2",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "A2-3",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "A2-4",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "A2-5",
+      "label": "(5)",
+      "group": ""
+     },
+     {
+      "id": "A2-6",
+      "label": "(6)",
+      "group": ""
+     },
+     {
+      "id": "A2-7",
+      "label": "(7)",
+      "group": ""
+     },
+     {
+      "id": "A2-8",
+      "label": "(8)完答",
+      "group": ""
+     },
+     {
+      "id": "A2-9",
+      "label": "(9)完答",
+      "group": ""
+     },
+     {
+      "id": "A2-10",
+      "label": "(10)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "A3",
+    "label": "A3（2ページ・千葉県の歴史と地理）",
+    "qpage": 1,
+    "questions": [
+     {
+      "id": "A3-1",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "A3-2",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "A3-3",
+      "label": "(3)完答",
+      "group": ""
+     },
+     {
+      "id": "A3-4",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "A3-5",
+      "label": "(5)完答",
+      "group": ""
+     },
+     {
+      "id": "A3-6",
+      "label": "(6)",
+      "group": ""
+     },
+     {
+      "id": "A3-7",
+      "label": "(7)",
+      "group": ""
+     },
+     {
+      "id": "A3-8",
+      "label": "(8)完答",
+      "group": ""
+     },
+     {
+      "id": "A3-9",
+      "label": "(9)完答",
+      "group": ""
+     },
+     {
+      "id": "A3-10",
+      "label": "(10)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "A4",
+    "label": "A4（2ページ・埼玉県の歴史と地理）",
+    "qpage": 1,
+    "questions": [
+     {
+      "id": "A4-1",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "A4-2",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "A4-3",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "A4-4",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "A4-5",
+      "label": "(5)",
+      "group": ""
+     },
+     {
+      "id": "A4-6",
+      "label": "(6)",
+      "group": ""
+     },
+     {
+      "id": "A4-7",
+      "label": "(7)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "A5",
+    "label": "A5（3ページ・大阪府の歴史と地理）",
+    "qpage": 2,
+    "questions": [
+     {
+      "id": "A5-1",
+      "label": "(1)完答",
+      "group": ""
+     },
+     {
+      "id": "A5-2",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "A5-3",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "A5-4",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "A5-5",
+      "label": "(5)",
+      "group": ""
+     },
+     {
+      "id": "A5-6",
+      "label": "(6)",
+      "group": ""
+     },
+     {
+      "id": "A5-7",
+      "label": "(7)",
+      "group": ""
+     },
+     {
+      "id": "A5-8",
+      "label": "(8)",
+      "group": ""
+     },
+     {
+      "id": "A5-9",
+      "label": "(9)",
+      "group": ""
+     },
+     {
+      "id": "A5-10",
+      "label": "(10)",
+      "group": ""
+     },
+     {
+      "id": "A5-11",
+      "label": "(11)",
+      "group": ""
+     },
+     {
+      "id": "A5-12",
+      "label": "(12)",
+      "group": ""
+     },
+     {
+      "id": "A5-13",
+      "label": "(13)",
+      "group": ""
+     },
+     {
+      "id": "A5-14",
+      "label": "(14)",
+      "group": ""
+     },
+     {
+      "id": "A5-15",
+      "label": "(15)",
+      "group": ""
+     },
+     {
+      "id": "A5-16",
+      "label": "(16)",
+      "group": ""
+     },
+     {
+      "id": "A5-17",
+      "label": "(17)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "A6",
+    "label": "A6（3ページ・奈良県の歴史と地理）",
+    "qpage": 2,
+    "questions": [
+     {
+      "id": "A6-1",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "A6-2",
+      "label": "(2)完答",
+      "group": ""
+     },
+     {
+      "id": "A6-3",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "A6-4",
+      "label": "(4)完答",
+      "group": ""
+     },
+     {
+      "id": "A6-5",
+      "label": "(5)",
+      "group": ""
+     },
+     {
+      "id": "A6-6",
+      "label": "(6)完答",
+      "group": ""
+     },
+     {
+      "id": "A6-7",
+      "label": "(7)",
+      "group": ""
+     },
+     {
+      "id": "A6-8",
+      "label": "(8)",
+      "group": ""
+     },
+     {
+      "id": "A6-9",
+      "label": "(9)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "A7",
+    "label": "A7（4ページ・京都府の歴史と地理）",
+    "qpage": 3,
+    "questions": [
+     {
+      "id": "A7-1",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "A7-2",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "A7-3",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "A7-4",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "A7-5",
+      "label": "(5)完答",
+      "group": ""
+     },
+     {
+      "id": "A7-6",
+      "label": "(6)",
+      "group": ""
+     },
+     {
+      "id": "A7-7",
+      "label": "(7)",
+      "group": ""
+     },
+     {
+      "id": "A7-8",
+      "label": "(8)",
+      "group": ""
+     },
+     {
+      "id": "A7-9",
+      "label": "(9)",
+      "group": ""
+     },
+     {
+      "id": "A7-10",
+      "label": "(10)",
+      "group": ""
+     },
+     {
+      "id": "A7-11",
+      "label": "(11)完答",
+      "group": ""
+     },
+     {
+      "id": "A7-12",
+      "label": "(12)",
+      "group": ""
+     },
+     {
+      "id": "A7-13",
+      "label": "(13)",
+      "group": ""
+     },
+     {
+      "id": "A7-14",
+      "label": "(14)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "A8",
+    "label": "A8（4ページ・兵庫県の歴史と地理）",
+    "qpage": 3,
+    "questions": [
+     {
+      "id": "A8-1",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "A8-2",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "A8-3",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "A8-4",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "A8-5",
+      "label": "(5)",
+      "group": ""
+     },
+     {
+      "id": "A8-6",
+      "label": "(6)",
+      "group": ""
+     },
+     {
+      "id": "A8-7",
+      "label": "(7)",
+      "group": ""
+     },
+     {
+      "id": "A8-8",
+      "label": "(8)",
+      "group": ""
+     },
+     {
+      "id": "A8-9",
+      "label": "(9)",
+      "group": ""
+     },
+     {
+      "id": "A8-10",
+      "label": "(10)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "B1",
+    "label": "B1（5ページ・各地の漁港）",
+    "qpage": 4,
+    "questions": [
+     {
+      "id": "B1-1",
+      "label": "あ",
+      "group": "(1)"
+     },
+     {
+      "id": "B1-2",
+      "label": "い",
+      "group": "(1)"
+     },
+     {
+      "id": "B1-3",
+      "label": "う",
+      "group": "(1)"
+     },
+     {
+      "id": "B1-4",
+      "label": "え",
+      "group": "(1)"
+     },
+     {
+      "id": "B1-5",
+      "label": "お",
+      "group": "(1)"
+     },
+     {
+      "id": "B1-6",
+      "label": "①",
+      "group": "(2)"
+     },
+     {
+      "id": "B1-7",
+      "label": "②",
+      "group": "(2)"
+     },
+     {
+      "id": "B1-8",
+      "label": "①",
+      "group": "(3)"
+     },
+     {
+      "id": "B1-9",
+      "label": "②",
+      "group": "(3)"
+     },
+     {
+      "id": "B1-10",
+      "label": "①",
+      "group": "(4)"
+     },
+     {
+      "id": "B1-11",
+      "label": "②",
+      "group": "(4)"
+     },
+     {
+      "id": "B1-12",
+      "label": "(5)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "B2",
+    "label": "B2（5〜6ページ・近畿地方の歴史と地理）",
+    "qpage": 4,
+    "questions": [
+     {
+      "id": "B2-1",
+      "label": "①完答",
+      "group": "(1)"
+     },
+     {
+      "id": "B2-2",
+      "label": "②",
+      "group": "(1)"
+     },
+     {
+      "id": "B2-3",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "B2-4",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "B2-5",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "B2-6",
+      "label": "(5)",
+      "group": ""
+     },
+     {
+      "id": "B2-7",
+      "label": "①",
+      "group": "(6)"
+     },
+     {
+      "id": "B2-8",
+      "label": "②",
+      "group": "(6)"
+     },
+     {
+      "id": "B2-9",
+      "label": "(7)",
+      "group": ""
+     },
+     {
+      "id": "B2-10",
+      "label": "①完答",
+      "group": "(8)"
+     },
+     {
+      "id": "B2-11",
+      "label": "②完答",
+      "group": "(8)"
+     },
+     {
+      "id": "B2-12",
+      "label": "(9)",
+      "group": ""
+     },
+     {
+      "id": "B2-13",
+      "label": "(10)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "B3",
+    "label": "B3（7ページ・東京湾の歴史）",
+    "qpage": 6,
+    "questions": [
+     {
+      "id": "B3-1",
+      "label": "あ",
+      "group": "(1)"
+     },
+     {
+      "id": "B3-2",
+      "label": "い",
+      "group": "(1)"
+     },
+     {
+      "id": "B3-3",
+      "label": "う",
+      "group": "(1)"
+     },
+     {
+      "id": "B3-4",
+      "label": "え",
+      "group": "(1)"
+     },
+     {
+      "id": "B3-5",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "B3-6",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "B3-7",
+      "label": "①",
+      "group": "(4)"
+     },
+     {
+      "id": "B3-8",
+      "label": "②",
+      "group": "(4)"
+     }
+    ]
+   },
+   {
+    "id": "C1",
+    "label": "C1（8ページ・間宮林蔵の半生）",
+    "qpage": 7,
+    "questions": [
+     {
+      "id": "C1-1",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "C1-2",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "C1-3",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "C1-4",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "C1-5",
+      "label": "(5)",
+      "group": ""
+     },
+     {
+      "id": "C1-6",
+      "label": "(6)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "C2",
+    "label": "C2（8〜9ページ・横浜市の歴史と地理）",
+    "qpage": 7,
+    "questions": [
+     {
+      "id": "C2-1",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "C2-2",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "C2-3",
+      "label": "①",
+      "group": "(3)"
+     },
+     {
+      "id": "C2-4",
+      "label": "②",
+      "group": "(3)"
+     },
+     {
+      "id": "C2-5",
+      "label": "①",
+      "group": "(4)"
+     },
+     {
+      "id": "C2-6",
+      "label": "②",
+      "group": "(4)"
+     },
+     {
+      "id": "C2-7",
+      "label": "③",
+      "group": "(4)"
+     }
+    ]
+   },
+   {
+    "id": "C3",
+    "label": "C3（9〜10ページ・沖縄県の歴史と地理）",
+    "qpage": 8,
+    "questions": [
+     {
+      "id": "C3-1",
+      "label": "A",
+      "group": "(1)"
+     },
+     {
+      "id": "C3-2",
+      "label": "B",
+      "group": "(1)"
+     },
+     {
+      "id": "C3-3",
+      "label": "C",
+      "group": "(2)"
+     },
+     {
+      "id": "C3-4",
+      "label": "D",
+      "group": "(2)"
+     },
+     {
+      "id": "C3-5",
+      "label": "E",
+      "group": "(3)"
+     },
+     {
+      "id": "C3-6",
+      "label": "F",
+      "group": "(3)"
+     },
+     {
+      "id": "C3-7",
+      "label": "①",
+      "group": "(4)"
+     },
+     {
+      "id": "C3-8",
+      "label": "②",
+      "group": "(4)"
+     },
+     {
+      "id": "C3-9",
+      "label": "(5)",
+      "group": ""
+     },
+     {
+      "id": "C3-10",
+      "label": "(6)",
+      "group": ""
+     },
+     {
+      "id": "C3-11",
+      "label": "(7)",
+      "group": ""
+     },
+     {
+      "id": "C3-12",
+      "label": "(8)",
+      "group": ""
+     },
+     {
+      "id": "C3-13",
+      "label": "(9)",
+      "group": ""
+     },
+     {
+      "id": "C3-14",
+      "label": "(10)",
+      "group": ""
+     },
+     {
+      "id": "C3-15",
+      "label": "(11)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "D1",
+    "label": "D1（11〜12ページ・函館市の歴史とまちなみ保存）",
+    "qpage": 10,
+    "questions": [
+     {
+      "id": "D1-1",
+      "label": "問1",
+      "group": ""
+     },
+     {
+      "id": "D1-2",
+      "label": "条約の名前",
+      "group": "問2(1)"
+     },
+     {
+      "id": "D1-3",
+      "label": "港 完答",
+      "group": "問2(1)"
+     },
+     {
+      "id": "D1-4",
+      "label": "問2(2)",
+      "group": ""
+     },
+     {
+      "id": "D1-5",
+      "label": "問3",
+      "group": ""
+     },
+     {
+      "id": "D1-6",
+      "label": "問4(1)",
+      "group": ""
+     },
+     {
+      "id": "D1-7",
+      "label": "問4(2)完答",
+      "group": ""
+     },
+     {
+      "id": "D1-8",
+      "label": "問5",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "E1",
+    "label": "E1（13〜14ページ・沖縄県の歴史と地理）",
+    "qpage": 12,
+    "questions": [
+     {
+      "id": "E1-1",
+      "label": "①",
+      "group": "(1)"
+     },
+     {
+      "id": "E1-2",
+      "label": "②",
+      "group": "(1)"
+     },
+     {
+      "id": "E1-3",
+      "label": "③",
+      "group": "(1)"
+     },
+     {
+      "id": "E1-4",
+      "label": "④完答",
+      "group": "(1)"
+     },
+     {
+      "id": "E1-5",
+      "label": "①",
+      "group": "(2)"
+     },
+     {
+      "id": "E1-6",
+      "label": "②",
+      "group": "(2)"
+     },
+     {
+      "id": "E1-7",
+      "label": "③",
+      "group": "(2)"
+     },
+     {
+      "id": "E1-8",
+      "label": "④",
+      "group": "(2)"
+     },
+     {
+      "id": "E1-9",
+      "label": "⑤",
+      "group": "(2)"
+     },
+     {
+      "id": "E1-10",
+      "label": "⑥",
+      "group": "(2)"
+     },
+     {
+      "id": "E1-11",
+      "label": "⑦",
+      "group": "(2)"
+     },
+     {
+      "id": "E1-12",
+      "label": "⑧",
+      "group": "(2)"
+     },
+     {
+      "id": "E1-13",
+      "label": "⑨",
+      "group": "(2)"
+     },
+     {
+      "id": "E1-14",
+      "label": "①",
+      "group": "(3)"
+     },
+     {
+      "id": "E1-15",
+      "label": "②",
+      "group": "(3)"
+     },
+     {
+      "id": "E1-16",
+      "label": "③",
+      "group": "(3)"
+     }
+    ]
+   }
+  ]
+ }
+}
