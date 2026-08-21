@@ -198,6 +198,28 @@ body {
   color: #86868b;
 }
 
+/* 正誤表(xyz)のみ単元のカード: 正誤グラフ＋完了% を単元一覧に直接表示 */
+.unit-card-xyz { border-left: 6px solid #007aff; }
+.unit-card-bar {
+  display: flex;
+  height: 8px;
+  background: #e8e8ed;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+.unit-card-bar-good { background: #34c759; height: 100%; transition: width 0.3s; }
+.unit-card-bar-low  { background: #ff9f0a; height: 100%; transition: width 0.3s; }
+.unit-card-legend {
+  display: flex;
+  gap: 12px;
+  margin-top: 5px;
+  font-size: 11px;
+  color: #86868b;
+}
+.unit-card-legend .lg-good { color: #34c759; font-weight: 600; }
+.unit-card-legend .lg-low  { color: #ff9f0a; font-weight: 600; }
+
 /* 単元詳細・セクション詳細画面 */
 #screen-unit-detail, #screen-section-detail, #screen-wsmode {
   overflow-y: auto;
