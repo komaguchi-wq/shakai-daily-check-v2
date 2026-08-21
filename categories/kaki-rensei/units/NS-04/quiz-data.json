@@ -1,0 +1,542 @@
+{
+ "unitId": "NS-04",
+ "title": "現代の日本社会",
+ "category": "kaki-rensei",
+ "imageBase": "https://komaguchi-wq.github.io/shakai-daily-check-v2-images-01/kaki-rensei/NS-04/",
+ "pages": [
+  {
+   "id": "cover",
+   "type": "description",
+   "image": "cover_01.jpg",
+   "width": 4000,
+   "height": 2815,
+   "regions": []
+  }
+ ],
+ "xyz": {
+  "label": "問題演習",
+  "questionPages": [
+   "q_01.jpg",
+   "q_02.jpg",
+   "q_03.jpg",
+   "q_04.jpg",
+   "q_05.jpg",
+   "q_06.jpg",
+   "q_07.jpg",
+   "q_08.jpg",
+   "q_09.jpg",
+   "q_10.jpg"
+  ],
+  "answerPages": [
+   "a_01.jpg",
+   "a_02.jpg"
+  ],
+  "daimons": [
+   {
+    "id": "A1",
+    "label": "A1（1ページ・日本社会の変容と人権問題）",
+    "qpage": 0,
+    "questions": [
+     {
+      "id": "A1-1",
+      "label": "A",
+      "group": ""
+     },
+     {
+      "id": "A1-2",
+      "label": "①",
+      "group": "(1)"
+     },
+     {
+      "id": "A1-3",
+      "label": "②",
+      "group": "(1)"
+     },
+     {
+      "id": "A1-4",
+      "label": "③",
+      "group": "(1)"
+     },
+     {
+      "id": "A1-5",
+      "label": "④",
+      "group": "(1)"
+     },
+     {
+      "id": "A1-6",
+      "label": "⑤",
+      "group": "(1)"
+     },
+     {
+      "id": "A1-7",
+      "label": "①",
+      "group": "(2)"
+     },
+     {
+      "id": "A1-8",
+      "label": "②",
+      "group": "(2)"
+     },
+     {
+      "id": "A1-9",
+      "label": "③",
+      "group": "(2)"
+     },
+     {
+      "id": "A1-10",
+      "label": "④",
+      "group": "(2)"
+     },
+     {
+      "id": "A1-11",
+      "label": "⑤",
+      "group": "(2)"
+     },
+     {
+      "id": "A1-12",
+      "label": "⑥",
+      "group": "(2)"
+     },
+     {
+      "id": "A1-13",
+      "label": "⑦",
+      "group": "(2)"
+     },
+     {
+      "id": "A1-14",
+      "label": "⑧",
+      "group": "(2)"
+     },
+     {
+      "id": "A1-15",
+      "label": "⑨",
+      "group": "(2)"
+     },
+     {
+      "id": "A1-16",
+      "label": "⑩",
+      "group": "(2)"
+     }
+    ]
+   },
+   {
+    "id": "A2",
+    "label": "A2（2ページ・戦後の経済成長とさまざまな問題）",
+    "qpage": 1,
+    "questions": [
+     {
+      "id": "A2-1",
+      "label": "A",
+      "group": ""
+     },
+     {
+      "id": "A2-2",
+      "label": "B",
+      "group": ""
+     },
+     {
+      "id": "A2-3",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "A2-4",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "A2-5",
+      "label": "①",
+      "group": "(3)"
+     },
+     {
+      "id": "A2-6",
+      "label": "②",
+      "group": "(3)"
+     },
+     {
+      "id": "A2-7",
+      "label": "③",
+      "group": "(3)"
+     },
+     {
+      "id": "A2-8",
+      "label": "④",
+      "group": "(3)"
+     },
+     {
+      "id": "A2-9",
+      "label": "(4)完答",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "A3",
+    "label": "A3（2ページ・すべての人が安心して安全に暮らせる社会に）",
+    "qpage": 1,
+    "questions": [
+     {
+      "id": "A3-1",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "A3-2",
+      "label": "①",
+      "group": "(2)"
+     },
+     {
+      "id": "A3-3",
+      "label": "②",
+      "group": "(2)"
+     },
+     {
+      "id": "A3-4",
+      "label": "③",
+      "group": "(2)"
+     },
+     {
+      "id": "A3-5",
+      "label": "④",
+      "group": "(2)"
+     },
+     {
+      "id": "A3-6",
+      "label": "⑤",
+      "group": "(2)"
+     }
+    ]
+   },
+   {
+    "id": "B1",
+    "label": "B1（3ページ・訪日外国人と多文化共生）",
+    "qpage": 2,
+    "questions": [
+     {
+      "id": "B1-1",
+      "label": "(1)完答",
+      "group": ""
+     },
+     {
+      "id": "B1-2",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "B1-3",
+      "label": "①",
+      "group": "(3)"
+     },
+     {
+      "id": "B1-4",
+      "label": "②",
+      "group": "(3)"
+     },
+     {
+      "id": "B1-5",
+      "label": "1つめ",
+      "group": "(4)"
+     },
+     {
+      "id": "B1-6",
+      "label": "2つめ",
+      "group": "(4)"
+     }
+    ]
+   },
+   {
+    "id": "B2",
+    "label": "B2（3ページ・少子高齢化に関する諸問題）",
+    "qpage": 2,
+    "questions": [
+     {
+      "id": "B2-1",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "B2-2",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "B2-3",
+      "label": "(3)完答",
+      "group": ""
+     },
+     {
+      "id": "B2-4",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "B2-5",
+      "label": "(5)",
+      "group": ""
+     },
+     {
+      "id": "B2-6",
+      "label": "(6)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "B3",
+    "label": "B3（4ページ・すすむ高齢化）",
+    "qpage": 3,
+    "questions": [
+     {
+      "id": "B3-1",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "B3-2",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "B3-3",
+      "label": "(3)完答",
+      "group": ""
+     },
+     {
+      "id": "B3-4",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "B3-5",
+      "label": "(5)",
+      "group": ""
+     },
+     {
+      "id": "B3-6",
+      "label": "(6)",
+      "group": ""
+     },
+     {
+      "id": "B3-7",
+      "label": "(7)",
+      "group": ""
+     },
+     {
+      "id": "B3-8",
+      "label": "(8)",
+      "group": ""
+     },
+     {
+      "id": "B3-9",
+      "label": "(9)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "C1",
+    "label": "C1（5ページ・基本的人権に関する問題）",
+    "qpage": 4,
+    "questions": [
+     {
+      "id": "C1-1",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "C1-2",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "C1-3",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "C1-4",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "C1-5",
+      "label": "(5)",
+      "group": ""
+     },
+     {
+      "id": "C1-6",
+      "label": "(6)",
+      "group": ""
+     },
+     {
+      "id": "C1-7",
+      "label": "(7)",
+      "group": ""
+     },
+     {
+      "id": "C1-8",
+      "label": "(8)",
+      "group": ""
+     },
+     {
+      "id": "C1-9",
+      "label": "(9)",
+      "group": ""
+     },
+     {
+      "id": "C1-10",
+      "label": "(10)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "C2",
+    "label": "C2（6ページ・働き方改革）",
+    "qpage": 5,
+    "questions": [
+     {
+      "id": "C2-1",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "C2-2",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "C2-3",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "C2-4",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "C2-5",
+      "label": "(5)",
+      "group": ""
+     },
+     {
+      "id": "C2-6",
+      "label": "①",
+      "group": "(6)"
+     },
+     {
+      "id": "C2-7",
+      "label": "②",
+      "group": "(6)"
+     }
+    ]
+   },
+   {
+    "id": "D1",
+    "label": "D1（7・8ページ・社会保障と人権）",
+    "qpage": 6,
+    "questions": [
+     {
+      "id": "D1-1",
+      "label": "問1",
+      "group": ""
+     },
+     {
+      "id": "D1-2",
+      "label": "問2",
+      "group": ""
+     },
+     {
+      "id": "D1-3",
+      "label": "問3",
+      "group": ""
+     },
+     {
+      "id": "D1-4",
+      "label": "(1)",
+      "group": "問4"
+     },
+     {
+      "id": "D1-5",
+      "label": "(2)",
+      "group": "問4"
+     },
+     {
+      "id": "D1-6",
+      "label": "(1)",
+      "group": "問5"
+     },
+     {
+      "id": "D1-7",
+      "label": "(2)",
+      "group": "問5"
+     },
+     {
+      "id": "D1-8",
+      "label": "(3)",
+      "group": "問5"
+     },
+     {
+      "id": "D1-9",
+      "label": "(1)",
+      "group": "問6"
+     },
+     {
+      "id": "D1-10",
+      "label": "(2)",
+      "group": "問6"
+     }
+    ]
+   },
+   {
+    "id": "E1",
+    "label": "E1（9・10ページ・ジェンダーに関する問題）",
+    "qpage": 8,
+    "questions": [
+     {
+      "id": "E1-1",
+      "label": "(1)",
+      "group": "問1"
+     },
+     {
+      "id": "E1-2",
+      "label": "(2)",
+      "group": "問1"
+     },
+     {
+      "id": "E1-3",
+      "label": "(3)",
+      "group": "問1"
+     },
+     {
+      "id": "E1-4",
+      "label": "(1)",
+      "group": "問2"
+     },
+     {
+      "id": "E1-5",
+      "label": "(2)賛成",
+      "group": "問2"
+     },
+     {
+      "id": "E1-6",
+      "label": "(2)反対",
+      "group": "問2"
+     },
+     {
+      "id": "E1-7",
+      "label": "(3)完答",
+      "group": "問2"
+     },
+     {
+      "id": "E1-8",
+      "label": "問3",
+      "group": ""
+     }
+    ]
+   }
+  ]
+ }
+}
