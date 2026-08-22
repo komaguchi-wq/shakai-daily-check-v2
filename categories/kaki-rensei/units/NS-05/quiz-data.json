@@ -1,0 +1,586 @@
+{
+ "unitId": "NS-05",
+ "title": "国民生活と経済",
+ "category": "kaki-rensei",
+ "imageBase": "https://komaguchi-wq.github.io/shakai-daily-check-v2-images-01/kaki-rensei/NS-05/",
+ "pages": [
+  {
+   "id": "cover",
+   "type": "description",
+   "image": "cover_01.jpg",
+   "width": 4000,
+   "height": 2815,
+   "regions": []
+  }
+ ],
+ "xyz": {
+  "label": "問題演習",
+  "questionPages": [
+   "q_01.jpg",
+   "q_02.jpg",
+   "q_03.jpg",
+   "q_04.jpg",
+   "q_05.jpg",
+   "q_06.jpg",
+   "q_07.jpg",
+   "q_08.jpg",
+   "q_09.jpg",
+   "q_10.jpg"
+  ],
+  "answerPages": [
+   "a_01.jpg",
+   "a_02.jpg",
+   "a_03.jpg",
+   "a_04.jpg",
+   "a_05.jpg",
+   "a_06.jpg"
+  ],
+  "daimons": [
+   {
+    "id": "A1",
+    "label": "A1（1ページ・お金の役割やお金の流れ）",
+    "qpage": 0,
+    "questions": [
+     {
+      "id": "A1-1",
+      "label": "A",
+      "group": ""
+     },
+     {
+      "id": "A1-2",
+      "label": "B",
+      "group": ""
+     },
+     {
+      "id": "A1-3",
+      "label": "C",
+      "group": ""
+     },
+     {
+      "id": "A1-4",
+      "label": "D",
+      "group": ""
+     },
+     {
+      "id": "A1-5",
+      "label": "E",
+      "group": ""
+     },
+     {
+      "id": "A1-6",
+      "label": "F",
+      "group": ""
+     },
+     {
+      "id": "A1-7",
+      "label": "G",
+      "group": ""
+     },
+     {
+      "id": "A1-8",
+      "label": "①",
+      "group": "(1)"
+     },
+     {
+      "id": "A1-9",
+      "label": "②a",
+      "group": "(1)"
+     },
+     {
+      "id": "A1-10",
+      "label": "②b",
+      "group": "(1)"
+     },
+     {
+      "id": "A1-11",
+      "label": "②c",
+      "group": "(1)"
+     },
+     {
+      "id": "A1-12",
+      "label": "②d",
+      "group": "(1)"
+     },
+     {
+      "id": "A1-13",
+      "label": "③a",
+      "group": "(2)"
+     },
+     {
+      "id": "A1-14",
+      "label": "③b",
+      "group": "(2)"
+     },
+     {
+      "id": "A1-15",
+      "label": "④ア",
+      "group": "(3)"
+     },
+     {
+      "id": "A1-16",
+      "label": "④ウ",
+      "group": "(3)"
+     }
+    ]
+   },
+   {
+    "id": "A2",
+    "label": "A2（1ページ・経済活動を活発にする働き）",
+    "qpage": 0,
+    "questions": [
+     {
+      "id": "A2-1",
+      "label": "1",
+      "group": ""
+     },
+     {
+      "id": "A2-2",
+      "label": "2",
+      "group": ""
+     },
+     {
+      "id": "A2-3",
+      "label": "3",
+      "group": ""
+     },
+     {
+      "id": "A2-4",
+      "label": "4",
+      "group": ""
+     },
+     {
+      "id": "A2-5",
+      "label": "5",
+      "group": ""
+     },
+     {
+      "id": "A2-6",
+      "label": "6",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "B1",
+    "label": "B1（2ページ・わが国の交通と運輸）",
+    "qpage": 1,
+    "questions": [
+     {
+      "id": "B1-1",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "B1-2",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "B1-3",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "B1-4",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "B1-5",
+      "label": "(5)",
+      "group": ""
+     },
+     {
+      "id": "B1-6",
+      "label": "(6)",
+      "group": ""
+     },
+     {
+      "id": "B1-7",
+      "label": "(7)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "B2",
+    "label": "B2（2ページ・東海道新幹線が通る都府県）",
+    "qpage": 1,
+    "questions": [
+     {
+      "id": "B2-1",
+      "label": "①",
+      "group": ""
+     },
+     {
+      "id": "B2-2",
+      "label": "②",
+      "group": ""
+     },
+     {
+      "id": "B2-3",
+      "label": "③",
+      "group": ""
+     },
+     {
+      "id": "B2-4",
+      "label": "④",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "B3",
+    "label": "B3（3ページ・国民生活の変化）",
+    "qpage": 2,
+    "questions": [
+     {
+      "id": "B3-1",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "B3-2",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "B3-3",
+      "label": "(3)完答",
+      "group": ""
+     },
+     {
+      "id": "B3-4",
+      "label": "あ",
+      "group": "(4)"
+     },
+     {
+      "id": "B3-5",
+      "label": "い",
+      "group": "(4)"
+     },
+     {
+      "id": "B3-6",
+      "label": "う",
+      "group": "(4)"
+     }
+    ]
+   },
+   {
+    "id": "B4",
+    "label": "B4（3ページ・さまざまなマーク）",
+    "qpage": 2,
+    "questions": [
+     {
+      "id": "B4-1",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "B4-2",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "B4-3",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "B4-4",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "B4-5",
+      "label": "(5)",
+      "group": ""
+     },
+     {
+      "id": "B4-6",
+      "label": "(6)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "C1",
+    "label": "C1（4ページ・情報社会に関する問題）",
+    "qpage": 3,
+    "questions": [
+     {
+      "id": "C1-1",
+      "label": "税の名前",
+      "group": "(1)"
+     },
+     {
+      "id": "C1-2",
+      "label": "税率",
+      "group": "(1)"
+     },
+     {
+      "id": "C1-3",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "C1-4",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "C1-5",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "C1-6",
+      "label": "(5)",
+      "group": ""
+     },
+     {
+      "id": "C1-7",
+      "label": "(6)",
+      "group": ""
+     },
+     {
+      "id": "C1-8",
+      "label": "(7)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "C2",
+    "label": "C2（5ページ・わたしたちの生活と社会の変化）",
+    "qpage": 4,
+    "questions": [
+     {
+      "id": "C2-1",
+      "label": "A",
+      "group": "(1)"
+     },
+     {
+      "id": "C2-2",
+      "label": "B",
+      "group": "(1)"
+     },
+     {
+      "id": "C2-3",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "C2-4",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "C2-5",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "C2-6",
+      "label": "(5)",
+      "group": ""
+     },
+     {
+      "id": "C2-7",
+      "label": "X",
+      "group": "(6)"
+     },
+     {
+      "id": "C2-8",
+      "label": "Y",
+      "group": "(6)"
+     },
+     {
+      "id": "C2-9",
+      "label": "(7)",
+      "group": ""
+     },
+     {
+      "id": "C2-10",
+      "label": "(8)",
+      "group": ""
+     },
+     {
+      "id": "C2-11",
+      "label": "①",
+      "group": "(9)"
+     },
+     {
+      "id": "C2-12",
+      "label": "②",
+      "group": "(9)"
+     },
+     {
+      "id": "C2-13",
+      "label": "(10)",
+      "group": ""
+     },
+     {
+      "id": "C2-14",
+      "label": "(11)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "D1",
+    "label": "D1（6・7ページ・コミュニティバス）",
+    "qpage": 5,
+    "questions": [
+     {
+      "id": "D1-1",
+      "label": "問1",
+      "group": ""
+     },
+     {
+      "id": "D1-2",
+      "label": "問2",
+      "group": ""
+     },
+     {
+      "id": "D1-3",
+      "label": "(1)",
+      "group": "問3"
+     },
+     {
+      "id": "D1-4",
+      "label": "(2)",
+      "group": "問3"
+     },
+     {
+      "id": "D1-5",
+      "label": "(3)",
+      "group": "問3"
+     },
+     {
+      "id": "D1-6",
+      "label": "問4",
+      "group": ""
+     },
+     {
+      "id": "D1-7",
+      "label": "問5",
+      "group": ""
+     },
+     {
+      "id": "D1-8",
+      "label": "問6",
+      "group": ""
+     },
+     {
+      "id": "D1-9",
+      "label": "問7",
+      "group": ""
+     },
+     {
+      "id": "D1-10",
+      "label": "(1)",
+      "group": "問8"
+     },
+     {
+      "id": "D1-11",
+      "label": "(2)",
+      "group": "問8"
+     }
+    ]
+   },
+   {
+    "id": "E1",
+    "label": "E1（8〜10ページ・スーパーとコンビニエンスストア）",
+    "qpage": 7,
+    "questions": [
+     {
+      "id": "E1-1",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "E1-2",
+      "label": "①",
+      "group": "(2)"
+     },
+     {
+      "id": "E1-3",
+      "label": "②",
+      "group": "(2)"
+     },
+     {
+      "id": "E1-4",
+      "label": "A",
+      "group": "(3)"
+     },
+     {
+      "id": "E1-5",
+      "label": "B",
+      "group": "(3)"
+     },
+     {
+      "id": "E1-6",
+      "label": "C",
+      "group": "(3)"
+     },
+     {
+      "id": "E1-7",
+      "label": "①記号",
+      "group": "(4)"
+     },
+     {
+      "id": "E1-8",
+      "label": "①理由",
+      "group": "(4)"
+     },
+     {
+      "id": "E1-9",
+      "label": "②",
+      "group": "(4)"
+     },
+     {
+      "id": "E1-10",
+      "label": "(5)",
+      "group": ""
+     },
+     {
+      "id": "E1-11",
+      "label": "あ",
+      "group": "(6)"
+     },
+     {
+      "id": "E1-12",
+      "label": "い",
+      "group": "(6)"
+     },
+     {
+      "id": "E1-13",
+      "label": "う",
+      "group": "(6)"
+     },
+     {
+      "id": "E1-14",
+      "label": "①",
+      "group": "(7)"
+     },
+     {
+      "id": "E1-15",
+      "label": "②",
+      "group": "(7)"
+     },
+     {
+      "id": "E1-16",
+      "label": "(8)",
+      "group": ""
+     },
+     {
+      "id": "E1-17",
+      "label": "(9)",
+      "group": ""
+     }
+    ]
+   }
+  ]
+ }
+}
