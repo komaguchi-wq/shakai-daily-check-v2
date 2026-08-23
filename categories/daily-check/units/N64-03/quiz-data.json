@@ -532,16 +532,14 @@
    "kxyz_q_05.jpg",
    "kxyz_q_06.jpg",
    "kxyz_q_07.jpg",
-   "page_06_masked.jpg",
-   "page_07_masked.jpg"
+   "spread_01_q.jpg"
   ],
   "answerPages": [
    "kxyz_a_01.jpg",
    "kxyz_a_02.jpg",
    "kxyz_a_03.jpg",
    "kxyz_a_04.jpg",
-   "page_06.jpg",
-   "page_07.jpg"
+   "spread_01_a.jpg"
   ],
   "daimons": [
    {
@@ -1460,7 +1458,7 @@
    },
    {
     "id": "DS2",
-    "qpage": 8,
+    "qpage": 7,
     "questions": [
      {
       "id": "ds2-1",
@@ -1501,7 +1499,21 @@
    ],
    "generatedAt": "2026-08-23",
    "solvedPages": []
-  }
+  },
+  "spreads": [
+   {
+    "q": "spread_01_q.jpg",
+    "a": "spread_01_a.jpg",
+    "src_q": [
+     "page_06_masked.jpg",
+     "page_07_masked.jpg"
+    ],
+    "src_a": [
+     "page_06.jpg",
+     "page_07.jpg"
+    ]
+   }
+  ]
  },
  "imageBase": "https://komaguchi-wq.github.io/shakai-daily-check-v2-images-01/daily-check/N64-03/"
 }

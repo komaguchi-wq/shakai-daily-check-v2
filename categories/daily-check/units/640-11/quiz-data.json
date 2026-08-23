@@ -961,14 +961,12 @@
       "kxyz_q_02.jpg",
       "kxyz_q_03.jpg",
       "kxyz_q_04.jpg",
-      "page_09_masked.jpg",
-      "page_10_masked.jpg"
+      "spread_01_q.jpg"
     ],
     "answerPages": [
       "kxyz_a_01.jpg",
       "kxyz_a_02.jpg",
-      "page_09.jpg",
-      "page_10.jpg"
+      "spread_01_a.jpg"
     ],
     "daimons": [
       {
@@ -1410,7 +1408,7 @@
       },
       {
         "id": "DS2",
-        "qpage": 5,
+        "qpage": 4,
         "questions": [
           {
             "id": "ds2-1",
@@ -1450,6 +1448,20 @@
       ],
       "generatedAt": "2026-08-23",
       "solvedPages": []
-    }
+    },
+    "spreads": [
+      {
+        "q": "spread_01_q.jpg",
+        "a": "spread_01_a.jpg",
+        "src_q": [
+          "page_09_masked.jpg",
+          "page_10_masked.jpg"
+        ],
+        "src_a": [
+          "page_09.jpg",
+          "page_10.jpg"
+        ]
+      }
+    ]
   }
 }

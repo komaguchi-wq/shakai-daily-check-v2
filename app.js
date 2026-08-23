@@ -1086,11 +1086,47 @@ function showResults() {
 }
 
 // 印刷
+// ★半ページ（見開きの左右分割で保存されているポイントチェック/デイリーステップ等）は、
+//   隣の半ページと合わせて B4 見開き1枚で印刷する（2026-08-23 ユーザー要望）。
+//   同じ種別の半ページ列の中で偶数番目=左・奇数番目=右とみなす（元スキャンの分割順）。
+function _findSpreadPartner(page) {
+  if (!quizData || !quizData.pages || !page || !page.width) return null;
+  const maxW = Math.max(...quizData.pages.map(p => p.width || 0));
+  if (!(page.width < 0.6 * maxW)) return null;
+  const key = p => (p.type || "") + "|" + ((p.containsSections || []).join(","));
+  const col = quizData.pages.filter(p => p.width && p.width < 0.6 * maxW && key(p) === key(page));
+  const idx = col.findIndex(p => p.id === page.id);
+  if (idx < 0) return null;
+  const partner = (idx % 2 === 0) ? col[idx + 1] : col[idx - 1];
+  if (!partner) return null;
+  return (idx % 2 === 0) ? { left: page, right: partner } : { left: partner, right: page };
+}
+
 async function printCurrentPage() {
   if (!activePages || activePages.length === 0) return;
   const page = activePages[currentPageIndex];
   if (!page) return;
   const isFiltered = ["below50", "below67", "below99"].includes(currentMode);
+  const pair = _findSpreadPartner(page);
+  if (pair) {
+    // 見開き2-up: 左右それぞれ（フィルタ印刷なら対象強調）を横連結して B4 横1枚に
+    let imgs;
+    try {
+      imgs = [];
+      for (const pg of [pair.left, pair.right]) {
+        const o = unitImagesBase() + pg.image, m = unitImagesBase() + pg.imageMasked;
+        imgs.push(isFiltered ? await renderFilteredPrintCanvas(pg, o, m) : await loadImage(m));
+      }
+    } catch (e) { alert("画像の読み込みに失敗しました"); return; }
+    const h = Math.max(imgs[0].height, imgs[1].height);
+    const cc = document.createElement("canvas");
+    cc.width = imgs[0].width + imgs[1].width; cc.height = h;
+    const ctx = cc.getContext("2d");
+    ctx.fillStyle = "#fff"; ctx.fillRect(0, 0, cc.width, cc.height);
+    ctx.drawImage(imgs[0], 0, 0); ctx.drawImage(imgs[1], imgs[0].width, 0);
+    openPrintIframe(`${currentUnit.title} - ${getPageLabel(pair.left)}/${getPageLabel(pair.right)}`, "B4 landscape", cc.toDataURL("image/jpeg", 0.92));
+    return;
+  }
   const origPath = unitImagesBase() + page.image;
   const maskPath = unitImagesBase() + page.imageMasked;
   let baseImage;
