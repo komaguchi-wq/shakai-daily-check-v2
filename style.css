@@ -950,3 +950,14 @@ body {
   background: #fff; border-radius: 6px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
+
+/* AI正誤提案バナー（正誤表の上） */
+.proposal-banner {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap;
+  margin: 4px 0 6px; padding: 8px 10px;
+  background: #fff7e0; border: 1px solid #f0c060; border-radius: 8px;
+  font-size: 13px; line-height: 1.4;
+}
+.proposal-banner .pb-text { flex: 1 1 200px; }
+.proposal-banner .pb-btns { display: flex; gap: 6px; flex: 0 0 auto; }
+.proposal-banner .pb-btn { padding: 6px 12px; font-size: 13px; min-height: 0; }

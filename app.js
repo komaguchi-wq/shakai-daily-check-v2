@@ -1469,6 +1469,7 @@ function setupEventListeners() {
   document.querySelectorAll("[data-ws-print]").forEach(btn =>
     btn.addEventListener("click", () => printWsMode(btn.dataset.wsPrint)));
   document.getElementById("btn-back-wsmondai").addEventListener("click", () => {
+    if (proposalReviewMode) discardProposalReview();   // 未確定の提案は捨てる
     commitXyz();
     renderWsMode();
     showScreen("screen-wsmode");
@@ -1627,6 +1628,7 @@ function startWsMode(mode) {
   pendingXyz = {};
   document.getElementById("wsmondai-title").textContent = `${currentUnit.id} ${wsTitle()}`;
   renderXyzTable();
+  loadXyzProposals();   // AI正誤提案バナー
   renderWsPages();
   updateWsTabUI();
   showScreen("screen-wsmondai");
@@ -1681,6 +1683,111 @@ function renderXyzTable() {
   el.scrollTop = prevScroll;
 }
 
+// ==============================
+// AI正誤提案（categories/{cat}/units/{unit}/proposed.json）
+// 採点済み原本の赤ペンを読み取った提案を「仮入力」→ユーザーが直して「確定」する
+// ==============================
+let proposalReviewMode = false;   // true の間は自動確定（10秒・画面離脱）しない
+let currentProposals = null;      // {subId: bool} 未入力トグルのみ
+const dismissedProposalUnits = new Set();
+
+async function loadXyzProposals() {
+  const banner = document.getElementById("wsm-proposal-banner");
+  if (!banner) return;
+  banner.style.display = "none";
+  banner.innerHTML = "";
+  proposalReviewMode = false;
+  currentProposals = null;
+  if (!currentCategory || !currentUnit || !quizData || !quizData.xyz) return;
+  const unitKey = `${currentCategory.id}/${currentUnit.id}`;
+  if (dismissedProposalUnits.has(unitKey)) return;
+  let prop = null;
+  try {
+    const r = await fetch(`categories/${currentCategory.id}/units/${encodeURIComponent(currentUnit.id)}/proposed.json`, { cache: "no-cache" });
+    if (!r.ok) return;
+    prop = await r.json();
+  } catch (e) { return; }
+  if (!currentUnit || unitKey !== `${currentCategory.id}/${currentUnit.id}`) return;
+  if (!prop || !prop.grades) return;
+  const validIds = new Set();
+  quizData.xyz.daimons.forEach(dm => dm.questions.forEach(q => validIds.add(q.id)));
+  const applicable = {};
+  for (const qid of Object.keys(prop.grades)) {
+    if (!validIds.has(qid)) continue;
+    const v = prop.grades[qid];
+    if (v !== true && v !== false) continue;
+    if (getXyzTracking(currentUnit.id, qid).attempts > 0) continue;   // 入力済みは提案しない
+    applicable[qid] = v;
+  }
+  if (Object.keys(applicable).length === 0) return;
+  currentProposals = applicable;
+  renderProposalBanner("idle");
+}
+
+function renderProposalBanner(state) {
+  const banner = document.getElementById("wsm-proposal-banner");
+  if (!banner || !currentProposals) { if (banner) banner.style.display = "none"; return; }
+  const vals = Object.values(currentProposals);
+  const nOk = vals.filter(v => v).length;
+  const nNg = vals.length - nOk;
+  if (state === "idle") {
+    banner.innerHTML = `
+      <span class="pb-text">🤖 採点用紙から読み取った正誤提案があります（未入力 ${vals.length}件: ○${nOk} ×${nNg}）</span>
+      <span class="pb-btns">
+        <button class="btn btn-primary pb-btn" onclick="applyProposals()">仮入力する</button>
+        <button class="btn btn-secondary pb-btn" onclick="dismissProposals()">閉じる</button>
+      </span>`;
+  } else {
+    banner.innerHTML = `
+      <span class="pb-text">✏️ 提案を仮入力しました。違うものは○✕をタップして直し、最後に「確定」を押してください（確定まで保存されません）</span>
+      <span class="pb-btns">
+        <button class="btn btn-primary pb-btn" onclick="confirmProposalReview()">確定</button>
+        <button class="btn btn-secondary pb-btn" onclick="discardProposalReview()">取り消し</button>
+      </span>`;
+  }
+  banner.style.display = "flex";
+}
+
+function applyProposals() {
+  if (!currentProposals) return;
+  if (xyzIdleTimer) { clearTimeout(xyzIdleTimer); xyzIdleTimer = null; }
+  proposalReviewMode = true;
+  for (const qid of Object.keys(currentProposals)) {
+    pendingXyz[qid] = currentProposals[qid] ? "correct" : "wrong";
+  }
+  renderXyzTable();
+  // 正誤表を広げて全体を見えるようにする
+  const t = document.getElementById("wsm-table");
+  if (t && !t.classList.contains("expanded")) {
+    t.classList.add("expanded");
+    const chev = document.querySelector("#wsm-table-toggle .wsm-table-chev");
+    if (chev) chev.textContent = "△ 閉じる";
+  }
+  renderProposalBanner("review");
+}
+
+function confirmProposalReview() {
+  proposalReviewMode = false;
+  commitXyz();
+  currentProposals = null;
+  const banner = document.getElementById("wsm-proposal-banner");
+  if (banner) banner.style.display = "none";
+}
+
+function discardProposalReview() {
+  proposalReviewMode = false;
+  pendingXyz = {};
+  renderXyzTable();
+  renderProposalBanner("idle");
+}
+
+function dismissProposals() {
+  if (currentCategory && currentUnit) dismissedProposalUnits.add(`${currentCategory.id}/${currentUnit.id}`);
+  currentProposals = null;
+  const banner = document.getElementById("wsm-proposal-banner");
+  if (banner) banner.style.display = "none";
+}
+
 function markXyz(subId, isCorrect) {
   pendingXyz[subId] = isCorrect ? "correct" : "wrong";
   renderXyzTable();
@@ -1689,11 +1796,13 @@ function markXyz(subId, isCorrect) {
 
 function resetXyzIdle() {
   if (xyzIdleTimer) clearTimeout(xyzIdleTimer);
+  if (proposalReviewMode) return;   // 提案レビュー中は「確定」ボタンでのみ保存
   if (Object.keys(pendingXyz).length > 0) xyzIdleTimer = setTimeout(commitXyz, IDLE_TIMEOUT);
 }
 
 function commitXyz() {
   if (xyzIdleTimer) { clearTimeout(xyzIdleTimer); xyzIdleTimer = null; }
+  if (proposalReviewMode) return;   // レビュー中は仮入力を保持（確定/取り消しはバナーから）
   const ids = Object.keys(pendingXyz);
   if (ids.length === 0) return;
   for (const id of ids) {
