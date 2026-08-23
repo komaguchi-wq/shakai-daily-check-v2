@@ -1,695 +1,695 @@
 [
- {
-  "id": "640-01",
-  "title": "政治史年表①",
-  "subject": "6年社会 デイリーサピックス",
-  "pageCount": 16,
-  "totalRegions": 156,
-  "sectionRegions": {
-   "dailystep": 45,
-   "kakunin": 129
-  },
-  "sectionPages": {
-   "9": "dailystep",
-   "10": "dailystep",
-   "11": "kakunin",
-   "12": "kakunin",
-   "13": "kakunin",
-   "14": "kakunin",
-   "15": "kakunin",
-   "16": "kakunin"
-  },
-  "xyzCount": 104
- },
- {
-  "id": "640-02",
-  "title": "政治史年表②",
-  "subject": "6年社会 デイリーサピックス",
-  "pageCount": 17,
-  "totalRegions": 210,
-  "sectionRegions": {
-   "dailystep": 46,
-   "kakunin": 172
-  },
-  "sectionPages": {
-   "9": "dailystep",
-   "10": "dailystep",
-   "11": "kakunin",
-   "12": "kakunin",
-   "13": "kakunin",
-   "14": "kakunin",
-   "15": "kakunin",
-   "16": "kakunin"
-  },
-  "xyzCount": 113
- },
- {
-  "id": "640-03",
-  "title": "政治史年表③",
-  "subject": "6年社会 デイリーサピックス",
-  "pageCount": 17,
-  "totalRegions": 208,
-  "sectionRegions": {
-   "dailystep": 46,
-   "kakunin": 131,
-   "coreplus": 40
-  },
-  "sectionPages": {
-   "9": "dailystep",
-   "10": "dailystep",
-   "11": "kakunin",
-   "12": "kakunin",
-   "13": "kakunin",
-   "14": "kakunin",
-   "15": "kakunin",
-   "16": "kakunin",
-   "17": "coreplus"
-  },
-  "xyzCount": 116
- },
- {
-  "id": "640-04",
-  "title": "政治史④ 安土桃山〜江戸",
-  "subject": "6年社会 デイリーサピックス",
-  "pageCount": 16,
-  "totalRegions": 149,
-  "sectionRegions": {
-   "dailystep": 45,
-   "kakunin": 119
-  },
-  "sectionPages": {
-   "9": "dailystep",
-   "10": "dailystep",
-   "11": "kakunin",
-   "12": "kakunin",
-   "13": "kakunin",
-   "14": "kakunin",
-   "15": "kakunin",
-   "16": "kakunin"
-  },
-  "xyzCount": 101
- },
- {
-  "id": "640-05",
-  "title": "政治史⑤ 江戸〜明治",
-  "subject": "6年社会 デイリーサピックス",
-  "pageCount": 16,
-  "totalRegions": 151,
-  "sectionRegions": {
-   "dailystep": 46,
-   "kakunin": 117
-  },
-  "sectionPages": {
-   "9": "dailystep",
-   "10": "dailystep",
-   "11": "kakunin",
-   "12": "kakunin",
-   "13": "kakunin",
-   "14": "kakunin",
-   "15": "kakunin",
-   "16": "kakunin"
-  },
-  "xyzCount": 103
- },
- {
-  "id": "640-06",
-  "title": "政治史⑥ 明治〜昭和",
-  "subject": "6年社会 デイリーサピックス",
-  "pageCount": 18,
-  "totalRegions": 163,
-  "sectionRegions": {
-   "dailystep": 42,
-   "kakunin": 102,
-   "coreplus": 39
-  },
-  "sectionPages": {
-   "9": "dailystep",
-   "10": "dailystep",
-   "11": "kakunin",
-   "12": "kakunin",
-   "13": "kakunin",
-   "14": "kakunin",
-   "15": "kakunin",
-   "16": "kakunin",
-   "17": "coreplus",
-   "18": "coreplus"
-  },
-  "xyzCount": 99
- },
- {
-  "id": "H64-01",
-  "title": "政治史⑦ 昭和〜現代",
-  "subject": "6年社会 デイリーサピックス",
-  "pageCount": 18,
-  "totalRegions": 195,
-  "sectionRegions": {
-   "dailystep": 47,
-   "kakunin": 110,
-   "coreplus": 59
-  },
-  "sectionPages": {
-   "9": "dailystep",
-   "10": "dailystep",
-   "11": "kakunin",
-   "12": "kakunin",
-   "13": "kakunin",
-   "14": "kakunin",
-   "15": "kakunin",
-   "16": "kakunin",
-   "17": "coreplus",
-   "18": "coreplus"
-  },
-  "xyzCount": 95
- },
- {
-  "id": "H64-02",
-  "title": "社会・産業史① 土地制度の移り変わり",
-  "subject": "6年社会 デイリーサピックス",
-  "pageCount": 18,
-  "totalRegions": 187,
-  "sectionRegions": {
-   "dailystep": 48,
-   "kakunin": 105,
-   "coreplus": 57
-  },
-  "sectionPages": {
-   "9": "dailystep",
-   "10": "dailystep",
-   "11": "kakunin",
-   "12": "kakunin",
-   "13": "kakunin",
-   "14": "kakunin",
-   "15": "kakunin",
-   "16": "kakunin",
-   "17": "coreplus",
-   "18": "coreplus"
-  },
-  "xyzCount": 92
- },
- {
-  "id": "H64-03",
-  "title": "社会・産業史② 商工業の発達",
-  "subject": "6年社会 デイリーサピックス",
-  "pageCount": 18,
-  "totalRegions": 170,
-  "sectionRegions": {
-   "dailystep": 39,
-   "kakunin": 87,
-   "coreplus": 58
-  },
-  "sectionPages": {
-   "9": "dailystep",
-   "10": "dailystep",
-   "11": "kakunin",
-   "12": "kakunin",
-   "13": "kakunin",
-   "14": "kakunin",
-   "15": "kakunin",
-   "16": "kakunin",
-   "17": "coreplus",
-   "18": "coreplus"
-  },
-  "xyzCount": 79
- },
- {
-  "id": "640-07",
-  "title": "文化史",
-  "subject": "6年社会 デイリーサピックス",
-  "pageCount": 17,
-  "totalRegions": 213,
-  "sectionRegions": {
-   "dailystep": 53,
-   "kakunin": 125,
-   "coreplus": 59
-  },
-  "sectionPages": {
-   "9": "dailystep",
-   "10": "dailystep",
-   "11": "kakunin",
-   "12": "kakunin",
-   "13": "kakunin",
-   "14": "kakunin",
-   "15": "kakunin",
-   "16": "coreplus",
-   "17": "coreplus"
-  },
-  "xyzCount": 94
- },
- {
-  "id": "640-08",
-  "title": "外交史① アジア諸国との外交",
-  "subject": "6年社会 デイリーサピックス",
-  "pageCount": 18,
-  "totalRegions": 151,
-  "sectionRegions": {
-   "dailystep": 50,
-   "kakunin": 118,
-   "coreplus": 20
-  },
-  "sectionPages": {
-   "9": "dailystep",
-   "10": "dailystep",
-   "11": "kakunin",
-   "12": "kakunin",
-   "13": "kakunin",
-   "14": "kakunin",
-   "15": "kakunin",
-   "16": "kakunin",
-   "17": "coreplus",
-   "18": "coreplus"
-  },
-  "xyzCount": 94
- },
- {
-  "id": "640-09",
-  "title": "外交史② 欧米諸国との外交",
-  "subject": "6年社会 デイリーサピックス",
-  "pageCount": 18,
-  "totalRegions": 175,
-  "sectionRegions": {
-   "dailystep": 50,
-   "kakunin": 126,
-   "coreplus": 18
-  },
-  "sectionPages": {
-   "9": "dailystep",
-   "10": "dailystep",
-   "11": "kakunin",
-   "12": "kakunin",
-   "13": "kakunin",
-   "14": "kakunin",
-   "15": "kakunin",
-   "16": "kakunin",
-   "18": "coreplus"
-  },
-  "xyzCount": 110
- },
- {
-  "id": "640-10",
-  "title": "日本国憲法① 三大原則",
-  "subject": "6年社会 デイリーサピックス",
-  "pageCount": 16,
-  "totalRegions": 192,
-  "sectionRegions": {
-   "dailystep": 55,
-   "kakunin": 102,
-   "coreplus": 56
-  },
-  "sectionPages": {
-   "9": "dailystep",
-   "10": "dailystep",
-   "11": "kakunin",
-   "12": "kakunin",
-   "13": "kakunin",
-   "14": "kakunin",
-   "15": "coreplus",
-   "16": "coreplus"
-  },
-  "xyzCount": 85
- },
- {
-  "id": "640-11",
-  "title": "日本国憲法② 基本的人権",
-  "subject": "6年社会 デイリーサピックス",
-  "pageCount": 16,
-  "totalRegions": 111,
-  "sectionRegions": {
-   "dailystep": 39,
-   "kakunin": 63,
-   "coreplus": 17
-  },
-  "sectionPages": {
-   "9": "dailystep",
-   "10": "dailystep",
-   "11": "kakunin",
-   "12": "kakunin",
-   "13": "kakunin",
-   "14": "kakunin",
-   "16": "coreplus"
-  },
-  "xyzCount": 67
- },
- {
-  "id": "640-12",
-  "title": "三権分立①国会",
-  "subject": "6年社会 デイリーサピックス",
-  "pageCount": 16,
-  "totalRegions": 176,
-  "sectionRegions": {
-   "dailystep": 57,
-   "kakunin": 87,
-   "coreplus": 44
-  },
-  "sectionPages": {
-   "9": "dailystep",
-   "10": "dailystep",
-   "11": "kakunin",
-   "12": "kakunin",
-   "13": "kakunin",
-   "14": "kakunin",
-   "15": "coreplus",
-   "16": "coreplus"
-  },
-  "xyzCount": 78
- },
- {
-  "id": "640-13",
-  "title": "内閣と裁判所",
-  "subject": "6年社会 デイリーサピックス",
-  "pageCount": 16,
-  "totalRegions": 172,
-  "sectionRegions": {
-   "dailystep": 50,
-   "kakunin": 88,
-   "coreplus": 67
-  },
-  "sectionPages": {
-   "9": "dailystep",
-   "10": "dailystep",
-   "11": "kakunin",
-   "12": "kakunin",
-   "13": "kakunin",
-   "14": "kakunin",
-   "15": "coreplus",
-   "16": "coreplus"
-  },
-  "xyzCount": 71
- },
- {
-  "id": "640-14",
-  "title": "三権分立② 選挙制度",
-  "subject": "6年社会 デイリーサピックス",
-  "pageCount": 16,
-  "totalRegions": 215,
-  "sectionRegions": {
-   "dailystep": 42,
-   "kakunin": 119,
-   "coreplus": 54
-  },
-  "sectionPages": {
-   "9": "dailystep",
-   "10": "dailystep",
-   "11": "kakunin",
-   "12": "kakunin",
-   "13": "kakunin",
-   "14": "kakunin",
-   "15": "coreplus",
-   "16": "coreplus"
-  },
-  "xyzCount": 65
- },
- {
-  "id": "640-15",
-  "title": "地方自治・社会保障",
-  "subject": "6年社会 デイリーサピックス",
-  "pageCount": 16,
-  "totalRegions": 164,
-  "sectionRegions": {
-   "dailystep": 44,
-   "kakunin": 74,
-   "coreplus": 46
-  },
-  "sectionPages": {
-   "9": "dailystep",
-   "10": "dailystep",
-   "11": "kakunin",
-   "12": "kakunin",
-   "13": "kakunin",
-   "14": "kakunin",
-   "15": "coreplus",
-   "16": "coreplus"
-  },
-  "xyzCount": 72
- },
- {
-  "id": "640-16",
-  "title": "わたしたちのくらしと経済",
-  "subject": "6年社会 デイリーサピックス",
-  "pageCount": 16,
-  "totalRegions": 144,
-  "sectionRegions": {
-   "dailystep": 38,
-   "kakunin": 62,
-   "coreplus": 44
-  },
-  "sectionPages": {
-   "9": "dailystep",
-   "10": "dailystep",
-   "11": "kakunin",
-   "12": "kakunin",
-   "13": "kakunin",
-   "14": "kakunin",
-   "15": "coreplus",
-   "16": "coreplus"
-  },
-  "xyzCount": 59
- },
- {
-  "id": "640-17",
-  "title": "現代社会の諸問題①〜日本〜",
-  "subject": "6年社会 デイリーサピックス",
-  "pageCount": 16,
-  "totalRegions": 136,
-  "sectionRegions": {
-   "dailystep": 38,
-   "kakunin": 55,
-   "coreplus": 43
-  },
-  "sectionPages": {
-   "9": "dailystep",
-   "10": "dailystep",
-   "11": "kakunin",
-   "12": "kakunin",
-   "13": "kakunin",
-   "14": "kakunin",
-   "15": "coreplus",
-   "16": "coreplus"
-  },
-  "xyzCount": 51
- },
- {
-  "id": "640-18",
-  "title": "世界の地理",
-  "subject": "6年社会 デイリーサピックス",
-  "pageCount": 16,
-  "totalRegions": 149,
-  "sectionRegions": {
-   "dailystep": 47,
-   "kakunin": 40,
-   "coreplus": 62
-  },
-  "sectionPages": {
-   "9": "dailystep",
-   "10": "dailystep",
-   "11": "kakunin",
-   "12": "kakunin",
-   "13": "kakunin",
-   "14": "kakunin",
-   "15": "coreplus",
-   "16": "coreplus"
-  },
-  "xyzCount": 62
- },
- {
-  "id": "640-19",
-  "title": "国際連合〜その仕組みと役割〜",
-  "subject": "6年社会 デイリーサピックス",
-  "pageCount": 16,
-  "totalRegions": 151,
-  "sectionRegions": {
-   "dailystep": 39,
-   "kakunin": 76,
-   "coreplus": 36
-  },
-  "sectionPages": {
-   "9": "dailystep",
-   "10": "dailystep",
-   "11": "kakunin",
-   "12": "kakunin",
-   "13": "kakunin",
-   "14": "kakunin",
-   "15": "coreplus",
-   "16": "coreplus"
-  },
-  "xyzCount": 74
- },
- {
-  "id": "640-20",
-  "title": "現代社会の諸問題②〜世界〜",
-  "subject": "6年社会 デイリーサピックス",
-  "pageCount": 16,
-  "totalRegions": 155,
-  "sectionRegions": {
-   "dailystep": 41,
-   "kakunin": 73,
-   "coreplus": 41
-  },
-  "sectionPages": {
-   "9": "dailystep",
-   "10": "dailystep",
-   "11": "kakunin",
-   "12": "kakunin",
-   "13": "kakunin",
-   "14": "kakunin",
-   "15": "coreplus",
-   "16": "coreplus"
-  },
-  "xyzCount": 77
- },
- {
-  "id": "N64-01",
-  "title": "地理総合問題演習①〜日本の国土〜",
-  "subject": "6年社会 デイリーサピックス",
-  "pageCount": 13,
-  "totalRegions": 87,
-  "sectionRegions": {
-   "dailystep": 54,
-   "coreplus": 33
-  },
-  "sectionPages": {
-   "6": "dailystep",
-   "7": "dailystep",
-   "12": "coreplus",
-   "13": "coreplus"
-  },
-  "xyzCount": 213
- },
- {
-  "id": "N64-02",
-  "title": "地理総合問題演習②〜日本の第1次産業〜",
-  "subject": "6年社会 デイリーサピックス",
-  "pageCount": 12,
-  "totalRegions": 61,
-  "sectionRegions": {
-   "dailystep": 51,
-   "coreplus": 10
-  },
-  "sectionPages": {
-   "6": "dailystep",
-   "7": "dailystep",
-   "12": "coreplus"
-  },
-  "xyzCount": 186
- },
- {
-  "id": "N64-03",
-  "title": "地理総合問題演習③〜日本の第2次産業〜",
-  "subject": "6年社会 デイリーサピックス",
-  "pageCount": 12,
-  "totalRegions": 56,
-  "sectionRegions": {
-   "dailystep": 46,
-   "coreplus": 10
-  },
-  "sectionPages": {
-   "6": "dailystep",
-   "7": "dailystep",
-   "12": "coreplus"
-  },
-  "xyzCount": 155
- },
- {
-  "id": "N64-04",
-  "title": "地理総合問題演習④〜日本の交通と貿易〜",
-  "subject": "6年社会 デイリーサピックス",
-  "pageCount": 12,
-  "totalRegions": 52,
-  "sectionRegions": {
-   "dailystep": 42,
-   "coreplus": 10
-  },
-  "sectionPages": {
-   "6": "dailystep",
-   "7": "dailystep",
-   "12": "coreplus"
-  },
-  "xyzCount": 163
- },
- {
-  "id": "N64-05",
-  "title": "歴史総合問題演習①　旧石器時代〜平安時代",
-  "subject": "6年社会 デイリーサピックス",
-  "pageCount": 12,
-  "totalRegions": 57,
-  "sectionRegions": {
-   "dailystep": 47,
-   "coreplus": 10
-  },
-  "sectionPages": {
-   "6": "dailystep",
-   "7": "dailystep",
-   "12": "coreplus"
-  },
-  "xyzCount": 175
- },
- {
-  "id": "N64-06",
-  "title": "歴史総合問題演習②　鎌倉時代〜安土桃山時代",
-  "subject": "6年社会 デイリーサピックス",
-  "pageCount": 12,
-  "totalRegions": 58,
-  "sectionRegions": {
-   "dailystep": 48,
-   "coreplus": 10
-  },
-  "sectionPages": {
-   "6": "dailystep",
-   "7": "dailystep",
-   "12": "coreplus"
-  },
-  "xyzCount": 149
- },
- {
-  "id": "N64-07",
-  "title": "歴史総合問題演習③　江戸時代〜明治時代",
-  "subject": "6年社会 デイリーサピックス",
-  "pageCount": 12,
-  "totalRegions": 67,
-  "sectionRegions": {
-   "dailystep": 57,
-   "coreplus": 10
-  },
-  "sectionPages": {
-   "6": "dailystep",
-   "7": "dailystep",
-   "12": "coreplus"
-  },
-  "xyzCount": 168
- },
- {
-  "id": "N64-08",
-  "title": "歴史総合問題演習④　大正時代〜現代",
-  "subject": "6年社会 デイリーサピックス",
-  "pageCount": 13,
-  "totalRegions": 67,
-  "sectionRegions": {
-   "dailystep": 57,
-   "coreplus": 10
-  },
-  "sectionPages": {
-   "6": "dailystep",
-   "7": "dailystep",
-   "13": "coreplus"
-  },
-  "xyzCount": 174
- },
- {
-  "id": "N64-09",
-  "title": "公民総合問題演習",
-  "subject": "6年社会 デイリーサピックス",
-  "pageCount": 18,
-  "totalRegions": 105,
-  "sectionRegions": {
-   "dailystep": 95,
-   "coreplus": 10
-  },
-  "sectionPages": {
-   "6": "dailystep",
-   "7": "dailystep",
-   "8": "dailystep",
-   "9": "dailystep",
-   "18": "coreplus"
-  },
-  "xyzCount": 270
- }
+  {
+    "id": "640-01",
+    "title": "政治史年表①",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 16,
+    "totalRegions": 156,
+    "sectionRegions": {
+      "dailystep": 45,
+      "kakunin": 129
+    },
+    "sectionPages": {
+      "9": "dailystep",
+      "10": "dailystep",
+      "11": "kakunin",
+      "12": "kakunin",
+      "13": "kakunin",
+      "14": "kakunin",
+      "15": "kakunin",
+      "16": "kakunin"
+    },
+    "xyzCount": 104
+  },
+  {
+    "id": "640-02",
+    "title": "政治史年表②",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 17,
+    "totalRegions": 210,
+    "sectionRegions": {
+      "dailystep": 46,
+      "kakunin": 172
+    },
+    "sectionPages": {
+      "9": "dailystep",
+      "10": "dailystep",
+      "11": "kakunin",
+      "12": "kakunin",
+      "13": "kakunin",
+      "14": "kakunin",
+      "15": "kakunin",
+      "16": "kakunin"
+    },
+    "xyzCount": 113
+  },
+  {
+    "id": "640-03",
+    "title": "政治史年表③",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 17,
+    "totalRegions": 208,
+    "sectionRegions": {
+      "dailystep": 46,
+      "kakunin": 131,
+      "coreplus": 40
+    },
+    "sectionPages": {
+      "9": "dailystep",
+      "10": "dailystep",
+      "11": "kakunin",
+      "12": "kakunin",
+      "13": "kakunin",
+      "14": "kakunin",
+      "15": "kakunin",
+      "16": "kakunin",
+      "17": "coreplus"
+    },
+    "xyzCount": 116
+  },
+  {
+    "id": "640-04",
+    "title": "政治史④ 安土桃山〜江戸",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 16,
+    "totalRegions": 149,
+    "sectionRegions": {
+      "dailystep": 45,
+      "kakunin": 119
+    },
+    "sectionPages": {
+      "9": "dailystep",
+      "10": "dailystep",
+      "11": "kakunin",
+      "12": "kakunin",
+      "13": "kakunin",
+      "14": "kakunin",
+      "15": "kakunin",
+      "16": "kakunin"
+    },
+    "xyzCount": 101
+  },
+  {
+    "id": "640-05",
+    "title": "政治史⑤ 江戸〜明治",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 16,
+    "totalRegions": 151,
+    "sectionRegions": {
+      "dailystep": 46,
+      "kakunin": 117
+    },
+    "sectionPages": {
+      "9": "dailystep",
+      "10": "dailystep",
+      "11": "kakunin",
+      "12": "kakunin",
+      "13": "kakunin",
+      "14": "kakunin",
+      "15": "kakunin",
+      "16": "kakunin"
+    },
+    "xyzCount": 103
+  },
+  {
+    "id": "640-06",
+    "title": "政治史⑥ 明治〜昭和",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 18,
+    "totalRegions": 163,
+    "sectionRegions": {
+      "dailystep": 42,
+      "kakunin": 102,
+      "coreplus": 39
+    },
+    "sectionPages": {
+      "9": "dailystep",
+      "10": "dailystep",
+      "11": "kakunin",
+      "12": "kakunin",
+      "13": "kakunin",
+      "14": "kakunin",
+      "15": "kakunin",
+      "16": "kakunin",
+      "17": "coreplus",
+      "18": "coreplus"
+    },
+    "xyzCount": 99
+  },
+  {
+    "id": "H64-01",
+    "title": "政治史⑦ 昭和〜現代",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 18,
+    "totalRegions": 195,
+    "sectionRegions": {
+      "dailystep": 47,
+      "kakunin": 110,
+      "coreplus": 59
+    },
+    "sectionPages": {
+      "9": "dailystep",
+      "10": "dailystep",
+      "11": "kakunin",
+      "12": "kakunin",
+      "13": "kakunin",
+      "14": "kakunin",
+      "15": "kakunin",
+      "16": "kakunin",
+      "17": "coreplus",
+      "18": "coreplus"
+    },
+    "xyzCount": 95
+  },
+  {
+    "id": "H64-02",
+    "title": "社会・産業史① 土地制度の移り変わり",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 18,
+    "totalRegions": 187,
+    "sectionRegions": {
+      "dailystep": 48,
+      "kakunin": 105,
+      "coreplus": 57
+    },
+    "sectionPages": {
+      "9": "dailystep",
+      "10": "dailystep",
+      "11": "kakunin",
+      "12": "kakunin",
+      "13": "kakunin",
+      "14": "kakunin",
+      "15": "kakunin",
+      "16": "kakunin",
+      "17": "coreplus",
+      "18": "coreplus"
+    },
+    "xyzCount": 92
+  },
+  {
+    "id": "H64-03",
+    "title": "社会・産業史② 商工業の発達",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 18,
+    "totalRegions": 170,
+    "sectionRegions": {
+      "dailystep": 39,
+      "kakunin": 87,
+      "coreplus": 58
+    },
+    "sectionPages": {
+      "9": "dailystep",
+      "10": "dailystep",
+      "11": "kakunin",
+      "12": "kakunin",
+      "13": "kakunin",
+      "14": "kakunin",
+      "15": "kakunin",
+      "16": "kakunin",
+      "17": "coreplus",
+      "18": "coreplus"
+    },
+    "xyzCount": 79
+  },
+  {
+    "id": "640-07",
+    "title": "文化史",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 17,
+    "totalRegions": 213,
+    "sectionRegions": {
+      "dailystep": 53,
+      "kakunin": 125,
+      "coreplus": 59
+    },
+    "sectionPages": {
+      "9": "dailystep",
+      "10": "dailystep",
+      "11": "kakunin",
+      "12": "kakunin",
+      "13": "kakunin",
+      "14": "kakunin",
+      "15": "kakunin",
+      "16": "coreplus",
+      "17": "coreplus"
+    },
+    "xyzCount": 94
+  },
+  {
+    "id": "640-08",
+    "title": "外交史① アジア諸国との外交",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 18,
+    "totalRegions": 151,
+    "sectionRegions": {
+      "dailystep": 50,
+      "kakunin": 118,
+      "coreplus": 20
+    },
+    "sectionPages": {
+      "9": "dailystep",
+      "10": "dailystep",
+      "11": "kakunin",
+      "12": "kakunin",
+      "13": "kakunin",
+      "14": "kakunin",
+      "15": "kakunin",
+      "16": "kakunin",
+      "17": "coreplus",
+      "18": "coreplus"
+    },
+    "xyzCount": 94
+  },
+  {
+    "id": "640-09",
+    "title": "外交史② 欧米諸国との外交",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 18,
+    "totalRegions": 175,
+    "sectionRegions": {
+      "dailystep": 50,
+      "kakunin": 126,
+      "coreplus": 18
+    },
+    "sectionPages": {
+      "9": "dailystep",
+      "10": "dailystep",
+      "11": "kakunin",
+      "12": "kakunin",
+      "13": "kakunin",
+      "14": "kakunin",
+      "15": "kakunin",
+      "16": "kakunin",
+      "18": "coreplus"
+    },
+    "xyzCount": 110
+  },
+  {
+    "id": "640-10",
+    "title": "日本国憲法① 三大原則",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 16,
+    "totalRegions": 192,
+    "sectionRegions": {
+      "dailystep": 55,
+      "kakunin": 102,
+      "coreplus": 56
+    },
+    "sectionPages": {
+      "9": "dailystep",
+      "10": "dailystep",
+      "11": "kakunin",
+      "12": "kakunin",
+      "13": "kakunin",
+      "14": "kakunin",
+      "15": "coreplus",
+      "16": "coreplus"
+    },
+    "xyzCount": 85
+  },
+  {
+    "id": "640-11",
+    "title": "日本国憲法② 基本的人権",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 16,
+    "totalRegions": 111,
+    "sectionRegions": {
+      "dailystep": 39,
+      "kakunin": 63,
+      "coreplus": 17
+    },
+    "sectionPages": {
+      "9": "dailystep",
+      "10": "dailystep",
+      "11": "kakunin",
+      "12": "kakunin",
+      "13": "kakunin",
+      "14": "kakunin",
+      "16": "coreplus"
+    },
+    "xyzCount": 67
+  },
+  {
+    "id": "640-12",
+    "title": "三権分立①国会",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 16,
+    "totalRegions": 176,
+    "sectionRegions": {
+      "dailystep": 57,
+      "kakunin": 87,
+      "coreplus": 44
+    },
+    "sectionPages": {
+      "9": "dailystep",
+      "10": "dailystep",
+      "11": "kakunin",
+      "12": "kakunin",
+      "13": "kakunin",
+      "14": "kakunin",
+      "15": "coreplus",
+      "16": "coreplus"
+    },
+    "xyzCount": 78
+  },
+  {
+    "id": "640-13",
+    "title": "内閣と裁判所",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 16,
+    "totalRegions": 172,
+    "sectionRegions": {
+      "dailystep": 50,
+      "kakunin": 88,
+      "coreplus": 67
+    },
+    "sectionPages": {
+      "9": "dailystep",
+      "10": "dailystep",
+      "11": "kakunin",
+      "12": "kakunin",
+      "13": "kakunin",
+      "14": "kakunin",
+      "15": "coreplus",
+      "16": "coreplus"
+    },
+    "xyzCount": 71
+  },
+  {
+    "id": "640-14",
+    "title": "三権分立② 選挙制度",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 16,
+    "totalRegions": 215,
+    "sectionRegions": {
+      "dailystep": 42,
+      "kakunin": 119,
+      "coreplus": 54
+    },
+    "sectionPages": {
+      "9": "dailystep",
+      "10": "dailystep",
+      "11": "kakunin",
+      "12": "kakunin",
+      "13": "kakunin",
+      "14": "kakunin",
+      "15": "coreplus",
+      "16": "coreplus"
+    },
+    "xyzCount": 65
+  },
+  {
+    "id": "640-15",
+    "title": "地方自治・社会保障",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 16,
+    "totalRegions": 164,
+    "sectionRegions": {
+      "dailystep": 44,
+      "kakunin": 74,
+      "coreplus": 46
+    },
+    "sectionPages": {
+      "9": "dailystep",
+      "10": "dailystep",
+      "11": "kakunin",
+      "12": "kakunin",
+      "13": "kakunin",
+      "14": "kakunin",
+      "15": "coreplus",
+      "16": "coreplus"
+    },
+    "xyzCount": 72
+  },
+  {
+    "id": "640-16",
+    "title": "わたしたちのくらしと経済",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 16,
+    "totalRegions": 144,
+    "sectionRegions": {
+      "dailystep": 38,
+      "kakunin": 62,
+      "coreplus": 44
+    },
+    "sectionPages": {
+      "9": "dailystep",
+      "10": "dailystep",
+      "11": "kakunin",
+      "12": "kakunin",
+      "13": "kakunin",
+      "14": "kakunin",
+      "15": "coreplus",
+      "16": "coreplus"
+    },
+    "xyzCount": 59
+  },
+  {
+    "id": "640-17",
+    "title": "現代社会の諸問題①〜日本〜",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 16,
+    "totalRegions": 136,
+    "sectionRegions": {
+      "dailystep": 38,
+      "kakunin": 55,
+      "coreplus": 43
+    },
+    "sectionPages": {
+      "9": "dailystep",
+      "10": "dailystep",
+      "11": "kakunin",
+      "12": "kakunin",
+      "13": "kakunin",
+      "14": "kakunin",
+      "15": "coreplus",
+      "16": "coreplus"
+    },
+    "xyzCount": 51
+  },
+  {
+    "id": "640-18",
+    "title": "世界の地理",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 16,
+    "totalRegions": 149,
+    "sectionRegions": {
+      "dailystep": 47,
+      "kakunin": 40,
+      "coreplus": 62
+    },
+    "sectionPages": {
+      "9": "dailystep",
+      "10": "dailystep",
+      "11": "kakunin",
+      "12": "kakunin",
+      "13": "kakunin",
+      "14": "kakunin",
+      "15": "coreplus",
+      "16": "coreplus"
+    },
+    "xyzCount": 62
+  },
+  {
+    "id": "640-19",
+    "title": "国際連合〜その仕組みと役割〜",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 16,
+    "totalRegions": 151,
+    "sectionRegions": {
+      "dailystep": 39,
+      "kakunin": 76,
+      "coreplus": 36
+    },
+    "sectionPages": {
+      "9": "dailystep",
+      "10": "dailystep",
+      "11": "kakunin",
+      "12": "kakunin",
+      "13": "kakunin",
+      "14": "kakunin",
+      "15": "coreplus",
+      "16": "coreplus"
+    },
+    "xyzCount": 94
+  },
+  {
+    "id": "640-20",
+    "title": "現代社会の諸問題②〜世界〜",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 16,
+    "totalRegions": 155,
+    "sectionRegions": {
+      "dailystep": 41,
+      "kakunin": 73,
+      "coreplus": 41
+    },
+    "sectionPages": {
+      "9": "dailystep",
+      "10": "dailystep",
+      "11": "kakunin",
+      "12": "kakunin",
+      "13": "kakunin",
+      "14": "kakunin",
+      "15": "coreplus",
+      "16": "coreplus"
+    },
+    "xyzCount": 77
+  },
+  {
+    "id": "N64-01",
+    "title": "地理総合問題演習①〜日本の国土〜",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 13,
+    "totalRegions": 87,
+    "sectionRegions": {
+      "dailystep": 54,
+      "coreplus": 33
+    },
+    "sectionPages": {
+      "6": "dailystep",
+      "7": "dailystep",
+      "12": "coreplus",
+      "13": "coreplus"
+    },
+    "xyzCount": 213
+  },
+  {
+    "id": "N64-02",
+    "title": "地理総合問題演習②〜日本の第1次産業〜",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 12,
+    "totalRegions": 61,
+    "sectionRegions": {
+      "dailystep": 51,
+      "coreplus": 10
+    },
+    "sectionPages": {
+      "6": "dailystep",
+      "7": "dailystep",
+      "12": "coreplus"
+    },
+    "xyzCount": 186
+  },
+  {
+    "id": "N64-03",
+    "title": "地理総合問題演習③〜日本の第2次産業〜",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 12,
+    "totalRegions": 56,
+    "sectionRegions": {
+      "dailystep": 46,
+      "coreplus": 10
+    },
+    "sectionPages": {
+      "6": "dailystep",
+      "7": "dailystep",
+      "12": "coreplus"
+    },
+    "xyzCount": 155
+  },
+  {
+    "id": "N64-04",
+    "title": "地理総合問題演習④〜日本の交通と貿易〜",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 12,
+    "totalRegions": 52,
+    "sectionRegions": {
+      "dailystep": 42,
+      "coreplus": 10
+    },
+    "sectionPages": {
+      "6": "dailystep",
+      "7": "dailystep",
+      "12": "coreplus"
+    },
+    "xyzCount": 163
+  },
+  {
+    "id": "N64-05",
+    "title": "歴史総合問題演習①　旧石器時代〜平安時代",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 12,
+    "totalRegions": 57,
+    "sectionRegions": {
+      "dailystep": 47,
+      "coreplus": 10
+    },
+    "sectionPages": {
+      "6": "dailystep",
+      "7": "dailystep",
+      "12": "coreplus"
+    },
+    "xyzCount": 175
+  },
+  {
+    "id": "N64-06",
+    "title": "歴史総合問題演習②　鎌倉時代〜安土桃山時代",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 12,
+    "totalRegions": 58,
+    "sectionRegions": {
+      "dailystep": 48,
+      "coreplus": 10
+    },
+    "sectionPages": {
+      "6": "dailystep",
+      "7": "dailystep",
+      "12": "coreplus"
+    },
+    "xyzCount": 149
+  },
+  {
+    "id": "N64-07",
+    "title": "歴史総合問題演習③　江戸時代〜明治時代",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 12,
+    "totalRegions": 67,
+    "sectionRegions": {
+      "dailystep": 57,
+      "coreplus": 10
+    },
+    "sectionPages": {
+      "6": "dailystep",
+      "7": "dailystep",
+      "12": "coreplus"
+    },
+    "xyzCount": 168
+  },
+  {
+    "id": "N64-08",
+    "title": "歴史総合問題演習④　大正時代〜現代",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 13,
+    "totalRegions": 67,
+    "sectionRegions": {
+      "dailystep": 57,
+      "coreplus": 10
+    },
+    "sectionPages": {
+      "6": "dailystep",
+      "7": "dailystep",
+      "13": "coreplus"
+    },
+    "xyzCount": 174
+  },
+  {
+    "id": "N64-09",
+    "title": "公民総合問題演習",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 18,
+    "totalRegions": 105,
+    "sectionRegions": {
+      "dailystep": 95,
+      "coreplus": 10
+    },
+    "sectionPages": {
+      "6": "dailystep",
+      "7": "dailystep",
+      "8": "dailystep",
+      "9": "dailystep",
+      "18": "coreplus"
+    },
+    "xyzCount": 270
+  }
 ]

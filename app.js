@@ -239,8 +239,17 @@ function getUnitStats(unitId) {
 // 「解いた」= 正誤表に1度でもチェックが入っている（attempts > 0）。
 // セクション情報は units.json の sectionRegions / sectionPages / xyzCount（無い単元は全問数へフォールバック）
 function getUnitProgress(unit) {
+  // ★2026-08-23〜 正誤表(xyz)を通常単元へ後付け（追加型）: 従来計算(xyz込み)と xyz無視の計算の高い方を表示
+  const withXyz = getUnitProgressCore(unit, unit.xyzCount || 0);
+  if (!(unit.xyzCount > 0)) return withXyz;
+  const legacy = getUnitProgressCore(unit, 0);
+  const r1 = withXyz.total ? withXyz.attempted / withXyz.total : 0;
+  const r0 = legacy.total ? legacy.attempted / legacy.total : 0;
+  return r0 > r1 ? legacy : withXyz;
+}
+
+function getUnitProgressCore(unit, xyzN) {
   const sr = unit.sectionRegions || null;
-  const xyzN = unit.xyzCount || 0;
   const filtered = !!(sr && ((sr.dailystep || 0) > 0 || xyzN > 0));
   const total = filtered
     ? (sr.dailystep || 0) + (xyzN > 0 ? xyzN : (sr.kakunin || 0))
