@@ -1531,7 +1531,9 @@
     "answerPages": [
       "kxyz_a_01.jpg",
       "kxyz_a_02.jpg",
-      "spread_01_a.jpg"
+      "spread_01_a.jpg",
+      "solved_01.jpg",
+      "solved_02.jpg"
     ],
     "daimons": [
       {
@@ -2129,6 +2131,10 @@
           "page_10.jpg"
         ]
       }
+    ],
+    "solvedPages": [
+      "solved_01.jpg",
+      "solved_02.jpg"
     ]
   }
 }
