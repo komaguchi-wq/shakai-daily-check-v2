@@ -238,6 +238,7 @@ function getUnitStats(unitId) {
 // 対象セクションが無いカテゴリ（Weekly・コアプラス等）は従来通り全問数（totalRegions）。
 // 「解いた」= 正誤表に1度でもチェックが入っている（attempts > 0）。
 // セクション情報は units.json の sectionRegions / sectionPages / xyzCount（無い単元は全問数へフォールバック）
+const GOOD_RATE = 0.6;   // ★単元カードの緑=小問の正答率60%以上（2026-08-23 ユーザー確定・全アプリ共通）
 function getUnitProgress(unit) {
   // ★2026-08-23〜 正誤表(xyz)を通常単元へ後付け（追加型）: 従来計算(xyz込み)と xyz無視の計算の高い方を表示
   const withXyz = getUnitProgressCore(unit, unit.xyzCount || 0);
@@ -256,14 +257,15 @@ function getUnitProgressCore(unit, xyzN) {
     : (unit.totalRegions || 0);
   const pageSections = unit.sectionPages || {};
   const unitData = getTracking()[unit.id] || {};
-  let attempted = 0;
+  let attempted = 0, good = 0;
+  const isGood = (t) => t.correct / t.attempts >= GOOD_RATE;
   for (const key in unitData) {
     const t = unitData[key];
     if (!t || !(t.attempts > 0)) continue;
     if (key.startsWith("xyz-")) {
       // 授業の確認問題(X/Y/Z)。filtered時は分母に入っている場合のみ数える
       if (!filtered) continue; // フォールバック時の分母(totalRegions)はxyzを含まないため除外
-      if (xyzN > 0) attempted++;
+      if (xyzN > 0) { attempted++; if (isGood(t)) good++; }
       continue;
     }
     if (filtered) {
@@ -271,8 +273,9 @@ function getUnitProgressCore(unit, xyzN) {
       if (!(sec === "dailystep" || (xyzN === 0 && sec === "kakunin"))) continue;
     }
     attempted++;
+    if (isGood(t)) good++;
   }
-  return { total, attempted: Math.min(attempted, total) };
+  return { total, attempted: Math.min(attempted, total), good };
 }
 
 // 正誤表(xyz)のみの単元か（夏期集中志望校錬成特訓・データバンク歴史ステップ等）。
@@ -295,7 +298,7 @@ function getXyzUnitStats(unit) {
     const t = unitData[key];
     if (!t || !(t.attempts > 0)) continue;
     attempted++;
-    if (t.correct / t.attempts >= 0.67) good++;
+    if (t.correct / t.attempts >= GOOD_RATE) good++;
   }
   attempted = Math.min(attempted, total);
   good = Math.min(good, attempted);
@@ -387,53 +390,44 @@ async function openCategory(cat) {
 // ==============================
 // 単元一覧
 // ==============================
+// 単元カード共通: 緑=正答率60%以上 / 黄=60%未満 / 灰=未回答 の棒グラフ＋凡例＋完了%（全アプリ共通デザイン）
+function unitBarStats(unit) {
+  if (isXyzOnlyUnit(unit)) return getXyzUnitStats(unit);
+  const p = getUnitProgress(unit);
+  const good = Math.min(p.good || 0, p.attempted);
+  return { total: p.total, attempted: p.attempted, good, low: p.attempted - good, unanswered: p.total - p.attempted };
+}
+function unitBarHTML(st) {
+  const pct = (n) => st.total > 0 ? (n / st.total * 100) : 0;
+  return `
+        <div class="unit-card-bar" title="緑=正答率60%以上 / 黄=60%未満 / 灰=未回答">
+          <div class="unit-card-bar-good" style="width:${pct(st.good)}%"></div>
+          <div class="unit-card-bar-low" style="width:${pct(st.low)}%"></div>
+        </div>
+        <div class="unit-card-legend">
+          <span class="lg-good">○ ${st.good}</span>
+          <span class="lg-low">△ ${st.low}</span>
+          <span class="lg-none">未 ${st.unanswered}</span>
+        </div>`;
+}
+
 function renderUnits() {
   const list = document.getElementById("unit-list");
   list.innerHTML = "";
   unitsList.forEach(unit => {
     const card = document.createElement("div");
     card.className = "unit-card";
-    // 正誤表のみ単元: 単元カードに正誤グラフ＋完了%を直接表示（単元詳細を経由せずモード選択へ）
-    if (isXyzOnlyUnit(unit)) {
-      const st = getXyzUnitStats(unit);
-      const pct = (n) => st.total > 0 ? (n / st.total * 100) : 0;
-      const donePct = Math.round(pct(st.attempted));
-      card.classList.add("unit-card-xyz");
-      card.innerHTML = `
-        <div class="unit-card-info">
-          <div class="unit-card-title">${unit.id} ${unit.title}</div>
-          <div class="unit-card-subtitle">${unit.subject} ・ 全${st.total}問</div>
-          <div class="unit-card-bar" title="緑=正答率67%以上 / 橙=67%未満 / 灰=未回答">
-            <div class="unit-card-bar-good" style="width:${pct(st.good)}%"></div>
-            <div class="unit-card-bar-low" style="width:${pct(st.low)}%"></div>
-          </div>
-          <div class="unit-card-legend">
-            <span class="lg-good">○ ${st.good}</span>
-            <span class="lg-low">△ ${st.low}</span>
-            <span class="lg-none">未 ${st.unanswered}</span>
-          </div>
-        </div>
-        <div class="unit-card-stats">
-          <div class="unit-card-accuracy">${donePct}%</div>
-          <div class="unit-card-detail">完了 ${st.attempted}/${st.total}</div>
-        </div>`;
-      card.addEventListener("click", () => openUnit(unit));
-      list.appendChild(card);
-      return;
-    }
-    // 解いた問数 / 対象問数（授業の確認問題＋デイリーステップ）の達成率
-    const prog = getUnitProgress(unit);
-    const accuracy = prog.total > 0
-      ? Math.round((prog.attempted / prog.total) * 100) + "%"
-      : "---";
+    if (isXyzOnlyUnit(unit)) card.classList.add("unit-card-xyz");   // 正誤表のみ単元（クリックでモード選択へ直行）
+    const st = unitBarStats(unit);
+    const donePct = st.total > 0 ? Math.round(st.attempted / st.total * 100) + "%" : "---";
     card.innerHTML = `
       <div class="unit-card-info">
         <div class="unit-card-title">${unit.id} ${unit.title}</div>
-        <div class="unit-card-subtitle">${unit.subject}</div>
+        <div class="unit-card-subtitle">${unit.subject} ・ 全${st.total}問</div>${unitBarHTML(st)}
       </div>
       <div class="unit-card-stats">
-        <div class="unit-card-accuracy">${accuracy}</div>
-        <div class="unit-card-detail">${prog.attempted}/${prog.total}</div>
+        <div class="unit-card-accuracy">${donePct}</div>
+        <div class="unit-card-detail">完了 ${st.attempted}/${st.total}</div>
       </div>`;
     card.addEventListener("click", () => openUnit(unit));
     list.appendChild(card);
