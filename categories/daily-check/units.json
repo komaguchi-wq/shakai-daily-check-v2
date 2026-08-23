@@ -19,7 +19,8 @@
       "15": "kakunin",
       "16": "kakunin"
     },
-    "xyzCount": 130
+    "xyzCount": 130,
+    "xyzPrimary": true
   },
   {
     "id": "640-02",
@@ -41,7 +42,8 @@
       "15": "kakunin",
       "16": "kakunin"
     },
-    "xyzCount": 138
+    "xyzCount": 138,
+    "xyzPrimary": true
   },
   {
     "id": "640-03",
@@ -65,7 +67,8 @@
       "16": "kakunin",
       "17": "coreplus"
     },
-    "xyzCount": 144
+    "xyzCount": 144,
+    "xyzPrimary": true
   },
   {
     "id": "640-04",
@@ -87,7 +90,8 @@
       "15": "kakunin",
       "16": "kakunin"
     },
-    "xyzCount": 131
+    "xyzCount": 131,
+    "xyzPrimary": true
   },
   {
     "id": "640-05",
@@ -109,7 +113,8 @@
       "15": "kakunin",
       "16": "kakunin"
     },
-    "xyzCount": 132
+    "xyzCount": 132,
+    "xyzPrimary": true
   },
   {
     "id": "640-06",
@@ -134,7 +139,8 @@
       "17": "coreplus",
       "18": "coreplus"
     },
-    "xyzCount": 128
+    "xyzCount": 128,
+    "xyzPrimary": true
   },
   {
     "id": "H64-01",
@@ -159,7 +165,8 @@
       "17": "coreplus",
       "18": "coreplus"
     },
-    "xyzCount": 124
+    "xyzCount": 124,
+    "xyzPrimary": true
   },
   {
     "id": "H64-02",
@@ -184,7 +191,8 @@
       "17": "coreplus",
       "18": "coreplus"
     },
-    "xyzCount": 116
+    "xyzCount": 116,
+    "xyzPrimary": true
   },
   {
     "id": "H64-03",
@@ -209,7 +217,8 @@
       "17": "coreplus",
       "18": "coreplus"
     },
-    "xyzCount": 103
+    "xyzCount": 103,
+    "xyzPrimary": true
   },
   {
     "id": "640-07",
@@ -233,7 +242,8 @@
       "16": "coreplus",
       "17": "coreplus"
     },
-    "xyzCount": 128
+    "xyzCount": 128,
+    "xyzPrimary": true
   },
   {
     "id": "640-08",
@@ -258,7 +268,8 @@
       "17": "coreplus",
       "18": "coreplus"
     },
-    "xyzCount": 144
+    "xyzCount": 144,
+    "xyzPrimary": true
   },
   {
     "id": "640-09",
@@ -282,7 +293,8 @@
       "16": "kakunin",
       "18": "coreplus"
     },
-    "xyzCount": 136
+    "xyzCount": 136,
+    "xyzPrimary": true
   },
   {
     "id": "640-10",
@@ -305,7 +317,8 @@
       "15": "coreplus",
       "16": "coreplus"
     },
-    "xyzCount": 111
+    "xyzCount": 111,
+    "xyzPrimary": true
   },
   {
     "id": "640-11",
@@ -327,7 +340,8 @@
       "14": "kakunin",
       "16": "coreplus"
     },
-    "xyzCount": 90
+    "xyzCount": 90,
+    "xyzPrimary": true
   },
   {
     "id": "640-12",
@@ -350,7 +364,8 @@
       "15": "coreplus",
       "16": "coreplus"
     },
-    "xyzCount": 107
+    "xyzCount": 107,
+    "xyzPrimary": true
   },
   {
     "id": "640-13",
@@ -373,7 +388,8 @@
       "15": "coreplus",
       "16": "coreplus"
     },
-    "xyzCount": 102
+    "xyzCount": 102,
+    "xyzPrimary": true
   },
   {
     "id": "640-14",
@@ -396,7 +412,8 @@
       "15": "coreplus",
       "16": "coreplus"
     },
-    "xyzCount": 90
+    "xyzCount": 90,
+    "xyzPrimary": true
   },
   {
     "id": "640-15",
@@ -419,7 +436,8 @@
       "15": "coreplus",
       "16": "coreplus"
     },
-    "xyzCount": 94
+    "xyzCount": 94,
+    "xyzPrimary": true
   },
   {
     "id": "640-16",
@@ -442,7 +460,8 @@
       "15": "coreplus",
       "16": "coreplus"
     },
-    "xyzCount": 83
+    "xyzCount": 83,
+    "xyzPrimary": true
   },
   {
     "id": "640-17",
@@ -465,7 +484,8 @@
       "15": "coreplus",
       "16": "coreplus"
     },
-    "xyzCount": 73
+    "xyzCount": 73,
+    "xyzPrimary": true
   },
   {
     "id": "640-18",
@@ -488,7 +508,8 @@
       "15": "coreplus",
       "16": "coreplus"
     },
-    "xyzCount": 82
+    "xyzCount": 82,
+    "xyzPrimary": true
   },
   {
     "id": "640-19",
@@ -511,7 +532,8 @@
       "15": "coreplus",
       "16": "coreplus"
     },
-    "xyzCount": 94
+    "xyzCount": 94,
+    "xyzPrimary": true
   },
   {
     "id": "640-20",
@@ -534,7 +556,8 @@
       "15": "coreplus",
       "16": "coreplus"
     },
-    "xyzCount": 92
+    "xyzCount": 92,
+    "xyzPrimary": true
   },
   {
     "id": "N64-01",
@@ -552,7 +575,8 @@
       "12": "coreplus",
       "13": "coreplus"
     },
-    "xyzCount": 242
+    "xyzCount": 242,
+    "xyzPrimary": true
   },
   {
     "id": "N64-02",
@@ -569,7 +593,8 @@
       "7": "dailystep",
       "12": "coreplus"
     },
-    "xyzCount": 212
+    "xyzCount": 212,
+    "xyzPrimary": true
   },
   {
     "id": "N64-03",
@@ -586,7 +611,8 @@
       "7": "dailystep",
       "12": "coreplus"
     },
-    "xyzCount": 176
+    "xyzCount": 176,
+    "xyzPrimary": true
   },
   {
     "id": "N64-04",
@@ -603,7 +629,8 @@
       "7": "dailystep",
       "12": "coreplus"
     },
-    "xyzCount": 181
+    "xyzCount": 181,
+    "xyzPrimary": true
   },
   {
     "id": "N64-05",
@@ -620,7 +647,8 @@
       "7": "dailystep",
       "12": "coreplus"
     },
-    "xyzCount": 206
+    "xyzCount": 206,
+    "xyzPrimary": true
   },
   {
     "id": "N64-06",
@@ -637,7 +665,8 @@
       "7": "dailystep",
       "12": "coreplus"
     },
-    "xyzCount": 180
+    "xyzCount": 180,
+    "xyzPrimary": true
   },
   {
     "id": "N64-07",
@@ -654,7 +683,8 @@
       "7": "dailystep",
       "12": "coreplus"
     },
-    "xyzCount": 201
+    "xyzCount": 201,
+    "xyzPrimary": true
   },
   {
     "id": "N64-08",
@@ -671,7 +701,8 @@
       "7": "dailystep",
       "13": "coreplus"
     },
-    "xyzCount": 201
+    "xyzCount": 201,
+    "xyzPrimary": true
   },
   {
     "id": "N64-09",
@@ -690,6 +721,7 @@
       "9": "dailystep",
       "18": "coreplus"
     },
-    "xyzCount": 315
+    "xyzCount": 315,
+    "xyzPrimary": true
   }
 ]

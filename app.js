@@ -381,7 +381,7 @@ async function openCategory(cat) {
   if (cat.url) { location.href = cat.url; return; }
   currentCategory = cat;
   document.getElementById("units-header-title").textContent = cat.name;
-  const res = await fetch(`categories/${cat.id}/units.json`);
+  const res = await fetch(`categories/${cat.id}/units.json`, { cache: "no-cache" });
   unitsList = await res.json();
   renderUnits();
   showScreen("screen-units");
@@ -392,7 +392,8 @@ async function openCategory(cat) {
 // ==============================
 // 単元カード共通: 緑=正答率60%以上 / 黄=60%未満 / 灰=未回答 の棒グラフ＋凡例＋完了%（全アプリ共通デザイン）
 function unitBarStats(unit) {
-  if (isXyzOnlyUnit(unit)) return getXyzUnitStats(unit);
+  // ★xyzPrimary（2026-08-24〜 社会DS: 単元カードの進捗＝「授業の確認問題・デイリーステップ」正誤表）
+  if (isXyzOnlyUnit(unit) || unit.xyzPrimary) return getXyzUnitStats(unit);
   const p = getUnitProgress(unit);
   const good = Math.min(p.good || 0, p.attempted);
   return { total: p.total, attempted: p.attempted, good, low: p.attempted - good, unanswered: p.total - p.attempted };
@@ -486,14 +487,17 @@ function renderUnitDetail() {
   const list = document.getElementById("section-card-list");
   list.innerHTML = "";
 
+  const hasXyz = !!(quizData && quizData.xyz && Array.isArray(quizData.xyz.daimons) && quizData.xyz.daimons.length > 0);
   SECTION_ORDER.forEach(sec => {
     // 授業の確認問題: xyzデータがあれば X/Y/Z方式カード（問題/解答タブ + 正誤表）。
     // 無い単元は従来のマスク方式カードのまま（段階移行できるよう両対応）。
-    if (sec === "kakunin" && quizData && quizData.xyz
-        && Array.isArray(quizData.xyz.daimons) && quizData.xyz.daimons.length > 0) {
+    if (sec === "kakunin" && hasXyz) {
       list.appendChild(buildXyzCard());
       return;
     }
+    // ★2026-08-24 ユーザー確定: DS単元は「説明文／授業の確認問題・デイリーステップ（正誤表）／コアプラス＋デイリーチェック」の3カード。
+    //   デイリーステップ単独カード（旧クイズ方式）は正誤表に含まれるので非表示（データ・旧○×は維持）
+    if (sec === "dailystep" && hasXyz) return;
     const pages = getSectionPages(sec);
     if (pages.length === 0) return;
     const meta = SECTION_META[sec];
@@ -525,14 +529,18 @@ function renderUnitDetail() {
       <div class="section-card-body">
         <div class="section-card-title">${meta.label}${badge}</div>
         <div class="section-card-meta">${pages.length}ページ${isQuizable ? ` ・ 全${stats.totalRegions}問` : ""}</div>
-        <div class="section-card-progress">
+        ${isQuizable ? `<div class="section-card-progress">
           <div class="section-card-progress-fill" style="width: ${progress}%;"></div>
-        </div>
+        </div>` : ""}
       </div>
       ${statsHTML}
     `;
 
-    card.addEventListener("click", () => openSection(sec));
+    // ★2026-08-24 算数デイリーサポート方式: カードを選んだ瞬間にページ表示（モードは画面上部の1行）。閲覧のみは閲覧画面へ直行
+    card.addEventListener("click", () => {
+      if (isQuizable) { currentSection = sec; quizDirect = true; startWithMode("all"); }
+      else startReading(sec, true);
+    });
     list.appendChild(card);
   });
 
@@ -546,6 +554,7 @@ function renderUnitDetail() {
 
 function openSection(section) {
   currentSection = section;
+  quizDirect = false;
   const meta = SECTION_META[section];
   document.getElementById("section-detail-title").textContent =
     `${meta.icon} ${meta.label}`;
@@ -685,10 +694,13 @@ function getPageLabel(page) {
 // ==============================
 // 閲覧モード
 // ==============================
-function startReading(section) {
+let readingDirect = false; // 単元詳細のカードから直接閲覧に入った（戻るは単元詳細へ）
+function startReading(section, direct) {
   readingPages = getSectionPages(section);
   if (readingPages.length === 0) return;
   currentReadingSection = section;
+  currentSection = section;   // 全ページ印刷（bulkPrint）用
+  readingDirect = !!direct;
   readingIndex = 0;
   showScreen("screen-reading");
   renderReading();
@@ -775,6 +787,39 @@ function startWithMode(mode) {
   }
 }
 
+let quizDirect = false; // 単元詳細のカードから直接クイズに入った（戻るは単元詳細へ）
+const QUIZ_MODE_SHORT = { all: "全ての問題", below50: "正答率50%未満", below67: "正答率66%未満", below99: "正答率80%未満", unanswered: "未解答問題" };
+function quizModeCounts() {
+  const pages = getSectionPages(currentSection).filter(p => p.regions.length > 0);
+  const c = { all: 0, below50: 0, below67: 0, below99: 0, unanswered: 0 };
+  pages.forEach(p => p.regions.forEach((_, ri) => {
+    c.all++;
+    const acc = getAccuracy(currentUnit.id, p.id, ri);
+    if (acc === null) c.unanswered++;
+    if (acc !== null && acc < 0.5) c.below50++;
+    if (acc !== null && acc < 0.66) c.below67++;
+    if (acc !== null && acc < 0.8) c.below99++;
+  }));
+  return c;
+}
+function updateQuizModeBar() {
+  const bar = document.getElementById("quiz-modebar");
+  if (!bar) return;
+  const c = quizModeCounts();
+  bar.querySelectorAll("[data-quiz-mode]").forEach(btn => {
+    const m = btn.dataset.quizMode;
+    btn.textContent = `${QUIZ_MODE_SHORT[m]} (${c[m]})`;
+    btn.classList.toggle("active", m === currentMode);
+    btn.disabled = c[m] === 0 && m !== "all";
+  });
+}
+function setQuizMode(mode) {
+  commitAllPending();
+  answerRevealed = false;
+  currentRegionIndex = 0;
+  startWithMode(mode);
+}
+
 function startQuiz(pageIdx) {
   currentPageIndex = pageIdx;
   if (currentRegionIndex === undefined || currentRegionIndex === 0) {
@@ -782,6 +827,7 @@ function startQuiz(pageIdx) {
   }
   answerRevealed = false;
   showScreen("screen-quiz");
+  updateQuizModeBar();
   renderQuiz();
 }
 
@@ -1369,7 +1415,9 @@ function setupEventListeners() {
   });
 
   // 閲覧モード（ページめくり）
+  document.getElementById("reading-print-all-btn").addEventListener("click", () => bulkPrint("reading"));
   document.getElementById("btn-back-reading").addEventListener("click", () => {
+    if (readingDirect) { readingDirect = false; renderUnitDetail(); showScreen("screen-unit-detail"); return; }
     if (currentSection) {
       renderSectionDetail();
       showScreen("screen-section-detail");
@@ -1450,9 +1498,16 @@ function setupEventListeners() {
       renderQuiz();
     }
   });
+  document.getElementById("quiz-list-btn").addEventListener("click", () => {
+    commitAllPending(); answerRevealed = false;
+    openSection(currentSection);
+  });
+  document.querySelectorAll("#quiz-modebar [data-quiz-mode]").forEach(btn =>
+    btn.addEventListener("click", () => setQuizMode(btn.dataset.quizMode)));
   document.getElementById("btn-back-detail").addEventListener("click", () => {
     commitAllPending();
     answerRevealed = false;
+    if (quizDirect) { quizDirect = false; renderUnitDetail(); showScreen("screen-unit-detail"); return; }
     if (currentSection) {
       renderSectionDetail();
       showScreen("screen-section-detail");
@@ -1481,6 +1536,7 @@ function setupEventListeners() {
     renderQuiz();
   });
   document.getElementById("btn-back-unit-detail").addEventListener("click", () => {
+    if (quizDirect) { quizDirect = false; renderUnitDetail(); showScreen("screen-unit-detail"); return; }
     if (currentSection) {
       renderSectionDetail();
       showScreen("screen-section-detail");
@@ -1498,20 +1554,14 @@ function setupEventListeners() {
   });
 
   // 授業の確認問題（X/Y/Z方式: 問題/解答タブ + 正誤表）
-  document.getElementById("btn-back-wsmode").addEventListener("click", () => {
-    if (wsmDirect) { renderUnits(); showScreen("screen-units"); return; }
-    renderUnitDetail();
-    showScreen("screen-unit-detail");
-  });
-  document.querySelectorAll("[data-ws-mode]").forEach(btn =>
-    btn.addEventListener("click", () => startWsMode(btn.dataset.wsMode)));
-  document.querySelectorAll("[data-ws-print]").forEach(btn =>
-    btn.addEventListener("click", () => printWsMode(btn.dataset.wsPrint)));
+  document.querySelectorAll("#wsm-modebar [data-wsm-mode]").forEach(btn =>
+    btn.addEventListener("click", () => setWsFilter(btn.dataset.wsmMode)));
   document.getElementById("btn-back-wsmondai").addEventListener("click", () => {
     if (proposalReviewMode) discardProposalReview();   // 未確定の提案は捨てる
     commitXyz();
-    renderWsMode();
-    showScreen("screen-wsmode");
+    if (wsmDirect) { renderUnits(); showScreen("screen-units"); return; }
+    renderUnitDetail();
+    showScreen("screen-unit-detail");
   });
   document.getElementById("wsm-tab-q").addEventListener("click", () => setWsTab(false));
   document.getElementById("wsm-tab-a").addEventListener("click", () => setWsTab(true));
@@ -1634,27 +1684,40 @@ function wsTitle() {
 }
 
 // ----- モード選択画面 -----
+// ★2026-08-24 ユーザー確定（全アプリ共通の階層構造＝算数デイリーサポート方式）:
+//   項目を選んだ瞬間に問題ページを表示し、「全ての問題／正答率XX%未満／未解答」は画面上部の1行（モードバー）で切替。
+//   旧「学習モード選択ページ（screen-wsmode）」は廃止
 function openWsMode() {
   commitXyz();
-  renderWsMode();
-  showScreen("screen-wsmode");
+  startWsMode("all");
 }
 
-function renderWsMode() {
-  const xyz = quizData.xyz;
-  document.getElementById("wsmode-title").textContent =
-    wsmDirect && currentUnit.title ? `${currentUnit.id} ${currentUnit.title}` : `${currentUnit.id} ${wsTitle()}`;
+function wsModeCounts() {
   const counts = { all: 0, below50: 0, below67: 0, below99: 0, unanswered: 0 };
-  xyz.daimons.forEach(dm => dm.questions.forEach(q => {
+  quizData.xyz.daimons.forEach(dm => dm.questions.forEach(q => {
     for (const m of Object.keys(counts)) if (xyzSubMatchesMode(q.id, m)) counts[m]++;
   }));
-  for (const mode of Object.keys(WS_MODE_BASE)) {
-    const btn = document.querySelector(`[data-ws-mode="${mode}"]`);
-    const pbtn = document.querySelector(`[data-ws-print="${mode}"]`);
-    if (btn) { btn.textContent = `${WS_MODE_BASE[mode]} (${counts[mode]}問)`; btn.disabled = counts[mode] === 0; }
-    if (pbtn) pbtn.disabled = counts[mode] === 0;
-  }
+  return counts;
 }
+const WS_MODE_SHORT = { all: "全ての問題", below50: "正答率50%未満", below67: "正答率66%未満", below99: "正答率80%未満", unanswered: "未解答問題" };
+function updateWsModeBar() {
+  const counts = wsModeCounts();
+  document.querySelectorAll("#wsm-modebar [data-wsm-mode]").forEach(btn => {
+    const m = btn.dataset.wsmMode;
+    btn.textContent = `${WS_MODE_SHORT[m]} (${counts[m]})`;
+    btn.classList.toggle("active", m === wsmFilter);
+    btn.disabled = counts[m] === 0 && m !== "all";
+  });
+}
+function setWsFilter(mode) {
+  commitXyz();
+  wsmFilter = mode;
+  wsmFilteredIds = computeWsFilterIds(mode);
+  renderXyzTable();
+  updateWsTargetBanners();
+  updateWsModeBar();
+}
+
 
 // ----- 問題画面（タブ + 正誤表 + ページ）-----
 function startWsMode(mode) {
@@ -1662,8 +1725,10 @@ function startWsMode(mode) {
   wsmFilteredIds = computeWsFilterIds(mode);
   wsmShowingAnswer = false;
   pendingXyz = {};
-  document.getElementById("wsmondai-title").textContent = `${currentUnit.id} ${wsTitle()}`;
+  document.getElementById("wsmondai-title").textContent =
+    wsmDirect && currentUnit.title ? `${currentUnit.id} ${currentUnit.title}` : `${currentUnit.id} ${wsTitle()}`;
   renderXyzTable();
+  updateWsModeBar();
   restoreWsmTableHeight();
   loadXyzProposals();   // AI正誤提案バナー
   renderWsPages();
