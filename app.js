@@ -1756,7 +1756,7 @@ async function loadXyzProposals() {
   if (!prop || !prop.grades) return;
   // 解き直し（retry）提案: 入力済みでも「新しい回」として仮入力する。確定/閉じる後は同じ提案ファイルを再提示しない
   const retry = !!prop.retry;
-  currentProposalDoneKey = `proposal-done:${currentUser}:${unitKey}:${prop.created || ''}:${Object.keys(prop.grades).length}`;
+  currentProposalDoneKey = `proposal-done:${currentUser}:${unitKey}:${prop.id || prop.created || ''}:${Object.keys(prop.grades).length}`   // id=提案バッチ固有（同日2枚目でも別扱い）;
   try { if (localStorage.getItem(currentProposalDoneKey) === "1") return; } catch (e) {}
   const validIds = new Set();
   quizData.xyz.daimons.forEach(dm => dm.questions.forEach(q => validIds.add(q.id)));
