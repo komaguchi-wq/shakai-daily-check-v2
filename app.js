@@ -1695,6 +1695,8 @@ function renderXyzTable() {
 // 採点済み原本の赤ペンを読み取った提案を「仮入力」→ユーザーが直して「確定」する
 // ==============================
 let proposalReviewMode = false;   // true の間は自動確定（10秒・画面離脱）しない
+let currentProposalDoneKey = null;   // 確定/閉じる済み判定用（retry提案の再提示防止）
+let currentProposalRetry = false;
 let currentProposals = null;      // {subId: bool} 未入力トグルのみ
 const dismissedProposalUnits = new Set();
 
@@ -1716,6 +1718,10 @@ async function loadXyzProposals() {
   } catch (e) { return; }
   if (!currentUnit || unitKey !== `${currentCategory.id}/${currentUnit.id}`) return;
   if (!prop || !prop.grades) return;
+  // 解き直し（retry）提案: 入力済みでも「新しい回」として仮入力する。確定/閉じる後は同じ提案ファイルを再提示しない
+  const retry = !!prop.retry;
+  currentProposalDoneKey = `proposal-done:${currentUser}:${unitKey}:${prop.created || ''}:${Object.keys(prop.grades).length}`;
+  try { if (localStorage.getItem(currentProposalDoneKey) === "1") return; } catch (e) {}
   const validIds = new Set();
   quizData.xyz.daimons.forEach(dm => dm.questions.forEach(q => validIds.add(q.id)));
   const applicable = {};
@@ -1723,9 +1729,10 @@ async function loadXyzProposals() {
     if (!validIds.has(qid)) continue;
     const v = prop.grades[qid];
     if (v !== true && v !== false) continue;
-    if (getXyzTracking(currentUnit.id, qid).attempts > 0) continue;   // 入力済みは提案しない
+    if (!retry && getXyzTracking(currentUnit.id, qid).attempts > 0) continue;   // 入力済みは提案しない（解き直し提案は除く）
     applicable[qid] = v;
   }
+  currentProposalRetry = retry;
   if (Object.keys(applicable).length === 0) return;
   currentProposals = applicable;
   renderProposalBanner("idle");
@@ -1739,7 +1746,7 @@ function renderProposalBanner(state) {
   const nNg = vals.length - nOk;
   if (state === "idle") {
     banner.innerHTML = `
-      <span class="pb-text">🤖 採点用紙から読み取った正誤提案があります（未入力 ${vals.length}件: ○${nOk} ×${nNg}）</span>
+      <span class="pb-text">🤖 採点用紙から読み取った正誤提案があります${currentProposalRetry ? "（解き直し分＝新しい回として記録）" : ""}（${currentProposalRetry ? "解き直し" : "未入力"} ${vals.length}件: ○${nOk} ×${nNg}）</span>
       <span class="pb-btns">
         <button class="btn btn-primary pb-btn" onclick="applyProposals()">仮入力する</button>
         <button class="btn btn-secondary pb-btn" onclick="dismissProposals()">閉じる</button>
@@ -1768,9 +1775,13 @@ function applyProposals() {
   renderProposalBanner("review");
 }
 
+function markProposalDone() {
+  try { if (currentProposalDoneKey) localStorage.setItem(currentProposalDoneKey, "1"); } catch (e) {}
+}
 function confirmProposalReview() {
   proposalReviewMode = false;
   commitXyz();
+  markProposalDone();
   currentProposals = null;
   const banner = document.getElementById("wsm-proposal-banner");
   if (banner) banner.style.display = "none";
@@ -1784,6 +1795,7 @@ function discardProposalReview() {
 }
 
 function dismissProposals() {
+  markProposalDone();
   if (currentCategory && currentUnit) dismissedProposalUnits.add(`${currentCategory.id}/${currentUnit.id}`);
   currentProposals = null;
   const banner = document.getElementById("wsm-proposal-banner");
