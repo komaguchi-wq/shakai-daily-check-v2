@@ -961,3 +961,15 @@ body {
 .proposal-banner .pb-text { flex: 1 1 200px; }
 .proposal-banner .pb-btns { display: flex; gap: 6px; flex: 0 0 auto; }
 .proposal-banner .pb-btn { padding: 6px 12px; font-size: 13px; min-height: 0; }
+
+/* 正誤表の高さドラッグバー（最小〜画面の半分。「広げる」も半分まで） */
+.wsm-table { transition: none; }
+.wsm-table.expanded { max-height: 50vh; }
+.wsm-divider {
+  height: 14px; margin: 2px 0 4px; cursor: ns-resize; touch-action: none;
+  display: flex; align-items: center; justify-content: center; user-select: none;
+}
+.wsm-divider span {
+  display: block; width: 56px; height: 5px; border-radius: 3px; background: #c7c7cc;
+}
+.wsm-divider.dragging span, .wsm-divider:active span { background: #007aff; }
