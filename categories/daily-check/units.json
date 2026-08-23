@@ -19,7 +19,7 @@
       "15": "kakunin",
       "16": "kakunin"
     },
-    "xyzCount": 104
+    "xyzCount": 130
   },
   {
     "id": "640-02",
@@ -41,7 +41,7 @@
       "15": "kakunin",
       "16": "kakunin"
     },
-    "xyzCount": 113
+    "xyzCount": 138
   },
   {
     "id": "640-03",
@@ -65,7 +65,7 @@
       "16": "kakunin",
       "17": "coreplus"
     },
-    "xyzCount": 116
+    "xyzCount": 144
   },
   {
     "id": "640-04",
@@ -87,7 +87,7 @@
       "15": "kakunin",
       "16": "kakunin"
     },
-    "xyzCount": 101
+    "xyzCount": 131
   },
   {
     "id": "640-05",
@@ -109,7 +109,7 @@
       "15": "kakunin",
       "16": "kakunin"
     },
-    "xyzCount": 103
+    "xyzCount": 132
   },
   {
     "id": "640-06",
@@ -134,7 +134,7 @@
       "17": "coreplus",
       "18": "coreplus"
     },
-    "xyzCount": 99
+    "xyzCount": 128
   },
   {
     "id": "H64-01",
@@ -159,7 +159,7 @@
       "17": "coreplus",
       "18": "coreplus"
     },
-    "xyzCount": 95
+    "xyzCount": 124
   },
   {
     "id": "H64-02",
@@ -184,7 +184,7 @@
       "17": "coreplus",
       "18": "coreplus"
     },
-    "xyzCount": 92
+    "xyzCount": 116
   },
   {
     "id": "H64-03",
@@ -209,7 +209,7 @@
       "17": "coreplus",
       "18": "coreplus"
     },
-    "xyzCount": 79
+    "xyzCount": 103
   },
   {
     "id": "640-07",
@@ -233,7 +233,7 @@
       "16": "coreplus",
       "17": "coreplus"
     },
-    "xyzCount": 94
+    "xyzCount": 128
   },
   {
     "id": "640-08",
@@ -258,7 +258,7 @@
       "17": "coreplus",
       "18": "coreplus"
     },
-    "xyzCount": 94
+    "xyzCount": 144
   },
   {
     "id": "640-09",
@@ -282,7 +282,7 @@
       "16": "kakunin",
       "18": "coreplus"
     },
-    "xyzCount": 110
+    "xyzCount": 136
   },
   {
     "id": "640-10",
@@ -305,7 +305,7 @@
       "15": "coreplus",
       "16": "coreplus"
     },
-    "xyzCount": 85
+    "xyzCount": 111
   },
   {
     "id": "640-11",
@@ -327,7 +327,7 @@
       "14": "kakunin",
       "16": "coreplus"
     },
-    "xyzCount": 67
+    "xyzCount": 90
   },
   {
     "id": "640-12",
@@ -350,7 +350,7 @@
       "15": "coreplus",
       "16": "coreplus"
     },
-    "xyzCount": 78
+    "xyzCount": 107
   },
   {
     "id": "640-13",
@@ -373,7 +373,7 @@
       "15": "coreplus",
       "16": "coreplus"
     },
-    "xyzCount": 71
+    "xyzCount": 102
   },
   {
     "id": "640-14",
@@ -396,7 +396,7 @@
       "15": "coreplus",
       "16": "coreplus"
     },
-    "xyzCount": 65
+    "xyzCount": 90
   },
   {
     "id": "640-15",
@@ -419,7 +419,7 @@
       "15": "coreplus",
       "16": "coreplus"
     },
-    "xyzCount": 72
+    "xyzCount": 94
   },
   {
     "id": "640-16",
@@ -442,7 +442,7 @@
       "15": "coreplus",
       "16": "coreplus"
     },
-    "xyzCount": 59
+    "xyzCount": 83
   },
   {
     "id": "640-17",
@@ -465,7 +465,7 @@
       "15": "coreplus",
       "16": "coreplus"
     },
-    "xyzCount": 51
+    "xyzCount": 73
   },
   {
     "id": "640-18",
@@ -488,7 +488,7 @@
       "15": "coreplus",
       "16": "coreplus"
     },
-    "xyzCount": 62
+    "xyzCount": 82
   },
   {
     "id": "640-19",
@@ -534,7 +534,7 @@
       "15": "coreplus",
       "16": "coreplus"
     },
-    "xyzCount": 77
+    "xyzCount": 92
   },
   {
     "id": "N64-01",
@@ -552,7 +552,7 @@
       "12": "coreplus",
       "13": "coreplus"
     },
-    "xyzCount": 213
+    "xyzCount": 242
   },
   {
     "id": "N64-02",
@@ -569,7 +569,7 @@
       "7": "dailystep",
       "12": "coreplus"
     },
-    "xyzCount": 186
+    "xyzCount": 212
   },
   {
     "id": "N64-03",
@@ -586,7 +586,7 @@
       "7": "dailystep",
       "12": "coreplus"
     },
-    "xyzCount": 155
+    "xyzCount": 176
   },
   {
     "id": "N64-04",
@@ -603,7 +603,7 @@
       "7": "dailystep",
       "12": "coreplus"
     },
-    "xyzCount": 163
+    "xyzCount": 181
   },
   {
     "id": "N64-05",
@@ -620,7 +620,7 @@
       "7": "dailystep",
       "12": "coreplus"
     },
-    "xyzCount": 175
+    "xyzCount": 206
   },
   {
     "id": "N64-06",
@@ -637,7 +637,7 @@
       "7": "dailystep",
       "12": "coreplus"
     },
-    "xyzCount": 149
+    "xyzCount": 180
   },
   {
     "id": "N64-07",
@@ -654,7 +654,7 @@
       "7": "dailystep",
       "12": "coreplus"
     },
-    "xyzCount": 168
+    "xyzCount": 201
   },
   {
     "id": "N64-08",
@@ -671,7 +671,7 @@
       "7": "dailystep",
       "13": "coreplus"
     },
-    "xyzCount": 174
+    "xyzCount": 201
   },
   {
     "id": "N64-09",
@@ -690,6 +690,6 @@
       "9": "dailystep",
       "18": "coreplus"
     },
-    "xyzCount": 270
+    "xyzCount": 315
   }
 ]

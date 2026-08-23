@@ -529,7 +529,7 @@
   ]
  },
  "xyz": {
-  "label": "授業の確認問題",
+  "label": "授業の確認問題・デイリーステップ",
   "questionPages": [
    "kxyz_q_01.jpg",
    "kxyz_q_02.jpg",
@@ -537,7 +537,9 @@
    "kxyz_q_04.jpg",
    "kxyz_q_05.jpg",
    "kxyz_q_06.jpg",
-   "kxyz_q_07.jpg"
+   "kxyz_q_07.jpg",
+   "page_06_masked.jpg",
+   "page_07_masked.jpg"
   ],
   "answerPages": [
    "kxyz_a_01.jpg",
@@ -545,7 +547,9 @@
    "kxyz_a_03.jpg",
    "kxyz_a_04.jpg",
    "kxyz_a_05.jpg",
-   "kxyz_a_06.jpg"
+   "kxyz_a_06.jpg",
+   "page_06.jpg",
+   "page_07.jpg"
   ],
   "daimons": [
    {
@@ -1492,8 +1496,174 @@
      }
     ],
     "label": "9ページ 後半"
+   },
+   {
+    "id": "DS1-1",
+    "qpage": 7,
+    "questions": [
+     {
+      "id": "ds1-1-1",
+      "label": "1"
+     },
+     {
+      "id": "ds1-1-2",
+      "label": "2"
+     },
+     {
+      "id": "ds1-1-3",
+      "label": "3"
+     },
+     {
+      "id": "ds1-1-4",
+      "label": "4"
+     },
+     {
+      "id": "ds1-1-5",
+      "label": "5"
+     },
+     {
+      "id": "ds1-1-6",
+      "label": "6"
+     },
+     {
+      "id": "ds1-1-7",
+      "label": "7"
+     },
+     {
+      "id": "ds1-1-8",
+      "label": "8"
+     },
+     {
+      "id": "ds1-1-9",
+      "label": "9"
+     },
+     {
+      "id": "ds1-1-10",
+      "label": "10"
+     },
+     {
+      "id": "ds1-1-11",
+      "label": "11"
+     },
+     {
+      "id": "ds1-1-12",
+      "label": "12"
+     },
+     {
+      "id": "ds1-1-13",
+      "label": "13"
+     },
+     {
+      "id": "ds1-1-14",
+      "label": "14"
+     },
+     {
+      "id": "ds1-1-15",
+      "label": "15"
+     },
+     {
+      "id": "ds1-1-16",
+      "label": "16"
+     },
+     {
+      "id": "ds1-1-17",
+      "label": "17"
+     },
+     {
+      "id": "ds1-1-18",
+      "label": "18"
+     }
+    ]
+   },
+   {
+    "id": "DS1-2",
+    "qpage": 7,
+    "questions": [
+     {
+      "id": "ds1-2-1",
+      "label": "1"
+     },
+     {
+      "id": "ds1-2-2",
+      "label": "2"
+     },
+     {
+      "id": "ds1-2-3",
+      "label": "3"
+     },
+     {
+      "id": "ds1-2-4",
+      "label": "4"
+     },
+     {
+      "id": "ds1-2-5",
+      "label": "5"
+     },
+     {
+      "id": "ds1-2-6",
+      "label": "6"
+     }
+    ]
+   },
+   {
+    "id": "DS2-1",
+    "qpage": 8,
+    "questions": [
+     {
+      "id": "ds2-1-1",
+      "label": "1"
+     },
+     {
+      "id": "ds2-1-2",
+      "label": "2"
+     },
+     {
+      "id": "ds2-1-3",
+      "label": "3"
+     },
+     {
+      "id": "ds2-1-4",
+      "label": "4"
+     },
+     {
+      "id": "ds2-1-5",
+      "label": "5"
+     },
+     {
+      "id": "ds2-1-6",
+      "label": "6"
+     }
+    ]
+   },
+   {
+    "id": "DS2-2",
+    "qpage": 8,
+    "questions": [
+     {
+      "id": "ds2-2-1",
+      "label": "1"
+     }
+    ]
    }
-  ]
+  ],
+  "seigohyoAppended": {
+   "questionPages": [
+    "page_06_masked.jpg",
+    "page_07_masked.jpg"
+   ],
+   "answerPages": [
+    "page_06.jpg",
+    "page_07.jpg"
+   ],
+   "daimonIds": [
+    "DS1-1",
+    "DS1-2",
+    "DS2-1",
+    "DS2-2"
+   ],
+   "generatedAt": "2026-08-23",
+   "solvedPages": []
+  }
  },
  "imageBase": "https://komaguchi-wq.github.io/shakai-daily-check-v2-images-01/daily-check/N64-05/"
 }

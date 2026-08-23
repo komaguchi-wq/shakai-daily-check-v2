@@ -1400,19 +1400,23 @@
     ]
   },
   "xyz": {
-    "label": "授業の確認問題",
+    "label": "授業の確認問題・デイリーステップ",
     "questionPages": [
       "kxyz_q_01.jpg",
       "kxyz_q_02.jpg",
       "kxyz_q_03.jpg",
       "kxyz_q_04.jpg",
       "kxyz_q_05.jpg",
-      "kxyz_q_06.jpg"
+      "kxyz_q_06.jpg",
+      "page_09_masked.jpg",
+      "page_10_masked.jpg"
     ],
     "answerPages": [
       "kxyz_a_01.jpg",
       "kxyz_a_02.jpg",
-      "kxyz_a_03.jpg"
+      "kxyz_a_03.jpg",
+      "page_09.jpg",
+      "page_10.jpg"
     ],
     "daimons": [
       {
@@ -1914,7 +1918,235 @@
             "group": "(11)"
           }
         ]
+      },
+      {
+        "id": "DS1",
+        "qpage": 6,
+        "questions": [
+          {
+            "id": "ds1-A",
+            "label": "A"
+          },
+          {
+            "id": "ds1-1",
+            "label": "1"
+          },
+          {
+            "id": "ds1-2",
+            "label": "2"
+          },
+          {
+            "id": "ds1-3",
+            "label": "3"
+          },
+          {
+            "id": "ds1-4",
+            "label": "4"
+          },
+          {
+            "id": "ds1-5",
+            "label": "5"
+          },
+          {
+            "id": "ds1-6",
+            "label": "6"
+          },
+          {
+            "id": "ds1-7",
+            "label": "7"
+          },
+          {
+            "id": "ds1-8",
+            "label": "8"
+          },
+          {
+            "id": "ds1-9",
+            "label": "9"
+          },
+          {
+            "id": "ds1-10",
+            "label": "10"
+          },
+          {
+            "id": "ds1-11",
+            "label": "11"
+          },
+          {
+            "id": "ds1-12",
+            "label": "12"
+          },
+          {
+            "id": "ds1-13",
+            "label": "13"
+          },
+          {
+            "id": "ds1-14",
+            "label": "14"
+          },
+          {
+            "id": "ds1-15",
+            "label": "15"
+          },
+          {
+            "id": "ds1-16",
+            "label": "16"
+          },
+          {
+            "id": "ds1-17",
+            "label": "17"
+          },
+          {
+            "id": "ds1-ア",
+            "label": "ア"
+          },
+          {
+            "id": "ds1-イ",
+            "label": "イ"
+          },
+          {
+            "id": "ds1-ウ",
+            "label": "ウ"
+          },
+          {
+            "id": "ds1-エ",
+            "label": "エ"
+          },
+          {
+            "id": "ds1-オ",
+            "label": "オ"
+          },
+          {
+            "id": "ds1-カ",
+            "label": "カ"
+          },
+          {
+            "id": "ds1-キ",
+            "label": "キ"
+          },
+          {
+            "id": "ds1-ク",
+            "label": "ク"
+          }
+        ]
+      },
+      {
+        "id": "DS2",
+        "qpage": 7,
+        "questions": [
+          {
+            "id": "ds2-A",
+            "label": "A"
+          },
+          {
+            "id": "ds2-B",
+            "label": "B"
+          },
+          {
+            "id": "ds2-1",
+            "label": "1"
+          },
+          {
+            "id": "ds2-2",
+            "label": "2"
+          },
+          {
+            "id": "ds2-3",
+            "label": "3"
+          },
+          {
+            "id": "ds2-4",
+            "label": "4"
+          },
+          {
+            "id": "ds2-5",
+            "label": "5"
+          },
+          {
+            "id": "ds2-6",
+            "label": "6"
+          },
+          {
+            "id": "ds2-7",
+            "label": "7"
+          },
+          {
+            "id": "ds2-8",
+            "label": "8"
+          },
+          {
+            "id": "ds2-9",
+            "label": "9"
+          },
+          {
+            "id": "ds2-10",
+            "label": "10"
+          },
+          {
+            "id": "ds2-11",
+            "label": "11"
+          },
+          {
+            "id": "ds2-12",
+            "label": "12"
+          },
+          {
+            "id": "ds2-13",
+            "label": "13"
+          },
+          {
+            "id": "ds2-14",
+            "label": "14"
+          },
+          {
+            "id": "ds2-15",
+            "label": "15"
+          },
+          {
+            "id": "ds2-16",
+            "label": "16"
+          },
+          {
+            "id": "ds2-17",
+            "label": "17"
+          },
+          {
+            "id": "ds2-ア",
+            "label": "ア"
+          },
+          {
+            "id": "ds2-イ",
+            "label": "イ"
+          },
+          {
+            "id": "ds2-ウ",
+            "label": "ウ"
+          },
+          {
+            "id": "ds2-エ",
+            "label": "エ"
+          },
+          {
+            "id": "ds2-オ",
+            "label": "オ"
+          }
+        ]
       }
-    ]
+    ],
+    "seigohyoAppended": {
+      "questionPages": [
+        "page_09_masked.jpg",
+        "page_10_masked.jpg"
+      ],
+      "answerPages": [
+        "page_09.jpg",
+        "page_10.jpg"
+      ],
+      "daimonIds": [
+        "DS1",
+        "DS2"
+      ],
+      "generatedAt": "2026-08-23",
+      "solvedPages": []
+    }
   }
 }
