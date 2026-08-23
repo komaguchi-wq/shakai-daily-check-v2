@@ -1,1 +1,1750 @@
-{"id": "N64-08", "title": "歴史総合問題演習④　大正時代〜現代", "category": "daily-check", "pages": [{"id": 1, "type": "description", "containsSections": ["cover", "description"], "src_phys_page": 1, "width": 4263, "height": 3006, "image": "page_01.jpg", "regions": []}, {"id": 2, "type": "description", "containsSections": ["description"], "src_phys_page": 2, "width": 4254, "height": 3006, "image": "page_02.jpg", "regions": []}, {"id": 3, "type": "kakunin", "containsSections": ["kakunin"], "src_phys_page": 3, "regions": [], "image": "page_03.jpg", "width": 4254, "height": 3006}, {"id": 4, "type": "kakunin", "containsSections": ["kakunin"], "src_phys_page": 4, "regions": [], "image": "page_04.jpg", "width": 4248, "height": 3006}, {"id": 5, "type": "kakunin", "containsSections": ["kakunin"], "src_phys_page": 5, "regions": [], "image": "page_05.jpg", "width": 4263, "height": 3006}, {"id": 6, "type": "dailystep", "containsSections": ["dailystep"], "src_phys_page": 7, "image": "page_06.jpg", "imageMasked": "page_06_masked.jpg", "orange_pixels": 50607, "width": 2132, "height": 3006, "regions": [{"x": 1752, "y": 426, "w": 290, "h": 82}, {"x": 1772, "y": 526, "w": 256, "h": 80}, {"x": 1796, "y": 626, "w": 208, "h": 82}, {"x": 1796, "y": 726, "w": 208, "h": 82}, {"x": 1836, "y": 826, "w": 128, "h": 80}, {"x": 1770, "y": 924, "w": 260, "h": 82}, {"x": 1796, "y": 1024, "w": 204, "h": 82}, {"x": 1812, "y": 1126, "w": 176, "h": 80}, {"x": 1796, "y": 1224, "w": 206, "h": 82}, {"x": 1752, "y": 1344, "w": 294, "h": 50}, {"x": 1810, "y": 1426, "w": 178, "h": 80}, {"x": 1794, "y": 1524, "w": 206, "h": 82}, {"x": 1792, "y": 1624, "w": 208, "h": 82}, {"x": 1796, "y": 1726, "w": 204, "h": 82}, {"x": 1678, "y": 1988, "w": 80, "h": 64}, {"x": 1796, "y": 1988, "w": 80, "h": 64}, {"x": 1674, "y": 2132, "w": 80, "h": 66}, {"x": 1796, "y": 2132, "w": 80, "h": 66}, {"x": 1674, "y": 2276, "w": 80, "h": 66}, {"x": 1792, "y": 2276, "w": 80, "h": 66}, {"x": 1674, "y": 2422, "w": 80, "h": 62}, {"x": 1792, "y": 2422, "w": 80, "h": 62}, {"x": 1674, "y": 2566, "w": 80, "h": 62}, {"x": 1792, "y": 2566, "w": 80, "h": 62}, {"x": 1672, "y": 2690, "w": 80, "h": 88}, {"x": 1788, "y": 2690, "w": 80, "h": 88}]}, {"id": 7, "type": "dailystep", "containsSections": ["dailystep"], "src_phys_page": 8, "image": "page_07.jpg", "imageMasked": "page_07_masked.jpg", "orange_pixels": 48060, "width": 2127, "height": 3006, "regions": [{"x": 752, "y": 536, "w": 210, "h": 58}, {"x": 908, "y": 648, "w": 158, "h": 56}, {"x": 780, "y": 744, "w": 210, "h": 78}, {"x": 240, "y": 886, "w": 164, "h": 78}, {"x": 918, "y": 886, "w": 472, "h": 78}, {"x": 1024, "y": 998, "w": 300, "h": 76}, {"x": 248, "y": 1114, "w": 188, "h": 52}, {"x": 544, "y": 1256, "w": 356, "h": 56}, {"x": 1410, "y": 1256, "w": 142, "h": 56}, {"x": 244, "y": 1468, "w": 410, "h": 56}, {"x": 1262, "y": 1610, "w": 136, "h": 50}, {"x": 380, "y": 1718, "w": 80, "h": 50}, {"x": 390, "y": 1804, "w": 212, "h": 80}, {"x": 474, "y": 1958, "w": 158, "h": 56}, {"x": 1092, "y": 2068, "w": 142, "h": 50}, {"x": 1342, "y": 2068, "w": 80, "h": 50}, {"x": 1486, "y": 2068, "w": 80, "h": 50}, {"x": 246, "y": 2160, "w": 300, "h": 76}, {"x": 1168, "y": 2298, "w": 206, "h": 76}, {"x": 288, "y": 2416, "w": 162, "h": 58}, {"x": 1168, "y": 2416, "w": 148, "h": 58}, {"x": 254, "y": 2524, "w": 146, "h": 56}, {"x": 654, "y": 2524, "w": 140, "h": 56}, {"x": 932, "y": 2524, "w": 80, "h": 56}, {"x": 1100, "y": 2524, "w": 80, "h": 56}, {"x": 376, "y": 2654, "w": 80, "h": 52}, {"x": 654, "y": 2654, "w": 80, "h": 52}, {"x": 940, "y": 2654, "w": 80, "h": 52}, {"x": 1208, "y": 2654, "w": 80, "h": 52}, {"x": 1482, "y": 2654, "w": 80, "h": 52}, {"x": 1754, "y": 2654, "w": 80, "h": 52}]}, {"id": 8, "type": "kakunin", "containsSections": ["kakunin"], "src_phys_page": 9, "regions": [], "image": "page_08.jpg", "width": 4260, "height": 3006}, {"id": 9, "type": "kakunin", "containsSections": ["kakunin"], "src_phys_page": 10, "regions": [], "image": "page_09.jpg", "width": 4254, "height": 3006}, {"id": 10, "type": "kakunin", "containsSections": ["kakunin"], "src_phys_page": 11, "regions": [], "image": "page_10.jpg", "width": 4272, "height": 3006}, {"id": 11, "type": "kakunin", "containsSections": ["kakunin"], "src_phys_page": 12, "regions": [], "image": "page_11.jpg", "width": 4263, "height": 3006}, {"id": 12, "type": "kakunin", "containsSections": ["kakunin"], "src_phys_page": 13, "regions": [], "image": "page_12.jpg", "width": 4269, "height": 3006}, {"id": 13, "type": "coreplus", "containsSections": ["coreplus"], "src_phys_page": 16, "regions": [{"x": 220, "y": 2498, "w": 375, "h": 122}, {"x": 697, "y": 2498, "w": 367, "h": 122}, {"x": 1163, "y": 2502, "w": 378, "h": 122}, {"x": 1641, "y": 2502, "w": 367, "h": 122}, {"x": 220, "y": 2632, "w": 375, "h": 126}, {"x": 697, "y": 2636, "w": 367, "h": 122}, {"x": 1163, "y": 2636, "w": 378, "h": 122}, {"x": 220, "y": 2770, "w": 532, "h": 122}, {"x": 851, "y": 2770, "w": 528, "h": 122}, {"x": 1479, "y": 2770, "w": 528, "h": 126}], "image": "page_13_answer.jpg", "imageMasked": "page_13_qmasked.jpg", "width": 4263, "height": 3006}], "sectionBreakdown": {"description": [1, 2], "dailystep": [6, 7], "kakunin": [3, 4, 5, 8, 9, 10, 11, 12], "coreplus": [13]}, "xyz": {"label": "授業の確認問題・デイリーステップ", "questionPages": ["kxyz_q_01.jpg", "kxyz_q_02.jpg", "kxyz_q_03.jpg", "kxyz_q_04.jpg", "kxyz_q_05.jpg", "kxyz_q_06.jpg", "kxyz_q_07.jpg", "kxyz_q_08.jpg", "spread_01_q.jpg"], "answerPages": ["kxyz_a_01.jpg", "kxyz_a_02.jpg", "kxyz_a_03.jpg", "kxyz_a_04.jpg", "kxyz_a_05.jpg", "spread_01_a.jpg"], "daimons": [{"id": "演習1", "qpage": 0, "questions": [{"id": "演習1-(1)", "label": "(1)", "group": "(1)"}, {"id": "演習1-(2)", "label": "(2)", "group": "(2)"}, {"id": "演習1-(3)", "label": "(3)", "group": "(3)"}, {"id": "演習1-(4)", "label": "(4)", "group": "(4)"}, {"id": "演習1-(5)", "label": "(5)", "group": "(5)"}, {"id": "演習1-(6)①", "label": "(6)①", "group": "(6)"}, {"id": "演習1-(6)②", "label": "(6)②", "group": "(6)"}, {"id": "演習1-(7)", "label": "(7)", "group": "(7)"}, {"id": "演習1-(8)", "label": "(8)", "group": "(8)"}, {"id": "演習1-(9)", "label": "(9)", "group": "(9)"}, {"id": "演習1-(10)ドイツ側", "label": "(10)ドイツ側", "group": "(10)"}, {"id": "演習1-(10)イタリア側", "label": "(10)イタリア側", "group": "(10)"}, {"id": "演習1-(11)", "label": "(11)", "group": "(11)"}, {"id": "演習1-(12)", "label": "(12)", "group": "(12)"}, {"id": "演習1-(13)", "label": "(13)", "group": "(13)"}], "label": "1ページ（演習レベル1）"}, {"id": "演習2", "qpage": 1, "questions": [{"id": "演習2-(1)1", "label": "(1)1", "group": "(1)"}, {"id": "演習2-(1)2", "label": "(1)2", "group": "(1)"}, {"id": "演習2-(1)3", "label": "(1)3", "group": "(1)"}, {"id": "演習2-(1)4", "label": "(1)4", "group": "(1)"}, {"id": "演習2-(2)①", "label": "(2)①", "group": "(2)"}, {"id": "演習2-(2)②", "label": "(2)②", "group": "(2)"}, {"id": "演習2-(3)", "label": "(3)", "group": "(3)"}, {"id": "演習2-(4)", "label": "(4)", "group": "(4)"}, {"id": "演習2-(5)", "label": "(5)", "group": "(5)"}, {"id": "演習2-(6)", "label": "(6)", "group": "(6)"}, {"id": "演習2-(7)", "label": "(7)", "group": "(7)"}, {"id": "演習2-(8)①", "label": "(8)①", "group": "(8)"}, {"id": "演習2-(8)②", "label": "(8)②", "group": "(8)"}, {"id": "演習2-(8)③", "label": "(8)③", "group": "(8)"}, {"id": "演習2-(9)", "label": "(9)", "group": "(9)"}], "label": "2ページ（演習レベル2）"}, {"id": "演習3", "qpage": 2, "questions": [{"id": "演習3-(1)1", "label": "(1)1", "group": "(1)"}, {"id": "演習3-(1)2", "label": "(1)2", "group": "(1)"}, {"id": "演習3-(1)3", "label": "(1)3", "group": "(1)"}, {"id": "演習3-(1)4", "label": "(1)4", "group": "(1)"}, {"id": "演習3-(1)5", "label": "(1)5", "group": "(1)"}, {"id": "演習3-(1)6", "label": "(1)6", "group": "(1)"}, {"id": "演習3-(2)", "label": "(2)", "group": "(2)"}, {"id": "演習3-(3)", "label": "(3)", "group": "(3)"}, {"id": "演習3-(4)", "label": "(4)", "group": "(4)"}, {"id": "演習3-(5)", "label": "(5)", "group": "(5)"}, {"id": "演習3-(6)①", "label": "(6)①", "group": "(6)"}, {"id": "演習3-(6)②", "label": "(6)②", "group": "(6)"}, {"id": "演習3-(7)", "label": "(7)", "group": "(7)"}, {"id": "演習3-(8)", "label": "(8)", "group": "(8)"}], "label": "3ページ（演習レベル3）"}, {"id": "基礎1", "qpage": 3, "questions": [{"id": "基礎1-1", "label": "1", "group": "1"}, {"id": "基礎1-2", "label": "2", "group": "2"}, {"id": "基礎1-3", "label": "3", "group": "3"}, {"id": "基礎1-4", "label": "4", "group": "4"}, {"id": "基礎1-5", "label": "5", "group": "5"}, {"id": "基礎1-6", "label": "6", "group": "6"}, {"id": "基礎1-7", "label": "7", "group": "7"}, {"id": "基礎1-8", "label": "8", "group": "8"}, {"id": "基礎1-9", "label": "9", "group": "9"}, {"id": "基礎1-10", "label": "10", "group": "10"}, {"id": "基礎1-11", "label": "11", "group": "11"}, {"id": "基礎1-12", "label": "12", "group": "12"}, {"id": "基礎1-13", "label": "13", "group": "13"}, {"id": "基礎1-14", "label": "14", "group": "14"}, {"id": "基礎1-15", "label": "15", "group": "15"}, {"id": "基礎1-16", "label": "16", "group": "16"}, {"id": "基礎1-17", "label": "17", "group": "17"}, {"id": "基礎1-18", "label": "18", "group": "18"}, {"id": "基礎1-19", "label": "19", "group": "19"}, {"id": "基礎1-20", "label": "20", "group": "20"}, {"id": "基礎1-21", "label": "21", "group": "21"}, {"id": "基礎1-22", "label": "22", "group": "22"}, {"id": "基礎1-23", "label": "23", "group": "23"}, {"id": "基礎1-24", "label": "24", "group": "24"}], "label": "6ページ 前半（語句1〜24）"}, {"id": "基礎2", "qpage": 3, "questions": [{"id": "基礎2-1", "label": "1", "group": "1"}, {"id": "基礎2-21", "label": "21", "group": "2"}, {"id": "基礎2-215", "label": "215", "group": "2"}, {"id": "基礎2-218", "label": "218", "group": "2"}, {"id": "基礎2-3", "label": "3", "group": "3"}, {"id": "基礎2-4", "label": "4", "group": "4"}, {"id": "基礎2-5", "label": "5", "group": "5"}, {"id": "基礎2-6①", "label": "6①", "group": "6"}, {"id": "基礎2-6②", "label": "6②", "group": "6"}, {"id": "基礎2-6③", "label": "6③", "group": "6"}], "label": "6ページ 後半（問題）"}, {"id": "基礎3", "qpage": 4, "questions": [{"id": "基礎3-1", "label": "1", "group": "1"}, {"id": "基礎3-2", "label": "2", "group": "2"}, {"id": "基礎3-3", "label": "3", "group": "3"}, {"id": "基礎3-4", "label": "4", "group": "4"}, {"id": "基礎3-5", "label": "5", "group": "5"}, {"id": "基礎3-6", "label": "6", "group": "6"}, {"id": "基礎3-7", "label": "7", "group": "7"}, {"id": "基礎3-8", "label": "8", "group": "8"}, {"id": "基礎3-9", "label": "9", "group": "9"}, {"id": "基礎3-10", "label": "10", "group": "10"}, {"id": "基礎3-11", "label": "11", "group": "11"}, {"id": "基礎3-12", "label": "12", "group": "12"}, {"id": "基礎3-13", "label": "13", "group": "13"}, {"id": "基礎3-14", "label": "14", "group": "14"}, {"id": "基礎3-15", "label": "15", "group": "15"}, {"id": "基礎3-16", "label": "16", "group": "16"}, {"id": "基礎3-17", "label": "17", "group": "17"}, {"id": "基礎3-18", "label": "18", "group": "18"}, {"id": "基礎3-19", "label": "19", "group": "19"}, {"id": "基礎3-20", "label": "20", "group": "20"}, {"id": "基礎3-21", "label": "21", "group": "21"}, {"id": "基礎3-22", "label": "22", "group": "22"}, {"id": "基礎3-23", "label": "23", "group": "23"}, {"id": "基礎3-24", "label": "24", "group": "24"}], "label": "7ページ 前半（語句1〜24）"}, {"id": "基礎4", "qpage": 4, "questions": [{"id": "基礎4-1", "label": "1", "group": "1"}, {"id": "基礎4-2", "label": "2", "group": "2"}, {"id": "基礎4-3①", "label": "3①", "group": "3"}, {"id": "基礎4-3②", "label": "3②", "group": "3"}, {"id": "基礎4-4①a", "label": "4①a", "group": "4"}, {"id": "基礎4-4①b", "label": "4①b", "group": "4"}, {"id": "基礎4-4①c", "label": "4①c", "group": "4"}, {"id": "基礎4-4②", "label": "4②", "group": "4"}, {"id": "基礎4-5①", "label": "5①", "group": "5"}, {"id": "基礎4-5②", "label": "5②", "group": "5"}, {"id": "基礎4-6①", "label": "6①", "group": "6"}, {"id": "基礎4-6②", "label": "6②", "group": "6"}], "label": "7ページ 後半（問題）"}, {"id": "基礎5", "qpage": 5, "questions": [{"id": "基礎5-1", "label": "1", "group": "1"}, {"id": "基礎5-2", "label": "2", "group": "2"}, {"id": "基礎5-3", "label": "3", "group": "3"}, {"id": "基礎5-4", "label": "4", "group": "4"}, {"id": "基礎5-5", "label": "5", "group": "5"}, {"id": "基礎5-6", "label": "6", "group": "6"}, {"id": "基礎5-7", "label": "7", "group": "7"}, {"id": "基礎5-8", "label": "8", "group": "8"}, {"id": "基礎5-9", "label": "9", "group": "9"}, {"id": "基礎5-10", "label": "10", "group": "10"}, {"id": "基礎5-11", "label": "11", "group": "11"}, {"id": "基礎5-12", "label": "12", "group": "12"}, {"id": "基礎5-13", "label": "13", "group": "13"}, {"id": "基礎5-14", "label": "14", "group": "14"}, {"id": "基礎5-15", "label": "15", "group": "15"}, {"id": "基礎5-16", "label": "16", "group": "16"}, {"id": "基礎5-17", "label": "17", "group": "17"}, {"id": "基礎5-18", "label": "18", "group": "18"}, {"id": "基礎5-19", "label": "19", "group": "19"}, {"id": "基礎5-20", "label": "20", "group": "20"}], "label": "8ページ 前半（語句1〜20）"}, {"id": "基礎6", "qpage": 5, "questions": [{"id": "基礎6-1あ", "label": "1あ", "group": "1"}, {"id": "基礎6-1い", "label": "1い", "group": "1"}, {"id": "基礎6-1う", "label": "1う", "group": "1"}, {"id": "基礎6-1え", "label": "1え", "group": "1"}, {"id": "基礎6-1お", "label": "1お", "group": "1"}, {"id": "基礎6-1か", "label": "1か", "group": "1"}, {"id": "基礎6-2", "label": "2", "group": "2"}, {"id": "基礎6-3", "label": "3", "group": "3"}, {"id": "基礎6-4", "label": "4", "group": "4"}, {"id": "基礎6-5①", "label": "5①", "group": "5"}, {"id": "基礎6-5②", "label": "5②", "group": "5"}], "label": "8ページ 後半（問題）"}, {"id": "基礎7", "qpage": 6, "questions": [{"id": "基礎7-1①", "label": "1①", "group": "1"}, {"id": "基礎7-1②", "label": "1②", "group": "1"}, {"id": "基礎7-2", "label": "2", "group": "2"}, {"id": "基礎7-3", "label": "3", "group": "3"}, {"id": "基礎7-4", "label": "4", "group": "4"}, {"id": "基礎7-5①", "label": "5①", "group": "5"}, {"id": "基礎7-5②", "label": "5②", "group": "5"}, {"id": "基礎7-5③", "label": "5③", "group": "5"}, {"id": "基礎7-6", "label": "6", "group": "6"}], "label": "9ページ"}, {"id": "基礎8", "qpage": 7, "questions": [{"id": "基礎8-1", "label": "1", "group": "1"}, {"id": "基礎8-2", "label": "2", "group": "2"}, {"id": "基礎8-3", "label": "3", "group": "3"}, {"id": "基礎8-4", "label": "4", "group": "4"}, {"id": "基礎8-5", "label": "5", "group": "5"}, {"id": "基礎8-6", "label": "6", "group": "6"}, {"id": "基礎8-7", "label": "7", "group": "7"}, {"id": "基礎8-8", "label": "8", "group": "8"}, {"id": "基礎8-9", "label": "9", "group": "9"}, {"id": "基礎8-10", "label": "10", "group": "10"}, {"id": "基礎8-11", "label": "11", "group": "11"}, {"id": "基礎8-12", "label": "12", "group": "12"}], "label": "10ページ 前半（語句1〜12）"}, {"id": "基礎9", "qpage": 7, "questions": [{"id": "基礎9-1", "label": "1", "group": "1"}, {"id": "基礎9-2①", "label": "2①", "group": "2"}, {"id": "基礎9-2②", "label": "2②", "group": "2"}, {"id": "基礎9-3", "label": "3", "group": "3"}, {"id": "基礎9-4", "label": "4", "group": "4"}, {"id": "基礎9-5①", "label": "5①", "group": "5"}, {"id": "基礎9-5②", "label": "5②", "group": "5"}, {"id": "基礎9-6", "label": "6", "group": "6"}], "label": "10ページ 後半（問題）"}, {"id": "DS1-1", "qpage": 8, "questions": [{"id": "ds1-1-1", "label": "1"}, {"id": "ds1-1-2", "label": "2"}, {"id": "ds1-1-3", "label": "3"}, {"id": "ds1-1-4", "label": "4"}, {"id": "ds1-1-5", "label": "5"}, {"id": "ds1-1-6", "label": "6"}, {"id": "ds1-1-7", "label": "7"}, {"id": "ds1-1-8", "label": "8"}, {"id": "ds1-1-9", "label": "9"}, {"id": "ds1-1-10", "label": "10"}, {"id": "ds1-1-11", "label": "11"}, {"id": "ds1-1-12", "label": "12"}, {"id": "ds1-1-13", "label": "13"}, {"id": "ds1-1-14", "label": "14"}]}, {"id": "DS1-2", "qpage": 8, "questions": [{"id": "ds1-2-1", "label": "1"}, {"id": "ds1-2-2", "label": "2"}, {"id": "ds1-2-3", "label": "3"}, {"id": "ds1-2-4", "label": "4"}, {"id": "ds1-2-5", "label": "5"}, {"id": "ds1-2-6", "label": "6"}]}, {"id": "DS2-1", "qpage": 8, "questions": [{"id": "ds2-1-1", "label": "1"}, {"id": "ds2-1-2", "label": "2"}, {"id": "ds2-1-3", "label": "3"}, {"id": "ds2-1-4", "label": "4"}, {"id": "ds2-1-5", "label": "5"}, {"id": "ds2-1-6", "label": "6"}]}, {"id": "DS2-2", "qpage": 8, "questions": [{"id": "ds2-2-1", "label": "1"}]}], "seigohyoAppended": {"questionPages": ["page_06_masked.jpg", "page_07_masked.jpg"], "answerPages": ["page_06.jpg", "page_07.jpg"], "daimonIds": ["DS1-1", "DS1-2", "DS2-1", "DS2-2"], "generatedAt": "2026-08-23", "solvedPages": []}, "spreads": [{"q": "spread_01_q.jpg", "a": "spread_01_a.jpg", "src_q": ["page_06_masked.jpg", "page_07_masked.jpg"], "src_a": ["page_06.jpg", "page_07.jpg"]}]}, "imageBase": "https://komaguchi-wq.github.io/shakai-daily-check-v2-images-01/daily-check/N64-08/"}
+{
+  "id": "N64-08",
+  "title": "歴史総合問題演習④　大正時代〜現代",
+  "category": "daily-check",
+  "pages": [
+    {
+      "id": 1,
+      "type": "description",
+      "containsSections": [
+        "cover",
+        "description"
+      ],
+      "src_phys_page": 1,
+      "width": 4263,
+      "height": 3006,
+      "image": "page_01.jpg",
+      "regions": []
+    },
+    {
+      "id": 2,
+      "type": "description",
+      "containsSections": [
+        "description"
+      ],
+      "src_phys_page": 2,
+      "width": 4254,
+      "height": 3006,
+      "image": "page_02.jpg",
+      "regions": []
+    },
+    {
+      "id": 3,
+      "type": "kakunin",
+      "containsSections": [
+        "kakunin"
+      ],
+      "src_phys_page": 3,
+      "regions": [],
+      "image": "page_03.jpg",
+      "width": 4254,
+      "height": 3006
+    },
+    {
+      "id": 4,
+      "type": "kakunin",
+      "containsSections": [
+        "kakunin"
+      ],
+      "src_phys_page": 4,
+      "regions": [],
+      "image": "page_04.jpg",
+      "width": 4248,
+      "height": 3006
+    },
+    {
+      "id": 5,
+      "type": "kakunin",
+      "containsSections": [
+        "kakunin"
+      ],
+      "src_phys_page": 5,
+      "regions": [],
+      "image": "page_05.jpg",
+      "width": 4263,
+      "height": 3006
+    },
+    {
+      "id": 6,
+      "type": "dailystep",
+      "containsSections": [
+        "dailystep"
+      ],
+      "src_phys_page": 7,
+      "image": "page_06.jpg",
+      "imageMasked": "page_06_masked.jpg",
+      "orange_pixels": 50607,
+      "width": 2132,
+      "height": 3006,
+      "regions": [
+        {
+          "x": 1752,
+          "y": 426,
+          "w": 290,
+          "h": 82
+        },
+        {
+          "x": 1772,
+          "y": 526,
+          "w": 256,
+          "h": 80
+        },
+        {
+          "x": 1796,
+          "y": 626,
+          "w": 208,
+          "h": 82
+        },
+        {
+          "x": 1796,
+          "y": 726,
+          "w": 208,
+          "h": 82
+        },
+        {
+          "x": 1836,
+          "y": 826,
+          "w": 128,
+          "h": 80
+        },
+        {
+          "x": 1770,
+          "y": 924,
+          "w": 260,
+          "h": 82
+        },
+        {
+          "x": 1796,
+          "y": 1024,
+          "w": 204,
+          "h": 82
+        },
+        {
+          "x": 1812,
+          "y": 1126,
+          "w": 176,
+          "h": 80
+        },
+        {
+          "x": 1796,
+          "y": 1224,
+          "w": 206,
+          "h": 82
+        },
+        {
+          "x": 1752,
+          "y": 1344,
+          "w": 294,
+          "h": 50
+        },
+        {
+          "x": 1810,
+          "y": 1426,
+          "w": 178,
+          "h": 80
+        },
+        {
+          "x": 1794,
+          "y": 1524,
+          "w": 206,
+          "h": 82
+        },
+        {
+          "x": 1792,
+          "y": 1624,
+          "w": 208,
+          "h": 82
+        },
+        {
+          "x": 1796,
+          "y": 1726,
+          "w": 204,
+          "h": 82
+        },
+        {
+          "x": 1678,
+          "y": 1988,
+          "w": 80,
+          "h": 64
+        },
+        {
+          "x": 1796,
+          "y": 1988,
+          "w": 80,
+          "h": 64
+        },
+        {
+          "x": 1674,
+          "y": 2132,
+          "w": 80,
+          "h": 66
+        },
+        {
+          "x": 1796,
+          "y": 2132,
+          "w": 80,
+          "h": 66
+        },
+        {
+          "x": 1674,
+          "y": 2276,
+          "w": 80,
+          "h": 66
+        },
+        {
+          "x": 1792,
+          "y": 2276,
+          "w": 80,
+          "h": 66
+        },
+        {
+          "x": 1674,
+          "y": 2422,
+          "w": 80,
+          "h": 62
+        },
+        {
+          "x": 1792,
+          "y": 2422,
+          "w": 80,
+          "h": 62
+        },
+        {
+          "x": 1674,
+          "y": 2566,
+          "w": 80,
+          "h": 62
+        },
+        {
+          "x": 1792,
+          "y": 2566,
+          "w": 80,
+          "h": 62
+        },
+        {
+          "x": 1672,
+          "y": 2690,
+          "w": 80,
+          "h": 88
+        },
+        {
+          "x": 1788,
+          "y": 2690,
+          "w": 80,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "type": "dailystep",
+      "containsSections": [
+        "dailystep"
+      ],
+      "src_phys_page": 8,
+      "image": "page_07.jpg",
+      "imageMasked": "page_07_masked.jpg",
+      "orange_pixels": 48060,
+      "width": 2127,
+      "height": 3006,
+      "regions": [
+        {
+          "x": 752,
+          "y": 536,
+          "w": 210,
+          "h": 58
+        },
+        {
+          "x": 908,
+          "y": 648,
+          "w": 158,
+          "h": 56
+        },
+        {
+          "x": 780,
+          "y": 744,
+          "w": 210,
+          "h": 78
+        },
+        {
+          "x": 240,
+          "y": 886,
+          "w": 164,
+          "h": 78
+        },
+        {
+          "x": 918,
+          "y": 886,
+          "w": 472,
+          "h": 78
+        },
+        {
+          "x": 1024,
+          "y": 998,
+          "w": 300,
+          "h": 76
+        },
+        {
+          "x": 248,
+          "y": 1114,
+          "w": 188,
+          "h": 52
+        },
+        {
+          "x": 544,
+          "y": 1256,
+          "w": 356,
+          "h": 56
+        },
+        {
+          "x": 1410,
+          "y": 1256,
+          "w": 142,
+          "h": 56
+        },
+        {
+          "x": 244,
+          "y": 1468,
+          "w": 410,
+          "h": 56
+        },
+        {
+          "x": 1262,
+          "y": 1610,
+          "w": 136,
+          "h": 50
+        },
+        {
+          "x": 380,
+          "y": 1718,
+          "w": 80,
+          "h": 50
+        },
+        {
+          "x": 390,
+          "y": 1804,
+          "w": 212,
+          "h": 80
+        },
+        {
+          "x": 474,
+          "y": 1958,
+          "w": 158,
+          "h": 56
+        },
+        {
+          "x": 1092,
+          "y": 2068,
+          "w": 142,
+          "h": 50
+        },
+        {
+          "x": 1342,
+          "y": 2068,
+          "w": 80,
+          "h": 50
+        },
+        {
+          "x": 1486,
+          "y": 2068,
+          "w": 80,
+          "h": 50
+        },
+        {
+          "x": 246,
+          "y": 2160,
+          "w": 300,
+          "h": 76
+        },
+        {
+          "x": 1168,
+          "y": 2298,
+          "w": 206,
+          "h": 76
+        },
+        {
+          "x": 288,
+          "y": 2416,
+          "w": 162,
+          "h": 58
+        },
+        {
+          "x": 1168,
+          "y": 2416,
+          "w": 148,
+          "h": 58
+        },
+        {
+          "x": 254,
+          "y": 2524,
+          "w": 146,
+          "h": 56
+        },
+        {
+          "x": 654,
+          "y": 2524,
+          "w": 140,
+          "h": 56
+        },
+        {
+          "x": 932,
+          "y": 2524,
+          "w": 80,
+          "h": 56
+        },
+        {
+          "x": 1100,
+          "y": 2524,
+          "w": 80,
+          "h": 56
+        },
+        {
+          "x": 376,
+          "y": 2654,
+          "w": 80,
+          "h": 52
+        },
+        {
+          "x": 654,
+          "y": 2654,
+          "w": 80,
+          "h": 52
+        },
+        {
+          "x": 940,
+          "y": 2654,
+          "w": 80,
+          "h": 52
+        },
+        {
+          "x": 1208,
+          "y": 2654,
+          "w": 80,
+          "h": 52
+        },
+        {
+          "x": 1482,
+          "y": 2654,
+          "w": 80,
+          "h": 52
+        },
+        {
+          "x": 1754,
+          "y": 2654,
+          "w": 80,
+          "h": 52
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "type": "kakunin",
+      "containsSections": [
+        "kakunin"
+      ],
+      "src_phys_page": 9,
+      "regions": [],
+      "image": "page_08.jpg",
+      "width": 4260,
+      "height": 3006
+    },
+    {
+      "id": 9,
+      "type": "kakunin",
+      "containsSections": [
+        "kakunin"
+      ],
+      "src_phys_page": 10,
+      "regions": [],
+      "image": "page_09.jpg",
+      "width": 4254,
+      "height": 3006
+    },
+    {
+      "id": 10,
+      "type": "kakunin",
+      "containsSections": [
+        "kakunin"
+      ],
+      "src_phys_page": 11,
+      "regions": [],
+      "image": "page_10.jpg",
+      "width": 4272,
+      "height": 3006
+    },
+    {
+      "id": 11,
+      "type": "kakunin",
+      "containsSections": [
+        "kakunin"
+      ],
+      "src_phys_page": 12,
+      "regions": [],
+      "image": "page_11.jpg",
+      "width": 4263,
+      "height": 3006
+    },
+    {
+      "id": 12,
+      "type": "kakunin",
+      "containsSections": [
+        "kakunin"
+      ],
+      "src_phys_page": 13,
+      "regions": [],
+      "image": "page_12.jpg",
+      "width": 4269,
+      "height": 3006
+    },
+    {
+      "id": 13,
+      "type": "coreplus",
+      "containsSections": [
+        "coreplus"
+      ],
+      "src_phys_page": 16,
+      "regions": [
+        {
+          "x": 220,
+          "y": 2498,
+          "w": 375,
+          "h": 122
+        },
+        {
+          "x": 697,
+          "y": 2498,
+          "w": 367,
+          "h": 122
+        },
+        {
+          "x": 1163,
+          "y": 2502,
+          "w": 378,
+          "h": 122
+        },
+        {
+          "x": 1641,
+          "y": 2502,
+          "w": 367,
+          "h": 122
+        },
+        {
+          "x": 220,
+          "y": 2632,
+          "w": 375,
+          "h": 126
+        },
+        {
+          "x": 697,
+          "y": 2636,
+          "w": 367,
+          "h": 122
+        },
+        {
+          "x": 1163,
+          "y": 2636,
+          "w": 378,
+          "h": 122
+        },
+        {
+          "x": 220,
+          "y": 2770,
+          "w": 532,
+          "h": 122
+        },
+        {
+          "x": 851,
+          "y": 2770,
+          "w": 528,
+          "h": 122
+        },
+        {
+          "x": 1479,
+          "y": 2770,
+          "w": 528,
+          "h": 126
+        }
+      ],
+      "image": "page_13_answer.jpg",
+      "imageMasked": "page_13_qmasked.jpg",
+      "width": 4263,
+      "height": 3006
+    }
+  ],
+  "sectionBreakdown": {
+    "description": [
+      1,
+      2
+    ],
+    "dailystep": [
+      6,
+      7
+    ],
+    "kakunin": [
+      3,
+      4,
+      5,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "coreplus": [
+      13
+    ]
+  },
+  "xyz": {
+    "label": "授業の確認問題・デイリーステップ",
+    "questionPages": [
+      "kxyz_q_01.jpg",
+      "kxyz_q_02.jpg",
+      "kxyz_q_03.jpg",
+      "kxyz_q_04.jpg",
+      "kxyz_q_05.jpg",
+      "kxyz_q_06.jpg",
+      "kxyz_q_07.jpg",
+      "kxyz_q_08.jpg",
+      "spread_01_q.jpg"
+    ],
+    "answerPages": [
+      "kxyz_a_01.jpg",
+      "kxyz_a_02.jpg",
+      "kxyz_a_03.jpg",
+      "kxyz_a_04.jpg",
+      "kxyz_a_05.jpg",
+      "spread_01_a.jpg",
+      "solved_01.jpg",
+      "solved_02.jpg",
+      "solved_03.jpg",
+      "solved_04.jpg"
+    ],
+    "daimons": [
+      {
+        "id": "演習1",
+        "qpage": 0,
+        "questions": [
+          {
+            "id": "演習1-(1)",
+            "label": "(1)",
+            "group": "(1)"
+          },
+          {
+            "id": "演習1-(2)",
+            "label": "(2)",
+            "group": "(2)"
+          },
+          {
+            "id": "演習1-(3)",
+            "label": "(3)",
+            "group": "(3)"
+          },
+          {
+            "id": "演習1-(4)",
+            "label": "(4)",
+            "group": "(4)"
+          },
+          {
+            "id": "演習1-(5)",
+            "label": "(5)",
+            "group": "(5)"
+          },
+          {
+            "id": "演習1-(6)①",
+            "label": "(6)①",
+            "group": "(6)"
+          },
+          {
+            "id": "演習1-(6)②",
+            "label": "(6)②",
+            "group": "(6)"
+          },
+          {
+            "id": "演習1-(7)",
+            "label": "(7)",
+            "group": "(7)"
+          },
+          {
+            "id": "演習1-(8)",
+            "label": "(8)",
+            "group": "(8)"
+          },
+          {
+            "id": "演習1-(9)",
+            "label": "(9)",
+            "group": "(9)"
+          },
+          {
+            "id": "演習1-(10)ドイツ側",
+            "label": "(10)ドイツ側",
+            "group": "(10)"
+          },
+          {
+            "id": "演習1-(10)イタリア側",
+            "label": "(10)イタリア側",
+            "group": "(10)"
+          },
+          {
+            "id": "演習1-(11)",
+            "label": "(11)",
+            "group": "(11)"
+          },
+          {
+            "id": "演習1-(12)",
+            "label": "(12)",
+            "group": "(12)"
+          },
+          {
+            "id": "演習1-(13)",
+            "label": "(13)",
+            "group": "(13)"
+          }
+        ],
+        "label": "1ページ（演習レベル1）"
+      },
+      {
+        "id": "演習2",
+        "qpage": 1,
+        "questions": [
+          {
+            "id": "演習2-(1)1",
+            "label": "(1)1",
+            "group": "(1)"
+          },
+          {
+            "id": "演習2-(1)2",
+            "label": "(1)2",
+            "group": "(1)"
+          },
+          {
+            "id": "演習2-(1)3",
+            "label": "(1)3",
+            "group": "(1)"
+          },
+          {
+            "id": "演習2-(1)4",
+            "label": "(1)4",
+            "group": "(1)"
+          },
+          {
+            "id": "演習2-(2)①",
+            "label": "(2)①",
+            "group": "(2)"
+          },
+          {
+            "id": "演習2-(2)②",
+            "label": "(2)②",
+            "group": "(2)"
+          },
+          {
+            "id": "演習2-(3)",
+            "label": "(3)",
+            "group": "(3)"
+          },
+          {
+            "id": "演習2-(4)",
+            "label": "(4)",
+            "group": "(4)"
+          },
+          {
+            "id": "演習2-(5)",
+            "label": "(5)",
+            "group": "(5)"
+          },
+          {
+            "id": "演習2-(6)",
+            "label": "(6)",
+            "group": "(6)"
+          },
+          {
+            "id": "演習2-(7)",
+            "label": "(7)",
+            "group": "(7)"
+          },
+          {
+            "id": "演習2-(8)①",
+            "label": "(8)①",
+            "group": "(8)"
+          },
+          {
+            "id": "演習2-(8)②",
+            "label": "(8)②",
+            "group": "(8)"
+          },
+          {
+            "id": "演習2-(8)③",
+            "label": "(8)③",
+            "group": "(8)"
+          },
+          {
+            "id": "演習2-(9)",
+            "label": "(9)",
+            "group": "(9)"
+          }
+        ],
+        "label": "2ページ（演習レベル2）"
+      },
+      {
+        "id": "演習3",
+        "qpage": 2,
+        "questions": [
+          {
+            "id": "演習3-(1)1",
+            "label": "(1)1",
+            "group": "(1)"
+          },
+          {
+            "id": "演習3-(1)2",
+            "label": "(1)2",
+            "group": "(1)"
+          },
+          {
+            "id": "演習3-(1)3",
+            "label": "(1)3",
+            "group": "(1)"
+          },
+          {
+            "id": "演習3-(1)4",
+            "label": "(1)4",
+            "group": "(1)"
+          },
+          {
+            "id": "演習3-(1)5",
+            "label": "(1)5",
+            "group": "(1)"
+          },
+          {
+            "id": "演習3-(1)6",
+            "label": "(1)6",
+            "group": "(1)"
+          },
+          {
+            "id": "演習3-(2)",
+            "label": "(2)",
+            "group": "(2)"
+          },
+          {
+            "id": "演習3-(3)",
+            "label": "(3)",
+            "group": "(3)"
+          },
+          {
+            "id": "演習3-(4)",
+            "label": "(4)",
+            "group": "(4)"
+          },
+          {
+            "id": "演習3-(5)",
+            "label": "(5)",
+            "group": "(5)"
+          },
+          {
+            "id": "演習3-(6)①",
+            "label": "(6)①",
+            "group": "(6)"
+          },
+          {
+            "id": "演習3-(6)②",
+            "label": "(6)②",
+            "group": "(6)"
+          },
+          {
+            "id": "演習3-(7)",
+            "label": "(7)",
+            "group": "(7)"
+          },
+          {
+            "id": "演習3-(8)",
+            "label": "(8)",
+            "group": "(8)"
+          }
+        ],
+        "label": "3ページ（演習レベル3）"
+      },
+      {
+        "id": "基礎1",
+        "qpage": 3,
+        "questions": [
+          {
+            "id": "基礎1-1",
+            "label": "1",
+            "group": "1"
+          },
+          {
+            "id": "基礎1-2",
+            "label": "2",
+            "group": "2"
+          },
+          {
+            "id": "基礎1-3",
+            "label": "3",
+            "group": "3"
+          },
+          {
+            "id": "基礎1-4",
+            "label": "4",
+            "group": "4"
+          },
+          {
+            "id": "基礎1-5",
+            "label": "5",
+            "group": "5"
+          },
+          {
+            "id": "基礎1-6",
+            "label": "6",
+            "group": "6"
+          },
+          {
+            "id": "基礎1-7",
+            "label": "7",
+            "group": "7"
+          },
+          {
+            "id": "基礎1-8",
+            "label": "8",
+            "group": "8"
+          },
+          {
+            "id": "基礎1-9",
+            "label": "9",
+            "group": "9"
+          },
+          {
+            "id": "基礎1-10",
+            "label": "10",
+            "group": "10"
+          },
+          {
+            "id": "基礎1-11",
+            "label": "11",
+            "group": "11"
+          },
+          {
+            "id": "基礎1-12",
+            "label": "12",
+            "group": "12"
+          },
+          {
+            "id": "基礎1-13",
+            "label": "13",
+            "group": "13"
+          },
+          {
+            "id": "基礎1-14",
+            "label": "14",
+            "group": "14"
+          },
+          {
+            "id": "基礎1-15",
+            "label": "15",
+            "group": "15"
+          },
+          {
+            "id": "基礎1-16",
+            "label": "16",
+            "group": "16"
+          },
+          {
+            "id": "基礎1-17",
+            "label": "17",
+            "group": "17"
+          },
+          {
+            "id": "基礎1-18",
+            "label": "18",
+            "group": "18"
+          },
+          {
+            "id": "基礎1-19",
+            "label": "19",
+            "group": "19"
+          },
+          {
+            "id": "基礎1-20",
+            "label": "20",
+            "group": "20"
+          },
+          {
+            "id": "基礎1-21",
+            "label": "21",
+            "group": "21"
+          },
+          {
+            "id": "基礎1-22",
+            "label": "22",
+            "group": "22"
+          },
+          {
+            "id": "基礎1-23",
+            "label": "23",
+            "group": "23"
+          },
+          {
+            "id": "基礎1-24",
+            "label": "24",
+            "group": "24"
+          }
+        ],
+        "label": "6ページ 前半（語句1〜24）"
+      },
+      {
+        "id": "基礎2",
+        "qpage": 3,
+        "questions": [
+          {
+            "id": "基礎2-1",
+            "label": "1",
+            "group": "1"
+          },
+          {
+            "id": "基礎2-21",
+            "label": "21",
+            "group": "2"
+          },
+          {
+            "id": "基礎2-215",
+            "label": "215",
+            "group": "2"
+          },
+          {
+            "id": "基礎2-218",
+            "label": "218",
+            "group": "2"
+          },
+          {
+            "id": "基礎2-3",
+            "label": "3",
+            "group": "3"
+          },
+          {
+            "id": "基礎2-4",
+            "label": "4",
+            "group": "4"
+          },
+          {
+            "id": "基礎2-5",
+            "label": "5",
+            "group": "5"
+          },
+          {
+            "id": "基礎2-6①",
+            "label": "6①",
+            "group": "6"
+          },
+          {
+            "id": "基礎2-6②",
+            "label": "6②",
+            "group": "6"
+          },
+          {
+            "id": "基礎2-6③",
+            "label": "6③",
+            "group": "6"
+          }
+        ],
+        "label": "6ページ 後半（問題）"
+      },
+      {
+        "id": "基礎3",
+        "qpage": 4,
+        "questions": [
+          {
+            "id": "基礎3-1",
+            "label": "1",
+            "group": "1"
+          },
+          {
+            "id": "基礎3-2",
+            "label": "2",
+            "group": "2"
+          },
+          {
+            "id": "基礎3-3",
+            "label": "3",
+            "group": "3"
+          },
+          {
+            "id": "基礎3-4",
+            "label": "4",
+            "group": "4"
+          },
+          {
+            "id": "基礎3-5",
+            "label": "5",
+            "group": "5"
+          },
+          {
+            "id": "基礎3-6",
+            "label": "6",
+            "group": "6"
+          },
+          {
+            "id": "基礎3-7",
+            "label": "7",
+            "group": "7"
+          },
+          {
+            "id": "基礎3-8",
+            "label": "8",
+            "group": "8"
+          },
+          {
+            "id": "基礎3-9",
+            "label": "9",
+            "group": "9"
+          },
+          {
+            "id": "基礎3-10",
+            "label": "10",
+            "group": "10"
+          },
+          {
+            "id": "基礎3-11",
+            "label": "11",
+            "group": "11"
+          },
+          {
+            "id": "基礎3-12",
+            "label": "12",
+            "group": "12"
+          },
+          {
+            "id": "基礎3-13",
+            "label": "13",
+            "group": "13"
+          },
+          {
+            "id": "基礎3-14",
+            "label": "14",
+            "group": "14"
+          },
+          {
+            "id": "基礎3-15",
+            "label": "15",
+            "group": "15"
+          },
+          {
+            "id": "基礎3-16",
+            "label": "16",
+            "group": "16"
+          },
+          {
+            "id": "基礎3-17",
+            "label": "17",
+            "group": "17"
+          },
+          {
+            "id": "基礎3-18",
+            "label": "18",
+            "group": "18"
+          },
+          {
+            "id": "基礎3-19",
+            "label": "19",
+            "group": "19"
+          },
+          {
+            "id": "基礎3-20",
+            "label": "20",
+            "group": "20"
+          },
+          {
+            "id": "基礎3-21",
+            "label": "21",
+            "group": "21"
+          },
+          {
+            "id": "基礎3-22",
+            "label": "22",
+            "group": "22"
+          },
+          {
+            "id": "基礎3-23",
+            "label": "23",
+            "group": "23"
+          },
+          {
+            "id": "基礎3-24",
+            "label": "24",
+            "group": "24"
+          }
+        ],
+        "label": "7ページ 前半（語句1〜24）"
+      },
+      {
+        "id": "基礎4",
+        "qpage": 4,
+        "questions": [
+          {
+            "id": "基礎4-1",
+            "label": "1",
+            "group": "1"
+          },
+          {
+            "id": "基礎4-2",
+            "label": "2",
+            "group": "2"
+          },
+          {
+            "id": "基礎4-3①",
+            "label": "3①",
+            "group": "3"
+          },
+          {
+            "id": "基礎4-3②",
+            "label": "3②",
+            "group": "3"
+          },
+          {
+            "id": "基礎4-4①a",
+            "label": "4①a",
+            "group": "4"
+          },
+          {
+            "id": "基礎4-4①b",
+            "label": "4①b",
+            "group": "4"
+          },
+          {
+            "id": "基礎4-4①c",
+            "label": "4①c",
+            "group": "4"
+          },
+          {
+            "id": "基礎4-4②",
+            "label": "4②",
+            "group": "4"
+          },
+          {
+            "id": "基礎4-5①",
+            "label": "5①",
+            "group": "5"
+          },
+          {
+            "id": "基礎4-5②",
+            "label": "5②",
+            "group": "5"
+          },
+          {
+            "id": "基礎4-6①",
+            "label": "6①",
+            "group": "6"
+          },
+          {
+            "id": "基礎4-6②",
+            "label": "6②",
+            "group": "6"
+          }
+        ],
+        "label": "7ページ 後半（問題）"
+      },
+      {
+        "id": "基礎5",
+        "qpage": 5,
+        "questions": [
+          {
+            "id": "基礎5-1",
+            "label": "1",
+            "group": "1"
+          },
+          {
+            "id": "基礎5-2",
+            "label": "2",
+            "group": "2"
+          },
+          {
+            "id": "基礎5-3",
+            "label": "3",
+            "group": "3"
+          },
+          {
+            "id": "基礎5-4",
+            "label": "4",
+            "group": "4"
+          },
+          {
+            "id": "基礎5-5",
+            "label": "5",
+            "group": "5"
+          },
+          {
+            "id": "基礎5-6",
+            "label": "6",
+            "group": "6"
+          },
+          {
+            "id": "基礎5-7",
+            "label": "7",
+            "group": "7"
+          },
+          {
+            "id": "基礎5-8",
+            "label": "8",
+            "group": "8"
+          },
+          {
+            "id": "基礎5-9",
+            "label": "9",
+            "group": "9"
+          },
+          {
+            "id": "基礎5-10",
+            "label": "10",
+            "group": "10"
+          },
+          {
+            "id": "基礎5-11",
+            "label": "11",
+            "group": "11"
+          },
+          {
+            "id": "基礎5-12",
+            "label": "12",
+            "group": "12"
+          },
+          {
+            "id": "基礎5-13",
+            "label": "13",
+            "group": "13"
+          },
+          {
+            "id": "基礎5-14",
+            "label": "14",
+            "group": "14"
+          },
+          {
+            "id": "基礎5-15",
+            "label": "15",
+            "group": "15"
+          },
+          {
+            "id": "基礎5-16",
+            "label": "16",
+            "group": "16"
+          },
+          {
+            "id": "基礎5-17",
+            "label": "17",
+            "group": "17"
+          },
+          {
+            "id": "基礎5-18",
+            "label": "18",
+            "group": "18"
+          },
+          {
+            "id": "基礎5-19",
+            "label": "19",
+            "group": "19"
+          },
+          {
+            "id": "基礎5-20",
+            "label": "20",
+            "group": "20"
+          }
+        ],
+        "label": "8ページ 前半（語句1〜20）"
+      },
+      {
+        "id": "基礎6",
+        "qpage": 5,
+        "questions": [
+          {
+            "id": "基礎6-1あ",
+            "label": "1あ",
+            "group": "1"
+          },
+          {
+            "id": "基礎6-1い",
+            "label": "1い",
+            "group": "1"
+          },
+          {
+            "id": "基礎6-1う",
+            "label": "1う",
+            "group": "1"
+          },
+          {
+            "id": "基礎6-1え",
+            "label": "1え",
+            "group": "1"
+          },
+          {
+            "id": "基礎6-1お",
+            "label": "1お",
+            "group": "1"
+          },
+          {
+            "id": "基礎6-1か",
+            "label": "1か",
+            "group": "1"
+          },
+          {
+            "id": "基礎6-2",
+            "label": "2",
+            "group": "2"
+          },
+          {
+            "id": "基礎6-3",
+            "label": "3",
+            "group": "3"
+          },
+          {
+            "id": "基礎6-4",
+            "label": "4",
+            "group": "4"
+          },
+          {
+            "id": "基礎6-5①",
+            "label": "5①",
+            "group": "5"
+          },
+          {
+            "id": "基礎6-5②",
+            "label": "5②",
+            "group": "5"
+          }
+        ],
+        "label": "8ページ 後半（問題）"
+      },
+      {
+        "id": "基礎7",
+        "qpage": 6,
+        "questions": [
+          {
+            "id": "基礎7-1①",
+            "label": "1①",
+            "group": "1"
+          },
+          {
+            "id": "基礎7-1②",
+            "label": "1②",
+            "group": "1"
+          },
+          {
+            "id": "基礎7-2",
+            "label": "2",
+            "group": "2"
+          },
+          {
+            "id": "基礎7-3",
+            "label": "3",
+            "group": "3"
+          },
+          {
+            "id": "基礎7-4",
+            "label": "4",
+            "group": "4"
+          },
+          {
+            "id": "基礎7-5①",
+            "label": "5①",
+            "group": "5"
+          },
+          {
+            "id": "基礎7-5②",
+            "label": "5②",
+            "group": "5"
+          },
+          {
+            "id": "基礎7-5③",
+            "label": "5③",
+            "group": "5"
+          },
+          {
+            "id": "基礎7-6",
+            "label": "6",
+            "group": "6"
+          }
+        ],
+        "label": "9ページ"
+      },
+      {
+        "id": "基礎8",
+        "qpage": 7,
+        "questions": [
+          {
+            "id": "基礎8-1",
+            "label": "1",
+            "group": "1"
+          },
+          {
+            "id": "基礎8-2",
+            "label": "2",
+            "group": "2"
+          },
+          {
+            "id": "基礎8-3",
+            "label": "3",
+            "group": "3"
+          },
+          {
+            "id": "基礎8-4",
+            "label": "4",
+            "group": "4"
+          },
+          {
+            "id": "基礎8-5",
+            "label": "5",
+            "group": "5"
+          },
+          {
+            "id": "基礎8-6",
+            "label": "6",
+            "group": "6"
+          },
+          {
+            "id": "基礎8-7",
+            "label": "7",
+            "group": "7"
+          },
+          {
+            "id": "基礎8-8",
+            "label": "8",
+            "group": "8"
+          },
+          {
+            "id": "基礎8-9",
+            "label": "9",
+            "group": "9"
+          },
+          {
+            "id": "基礎8-10",
+            "label": "10",
+            "group": "10"
+          },
+          {
+            "id": "基礎8-11",
+            "label": "11",
+            "group": "11"
+          },
+          {
+            "id": "基礎8-12",
+            "label": "12",
+            "group": "12"
+          }
+        ],
+        "label": "10ページ 前半（語句1〜12）"
+      },
+      {
+        "id": "基礎9",
+        "qpage": 7,
+        "questions": [
+          {
+            "id": "基礎9-1",
+            "label": "1",
+            "group": "1"
+          },
+          {
+            "id": "基礎9-2①",
+            "label": "2①",
+            "group": "2"
+          },
+          {
+            "id": "基礎9-2②",
+            "label": "2②",
+            "group": "2"
+          },
+          {
+            "id": "基礎9-3",
+            "label": "3",
+            "group": "3"
+          },
+          {
+            "id": "基礎9-4",
+            "label": "4",
+            "group": "4"
+          },
+          {
+            "id": "基礎9-5①",
+            "label": "5①",
+            "group": "5"
+          },
+          {
+            "id": "基礎9-5②",
+            "label": "5②",
+            "group": "5"
+          },
+          {
+            "id": "基礎9-6",
+            "label": "6",
+            "group": "6"
+          }
+        ],
+        "label": "10ページ 後半（問題）"
+      },
+      {
+        "id": "DS1-1",
+        "qpage": 8,
+        "questions": [
+          {
+            "id": "ds1-1-1",
+            "label": "1"
+          },
+          {
+            "id": "ds1-1-2",
+            "label": "2"
+          },
+          {
+            "id": "ds1-1-3",
+            "label": "3"
+          },
+          {
+            "id": "ds1-1-4",
+            "label": "4"
+          },
+          {
+            "id": "ds1-1-5",
+            "label": "5"
+          },
+          {
+            "id": "ds1-1-6",
+            "label": "6"
+          },
+          {
+            "id": "ds1-1-7",
+            "label": "7"
+          },
+          {
+            "id": "ds1-1-8",
+            "label": "8"
+          },
+          {
+            "id": "ds1-1-9",
+            "label": "9"
+          },
+          {
+            "id": "ds1-1-10",
+            "label": "10"
+          },
+          {
+            "id": "ds1-1-11",
+            "label": "11"
+          },
+          {
+            "id": "ds1-1-12",
+            "label": "12"
+          },
+          {
+            "id": "ds1-1-13",
+            "label": "13"
+          },
+          {
+            "id": "ds1-1-14",
+            "label": "14"
+          }
+        ]
+      },
+      {
+        "id": "DS1-2",
+        "qpage": 8,
+        "questions": [
+          {
+            "id": "ds1-2-1",
+            "label": "1"
+          },
+          {
+            "id": "ds1-2-2",
+            "label": "2"
+          },
+          {
+            "id": "ds1-2-3",
+            "label": "3"
+          },
+          {
+            "id": "ds1-2-4",
+            "label": "4"
+          },
+          {
+            "id": "ds1-2-5",
+            "label": "5"
+          },
+          {
+            "id": "ds1-2-6",
+            "label": "6"
+          }
+        ]
+      },
+      {
+        "id": "DS2-1",
+        "qpage": 8,
+        "questions": [
+          {
+            "id": "ds2-1-1",
+            "label": "1"
+          },
+          {
+            "id": "ds2-1-2",
+            "label": "2"
+          },
+          {
+            "id": "ds2-1-3",
+            "label": "3"
+          },
+          {
+            "id": "ds2-1-4",
+            "label": "4"
+          },
+          {
+            "id": "ds2-1-5",
+            "label": "5"
+          },
+          {
+            "id": "ds2-1-6",
+            "label": "6"
+          }
+        ]
+      },
+      {
+        "id": "DS2-2",
+        "qpage": 8,
+        "questions": [
+          {
+            "id": "ds2-2-1",
+            "label": "1"
+          }
+        ]
+      }
+    ],
+    "seigohyoAppended": {
+      "questionPages": [
+        "page_06_masked.jpg",
+        "page_07_masked.jpg"
+      ],
+      "answerPages": [
+        "page_06.jpg",
+        "page_07.jpg"
+      ],
+      "daimonIds": [
+        "DS1-1",
+        "DS1-2",
+        "DS2-1",
+        "DS2-2"
+      ],
+      "generatedAt": "2026-08-23",
+      "solvedPages": []
+    },
+    "spreads": [
+      {
+        "q": "spread_01_q.jpg",
+        "a": "spread_01_a.jpg",
+        "src_q": [
+          "page_06_masked.jpg",
+          "page_07_masked.jpg"
+        ],
+        "src_a": [
+          "page_06.jpg",
+          "page_07.jpg"
+        ]
+      }
+    ],
+    "solvedPages": [
+      "solved_01.jpg",
+      "solved_02.jpg",
+      "solved_03.jpg",
+      "solved_04.jpg"
+    ]
+  },
+  "imageBase": "https://komaguchi-wq.github.io/shakai-daily-check-v2-images-01/daily-check/N64-08/"
+}
