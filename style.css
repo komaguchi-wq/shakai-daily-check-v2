@@ -989,3 +989,7 @@ body {
   background: none; border: none; color: #007aff; font-size: 14px; cursor: pointer; padding: 4px 10px; white-space: nowrap;
 }
 #reading-print-all-btn:hover, #quiz-list-btn:hover { background: #f5f5f7; border-radius: 6px; }
+
+/* 単元詳細のセクションカードにも同じ正誤棒グラフ（緑=60%以上/黄/灰） */
+.section-card .unit-card-bar { margin-top: 8px; }
+.section-card .unit-card-legend { margin-top: 4px; }
