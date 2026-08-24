@@ -2201,8 +2201,33 @@ async function reviewPrint() {
 // ==============================
 // 起動
 // ==============================
+// ==============================
+// ディープリンク（#user/category/unit）: 正誤提案の案内URLから直接その単元を開く
+// ==============================
+async function openFromHash() {
+  const raw = decodeURIComponent(location.hash.replace(/^#/, ""));
+  if (!raw) return false;
+  const [user, catId, unitId] = raw.split("/");
+  if (!user || !catId) return false;
+  selectUser(user);
+  await new Promise(r => setTimeout(r, 0));
+  try {
+    const res = await fetch("categories.json");
+    categoriesList = await res.json();
+  } catch (e) { return false; }
+  const cat = categoriesList.find(c => c.id === catId);
+  if (!cat) return false;
+  await openCategory(cat);
+  if (!unitId) return true;
+  const unit = unitsList.find(u => u.id === unitId);
+  if (!unit) return true;
+  await openUnit(unit);
+  return true;
+}
+
 function init() {
   setupEventListeners();
+  if (location.hash && location.hash !== "#") { openFromHash(); return; }
   const savedUser = localStorage.getItem('study-user') || sessionStorage.getItem("shakai-current-user-v2");
   if (savedUser === 'さと' || savedUser === 'ぱぱ') selectUser(savedUser);
 }
