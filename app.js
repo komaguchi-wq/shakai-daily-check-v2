@@ -44,6 +44,12 @@ const SECTION_LABELS = Object.fromEntries(
   Object.entries(SECTION_META).map(([k, v]) => [k, v.label])
 );
 
+// weekly-sapix の kakunin は紙面どおり「知識の総完成」と表示（他カテゴリは従来ラベル）
+function sectionDisplayLabel(sec) {
+  if (sec === "kakunin" && currentCategory && currentCategory.id === "weekly-sapix") return "知識の総完成";
+  return (SECTION_META[sec] || { label: sec }).label;
+}
+
 // Google Sheets バックアップ用（v2は別キーで管理）
 let SHEETS_API_URL = localStorage.getItem("shakai-v2-sheets-api-url") || "https://script.google.com/macros/s/AKfycbzMudApjWjGc3OkrRA6iwHCTVclVWe3ht2fxDUd6_1uBcHKwcxDOCcGhEiYTqFfDCqZ/exec";
 
@@ -491,7 +497,7 @@ function renderUnitDetail() {
   SECTION_ORDER.forEach(sec => {
     // 授業の確認問題: xyzデータがあれば X/Y/Z方式カード（問題/解答タブ + 正誤表）。
     // 無い単元は従来のマスク方式カードのまま（段階移行できるよう両対応）。
-    if (sec === "kakunin" && hasXyz) {
+    if (sec === "kakunin" && hasXyz && !quizData.xyz.keepQuiz) {
       list.appendChild(buildXyzCard());
       return;
     }
@@ -527,7 +533,7 @@ function renderUnitDetail() {
     card.innerHTML = `
       <div class="section-card-icon">${meta.icon}</div>
       <div class="section-card-body">
-        <div class="section-card-title">${meta.label}${badge}</div>
+        <div class="section-card-title">${sectionDisplayLabel(sec)}${badge}</div>
         <div class="section-card-meta">${pages.length}ページ${isQuizable ? ` ・ 全${stats.totalRegions}問` : ""}</div>
         ${isQuizable ? unitBarHTML({ total: stats.totalRegions, attempted: stats.attempted, good: stats.goodCount, low: stats.attempted - stats.goodCount, unanswered: stats.totalRegions - stats.attempted }) : ""}
       </div>
@@ -540,6 +546,8 @@ function renderUnitDetail() {
       else startReading(sec, true);
     });
     list.appendChild(card);
+    // ★keepQuiz（WS実戦演習など）: 既存クイズカードを残したまま X/Y/Z カードを後ろに併設
+    if (sec === "kakunin" && hasXyz && quizData.xyz.keepQuiz) list.appendChild(buildXyzCard());
   });
 
   // データバンク単元: 復習（問題/解答タブ）カードを説明文の後に出す。
@@ -555,7 +563,7 @@ function openSection(section) {
   quizDirect = false;
   const meta = SECTION_META[section];
   document.getElementById("section-detail-title").textContent =
-    `${meta.icon} ${meta.label}`;
+    `${meta.icon} ${sectionDisplayLabel(section)}`;
   renderSectionDetail();
   showScreen("screen-section-detail");
 }
@@ -1332,8 +1340,7 @@ async function bulkPrint(mode) {
   }
   const p0 = targetPages[0];
   const pageSize = p0.width > p0.height ? "B4 landscape" : "A4 portrait";
-  const meta = SECTION_META[currentSection];
-  openPrintIframeMulti(`${currentUnit.title} - ${meta.label}（${targetPages.length}枚）`, pageSize, dataURLs);
+  openPrintIframeMulti(`${currentUnit.title} - ${sectionDisplayLabel(currentSection)}（${targetPages.length}枚）`, pageSize, dataURLs);
 }
 
 function openPrintIframeMulti(titleText, _pageSize, dataURLs) {

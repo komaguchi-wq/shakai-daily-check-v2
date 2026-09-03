@@ -1,348 +1,348 @@
 [
-  {
-    "id": "WS-01",
-    "title": "WS-01 知識の総完成（地理編01）",
-    "subject": "Weekly SapiX",
-    "pageCount": 4,
-    "totalRegions": 141,
-    "sectionRegions": {
-      "kakunin": 141
-    },
-    "sectionPages": {
-      "1": "kakunin",
-      "2": "kakunin",
-      "3": "kakunin",
-      "4": "kakunin"
-    },
-    "xyzCount": 0
+ {
+  "id": "WS-01",
+  "title": "WS-01 知識の総完成（地理編01）",
+  "subject": "Weekly SapiX",
+  "pageCount": 4,
+  "totalRegions": 141,
+  "sectionRegions": {
+   "kakunin": 141
   },
-  {
-    "id": "WS-02",
-    "title": "WS-02 知識の総完成（地理編02）",
-    "subject": "Weekly SapiX",
-    "pageCount": 4,
-    "totalRegions": 119,
-    "sectionRegions": {
-      "kakunin": 119
-    },
-    "sectionPages": {
-      "1": "kakunin",
-      "2": "kakunin",
-      "3": "kakunin",
-      "4": "kakunin"
-    },
-    "xyzCount": 0
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin",
+   "3": "kakunin",
+   "4": "kakunin"
   },
-  {
-    "id": "WS-03",
-    "title": "WS-03 知識の総完成（地理編03）",
-    "subject": "Weekly SapiX",
-    "pageCount": 4,
-    "totalRegions": 108,
-    "sectionRegions": {
-      "kakunin": 108
-    },
-    "sectionPages": {
-      "1": "kakunin",
-      "2": "kakunin",
-      "3": "kakunin",
-      "4": "kakunin"
-    },
-    "xyzCount": 0
+  "xyzCount": 0
+ },
+ {
+  "id": "WS-02",
+  "title": "WS-02 知識の総完成（地理編02）",
+  "subject": "Weekly SapiX",
+  "pageCount": 4,
+  "totalRegions": 119,
+  "sectionRegions": {
+   "kakunin": 119
   },
-  {
-    "id": "WS-04",
-    "title": "WS-04 知識の総完成（地理編04）",
-    "subject": "Weekly SapiX",
-    "pageCount": 4,
-    "totalRegions": 124,
-    "sectionRegions": {
-      "kakunin": 124
-    },
-    "sectionPages": {
-      "1": "kakunin",
-      "2": "kakunin",
-      "3": "kakunin",
-      "4": "kakunin"
-    },
-    "xyzCount": 0
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin",
+   "3": "kakunin",
+   "4": "kakunin"
   },
-  {
-    "id": "WS-05",
-    "title": "WS-05 知識の総完成（地理編05）日本の工業のまとめ + 関東地方のまとめ",
-    "subject": "Weekly SapiX",
-    "pageCount": 4,
-    "totalRegions": 117,
-    "sectionRegions": {
-      "kakunin": 117
-    },
-    "sectionPages": {
-      "1": "kakunin",
-      "2": "kakunin",
-      "3": "kakunin",
-      "4": "kakunin"
-    },
-    "xyzCount": 0
+  "xyzCount": 0
+ },
+ {
+  "id": "WS-03",
+  "title": "WS-03 知識の総完成（地理編03）",
+  "subject": "Weekly SapiX",
+  "pageCount": 4,
+  "totalRegions": 108,
+  "sectionRegions": {
+   "kakunin": 108
   },
-  {
-    "id": "WS-06",
-    "title": "WS-06 知識の総完成（地理編06）日本の貿易のまとめ + 近畿地方のまとめ",
-    "subject": "Weekly SapiX",
-    "pageCount": 4,
-    "totalRegions": 131,
-    "sectionRegions": {
-      "kakunin": 131
-    },
-    "sectionPages": {
-      "1": "kakunin",
-      "2": "kakunin",
-      "3": "kakunin",
-      "4": "kakunin"
-    },
-    "xyzCount": 0
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin",
+   "3": "kakunin",
+   "4": "kakunin"
   },
-  {
-    "id": "WS-07",
-    "title": "WS-07 知識の総完成（地理編07）日本の交通のまとめ + 中国・四国地方のまとめ",
-    "subject": "Weekly SapiX",
-    "pageCount": 4,
-    "totalRegions": 119,
-    "sectionRegions": {
-      "kakunin": 119
-    },
-    "sectionPages": {
-      "1": "kakunin",
-      "2": "kakunin",
-      "3": "kakunin",
-      "4": "kakunin"
-    },
-    "xyzCount": 0
+  "xyzCount": 0
+ },
+ {
+  "id": "WS-04",
+  "title": "WS-04 知識の総完成（地理編04）",
+  "subject": "Weekly SapiX",
+  "pageCount": 4,
+  "totalRegions": 124,
+  "sectionRegions": {
+   "kakunin": 124
   },
-  {
-    "id": "WS-08",
-    "title": "WS-08 政治史① 古墳時代〜室町時代",
-    "subject": "Weekly SapiX",
-    "pageCount": 4,
-    "totalRegions": 121,
-    "sectionRegions": {
-      "kakunin": 121
-    },
-    "sectionPages": {
-      "1": "kakunin",
-      "2": "kakunin",
-      "3": "kakunin",
-      "4": "kakunin"
-    },
-    "xyzCount": 0
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin",
+   "3": "kakunin",
+   "4": "kakunin"
   },
-  {
-    "id": "WS-09",
-    "title": "WS-09 政治史② + 歴史人物 室町時代〜江戸時代",
-    "subject": "Weekly SapiX",
-    "pageCount": 4,
-    "totalRegions": 118,
-    "sectionRegions": {
-      "kakunin": 118
-    },
-    "sectionPages": {
-      "1": "kakunin",
-      "2": "kakunin",
-      "3": "kakunin",
-      "4": "kakunin"
-    },
-    "xyzCount": 0
+  "xyzCount": 0
+ },
+ {
+  "id": "WS-05",
+  "title": "WS-05 知識の総完成（地理編05）日本の工業のまとめ + 関東地方のまとめ",
+  "subject": "Weekly SapiX",
+  "pageCount": 4,
+  "totalRegions": 117,
+  "sectionRegions": {
+   "kakunin": 117
   },
-  {
-    "id": "WS-10",
-    "title": "WS-10 政治史③ + 歴史人物 明治時代〜大正時代",
-    "subject": "Weekly SapiX",
-    "pageCount": 4,
-    "totalRegions": 103,
-    "sectionRegions": {
-      "kakunin": 103
-    },
-    "sectionPages": {
-      "1": "kakunin",
-      "2": "kakunin",
-      "3": "kakunin",
-      "4": "kakunin"
-    },
-    "xyzCount": 0
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin",
+   "3": "kakunin",
+   "4": "kakunin"
   },
-  {
-    "id": "WS-11",
-    "title": "WS-11 政治史④ + 歴史人物 昭和時代〜現代",
-    "subject": "Weekly SapiX",
-    "pageCount": 4,
-    "totalRegions": 114,
-    "sectionRegions": {
-      "kakunin": 114
-    },
-    "sectionPages": {
-      "1": "kakunin",
-      "2": "kakunin",
-      "3": "kakunin",
-      "4": "kakunin"
-    },
-    "xyzCount": 0
+  "xyzCount": 0
+ },
+ {
+  "id": "WS-06",
+  "title": "WS-06 知識の総完成（地理編06）日本の貿易のまとめ + 近畿地方のまとめ",
+  "subject": "Weekly SapiX",
+  "pageCount": 4,
+  "totalRegions": 131,
+  "sectionRegions": {
+   "kakunin": 131
   },
-  {
-    "id": "WS-12",
-    "title": "WS-12 外交史① 中国・朝鮮との外交 + 時代区分と重要年代のまとめ",
-    "subject": "Weekly SapiX",
-    "pageCount": 4,
-    "totalRegions": 130,
-    "sectionRegions": {
-      "kakunin": 130
-    },
-    "sectionPages": {
-      "1": "kakunin",
-      "2": "kakunin",
-      "3": "kakunin",
-      "4": "kakunin"
-    },
-    "xyzCount": 0
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin",
+   "3": "kakunin",
+   "4": "kakunin"
   },
-  {
-    "id": "WS-13",
-    "title": "WS-13 外交史② 欧米諸国との外交 + 歴史地名のまとめ",
-    "subject": "Weekly SapiX",
-    "pageCount": 4,
-    "totalRegions": 116,
-    "sectionRegions": {
-      "kakunin": 116
-    },
-    "sectionPages": {
-      "1": "kakunin",
-      "2": "kakunin",
-      "3": "kakunin",
-      "4": "kakunin"
-    },
-    "xyzCount": 0
+  "xyzCount": 0
+ },
+ {
+  "id": "WS-07",
+  "title": "WS-07 知識の総完成（地理編07）日本の交通のまとめ + 中国・四国地方のまとめ",
+  "subject": "Weekly SapiX",
+  "pageCount": 4,
+  "totalRegions": 119,
+  "sectionRegions": {
+   "kakunin": 119
   },
-  {
-    "id": "WS-14",
-    "title": "WS-14 社会・産業史",
-    "subject": "Weekly SapiX",
-    "pageCount": 6,
-    "totalRegions": 163,
-    "sectionRegions": {
-      "kakunin": 163
-    },
-    "sectionPages": {
-      "1": "kakunin",
-      "2": "kakunin",
-      "3": "kakunin",
-      "4": "kakunin",
-      "5": "kakunin",
-      "6": "kakunin"
-    },
-    "xyzCount": 0
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin",
+   "3": "kakunin",
+   "4": "kakunin"
   },
-  {
-    "id": "WS-15",
-    "title": "WS-15 文化史・近現代史",
-    "subject": "Weekly SapiX",
-    "pageCount": 8,
-    "totalRegions": 178,
-    "sectionRegions": {
-      "kakunin": 178
-    },
-    "sectionPages": {
-      "1": "kakunin",
-      "2": "kakunin",
-      "3": "kakunin",
-      "4": "kakunin",
-      "5": "kakunin",
-      "6": "kakunin",
-      "7": "kakunin",
-      "8": "kakunin"
-    },
-    "xyzCount": 0
+  "xyzCount": 0
+ },
+ {
+  "id": "WS-08",
+  "title": "WS-08 政治史① 古墳時代〜室町時代",
+  "subject": "Weekly SapiX",
+  "pageCount": 4,
+  "totalRegions": 121,
+  "sectionRegions": {
+   "kakunin": 121
   },
-  {
-    "id": "WS-16",
-    "title": "WS-16 日本国憲法（三大原則・基本的人権）",
-    "subject": "Weekly SapiX",
-    "pageCount": 4,
-    "totalRegions": 127,
-    "sectionRegions": {
-      "kakunin": 127
-    },
-    "sectionPages": {
-      "1": "kakunin",
-      "2": "kakunin",
-      "3": "kakunin",
-      "4": "kakunin"
-    },
-    "xyzCount": 0
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin",
+   "3": "kakunin",
+   "4": "kakunin"
   },
-  {
-    "id": "WS-17",
-    "title": "WS-17 三権分立・国会と内閣 + 裁判所・財政・地方自治",
-    "subject": "Weekly SapiX",
-    "pageCount": 4,
-    "totalRegions": 124,
-    "sectionRegions": {
-      "kakunin": 124
-    },
-    "sectionPages": {
-      "1": "kakunin",
-      "2": "kakunin",
-      "3": "kakunin",
-      "4": "kakunin"
-    },
-    "xyzCount": 0
+  "xyzCount": 0
+ },
+ {
+  "id": "WS-09",
+  "title": "WS-09 政治史② + 歴史人物 室町時代〜江戸時代",
+  "subject": "Weekly SapiX",
+  "pageCount": 4,
+  "totalRegions": 118,
+  "sectionRegions": {
+   "kakunin": 118
   },
-  {
-    "id": "WS-18",
-    "title": "WS-18 経済の仕組み + 現代日本の諸問題",
-    "subject": "Weekly SapiX",
-    "pageCount": 4,
-    "totalRegions": 78,
-    "sectionRegions": {
-      "kakunin": 78
-    },
-    "sectionPages": {
-      "1": "kakunin",
-      "2": "kakunin",
-      "3": "kakunin",
-      "4": "kakunin"
-    },
-    "xyzCount": 0
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin",
+   "3": "kakunin",
+   "4": "kakunin"
   },
-  {
-    "id": "WS-19",
-    "title": "WS-19 世界地理 + 世界の国々",
-    "subject": "Weekly SapiX",
-    "pageCount": 4,
-    "totalRegions": 78,
-    "sectionRegions": {
-      "kakunin": 78
-    },
-    "sectionPages": {
-      "1": "kakunin",
-      "2": "kakunin",
-      "3": "kakunin",
-      "4": "kakunin"
-    },
-    "xyzCount": 0
+  "xyzCount": 0
+ },
+ {
+  "id": "WS-10",
+  "title": "WS-10 政治史③ + 歴史人物 明治時代〜大正時代",
+  "subject": "Weekly SapiX",
+  "pageCount": 4,
+  "totalRegions": 103,
+  "sectionRegions": {
+   "kakunin": 103
   },
-  {
-    "id": "WS-20",
-    "title": "WS-20 国際連合 + 現代世界の諸問題",
-    "subject": "Weekly SapiX",
-    "pageCount": 4,
-    "totalRegions": 112,
-    "sectionRegions": {
-      "kakunin": 112
-    },
-    "sectionPages": {
-      "1": "kakunin",
-      "2": "kakunin",
-      "3": "kakunin",
-      "4": "kakunin"
-    },
-    "xyzCount": 0
-  }
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin",
+   "3": "kakunin",
+   "4": "kakunin"
+  },
+  "xyzCount": 0
+ },
+ {
+  "id": "WS-11",
+  "title": "WS-11 政治史④ + 歴史人物 昭和時代〜現代",
+  "subject": "Weekly SapiX",
+  "pageCount": 4,
+  "totalRegions": 114,
+  "sectionRegions": {
+   "kakunin": 114
+  },
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin",
+   "3": "kakunin",
+   "4": "kakunin"
+  },
+  "xyzCount": 0
+ },
+ {
+  "id": "WS-12",
+  "title": "WS-12 外交史① 中国・朝鮮との外交 + 時代区分と重要年代のまとめ",
+  "subject": "Weekly SapiX",
+  "pageCount": 4,
+  "totalRegions": 130,
+  "sectionRegions": {
+   "kakunin": 130
+  },
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin",
+   "3": "kakunin",
+   "4": "kakunin"
+  },
+  "xyzCount": 0
+ },
+ {
+  "id": "WS-13",
+  "title": "WS-13 外交史② 欧米諸国との外交 + 歴史地名のまとめ",
+  "subject": "Weekly SapiX",
+  "pageCount": 4,
+  "totalRegions": 116,
+  "sectionRegions": {
+   "kakunin": 116
+  },
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin",
+   "3": "kakunin",
+   "4": "kakunin"
+  },
+  "xyzCount": 0
+ },
+ {
+  "id": "WS-14",
+  "title": "WS-14 社会・産業史",
+  "subject": "Weekly SapiX",
+  "pageCount": 6,
+  "totalRegions": 163,
+  "sectionRegions": {
+   "kakunin": 163
+  },
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin",
+   "3": "kakunin",
+   "4": "kakunin",
+   "5": "kakunin",
+   "6": "kakunin"
+  },
+  "xyzCount": 0
+ },
+ {
+  "id": "WS-15",
+  "title": "WS-15 文化史・近現代史",
+  "subject": "Weekly SapiX",
+  "pageCount": 8,
+  "totalRegions": 178,
+  "sectionRegions": {
+   "kakunin": 178
+  },
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin",
+   "3": "kakunin",
+   "4": "kakunin",
+   "5": "kakunin",
+   "6": "kakunin",
+   "7": "kakunin",
+   "8": "kakunin"
+  },
+  "xyzCount": 0
+ },
+ {
+  "id": "WS-16",
+  "title": "WS-16 日本国憲法（三大原則・基本的人権）",
+  "subject": "Weekly SapiX",
+  "pageCount": 4,
+  "totalRegions": 127,
+  "sectionRegions": {
+   "kakunin": 127
+  },
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin",
+   "3": "kakunin",
+   "4": "kakunin"
+  },
+  "xyzCount": 0
+ },
+ {
+  "id": "WS-17",
+  "title": "WS-17 三権分立・国会と内閣 + 裁判所・財政・地方自治",
+  "subject": "Weekly SapiX",
+  "pageCount": 4,
+  "totalRegions": 124,
+  "sectionRegions": {
+   "kakunin": 124
+  },
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin",
+   "3": "kakunin",
+   "4": "kakunin"
+  },
+  "xyzCount": 0
+ },
+ {
+  "id": "WS-18",
+  "title": "WS-18 経済の仕組み + 現代日本の諸問題",
+  "subject": "Weekly SapiX",
+  "pageCount": 4,
+  "totalRegions": 78,
+  "sectionRegions": {
+   "kakunin": 78
+  },
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin",
+   "3": "kakunin",
+   "4": "kakunin"
+  },
+  "xyzCount": 0
+ },
+ {
+  "id": "WS-19",
+  "title": "WS-19 世界地理 + 世界の国々",
+  "subject": "Weekly SapiX",
+  "pageCount": 4,
+  "totalRegions": 78,
+  "sectionRegions": {
+   "kakunin": 78
+  },
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin",
+   "3": "kakunin",
+   "4": "kakunin"
+  },
+  "xyzCount": 0
+ },
+ {
+  "id": "WS-20",
+  "title": "WS-20 国際連合 + 現代世界の諸問題",
+  "subject": "Weekly SapiX",
+  "pageCount": 4,
+  "totalRegions": 112,
+  "sectionRegions": {
+   "kakunin": 112
+  },
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin",
+   "3": "kakunin",
+   "4": "kakunin"
+  },
+  "xyzCount": 48
+ }
 ]

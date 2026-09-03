@@ -740,5 +740,323 @@
       4
     ]
   },
-  "imageBase": "https://komaguchi-wq.github.io/shakai-daily-check-v2-images-01/weekly-sapix/WS-20/"
+  "imageBase": "https://komaguchi-wq.github.io/shakai-daily-check-v2-images-01/weekly-sapix/WS-20/",
+  "xyz": {
+    "label": "入試実戦演習（Aタイプ・Bタイプ）",
+    "keepQuiz": true,
+    "questionPages": [
+      "wsj_q_01.jpg",
+      "wsj_q_02.jpg",
+      "wsj_q_03.jpg",
+      "wsj_q_04.jpg",
+      "wsj_q_05.jpg",
+      "wsj_q_06.jpg"
+    ],
+    "answerPages": [
+      "wsj_a_01.jpg",
+      "wsj_a_02.jpg",
+      "wsj_a_03.jpg",
+      "wsj_a_04.jpg",
+      "wsj_a_05.jpg",
+      "wsj_a_06.jpg"
+    ],
+    "daimons": [
+      {
+        "id": "A1",
+        "label": "3ページ A1",
+        "qpage": 0,
+        "questions": [
+          {
+            "id": "A1-(1)1",
+            "label": "(1)1",
+            "group": "(1)"
+          },
+          {
+            "id": "A1-(1)2",
+            "label": "(1)2",
+            "group": "(1)"
+          },
+          {
+            "id": "A1-(1)3",
+            "label": "(1)3",
+            "group": "(1)"
+          },
+          {
+            "id": "A1-(1)4",
+            "label": "(1)4",
+            "group": "(1)"
+          },
+          {
+            "id": "A1-(1)5",
+            "label": "(1)5",
+            "group": "(1)"
+          },
+          {
+            "id": "A1-(1)6",
+            "label": "(1)6",
+            "group": "(1)"
+          },
+          {
+            "id": "A1-(2)",
+            "label": "(2)",
+            "group": "(2)"
+          },
+          {
+            "id": "A1-(3)",
+            "label": "(3)",
+            "group": "(3)"
+          },
+          {
+            "id": "A1-(4)",
+            "label": "(4)",
+            "group": "(4)"
+          },
+          {
+            "id": "A1-(5)",
+            "label": "(5)",
+            "group": "(5)"
+          },
+          {
+            "id": "A1-(6)",
+            "label": "(6)",
+            "group": "(6)"
+          }
+        ]
+      },
+      {
+        "id": "A2",
+        "label": "4ページ A2",
+        "qpage": 1,
+        "questions": [
+          {
+            "id": "A2-(1)",
+            "label": "(1)",
+            "group": "(1)"
+          },
+          {
+            "id": "A2-(2)国の名称",
+            "label": "(2)国の名称",
+            "group": "(2)"
+          },
+          {
+            "id": "A2-(2)記号",
+            "label": "(2)記号",
+            "group": "(2)"
+          },
+          {
+            "id": "A2-(3)a",
+            "label": "(3)a",
+            "group": "(3)"
+          },
+          {
+            "id": "A2-(3)b",
+            "label": "(3)b",
+            "group": "(3)"
+          },
+          {
+            "id": "A2-(3)c",
+            "label": "(3)c",
+            "group": "(3)"
+          },
+          {
+            "id": "A2-(3)d",
+            "label": "(3)d",
+            "group": "(3)"
+          },
+          {
+            "id": "A2-(4)",
+            "label": "(4)",
+            "group": "(4)"
+          },
+          {
+            "id": "A2-(5)",
+            "label": "(5)",
+            "group": "(5)"
+          },
+          {
+            "id": "A2-(6)",
+            "label": "(6)",
+            "group": "(6)"
+          }
+        ]
+      },
+      {
+        "id": "A3",
+        "label": "5ページ A3",
+        "qpage": 2,
+        "questions": [
+          {
+            "id": "A3-(1)",
+            "label": "(1)完答",
+            "group": "(1)"
+          },
+          {
+            "id": "A3-(2)",
+            "label": "(2)",
+            "group": "(2)"
+          },
+          {
+            "id": "A3-(3)",
+            "label": "(3)",
+            "group": "(3)"
+          },
+          {
+            "id": "A3-(4)",
+            "label": "(4)",
+            "group": "(4)"
+          },
+          {
+            "id": "A3-(5)",
+            "label": "(5)",
+            "group": "(5)"
+          },
+          {
+            "id": "A3-(6)",
+            "label": "(6)",
+            "group": "(6)"
+          }
+        ]
+      },
+      {
+        "id": "A4",
+        "label": "6ページ A4",
+        "qpage": 3,
+        "questions": [
+          {
+            "id": "A4-(1)ドイツ",
+            "label": "(1)ドイツ",
+            "group": "(1)"
+          },
+          {
+            "id": "A4-(1)NZ",
+            "label": "(1)ニュージーランド",
+            "group": "(1)"
+          },
+          {
+            "id": "A4-(2)1",
+            "label": "(2)1",
+            "group": "(2)"
+          },
+          {
+            "id": "A4-(2)2",
+            "label": "(2)2",
+            "group": "(2)"
+          },
+          {
+            "id": "A4-(2)3a",
+            "label": "(2)3a",
+            "group": "(2)"
+          },
+          {
+            "id": "A4-(2)3b",
+            "label": "(2)3b",
+            "group": "(2)"
+          },
+          {
+            "id": "A4-(2)3c",
+            "label": "(2)3c",
+            "group": "(2)"
+          },
+          {
+            "id": "A4-(3)",
+            "label": "(3)",
+            "group": "(3)"
+          },
+          {
+            "id": "A4-(4)",
+            "label": "(4)",
+            "group": "(4)"
+          },
+          {
+            "id": "A4-(5)",
+            "label": "(5)",
+            "group": "(5)"
+          }
+        ]
+      },
+      {
+        "id": "B1",
+        "label": "7ページ B1（基礎編）",
+        "qpage": 4,
+        "questions": [
+          {
+            "id": "B1-①",
+            "label": "①",
+            "group": "①"
+          },
+          {
+            "id": "B1-②",
+            "label": "②",
+            "group": "②"
+          }
+        ]
+      },
+      {
+        "id": "B2",
+        "label": "7・8ページ B2（基礎編）",
+        "qpage": 4,
+        "questions": [
+          {
+            "id": "B2-①",
+            "label": "①",
+            "group": "①"
+          },
+          {
+            "id": "B2-②",
+            "label": "②",
+            "group": "②"
+          },
+          {
+            "id": "B2-③",
+            "label": "③",
+            "group": "③"
+          },
+          {
+            "id": "B2-④",
+            "label": "④",
+            "group": "④"
+          },
+          {
+            "id": "B2-⑤",
+            "label": "⑤",
+            "group": "⑤"
+          },
+          {
+            "id": "B2-⑥国の名称",
+            "label": "⑥国の名称",
+            "group": "⑥"
+          },
+          {
+            "id": "B2-⑥理由",
+            "label": "⑥理由",
+            "group": "⑥"
+          }
+        ]
+      },
+      {
+        "id": "B3",
+        "label": "8ページ B3（発展編）",
+        "qpage": 5,
+        "questions": [
+          {
+            "id": "B3-①",
+            "label": "①",
+            "group": "①"
+          },
+          {
+            "id": "B3-②",
+            "label": "②",
+            "group": "②"
+          }
+        ]
+      }
+    ],
+    "generatedBy": "ws_jissen",
+    "solvedPages": [
+      "wsj_a_03.jpg",
+      "wsj_a_04.jpg",
+      "wsj_a_05.jpg",
+      "wsj_a_06.jpg"
+    ]
+  }
 }
