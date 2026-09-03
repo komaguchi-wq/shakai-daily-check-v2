@@ -560,6 +560,22 @@
     "xyzPrimary": true
   },
   {
+    "id": "640-21",
+    "title": "歴史用語のまとめ①　旧石器時代〜平安時代",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 6,
+    "totalRegions": 36,
+    "sectionRegions": {
+      "coreplus": 36
+    },
+    "sectionPages": {
+      "5": "coreplus",
+      "6": "coreplus"
+    },
+    "xyzCount": 199,
+    "xyzPrimary": true
+  },
+  {
     "id": "N64-01",
     "title": "地理総合問題演習①〜日本の国土〜",
     "subject": "6年社会 デイリーサピックス",
