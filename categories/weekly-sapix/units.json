@@ -610,5 +610,38 @@
       "2-23",
       "2-27"
     ]
+  },
+  {
+    "id": "WS-21",
+    "title": "WS-21 日本の川の特色 + 主な川と流域の様子",
+    "subject": "Weekly SapiX",
+    "pageCount": 4,
+    "totalRegions": 156,
+    "sectionRegions": {
+      "kakunin": 156
+    },
+    "sectionPages": {
+      "1": "kakunin",
+      "2": "kakunin",
+      "3": "kakunin",
+      "4": "kakunin"
+    },
+    "xyzCount": 61,
+    "pageRegionCounts": {
+      "1": 37,
+      "2": 32,
+      "3": 26,
+      "4": 67
+    },
+    "rawTotalRegions": 162,
+    "rawKakuninRegions": 162,
+    "furiganaKeys": [
+      "1-28",
+      "4-14",
+      "4-29",
+      "4-32",
+      "4-44",
+      "4-56"
+    ]
   }
 ]
