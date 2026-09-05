@@ -951,6 +951,26 @@ body {
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
+/* 知識の総完成（Weekly SapiX）: 空らん番号バッジ＋フィルタ対象の赤下線ハイライト */
+.wsm-imgwrap { position: relative; }
+.wsm-qnum {
+  position: absolute; z-index: 2;
+  transform: translate(-55%, -50%);
+  font-size: 11px; font-weight: 700; line-height: 1;
+  color: #007aff; background: rgba(255,255,255,0.92);
+  border: 1.5px solid #007aff; border-radius: 4px;
+  padding: 2px 3px;
+  pointer-events: none; white-space: nowrap;
+}
+.wsm-qnum.target { color: #ff3b30; border-color: #ff3b30; }
+.wsm-uline {
+  position: absolute; z-index: 1; display: none;
+  height: 5px; transform: translateY(-50%);
+  background: rgba(255, 59, 48, 0.8); border-radius: 2px;
+  pointer-events: none;
+}
+.wsm-uline.target { display: block; }
+
 /* AI正誤提案バナー（正誤表の上） */
 .proposal-banner {
   display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap;
