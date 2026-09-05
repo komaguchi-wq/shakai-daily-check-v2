@@ -1868,7 +1868,8 @@ function renderXyzTable() {
 // 採点済み原本の赤ペンを読み取った提案を「仮入力」→ユーザーが直して「確定」する
 // ==============================
 let proposalReviewMode = false;   // true の間は自動確定（10秒・画面離脱）しない
-let currentProposalDoneKey = null;   // 確定/閉じる済み判定用（retry提案の再提示防止）
+let currentProposalDoneKey = null;   // 確定済み判定用（retry提案の再提示防止）
+let currentProposalClosedKey = null; // 「閉じる」済み判定用（明示的に閉じた提案は再提示しない）
 let currentProposalRetry = false;
 let currentProposals = null;      // {subId: bool} 未入力トグルのみ
 const dismissedProposalUnits = new Set();
@@ -1891,10 +1892,15 @@ async function loadXyzProposals() {
   } catch (e) { return; }
   if (!currentUnit || unitKey !== `${currentCategory.id}/${currentUnit.id}`) return;
   if (!prop || !prop.grades) return;
-  // 解き直し（retry）提案: 入力済みでも「新しい回」として仮入力する。確定/閉じる後は同じ提案ファイルを再提示しない
+  // 解き直し（retry）提案: 入力済みでも「新しい回」として仮入力する。retryは確定後・通常は「閉じる」後のみ再提示しない
+  // （通常提案は確定後も、未入力で残った分があれば次回また提示される。ブラウザを閉じただけでは消えない）
   const retry = !!prop.retry;
   currentProposalDoneKey = `proposal-done:${currentUser}:${unitKey}:${prop.id || prop.created || ''}:${Object.keys(prop.grades).length}`   // id=提案バッチ固有（同日2枚目でも別扱い）;
-  try { if (localStorage.getItem(currentProposalDoneKey) === "1") return; } catch (e) {}
+  currentProposalClosedKey = currentProposalDoneKey.replace('proposal-done:', 'proposal-closed:');
+  try {
+    if (localStorage.getItem(currentProposalClosedKey) === "1") return;
+    if (retry && localStorage.getItem(currentProposalDoneKey) === "1") return;
+  } catch (e) {}
   const validIds = new Set();
   currentWsm.daimons.forEach(dm => dm.questions.forEach(q => validIds.add(q.id)));
   const applicable = {};
@@ -1951,10 +1957,13 @@ function applyProposals() {
 function markProposalDone() {
   try { if (currentProposalDoneKey) localStorage.setItem(currentProposalDoneKey, "1"); } catch (e) {}
 }
+function markProposalClosed() {
+  try { if (currentProposalClosedKey) localStorage.setItem(currentProposalClosedKey, "1"); } catch (e) {}
+}
 function confirmProposalReview() {
   proposalReviewMode = false;
   commitXyz();
-  markProposalDone();
+  if (currentProposalRetry) markProposalDone();   // 通常提案はフラグを立てず、未入力で残った分を次回も提示
   currentProposals = null;
   const banner = document.getElementById("wsm-proposal-banner");
   if (banner) banner.style.display = "none";
@@ -1968,7 +1977,7 @@ function discardProposalReview() {
 }
 
 function dismissProposals() {
-  markProposalDone();
+  markProposalClosed();
   if (currentCategory && currentUnit) dismissedProposalUnits.add(`${currentCategory.id}/${currentUnit.id}`);
   currentProposals = null;
   const banner = document.getElementById("wsm-proposal-banner");
