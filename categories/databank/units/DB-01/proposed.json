@@ -1,0 +1,31 @@
+{
+ "unit": "DB-01",
+ "source": "claude-vision",
+ "created": "2026-09-05",
+ "grades": {
+  "問1-最東端": true,
+  "問1-最北端": true,
+  "問2-日本海側": true,
+  "問2-太平洋側": true,
+  "問3-1": true,
+  "問3-2": true,
+  "問3-3": true,
+  "問4-1": true,
+  "問4-2": true,
+  "問4-3": true,
+  "問5-人口": true,
+  "問5-割合": true,
+  "問6-完答": false,
+  "問7-1": true,
+  "問8-あ": true,
+  "問8-い": true,
+  "問8-う": true,
+  "問9-完答": false,
+  "問10-A": true,
+  "問10-B": true,
+  "問10-C": true,
+  "問10-D": true,
+  "問11-完答": true,
+  "問12-完答": false
+ }
+}

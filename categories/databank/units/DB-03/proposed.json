@@ -1,0 +1,31 @@
+{
+ "unit": "DB-03",
+ "source": "claude-vision",
+ "created": "2026-09-05",
+ "grades": {
+  "問1-1": true,
+  "問2-1": true,
+  "問2-2": true,
+  "問3-1": true,
+  "問4-1": true,
+  "問5-1": true,
+  "問6-1": true,
+  "問7-1": false,
+  "問8-A": true,
+  "問8-B": true,
+  "問8-C": true,
+  "問8-D": true,
+  "問9-A": true,
+  "問9-B": true,
+  "問9-C": true,
+  "問9-D": true,
+  "問10-A": true,
+  "問10-B": true,
+  "問10-C": true,
+  "問10-D": false,
+  "問10-E": false,
+  "問11-1": true,
+  "問12-X": true,
+  "問12-Y": true
+ }
+}

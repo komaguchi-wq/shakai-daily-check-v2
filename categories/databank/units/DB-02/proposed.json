@@ -1,0 +1,32 @@
+{
+ "unit": "DB-02",
+ "source": "claude-vision",
+ "created": "2026-09-05",
+ "grades": {
+  "問1-1": true,
+  "問1-2": true,
+  "問1-3": true,
+  "問2-1": true,
+  "問2-2": true,
+  "問2-3": true,
+  "問3-もも": true,
+  "問3-ぶどう": true,
+  "問4-1": true,
+  "問4-2": true,
+  "問5-1": false,
+  "問6-完答": false,
+  "問7-1": true,
+  "問8-米": true,
+  "問8-畜産物": true,
+  "問9-野菜": false,
+  "問9-小麦": true,
+  "問10-1": false,
+  "問11-完答": true,
+  "問12-A": false,
+  "問12-B": true,
+  "問12-C": true,
+  "問12-D": true,
+  "問12-E": true,
+  "問12-F": false
+ }
+}

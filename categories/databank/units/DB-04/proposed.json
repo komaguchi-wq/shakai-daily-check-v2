@@ -1,0 +1,28 @@
+{
+ "unit": "DB-04",
+ "source": "claude-vision",
+ "created": "2026-09-05",
+ "grades": {
+  "問1-1": true,
+  "問2-1": true,
+  "問2-2": false,
+  "問3-1": true,
+  "問3-2": true,
+  "問3-3": true,
+  "問4-1": true,
+  "問4-2": true,
+  "問4-3": true,
+  "問5-1": true,
+  "問5-2": true,
+  "問5-3": true,
+  "問6-1": true,
+  "問7-1": false,
+  "問8-1": true,
+  "問9-1": true,
+  "問10-1": false,
+  "問11-1": true,
+  "問11-2": true,
+  "問11-3": true,
+  "問11-4": true
+ }
+}
