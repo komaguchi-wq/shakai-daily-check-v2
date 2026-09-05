@@ -20,7 +20,17 @@
       "16": "kakunin"
     },
     "xyzCount": 130,
-    "xyzPrimary": true
+    "xyzPrimary": true,
+    "pageRegionCounts": {
+      "9": 21,
+      "10": 24,
+      "11": 35,
+      "12": 24,
+      "13": 20,
+      "14": 21,
+      "15": 15,
+      "16": 14
+    }
   },
   {
     "id": "640-02",
@@ -43,7 +53,17 @@
       "16": "kakunin"
     },
     "xyzCount": 138,
-    "xyzPrimary": true
+    "xyzPrimary": true,
+    "pageRegionCounts": {
+      "9": 21,
+      "10": 25,
+      "11": 32,
+      "12": 27,
+      "13": 23,
+      "14": 24,
+      "15": 11,
+      "16": 55
+    }
   },
   {
     "id": "640-03",
@@ -68,7 +88,18 @@
       "17": "coreplus"
     },
     "xyzCount": 144,
-    "xyzPrimary": true
+    "xyzPrimary": true,
+    "pageRegionCounts": {
+      "9": 24,
+      "10": 22,
+      "11": 31,
+      "12": 21,
+      "13": 22,
+      "14": 20,
+      "15": 20,
+      "16": 17,
+      "17": 40
+    }
   },
   {
     "id": "640-04",
@@ -91,7 +122,17 @@
       "16": "kakunin"
     },
     "xyzCount": 131,
-    "xyzPrimary": true
+    "xyzPrimary": true,
+    "pageRegionCounts": {
+      "9": 24,
+      "10": 21,
+      "11": 28,
+      "12": 27,
+      "13": 16,
+      "14": 28,
+      "15": 13,
+      "16": 7
+    }
   },
   {
     "id": "640-05",
@@ -114,7 +155,17 @@
       "16": "kakunin"
     },
     "xyzCount": 132,
-    "xyzPrimary": true
+    "xyzPrimary": true,
+    "pageRegionCounts": {
+      "9": 24,
+      "10": 22,
+      "11": 37,
+      "12": 13,
+      "13": 20,
+      "14": 23,
+      "15": 7,
+      "16": 17
+    }
   },
   {
     "id": "640-06",
@@ -140,7 +191,19 @@
       "18": "coreplus"
     },
     "xyzCount": 128,
-    "xyzPrimary": true
+    "xyzPrimary": true,
+    "pageRegionCounts": {
+      "9": 24,
+      "10": 18,
+      "11": 35,
+      "12": 8,
+      "13": 23,
+      "14": 21,
+      "15": 9,
+      "16": 6,
+      "17": 15,
+      "18": 24
+    }
   },
   {
     "id": "H64-01",
@@ -166,7 +229,19 @@
       "18": "coreplus"
     },
     "xyzCount": 124,
-    "xyzPrimary": true
+    "xyzPrimary": true,
+    "pageRegionCounts": {
+      "9": 24,
+      "10": 23,
+      "11": 27,
+      "12": 22,
+      "13": 19,
+      "14": 16,
+      "15": 14,
+      "16": 12,
+      "17": 21,
+      "18": 38
+    }
   },
   {
     "id": "H64-02",
@@ -192,7 +267,19 @@
       "18": "coreplus"
     },
     "xyzCount": 116,
-    "xyzPrimary": true
+    "xyzPrimary": true,
+    "pageRegionCounts": {
+      "9": 18,
+      "10": 30,
+      "11": 25,
+      "12": 11,
+      "13": 20,
+      "14": 20,
+      "15": 13,
+      "16": 16,
+      "17": 17,
+      "18": 40
+    }
   },
   {
     "id": "H64-03",
@@ -218,7 +305,19 @@
       "18": "coreplus"
     },
     "xyzCount": 103,
-    "xyzPrimary": true
+    "xyzPrimary": true,
+    "pageRegionCounts": {
+      "9": 18,
+      "10": 21,
+      "11": 35,
+      "12": 17,
+      "13": 10,
+      "14": 16,
+      "15": 5,
+      "16": 4,
+      "17": 16,
+      "18": 42
+    }
   },
   {
     "id": "640-07",
@@ -243,7 +342,18 @@
       "17": "coreplus"
     },
     "xyzCount": 128,
-    "xyzPrimary": true
+    "xyzPrimary": true,
+    "pageRegionCounts": {
+      "9": 30,
+      "10": 23,
+      "11": 40,
+      "12": 24,
+      "13": 17,
+      "14": 17,
+      "15": 27,
+      "16": 18,
+      "17": 41
+    }
   },
   {
     "id": "640-08",
@@ -269,7 +379,19 @@
       "18": "coreplus"
     },
     "xyzCount": 144,
-    "xyzPrimary": true
+    "xyzPrimary": true,
+    "pageRegionCounts": {
+      "9": 26,
+      "10": 24,
+      "11": 42,
+      "12": 16,
+      "13": 22,
+      "14": 17,
+      "15": 11,
+      "16": 10,
+      "17": 16,
+      "18": 4
+    }
   },
   {
     "id": "640-09",
@@ -294,7 +416,18 @@
       "18": "coreplus"
     },
     "xyzCount": 136,
-    "xyzPrimary": true
+    "xyzPrimary": true,
+    "pageRegionCounts": {
+      "9": 21,
+      "10": 29,
+      "11": 40,
+      "12": 22,
+      "13": 24,
+      "14": 16,
+      "15": 8,
+      "16": 16,
+      "18": 18
+    }
   },
   {
     "id": "640-10",
@@ -318,7 +451,17 @@
       "16": "coreplus"
     },
     "xyzCount": 111,
-    "xyzPrimary": true
+    "xyzPrimary": true,
+    "pageRegionCounts": {
+      "9": 21,
+      "10": 34,
+      "11": 24,
+      "12": 29,
+      "13": 18,
+      "14": 31,
+      "15": 15,
+      "16": 41
+    }
   },
   {
     "id": "640-11",
@@ -341,7 +484,16 @@
       "16": "coreplus"
     },
     "xyzCount": 90,
-    "xyzPrimary": true
+    "xyzPrimary": true,
+    "pageRegionCounts": {
+      "9": 18,
+      "10": 21,
+      "11": 27,
+      "12": 14,
+      "13": 11,
+      "14": 11,
+      "16": 17
+    }
   },
   {
     "id": "640-12",
@@ -365,7 +517,17 @@
       "16": "coreplus"
     },
     "xyzCount": 107,
-    "xyzPrimary": true
+    "xyzPrimary": true,
+    "pageRegionCounts": {
+      "9": 25,
+      "10": 32,
+      "11": 30,
+      "12": 26,
+      "13": 15,
+      "14": 16,
+      "15": 16,
+      "16": 28
+    }
   },
   {
     "id": "640-13",
@@ -389,7 +551,17 @@
       "16": "coreplus"
     },
     "xyzCount": 102,
-    "xyzPrimary": true
+    "xyzPrimary": true,
+    "pageRegionCounts": {
+      "9": 25,
+      "10": 25,
+      "11": 29,
+      "12": 16,
+      "13": 23,
+      "14": 20,
+      "15": 18,
+      "16": 49
+    }
   },
   {
     "id": "640-14",
@@ -413,7 +585,17 @@
       "16": "coreplus"
     },
     "xyzCount": 90,
-    "xyzPrimary": true
+    "xyzPrimary": true,
+    "pageRegionCounts": {
+      "9": 22,
+      "10": 20,
+      "11": 30,
+      "12": 18,
+      "13": 51,
+      "14": 20,
+      "15": 17,
+      "16": 37
+    }
   },
   {
     "id": "640-15",
@@ -437,7 +619,17 @@
       "16": "coreplus"
     },
     "xyzCount": 94,
-    "xyzPrimary": true
+    "xyzPrimary": true,
+    "pageRegionCounts": {
+      "9": 21,
+      "10": 23,
+      "11": 22,
+      "12": 21,
+      "13": 13,
+      "14": 18,
+      "15": 11,
+      "16": 35
+    }
   },
   {
     "id": "640-16",
@@ -461,7 +653,17 @@
       "16": "coreplus"
     },
     "xyzCount": 83,
-    "xyzPrimary": true
+    "xyzPrimary": true,
+    "pageRegionCounts": {
+      "9": 18,
+      "10": 20,
+      "11": 19,
+      "12": 12,
+      "13": 15,
+      "14": 16,
+      "15": 11,
+      "16": 33
+    }
   },
   {
     "id": "640-17",
@@ -485,7 +687,17 @@
       "16": "coreplus"
     },
     "xyzCount": 73,
-    "xyzPrimary": true
+    "xyzPrimary": true,
+    "pageRegionCounts": {
+      "9": 18,
+      "10": 20,
+      "11": 17,
+      "12": 18,
+      "13": 11,
+      "14": 9,
+      "15": 15,
+      "16": 28
+    }
   },
   {
     "id": "640-18",
@@ -509,7 +721,17 @@
       "16": "coreplus"
     },
     "xyzCount": 82,
-    "xyzPrimary": true
+    "xyzPrimary": true,
+    "pageRegionCounts": {
+      "9": 20,
+      "10": 27,
+      "11": 24,
+      "12": 2,
+      "13": 8,
+      "14": 6,
+      "15": 44,
+      "16": 18
+    }
   },
   {
     "id": "640-19",
@@ -533,7 +755,17 @@
       "16": "coreplus"
     },
     "xyzCount": 94,
-    "xyzPrimary": true
+    "xyzPrimary": true,
+    "pageRegionCounts": {
+      "9": 21,
+      "10": 18,
+      "11": 25,
+      "12": 22,
+      "13": 14,
+      "14": 15,
+      "15": 10,
+      "16": 26
+    }
   },
   {
     "id": "640-20",
@@ -557,7 +789,17 @@
       "16": "coreplus"
     },
     "xyzCount": 92,
-    "xyzPrimary": true
+    "xyzPrimary": true,
+    "pageRegionCounts": {
+      "9": 20,
+      "10": 21,
+      "11": 23,
+      "12": 23,
+      "13": 15,
+      "14": 12,
+      "15": 11,
+      "16": 30
+    }
   },
   {
     "id": "640-21",
@@ -573,7 +815,11 @@
       "6": "coreplus"
     },
     "xyzCount": 199,
-    "xyzPrimary": true
+    "xyzPrimary": true,
+    "pageRegionCounts": {
+      "5": 10,
+      "6": 26
+    }
   },
   {
     "id": "N64-01",
@@ -592,7 +838,13 @@
       "13": "coreplus"
     },
     "xyzCount": 242,
-    "xyzPrimary": true
+    "xyzPrimary": true,
+    "pageRegionCounts": {
+      "6": 24,
+      "7": 30,
+      "12": 10,
+      "13": 23
+    }
   },
   {
     "id": "N64-02",
@@ -610,7 +862,12 @@
       "12": "coreplus"
     },
     "xyzCount": 212,
-    "xyzPrimary": true
+    "xyzPrimary": true,
+    "pageRegionCounts": {
+      "6": 32,
+      "7": 19,
+      "12": 10
+    }
   },
   {
     "id": "N64-03",
@@ -628,7 +885,12 @@
       "12": "coreplus"
     },
     "xyzCount": 176,
-    "xyzPrimary": true
+    "xyzPrimary": true,
+    "pageRegionCounts": {
+      "6": 22,
+      "7": 24,
+      "12": 10
+    }
   },
   {
     "id": "N64-04",
@@ -646,7 +908,12 @@
       "12": "coreplus"
     },
     "xyzCount": 181,
-    "xyzPrimary": true
+    "xyzPrimary": true,
+    "pageRegionCounts": {
+      "6": 16,
+      "7": 26,
+      "12": 10
+    }
   },
   {
     "id": "N64-05",
@@ -664,7 +931,12 @@
       "12": "coreplus"
     },
     "xyzCount": 206,
-    "xyzPrimary": true
+    "xyzPrimary": true,
+    "pageRegionCounts": {
+      "6": 24,
+      "7": 23,
+      "12": 10
+    }
   },
   {
     "id": "N64-06",
@@ -682,7 +954,12 @@
       "12": "coreplus"
     },
     "xyzCount": 180,
-    "xyzPrimary": true
+    "xyzPrimary": true,
+    "pageRegionCounts": {
+      "6": 24,
+      "7": 24,
+      "12": 10
+    }
   },
   {
     "id": "N64-07",
@@ -700,7 +977,12 @@
       "12": "coreplus"
     },
     "xyzCount": 201,
-    "xyzPrimary": true
+    "xyzPrimary": true,
+    "pageRegionCounts": {
+      "6": 26,
+      "7": 31,
+      "12": 10
+    }
   },
   {
     "id": "N64-08",
@@ -718,7 +1000,12 @@
       "13": "coreplus"
     },
     "xyzCount": 201,
-    "xyzPrimary": true
+    "xyzPrimary": true,
+    "pageRegionCounts": {
+      "6": 26,
+      "7": 31,
+      "13": 10
+    }
   },
   {
     "id": "N64-09",
@@ -738,6 +1025,13 @@
       "18": "coreplus"
     },
     "xyzCount": 315,
-    "xyzPrimary": true
+    "xyzPrimary": true,
+    "pageRegionCounts": {
+      "6": 18,
+      "7": 30,
+      "8": 21,
+      "9": 26,
+      "18": 10
+    }
   }
 ]

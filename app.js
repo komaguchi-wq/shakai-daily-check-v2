@@ -255,6 +255,24 @@ function getUnitProgress(unit) {
   return r0 > r1 ? legacy : withXyz;
 }
 
+// 記録キーが現行の問題に実在するか。過去の region 再検出（2026-06-03 Vision統合等）や
+// 同期キーの日付化け復元で localStorage に残った「孤児キー」を集計から外す。
+// 孤児を数えると attempted/good が分母超過 → クランプで「解けば全緑」になり、
+// 現行 region だけを走査する単元詳細と緑/黄がずれる（2026-09-05 ユーザー指摘）。
+// pageRegionCounts が無い単元（未移行・新規追加直後）は従来通り全キー集計にフォールバック。
+function makeLiveKeyCheck(unit) {
+  const prc = unit.pageRegionCounts || null;
+  const furi = unit.furiganaKeys && unit.furiganaKeys.length ? new Set(unit.furiganaKeys) : null;
+  return (key) => {
+    if (furi && furi.has(key)) return false;  // ふりがな誤検出分は分母(totalRegions)からも除外済み
+    if (!prc) return true;
+    const i = key.lastIndexOf("-");
+    if (i < 0) return false;
+    const idx = Number(key.slice(i + 1));
+    return Number.isInteger(idx) && idx >= 0 && idx < prc[key.slice(0, i)];
+  };
+}
+
 function getUnitProgressCore(unit, xyzN) {
   const sr = unit.sectionRegions || null;
   const filtered = !!(sr && ((sr.dailystep || 0) > 0 || xyzN > 0));
@@ -265,6 +283,7 @@ function getUnitProgressCore(unit, xyzN) {
   const unitData = getTracking()[unit.id] || {};
   let attempted = 0, good = 0;
   const isGood = (t) => t.correct / t.attempts >= GOOD_RATE;
+  const isLiveKey = makeLiveKeyCheck(unit);
   for (const key in unitData) {
     const t = unitData[key];
     if (!t || !(t.attempts > 0)) continue;
@@ -274,6 +293,7 @@ function getUnitProgressCore(unit, xyzN) {
       if (xyzN > 0) { attempted++; if (isGood(t)) good++; }
       continue;
     }
+    if (!isLiveKey(key)) continue;
     if (filtered) {
       const sec = pageSections[key.slice(0, key.lastIndexOf("-"))];
       if (!(sec === "dailystep" || (xyzN === 0 && sec === "kakunin"))) continue;
