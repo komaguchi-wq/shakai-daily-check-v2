@@ -1,0 +1,299 @@
+{
+ "unitId": "社会③",
+ "title": "デイリートレーニング（第9日目）",
+ "category": "kaki-rensei",
+ "imageBase": "https://komaguchi-wq.github.io/shakai-daily-check-v2-images-01/kaki-rensei/社会③/",
+ "pages": [],
+ "xyz": {
+  "label": "問題演習",
+  "questionPages": [
+   "q_01.jpg",
+   "q_02.jpg",
+   "q_03.jpg"
+  ],
+  "answerPages": [
+   "a_01.jpg",
+   "a_02.jpg"
+  ],
+  "daimons": [
+   {
+    "id": "Ⅰ",
+    "label": "Ⅰ（1枚目・北条泰時と足利義満）",
+    "qpage": 0,
+    "questions": [
+     {
+      "id": "I-1",
+      "label": "(1)A",
+      "group": ""
+     },
+     {
+      "id": "I-2",
+      "label": "(1)B",
+      "group": ""
+     },
+     {
+      "id": "I-3",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "I-4",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "I-5",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "I-6",
+      "label": "(5)",
+      "group": ""
+     },
+     {
+      "id": "I-7",
+      "label": "(6)",
+      "group": ""
+     },
+     {
+      "id": "I-8",
+      "label": "(7)",
+      "group": ""
+     },
+     {
+      "id": "I-9",
+      "label": "(8)①",
+      "group": ""
+     },
+     {
+      "id": "I-10",
+      "label": "(8)②",
+      "group": ""
+     },
+     {
+      "id": "I-11",
+      "label": "(8)③",
+      "group": ""
+     },
+     {
+      "id": "I-12",
+      "label": "(8)④",
+      "group": ""
+     },
+     {
+      "id": "I-13",
+      "label": "(8)⑤",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "Ⅱ",
+    "label": "Ⅱ（1枚目・鎌倉〜安土桃山の政治）",
+    "qpage": 0,
+    "questions": [
+     {
+      "id": "II-1",
+      "label": "(1)①",
+      "group": ""
+     },
+     {
+      "id": "II-2",
+      "label": "(1)②",
+      "group": ""
+     },
+     {
+      "id": "II-3",
+      "label": "(1)③",
+      "group": ""
+     },
+     {
+      "id": "II-4",
+      "label": "(1)④",
+      "group": ""
+     },
+     {
+      "id": "II-5",
+      "label": "(2)AB完答",
+      "group": ""
+     },
+     {
+      "id": "II-6",
+      "label": "(3)a",
+      "group": ""
+     },
+     {
+      "id": "II-7",
+      "label": "(3)b",
+      "group": ""
+     },
+     {
+      "id": "II-8",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "II-9",
+      "label": "(5)⑤",
+      "group": ""
+     },
+     {
+      "id": "II-10",
+      "label": "(5)⑥",
+      "group": ""
+     },
+     {
+      "id": "II-11",
+      "label": "(6)",
+      "group": ""
+     },
+     {
+      "id": "II-12",
+      "label": "(7)",
+      "group": ""
+     },
+     {
+      "id": "II-13",
+      "label": "(8)",
+      "group": ""
+     },
+     {
+      "id": "II-14",
+      "label": "(9)",
+      "group": ""
+     },
+     {
+      "id": "II-15",
+      "label": "(10)⑦",
+      "group": ""
+     },
+     {
+      "id": "II-16",
+      "label": "(10)⑧",
+      "group": ""
+     },
+     {
+      "id": "II-17",
+      "label": "(11)",
+      "group": ""
+     },
+     {
+      "id": "II-18",
+      "label": "(12)D",
+      "group": ""
+     },
+     {
+      "id": "II-19",
+      "label": "(12)E",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "Ⅲ",
+    "label": "Ⅲ（3枚目・室町時代の人々のくらし）",
+    "qpage": 2,
+    "questions": [
+     {
+      "id": "III-1",
+      "label": "(1)①",
+      "group": ""
+     },
+     {
+      "id": "III-2",
+      "label": "(1)②",
+      "group": ""
+     },
+     {
+      "id": "III-3",
+      "label": "(1)③",
+      "group": ""
+     },
+     {
+      "id": "III-4",
+      "label": "(1)④",
+      "group": ""
+     },
+     {
+      "id": "III-5",
+      "label": "(1)⑤",
+      "group": ""
+     },
+     {
+      "id": "III-6",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "III-7",
+      "label": "(3)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "Ⅳ",
+    "label": "Ⅳ（3枚目・聖徳太子と大化の改新）",
+    "qpage": 2,
+    "questions": [
+     {
+      "id": "IV-1",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "IV-2",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "IV-3",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "IV-4",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "IV-5",
+      "label": "(5)",
+      "group": ""
+     },
+     {
+      "id": "IV-6",
+      "label": "(6)",
+      "group": ""
+     },
+     {
+      "id": "IV-7",
+      "label": "(7)",
+      "group": ""
+     },
+     {
+      "id": "IV-8",
+      "label": "(8)",
+      "group": ""
+     },
+     {
+      "id": "IV-9",
+      "label": "(9)",
+      "group": ""
+     },
+     {
+      "id": "IV-10",
+      "label": "(10)",
+      "group": ""
+     },
+     {
+      "id": "IV-11",
+      "label": "(11)",
+      "group": ""
+     }
+    ]
+   }
+  ]
+ }
+}

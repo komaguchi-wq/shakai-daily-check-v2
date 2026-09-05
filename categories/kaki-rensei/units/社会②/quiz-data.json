@@ -1,0 +1,292 @@
+{
+ "unitId": "社会②",
+ "title": "デイリートレーニング（第6日目）",
+ "category": "kaki-rensei",
+ "imageBase": "https://komaguchi-wq.github.io/shakai-daily-check-v2-images-01/kaki-rensei/社会②/",
+ "pages": [],
+ "xyz": {
+  "label": "問題演習",
+  "questionPages": [
+   "q_01.jpg",
+   "q_02.jpg",
+   "q_03.jpg"
+  ],
+  "answerPages": [
+   "a_01.jpg",
+   "a_02.jpg"
+  ],
+  "daimons": [
+   {
+    "id": "Ⅰ",
+    "label": "Ⅰ（1枚目・国土と農業のくふう）",
+    "qpage": 0,
+    "questions": [
+     {
+      "id": "I-1",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "I-2",
+      "label": "(2)①",
+      "group": ""
+     },
+     {
+      "id": "I-3",
+      "label": "(2)②村",
+      "group": ""
+     },
+     {
+      "id": "I-4",
+      "label": "(2)②地図",
+      "group": ""
+     },
+     {
+      "id": "I-5",
+      "label": "(2)③地名",
+      "group": ""
+     },
+     {
+      "id": "I-6",
+      "label": "(2)③地図",
+      "group": ""
+     },
+     {
+      "id": "I-7",
+      "label": "(3)①",
+      "group": ""
+     },
+     {
+      "id": "I-8",
+      "label": "(3)②",
+      "group": ""
+     },
+     {
+      "id": "I-9",
+      "label": "(3)③",
+      "group": ""
+     },
+     {
+      "id": "I-10",
+      "label": "(3)④",
+      "group": ""
+     },
+     {
+      "id": "I-11",
+      "label": "(3)⑤",
+      "group": ""
+     },
+     {
+      "id": "I-12",
+      "label": "(4)①",
+      "group": ""
+     },
+     {
+      "id": "I-13",
+      "label": "(4)②",
+      "group": ""
+     },
+     {
+      "id": "I-14",
+      "label": "(5)①",
+      "group": ""
+     },
+     {
+      "id": "I-15",
+      "label": "(5)②",
+      "group": ""
+     },
+     {
+      "id": "I-16",
+      "label": "(5)③",
+      "group": ""
+     },
+     {
+      "id": "I-17",
+      "label": "(5)④",
+      "group": ""
+     },
+     {
+      "id": "I-18",
+      "label": "(6)",
+      "group": ""
+     },
+     {
+      "id": "I-19",
+      "label": "(7)①",
+      "group": ""
+     },
+     {
+      "id": "I-20",
+      "label": "(7)②",
+      "group": ""
+     },
+     {
+      "id": "I-21",
+      "label": "(8)①",
+      "group": ""
+     },
+     {
+      "id": "I-22",
+      "label": "(8)②川",
+      "group": ""
+     },
+     {
+      "id": "I-23",
+      "label": "(8)②用水",
+      "group": ""
+     },
+     {
+      "id": "I-24",
+      "label": "(9)①",
+      "group": ""
+     },
+     {
+      "id": "I-25",
+      "label": "(9)②",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "Ⅱ",
+    "label": "Ⅱ（2枚目・日本の工業地帯）",
+    "qpage": 1,
+    "questions": [
+     {
+      "id": "II-1",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "II-2",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "II-3",
+      "label": "(3)京浜",
+      "group": ""
+     },
+     {
+      "id": "II-4",
+      "label": "(3)阪神",
+      "group": ""
+     },
+     {
+      "id": "II-5",
+      "label": "(4)①",
+      "group": ""
+     },
+     {
+      "id": "II-6",
+      "label": "(4)②",
+      "group": ""
+     },
+     {
+      "id": "II-7",
+      "label": "(4)③A",
+      "group": ""
+     },
+     {
+      "id": "II-8",
+      "label": "(4)③B",
+      "group": ""
+     },
+     {
+      "id": "II-9",
+      "label": "(4)④",
+      "group": ""
+     },
+     {
+      "id": "II-10",
+      "label": "(5)①",
+      "group": ""
+     },
+     {
+      "id": "II-11",
+      "label": "(5)②",
+      "group": ""
+     },
+     {
+      "id": "II-12",
+      "label": "(5)③",
+      "group": ""
+     },
+     {
+      "id": "II-13",
+      "label": "(5)④",
+      "group": ""
+     },
+     {
+      "id": "II-14",
+      "label": "(5)⑤",
+      "group": ""
+     },
+     {
+      "id": "II-15",
+      "label": "(5)⑥",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "Ⅲ",
+    "label": "Ⅲ（3枚目・日本の農業と水産業）",
+    "qpage": 2,
+    "questions": [
+     {
+      "id": "III-1",
+      "label": "1",
+      "group": ""
+     },
+     {
+      "id": "III-2",
+      "label": "2",
+      "group": ""
+     },
+     {
+      "id": "III-3",
+      "label": "3",
+      "group": ""
+     },
+     {
+      "id": "III-4",
+      "label": "4",
+      "group": ""
+     },
+     {
+      "id": "III-5",
+      "label": "5",
+      "group": ""
+     },
+     {
+      "id": "III-6",
+      "label": "6",
+      "group": ""
+     },
+     {
+      "id": "III-7",
+      "label": "7",
+      "group": ""
+     },
+     {
+      "id": "III-8",
+      "label": "8",
+      "group": ""
+     },
+     {
+      "id": "III-9",
+      "label": "9",
+      "group": ""
+     },
+     {
+      "id": "III-10",
+      "label": "10",
+      "group": ""
+     }
+    ]
+   }
+  ]
+ }
+}
