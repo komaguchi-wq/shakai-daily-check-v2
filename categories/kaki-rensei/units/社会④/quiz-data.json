@@ -1,0 +1,299 @@
+{
+ "unitId": "社会④",
+ "title": "デイリートレーニング（第12日目）",
+ "category": "kaki-rensei",
+ "imageBase": "https://komaguchi-wq.github.io/shakai-daily-check-v2-images-01/kaki-rensei/社会④/",
+ "pages": [],
+ "xyz": {
+  "label": "問題演習",
+  "questionPages": [
+   "q_01.jpg",
+   "q_02.jpg",
+   "q_03.jpg"
+  ],
+  "answerPages": [
+   "a_01.jpg",
+   "a_02.jpg"
+  ],
+  "daimons": [
+   {
+    "id": "Ⅰ",
+    "label": "Ⅰ（1枚目・戦後の国際社会）",
+    "qpage": 0,
+    "questions": [
+     {
+      "id": "I-1",
+      "label": "(1)①",
+      "group": ""
+     },
+     {
+      "id": "I-2",
+      "label": "(1)②",
+      "group": ""
+     },
+     {
+      "id": "I-3",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "I-4",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "I-5",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "I-6",
+      "label": "(5)",
+      "group": ""
+     },
+     {
+      "id": "I-7",
+      "label": "(6)AB完答",
+      "group": ""
+     },
+     {
+      "id": "I-8",
+      "label": "(7)C",
+      "group": ""
+     },
+     {
+      "id": "I-9",
+      "label": "(7)D",
+      "group": ""
+     },
+     {
+      "id": "I-10",
+      "label": "(7)E",
+      "group": ""
+     },
+     {
+      "id": "I-11",
+      "label": "(8)",
+      "group": ""
+     },
+     {
+      "id": "I-12",
+      "label": "(9)",
+      "group": ""
+     },
+     {
+      "id": "I-13",
+      "label": "(10)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "Ⅱ",
+    "label": "Ⅱ（1枚目・憲法改正と戦後の民主化）",
+    "qpage": 0,
+    "questions": [
+     {
+      "id": "II-1",
+      "label": "(1)A",
+      "group": ""
+     },
+     {
+      "id": "II-2",
+      "label": "(1)B",
+      "group": ""
+     },
+     {
+      "id": "II-3",
+      "label": "(2)①",
+      "group": ""
+     },
+     {
+      "id": "II-4",
+      "label": "(2)②",
+      "group": ""
+     },
+     {
+      "id": "II-5",
+      "label": "(2)③",
+      "group": ""
+     },
+     {
+      "id": "II-6",
+      "label": "(2)④",
+      "group": ""
+     },
+     {
+      "id": "II-7",
+      "label": "(2)⑤",
+      "group": ""
+     },
+     {
+      "id": "II-8",
+      "label": "(2)⑥",
+      "group": ""
+     },
+     {
+      "id": "II-9",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "II-10",
+      "label": "(4)①",
+      "group": ""
+     },
+     {
+      "id": "II-11",
+      "label": "(4)②",
+      "group": ""
+     },
+     {
+      "id": "II-12",
+      "label": "(5)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "Ⅲ",
+    "label": "Ⅲ（2枚目・歴代の内閣）",
+    "qpage": 1,
+    "questions": [
+     {
+      "id": "III-1",
+      "label": "(1)A",
+      "group": ""
+     },
+     {
+      "id": "III-2",
+      "label": "(1)B",
+      "group": ""
+     },
+     {
+      "id": "III-3",
+      "label": "(1)C",
+      "group": ""
+     },
+     {
+      "id": "III-4",
+      "label": "(1)D",
+      "group": ""
+     },
+     {
+      "id": "III-5",
+      "label": "(1)E",
+      "group": ""
+     },
+     {
+      "id": "III-6",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "III-7",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "III-8",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "III-9",
+      "label": "(5)",
+      "group": ""
+     },
+     {
+      "id": "III-10",
+      "label": "(6)",
+      "group": ""
+     },
+     {
+      "id": "III-11",
+      "label": "(7)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "Ⅳ",
+    "label": "Ⅳ（3枚目・江戸時代の歴史）",
+    "qpage": 2,
+    "questions": [
+     {
+      "id": "IV-1",
+      "label": "(1)①",
+      "group": ""
+     },
+     {
+      "id": "IV-2",
+      "label": "(1)②",
+      "group": ""
+     },
+     {
+      "id": "IV-3",
+      "label": "(1)③",
+      "group": ""
+     },
+     {
+      "id": "IV-4",
+      "label": "(1)④",
+      "group": ""
+     },
+     {
+      "id": "IV-5",
+      "label": "(1)⑤",
+      "group": ""
+     },
+     {
+      "id": "IV-6",
+      "label": "(1)⑥",
+      "group": ""
+     },
+     {
+      "id": "IV-7",
+      "label": "(2)a",
+      "group": ""
+     },
+     {
+      "id": "IV-8",
+      "label": "(2)b",
+      "group": ""
+     },
+     {
+      "id": "IV-9",
+      "label": "(2)c",
+      "group": ""
+     },
+     {
+      "id": "IV-10",
+      "label": "(3)ABC完答",
+      "group": ""
+     },
+     {
+      "id": "IV-11",
+      "label": "(4)1",
+      "group": ""
+     },
+     {
+      "id": "IV-12",
+      "label": "(4)2",
+      "group": ""
+     },
+     {
+      "id": "IV-13",
+      "label": "(4)3",
+      "group": ""
+     },
+     {
+      "id": "IV-14",
+      "label": "(4)4",
+      "group": ""
+     }
+    ]
+   }
+  ]
+ }
+}

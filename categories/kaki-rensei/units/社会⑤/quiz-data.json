@@ -1,0 +1,306 @@
+{
+ "unitId": "社会⑤",
+ "title": "デイリートレーニング（第15日目）",
+ "category": "kaki-rensei",
+ "imageBase": "https://komaguchi-wq.github.io/shakai-daily-check-v2-images-01/kaki-rensei/社会⑤/",
+ "pages": [],
+ "xyz": {
+  "label": "問題演習",
+  "questionPages": [
+   "q_01.jpg",
+   "q_02.jpg",
+   "q_03.jpg"
+  ],
+  "answerPages": [
+   "a_01.jpg",
+   "a_02.jpg"
+  ],
+  "daimons": [
+   {
+    "id": "Ⅰ",
+    "label": "Ⅰ（1枚目・三権分立）",
+    "qpage": 0,
+    "questions": [
+     {
+      "id": "I-1",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "I-2",
+      "label": "(2)A",
+      "group": ""
+     },
+     {
+      "id": "I-3",
+      "label": "(2)B",
+      "group": ""
+     },
+     {
+      "id": "I-4",
+      "label": "(2)C",
+      "group": ""
+     },
+     {
+      "id": "I-5",
+      "label": "(3)①",
+      "group": ""
+     },
+     {
+      "id": "I-6",
+      "label": "(3)②",
+      "group": ""
+     },
+     {
+      "id": "I-7",
+      "label": "(3)③",
+      "group": ""
+     },
+     {
+      "id": "I-8",
+      "label": "(3)④",
+      "group": ""
+     },
+     {
+      "id": "I-9",
+      "label": "(3)⑤",
+      "group": ""
+     },
+     {
+      "id": "I-10",
+      "label": "(3)⑥",
+      "group": ""
+     },
+     {
+      "id": "I-11",
+      "label": "(4)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "Ⅱ",
+    "label": "Ⅱ（1枚目・地方自治）",
+    "qpage": 0,
+    "questions": [
+     {
+      "id": "II-1",
+      "label": "(1)①",
+      "group": ""
+     },
+     {
+      "id": "II-2",
+      "label": "(1)②",
+      "group": ""
+     },
+     {
+      "id": "II-3",
+      "label": "(1)③",
+      "group": ""
+     },
+     {
+      "id": "II-4",
+      "label": "(1)④",
+      "group": ""
+     },
+     {
+      "id": "II-5",
+      "label": "(1)⑤",
+      "group": ""
+     },
+     {
+      "id": "II-6",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "II-7",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "II-8",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "II-9",
+      "label": "(5)",
+      "group": ""
+     },
+     {
+      "id": "II-10",
+      "label": "(6)完答",
+      "group": ""
+     },
+     {
+      "id": "II-11",
+      "label": "(7)",
+      "group": ""
+     },
+     {
+      "id": "II-12",
+      "label": "(8)完答",
+      "group": ""
+     },
+     {
+      "id": "II-13",
+      "label": "(9)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "Ⅲ",
+    "label": "Ⅲ（2枚目・人権と新しい権利）",
+    "qpage": 1,
+    "questions": [
+     {
+      "id": "III-1",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "III-2",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "III-3",
+      "label": "(3)①",
+      "group": ""
+     },
+     {
+      "id": "III-4",
+      "label": "(3)②",
+      "group": ""
+     },
+     {
+      "id": "III-5",
+      "label": "(3)③",
+      "group": ""
+     },
+     {
+      "id": "III-6",
+      "label": "(3)④",
+      "group": ""
+     },
+     {
+      "id": "III-7",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "III-8",
+      "label": "(5)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "Ⅳ",
+    "label": "Ⅳ（3枚目・国際連合）",
+    "qpage": 2,
+    "questions": [
+     {
+      "id": "IV-1",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "IV-2",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "IV-3",
+      "label": "(3)①",
+      "group": ""
+     },
+     {
+      "id": "IV-4",
+      "label": "(3)②",
+      "group": ""
+     },
+     {
+      "id": "IV-5",
+      "label": "(3)③",
+      "group": ""
+     },
+     {
+      "id": "IV-6",
+      "label": "(3)④",
+      "group": ""
+     },
+     {
+      "id": "IV-7",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "IV-8",
+      "label": "(5)A",
+      "group": ""
+     },
+     {
+      "id": "IV-9",
+      "label": "(5)B",
+      "group": ""
+     },
+     {
+      "id": "IV-10",
+      "label": "(6)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "Ⅴ",
+    "label": "Ⅴ（3枚目・日本の選挙制度）",
+    "qpage": 2,
+    "questions": [
+     {
+      "id": "V-1",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "V-2",
+      "label": "(2)A",
+      "group": ""
+     },
+     {
+      "id": "V-3",
+      "label": "(2)B",
+      "group": ""
+     },
+     {
+      "id": "V-4",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "V-5",
+      "label": "(4)①完答",
+      "group": ""
+     },
+     {
+      "id": "V-6",
+      "label": "(4)②完答",
+      "group": ""
+     },
+     {
+      "id": "V-7",
+      "label": "(4)③",
+      "group": ""
+     },
+     {
+      "id": "V-8",
+      "label": "(4)④",
+      "group": ""
+     }
+    ]
+   }
+  ]
+ }
+}
