@@ -1722,7 +1722,8 @@ function buildChishikiWsmBlock() {
   return {
     label: "知識の総完成",
     questionPages: pages.map(p => p.imageMasked || p.image),
-    answerPages: pages.map(p => p.image),
+    // 解いた原本（採点済みスキャン）は解答タブ末尾に表示（quiz-data.json chishikiSolvedPages）
+    answerPages: pages.map(p => p.image).concat(quizData.chishikiSolvedPages || []),
     daimons, keyMap,
     regionPages: pages,   // 番号バッジ・下線ハイライトのオーバーレイ描画用（regions + width/height）
   };
