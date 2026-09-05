@@ -447,7 +447,7 @@ function renderUnits() {
 async function openUnit(unit) {
   currentUnit = unit;
   document.getElementById("unit-detail-title").textContent = `${unit.id} ${unit.title}`;
-  const res = await fetch(`categories/${currentCategory.id}/units/${unit.id}/quiz-data.json`);
+  const res = await fetch(`categories/${currentCategory.id}/units/${unit.id}/quiz-data.json`, { cache: "no-cache" });
   quizData = await res.json();
   // 正誤表(xyz)のみの単元は単元詳細（カード1枚）を飛ばしてモード選択へ直行。
   // 夏期集中志望校錬成特訓は表紙1枚だけの説明文ページを持つが閲覧価値が無いので無視する（ユーザー指示 2026-08-21）
@@ -1686,14 +1686,19 @@ function buildChishikiWsmBlock() {
   const pages = getSectionPages("kakunin").filter(p => (p.regions || []).length > 0);
   if (pages.length === 0) return null;
   const keyMap = {};
-  const daimons = pages.map((p, i) => ({
-    id: `${p.id}ページ`, label: `${p.id}ページ`, qpage: i,
-    questions: p.regions.map((r, j) => {
+  const daimons = pages.map((p, i) => {
+    // furiganaRegions: ふりがなだけが別regionとして誤検出されたもの（scripts/ws_furigana_scan.py で判定・
+    // quiz-data.json に追記）。正誤表の小問には出さない（regionsとキー体系は不変＝過去の○×無傷）
+    const skip = new Set(p.furiganaRegions || []);
+    const questions = [];
+    p.regions.forEach((r, j) => {
+      if (skip.has(j)) return;
       const id = `p${p.id}-${j + 1}`;
       keyMap[id] = `${p.id}-${j}`;
-      return { id, label: String(j + 1) };
-    }),
-  }));
+      questions.push({ id, label: String(questions.length + 1), region: r });
+    });
+    return { id: `${p.id}ページ`, label: `${p.id}ページ`, qpage: i, questions };
+  });
   return {
     label: "知識の総完成",
     questionPages: pages.map(p => p.imageMasked || p.image),
@@ -2040,6 +2045,8 @@ function commitXyz() {
 
 // 知識の総完成: 空らん位置に小さな番号バッジ（正誤表と紙面の対応付け）＋
 // フィルタ対象の空らんは下線部を赤バーでハイライト（四角で囲わない・ユーザー確定 2026-09-05）
+// 位置は黒い下線に合わせる: region下端+4px（下線は下端の3〜7px下に実測で分布）
+const WSM_ULINE_OFFSET = 4;
 function wsRegionOverlayHTML(pageIdx) {
   const xyz = currentWsm;
   if (!xyz || !xyz.regionPages) return "";
@@ -2047,10 +2054,11 @@ function wsRegionOverlayHTML(pageIdx) {
   if (!page) return "";
   const W = page.width, H = page.height;
   const dm = xyz.daimons[pageIdx];
-  return page.regions.map((r, j) => {
-    const q = dm.questions[j];
+  return dm.questions.map(q => {
+    const r = q.region;
+    if (!r) return "";
     const left = (r.x / W * 100).toFixed(2), width = (r.w / W * 100).toFixed(2);
-    const topLine = ((r.y + r.h) / H * 100).toFixed(2);
+    const topLine = ((r.y + r.h + WSM_ULINE_OFFSET) / H * 100).toFixed(2);
     return `<span class="wsm-qnum" data-qid="${q.id}" style="left:${left}%;top:${topLine}%">${q.label}</span>` +
       `<span class="wsm-uline" data-qid="${q.id}" style="left:${left}%;top:${topLine}%;width:${width}%"></span>`;
   }).join("");
@@ -2154,10 +2162,10 @@ function drawWsRegionOverlays(ctx, pageIdx, idsSet) {
   const sx = ctx.canvas.width / page.width, sy = ctx.canvas.height / page.height;
   const fs = Math.max(14, Math.round(ctx.canvas.width * 0.013));
   ctx.textBaseline = "middle";
-  page.regions.forEach((r, j) => {
-    const q = dm.questions[j];
-    if (!q) return;
-    const x = r.x * sx, w = r.w * sx, yb = (r.y + r.h) * sy;   // yb = 下線の位置
+  dm.questions.forEach(q => {
+    const r = q.region;
+    if (!r) return;
+    const x = r.x * sx, w = r.w * sx, yb = (r.y + r.h + WSM_ULINE_OFFSET) * sy;   // yb = 下線の位置
     const isTarget = !!(idsSet && idsSet.has(q.id));
     if (isTarget) {
       ctx.fillStyle = "rgba(255,59,48,0.8)";
