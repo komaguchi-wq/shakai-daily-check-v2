@@ -618,15 +618,15 @@ function renderSectionDetail() {
   document.querySelector('[data-print-mode="reading"]').disabled = !readingOk;
 
   // クイズ系モード件数
-  let countUnanswered = 0, countBelow50 = 0, countBelow67 = 0, countBelow99 = 0, totalAll = 0;
+  let countUnanswered = 0, countBelow50 = 0, countBelow50u = 0, countBelow67 = 0, totalAll = 0;
   pages.forEach(page => {
     page.regions.forEach((_, ri) => {
       totalAll++;
       const acc = getAccuracy(currentUnit.id, page.id, ri);
       if (acc === null) countUnanswered++;
       if (acc !== null && acc < 0.5) countBelow50++;
+      if (acc === null || acc < 0.5) countBelow50u++;
       if (acc !== null && acc < 0.66) countBelow67++;
-      if (acc !== null && acc < 0.8) countBelow99++;
     });
   });
   const setBtn = (mode, count) => {
@@ -642,8 +642,8 @@ function renderSectionDetail() {
   setBtn("continue", countUnanswered);
   setBtn("all", totalAll);
   setBtn("below50", countBelow50);
+  setBtn("below50u", countBelow50u);
   setBtn("below67", countBelow67);
-  setBtn("below99", countBelow99);
   setBtn("unanswered", countUnanswered);
 
   // ページ一覧
@@ -776,8 +776,8 @@ function isTargetForMode(pageId, regionIdx, mode) {
   const acc = getAccuracy(currentUnit.id, pageId, regionIdx);
   if (mode === "continue" || mode === "unanswered") return acc === null;
   if (mode === "below50") return acc !== null && acc < 0.5;
+  if (mode === "below50u") return acc === null || acc < 0.5;
   if (mode === "below67") return acc !== null && acc < 0.66;
-  if (mode === "below99") return acc !== null && acc < 0.8;
   return true;
 }
 
@@ -808,35 +808,27 @@ function startWithMode(mode) {
     }
     currentRegionIndex = foundRegion;
     startQuiz(foundPage);
-  } else if (mode === "unanswered") {
-    activePages = allPages.filter(p =>
-      p.regions.some((_, ri) => getAccuracy(currentUnit.id, p.id, ri) === null));
-    sessionResults = {};
-    if (activePages.length > 0) startQuiz(0);
   } else {
-    const threshold = mode === "below50" ? 0.5 : mode === "below67" ? 0.66 : 0.8;
+    // unanswered / below50 / below50u / below67: 対象regionを1つ以上持つページ
     activePages = allPages.filter(p =>
-      p.regions.some((_, ri) => {
-        const a = getAccuracy(currentUnit.id, p.id, ri);
-        return a !== null && a < threshold;
-      }));
+      p.regions.some((_, ri) => isTargetForMode(p.id, ri, mode)));
     sessionResults = {};
     if (activePages.length > 0) startQuiz(0);
   }
 }
 
 let quizDirect = false; // 単元詳細のカードから直接クイズに入った（戻るは単元詳細へ）
-const QUIZ_MODE_SHORT = { all: "全ての問題", below50: "正答率50%未満", below67: "正答率66%未満", below99: "正答率80%未満", unanswered: "未解答問題" };
+const QUIZ_MODE_SHORT = { all: "全ての問題", below50: "正答率50%未満", below50u: "50%未満＆未解答", below67: "正答率66%未満", unanswered: "未解答問題" };
 function quizModeCounts() {
   const pages = getSectionPages(currentSection).filter(p => p.regions.length > 0);
-  const c = { all: 0, below50: 0, below67: 0, below99: 0, unanswered: 0 };
+  const c = { all: 0, below50: 0, below50u: 0, below67: 0, unanswered: 0 };
   pages.forEach(p => p.regions.forEach((_, ri) => {
     c.all++;
     const acc = getAccuracy(currentUnit.id, p.id, ri);
     if (acc === null) c.unanswered++;
     if (acc !== null && acc < 0.5) c.below50++;
+    if (acc === null || acc < 0.5) c.below50u++;
     if (acc !== null && acc < 0.66) c.below67++;
-    if (acc !== null && acc < 0.8) c.below99++;
   }));
   return c;
 }
@@ -1184,7 +1176,7 @@ async function printCurrentPage() {
   if (!activePages || activePages.length === 0) return;
   const page = activePages[currentPageIndex];
   if (!page) return;
-  const isFiltered = ["below50", "below67", "below99"].includes(currentMode);
+  const isFiltered = ["below50", "below50u", "below67"].includes(currentMode);
   const pair = _findSpreadPartner(page);
   if (pair) {
     // 見開き2-up: 左右それぞれ（フィルタ印刷なら対象強調）を横連結して B4 横1枚に
@@ -1350,7 +1342,7 @@ async function bulkPrint(mode) {
     // 対象region（このモード）を1つ以上持つページ
     targetPages = allPages.filter(p => p.regions.length > 0 &&
       p.regions.some((_, ri) => isTargetForMode(p.id, ri, mode)));
-    kind = ["below50", "below67", "below99"].includes(mode) ? "filtered" : "masked";
+    kind = ["below50", "below50u", "below67"].includes(mode) ? "filtered" : "masked";
   }
   if (targetPages.length === 0) { alert("対象ページがありません"); return; }
 
@@ -1628,19 +1620,21 @@ let wsmShowingAnswer = false;
 let pendingXyz = {};       // {subId: "correct"|"wrong"} 仮選択
 let xyzIdleTimer = null;
 let wsmDirect = false; // 単元一覧からモード選択へ直行した（戻るは単元一覧へ）
-let wsmFilter = "all";     // all | below50 | below67 | below99 | unanswered
+// ★2026-09-06 モード再編: below50/below67=解答済みのみ（未解答を除外）、
+//   below50u=50%未満＋未解答（従来の below50 相当）。below99(80%未満)は廃止
+let wsmFilter = "all";     // all | below50 | below50u | below67 | unanswered
 let wsmFilteredIds = null; // Set of target 小問id（all のとき null）
 // wsm画面で開いているブロック。quizData.xyz のほか、Weekly SapiX「知識の総完成」は
 // pages/regions から合成したブロック（keyMap で既存 reveal 式の正誤キー {page}-{regionIdx} をそのまま使う）
 let currentWsm = null;
 
 const WS_MODE_LABELS = {
-  all: "全問", below50: "正答率50%未満", below67: "正答率66%未満",
-  below99: "正答率80%未満", unanswered: "未回答",
+  all: "全問", below50: "正答率50%未満", below50u: "50%未満＆未解答",
+  below67: "正答率66%未満", unanswered: "未解答",
 };
 const WS_MODE_BASE = {
-  all: "全問を解く", below50: "正答率 50% 未満を解く", below67: "正答率 66% 未満を解く",
-  below99: "正答率 80% 未満を解く", unanswered: "未回答問題を解く",
+  all: "全問を解く", below50: "正答率 50% 未満を解く", below50u: "50% 未満＆未解答を解く",
+  below67: "正答率 66% 未満を解く", unanswered: "未解答問題を解く",
 };
 
 // 旧マスク方式の確認問題の正誤履歴を「消さずに退避」: 初回1度だけ tracking 全体をバックアップキーへ複製
@@ -1684,9 +1678,9 @@ function xyzSubMatchesMode(subId, mode) {
   const t = getXyzTracking(currentUnit.id, subId);
   const pct = t.attempts ? Math.round(t.correct / t.attempts * 100) : null;
   if (mode === "unanswered") return t.attempts === 0;
-  if (mode === "below50") return pct === null || pct < 50;
-  if (mode === "below67") return pct === null || pct < 66;
-  if (mode === "below99") return pct === null || pct < 80;
+  if (mode === "below50") return pct !== null && pct < 50;
+  if (mode === "below50u") return pct === null || pct < 50;
+  if (mode === "below67") return pct !== null && pct < 66;
   return true; // all
 }
 
@@ -1771,13 +1765,13 @@ function openWsMode(block) {
 }
 
 function wsModeCounts() {
-  const counts = { all: 0, below50: 0, below67: 0, below99: 0, unanswered: 0 };
+  const counts = { all: 0, below50: 0, below50u: 0, below67: 0, unanswered: 0 };
   currentWsm.daimons.forEach(dm => dm.questions.forEach(q => {
     for (const m of Object.keys(counts)) if (xyzSubMatchesMode(q.id, m)) counts[m]++;
   }));
   return counts;
 }
-const WS_MODE_SHORT = { all: "全ての問題", below50: "正答率50%未満", below67: "正答率66%未満", below99: "正答率80%未満", unanswered: "未解答問題" };
+const WS_MODE_SHORT = { all: "全ての問題", below50: "正答率50%未満", below50u: "50%未満＆未解答", below67: "正答率66%未満", unanswered: "未解答問題" };
 function updateWsModeBar() {
   const counts = wsModeCounts();
   document.querySelectorAll("#wsm-modebar [data-wsm-mode]").forEach(btn => {

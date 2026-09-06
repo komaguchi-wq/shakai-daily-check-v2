@@ -66,8 +66,8 @@
       <div class="wsm-modebar" id="wsm-modebar">
         <button class="wsm-mode-btn active" data-wsm-mode="all">全ての問題</button>
         <button class="wsm-mode-btn" data-wsm-mode="below50">正答率50%未満</button>
+        <button class="wsm-mode-btn" data-wsm-mode="below50u">50%未満＆未解答</button>
         <button class="wsm-mode-btn" data-wsm-mode="below67">正答率66%未満</button>
-        <button class="wsm-mode-btn" data-wsm-mode="below99">正答率80%未満</button>
         <button class="wsm-mode-btn" data-wsm-mode="unanswered">未解答問題</button>
       </div>
       <div class="wsm-tabbar">
@@ -120,17 +120,17 @@
             <button class="btn btn-secondary btn-large" data-section-mode="below50">正答率 50% 未満を解く</button>
             <button class="btn btn-print btn-large" data-print-mode="below50">🖨 50%未満を印刷</button>
           </div>
+          <div class="mode-row" data-mode-row="below50u">
+            <button class="btn btn-secondary btn-large" data-section-mode="below50u">50% 未満＆未解答を解く</button>
+            <button class="btn btn-print btn-large" data-print-mode="below50u">🖨 50%未満＆未解答を印刷</button>
+          </div>
           <div class="mode-row" data-mode-row="below67">
             <button class="btn btn-secondary btn-large" data-section-mode="below67">正答率 66% 未満を解く</button>
             <button class="btn btn-print btn-large" data-print-mode="below67">🖨 66%未満を印刷</button>
           </div>
-          <div class="mode-row" data-mode-row="below99">
-            <button class="btn btn-secondary btn-large" data-section-mode="below99">正答率 80% 未満を解く</button>
-            <button class="btn btn-print btn-large" data-print-mode="below99">🖨 80%未満を印刷</button>
-          </div>
           <div class="mode-row" data-mode-row="unanswered">
-            <button class="btn btn-secondary btn-large" data-section-mode="unanswered">未回答問題を解く</button>
-            <button class="btn btn-print btn-large" data-print-mode="unanswered">🖨 未回答を印刷</button>
+            <button class="btn btn-secondary btn-large" data-section-mode="unanswered">未解答問題を解く</button>
+            <button class="btn btn-print btn-large" data-print-mode="unanswered">🖨 未解答を印刷</button>
           </div>
           <div class="mode-row" data-mode-row="reading">
             <button class="btn btn-reading btn-large" data-section-mode="reading">📖 順番に読む</button>
@@ -183,8 +183,8 @@
     <div class="quiz-modebar" id="quiz-modebar">
       <button class="quiz-mode-btn active" data-quiz-mode="all">全ての問題</button>
       <button class="quiz-mode-btn" data-quiz-mode="below50">正答率50%未満</button>
+      <button class="quiz-mode-btn" data-quiz-mode="below50u">50%未満＆未解答</button>
       <button class="quiz-mode-btn" data-quiz-mode="below67">正答率66%未満</button>
-      <button class="quiz-mode-btn" data-quiz-mode="below99">正答率80%未満</button>
       <button class="quiz-mode-btn" data-quiz-mode="unanswered">未解答問題</button>
     </div>
 
@@ -289,6 +289,6 @@
     <div id="print-overlay-body"></div>
   </div>
 
-  <script src="app.js?v=20260906a"></script>
+  <script src="app.js?v=20260906b"></script>
 </body>
 </html>
