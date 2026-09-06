@@ -1,0 +1,584 @@
+{
+ "unitId": "SS-01",
+ "title": "出題形式別研究・実力診断・記述特訓",
+ "category": "ss-tokkun",
+ "imageBase": "https://komaguchi-wq.github.io/shakai-daily-check-v2-images-01/ss-tokkun/SS-01/",
+ "pages": [
+  {
+   "id": "cover",
+   "type": "description",
+   "image": "cover_01.jpg",
+   "width": 4000,
+   "height": 2811,
+   "regions": []
+  }
+ ],
+ "xyz": {
+  "label": "問題演習",
+  "questionPages": [
+   "q_01.jpg",
+   "q_02.jpg",
+   "q_03.jpg",
+   "q_04.jpg",
+   "q_05.jpg",
+   "q_06.jpg",
+   "q_07.jpg",
+   "q_08.jpg",
+   "q_09.jpg",
+   "q_10.jpg",
+   "q_11.jpg",
+   "q_12.jpg"
+  ],
+  "answerPages": [
+   "a_01.jpg",
+   "a_02.jpg",
+   "a_03.jpg",
+   "a_04.jpg",
+   "a_05.jpg",
+   "a_06.jpg",
+   "a_07.jpg",
+   "a_08.jpg",
+   "a_09.jpg",
+   "a_10.jpg"
+  ],
+  "daimons": [
+   {
+    "id": "A1",
+    "label": "A1（1ページ・地理の資料読解）",
+    "qpage": 0,
+    "questions": [
+     {
+      "id": "A1-(1)",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "A1-(2)A",
+      "label": "A",
+      "group": "(2)"
+     },
+     {
+      "id": "A1-(2)B",
+      "label": "B",
+      "group": "(2)"
+     },
+     {
+      "id": "A1-(3)",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "A1-(4)",
+      "label": "(4)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "A2",
+    "label": "A2（1〜2ページ・地理の資料読解）",
+    "qpage": 0,
+    "questions": [
+     {
+      "id": "A2-(1)",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "A2-(2)①",
+      "label": "①",
+      "group": "(2)"
+     },
+     {
+      "id": "A2-(2)②",
+      "label": "②",
+      "group": "(2)"
+     },
+     {
+      "id": "A2-(3)",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "A2-(4)札幌",
+      "label": "札幌",
+      "group": "(4)"
+     },
+     {
+      "id": "A2-(4)秋田",
+      "label": "秋田",
+      "group": "(4)"
+     },
+     {
+      "id": "A2-(4)宮古",
+      "label": "宮古",
+      "group": "(4)"
+     },
+     {
+      "id": "A2-(5)",
+      "label": "(5)",
+      "group": ""
+     },
+     {
+      "id": "A2-(6)",
+      "label": "(6)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "A3",
+    "label": "A3（2〜3ページ・地理の資料読解）",
+    "qpage": 1,
+    "questions": [
+     {
+      "id": "A3-(1)①記述",
+      "label": "①記述",
+      "group": "(1)"
+     },
+     {
+      "id": "A3-(1)②",
+      "label": "②",
+      "group": "(1)"
+     },
+     {
+      "id": "A3-(2)東海道",
+      "label": "東海道",
+      "group": "(2)"
+     },
+     {
+      "id": "A3-(2)山陽",
+      "label": "山陽",
+      "group": "(2)"
+     },
+     {
+      "id": "A3-(2)北陸",
+      "label": "北陸",
+      "group": "(2)"
+     },
+     {
+      "id": "A3-(2)東北",
+      "label": "東北",
+      "group": "(2)"
+     }
+    ]
+   },
+   {
+    "id": "A4",
+    "label": "A4（3ページ・歴史の正誤選択）",
+    "qpage": 2,
+    "questions": [
+     {
+      "id": "A4-(1)",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "A4-(2)",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "A4-(3)",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "A4-(4)",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "A4-(5)",
+      "label": "(5)",
+      "group": ""
+     },
+     {
+      "id": "A4-(6)",
+      "label": "(6)",
+      "group": ""
+     },
+     {
+      "id": "A4-(7)",
+      "label": "(7)",
+      "group": ""
+     },
+     {
+      "id": "A4-(8)",
+      "label": "(8)",
+      "group": ""
+     },
+     {
+      "id": "A4-(9)",
+      "label": "(9)",
+      "group": ""
+     },
+     {
+      "id": "A4-(10)",
+      "label": "(10)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "A5",
+    "label": "A5（3〜4ページ・歴史の正誤選択）",
+    "qpage": 2,
+    "questions": [
+     {
+      "id": "A5-(1)",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "A5-(2)",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "A5-(3)",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "A5-(4)",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "A5-(5)",
+      "label": "(5)",
+      "group": ""
+     },
+     {
+      "id": "A5-(6)",
+      "label": "(6)",
+      "group": ""
+     },
+     {
+      "id": "A5-(7)",
+      "label": "(7)",
+      "group": ""
+     },
+     {
+      "id": "A5-(8)",
+      "label": "(8)",
+      "group": ""
+     },
+     {
+      "id": "A5-(9)",
+      "label": "(9)",
+      "group": ""
+     },
+     {
+      "id": "A5-(10)",
+      "label": "(10)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "B1",
+    "label": "B1（5〜6ページ・実力診断テスト）",
+    "qpage": 4,
+    "questions": [
+     {
+      "id": "B1-(1)A・B完答",
+      "label": "(1)A・B完答",
+      "group": ""
+     },
+     {
+      "id": "B1-(2)",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "B1-(3)1",
+      "label": "1",
+      "group": "(3)"
+     },
+     {
+      "id": "B1-(3)2完答",
+      "label": "2完答",
+      "group": "(3)"
+     },
+     {
+      "id": "B1-(4)順・完答",
+      "label": "(4)順・完答",
+      "group": ""
+     },
+     {
+      "id": "B1-(5)1",
+      "label": "1",
+      "group": "(5)"
+     },
+     {
+      "id": "B1-(5)2",
+      "label": "2",
+      "group": "(5)"
+     },
+     {
+      "id": "B1-(6)漢字5字",
+      "label": "(6)漢字5字",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "B2",
+    "label": "B2（7〜8ページ・実力診断テスト）",
+    "qpage": 6,
+    "questions": [
+     {
+      "id": "B2-(1)順・完答",
+      "label": "(1)順・完答",
+      "group": ""
+     },
+     {
+      "id": "B2-(2)",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "B2-(3)",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "B2-(4)",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "B2-(5)",
+      "label": "(5)",
+      "group": ""
+     },
+     {
+      "id": "B2-(6)",
+      "label": "(6)",
+      "group": ""
+     },
+     {
+      "id": "B2-(7)",
+      "label": "(7)",
+      "group": ""
+     },
+     {
+      "id": "B2-(8)",
+      "label": "(8)",
+      "group": ""
+     },
+     {
+      "id": "B2-(9)",
+      "label": "(9)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "B3",
+    "label": "B3（8ページ・実力診断テスト）",
+    "qpage": 7,
+    "questions": [
+     {
+      "id": "B3-(1)",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "B3-(2)",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "B3-(3)",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "B3-(4)",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "B3-(5)",
+      "label": "(5)",
+      "group": ""
+     },
+     {
+      "id": "B3-(6)",
+      "label": "(6)",
+      "group": ""
+     },
+     {
+      "id": "B3-(7)",
+      "label": "(7)",
+      "group": ""
+     },
+     {
+      "id": "B3-(8)",
+      "label": "(8)",
+      "group": ""
+     },
+     {
+      "id": "B3-(9)",
+      "label": "(9)",
+      "group": ""
+     },
+     {
+      "id": "B3-(10)",
+      "label": "(10)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "ST1",
+    "label": "標準編①（9ページ・記述特訓講座）",
+    "qpage": 8,
+    "questions": [
+     {
+      "id": "ST1-(1)",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "ST1-(2)",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "ST1-(3)",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "ST1-(4)",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "ST1-(5)",
+      "label": "(5)",
+      "group": ""
+     },
+     {
+      "id": "ST1-(6)民主政治",
+      "label": "民主政治",
+      "group": "(6)"
+     },
+     {
+      "id": "ST1-(6)議会政治",
+      "label": "議会政治",
+      "group": "(6)"
+     },
+     {
+      "id": "ST1-(7)",
+      "label": "(7)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "ST2",
+    "label": "標準編②（10ページ・記述特訓講座）",
+    "qpage": 9,
+    "questions": [
+     {
+      "id": "ST2-(1)",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "ST2-(2)①",
+      "label": "①",
+      "group": "(2)"
+     },
+     {
+      "id": "ST2-(2)②",
+      "label": "②",
+      "group": "(2)"
+     },
+     {
+      "id": "ST2-(3)①1つ目",
+      "label": "①1つ目",
+      "group": "(3)"
+     },
+     {
+      "id": "ST2-(3)①2つ目",
+      "label": "①2つ目",
+      "group": "(3)"
+     },
+     {
+      "id": "ST2-(3)②",
+      "label": "②",
+      "group": "(3)"
+     }
+    ]
+   },
+   {
+    "id": "HT",
+    "label": "発展編（11ページ・記述特訓講座）",
+    "qpage": 10,
+    "questions": [
+     {
+      "id": "HT-問11",
+      "label": "1",
+      "group": "問1"
+     },
+     {
+      "id": "HT-問12",
+      "label": "2",
+      "group": "問1"
+     },
+     {
+      "id": "HT-問13",
+      "label": "3",
+      "group": "問1"
+     },
+     {
+      "id": "HT-問14",
+      "label": "4",
+      "group": "問1"
+     },
+     {
+      "id": "HT-問2",
+      "label": "問2",
+      "group": ""
+     },
+     {
+      "id": "HT-問3",
+      "label": "問3",
+      "group": ""
+     },
+     {
+      "id": "HT-問4",
+      "label": "問4",
+      "group": ""
+     },
+     {
+      "id": "HT-問5",
+      "label": "問5",
+      "group": ""
+     },
+     {
+      "id": "HT-問6",
+      "label": "問6",
+      "group": ""
+     },
+     {
+      "id": "HT-問7",
+      "label": "問7",
+      "group": ""
+     },
+     {
+      "id": "HT-問8",
+      "label": "問8",
+      "group": ""
+     }
+    ]
+   }
+  ]
+ }
+}

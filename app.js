@@ -473,7 +473,7 @@ async function openUnit(unit) {
   // 夏期集中志望校錬成特訓は表紙1枚だけの説明文ページを持つが閲覧価値が無いので無視する（ユーザー指示 2026-08-21）
   const hasXyz = quizData.xyz && Array.isArray(quizData.xyz.daimons) && quizData.xyz.daimons.length > 0;
   const pages = quizData.pages || [];
-  const coverOnly = currentCategory.id === "kaki-rensei"
+  const coverOnly = (currentCategory.id === "kaki-rensei" || currentCategory.id === "ss-tokkun")
     && pages.every(p => p.type === "description" && !(p.regions && p.regions.length > 0));
   wsmDirect = !!(hasXyz && (pages.length === 0 || coverOnly));
   if (wsmDirect) { openWsMode(); return; }

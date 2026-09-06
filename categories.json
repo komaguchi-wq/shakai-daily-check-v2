@@ -12,6 +12,12 @@
     "description": "夏期地理 N64-XX資料データバンク＋復習テスト"
   },
   {
+    "id": "ss-tokkun",
+    "name": "SS特訓",
+    "icon": "🎯",
+    "description": "SS-XX 志望校別講座（Sunday Sapix特訓）"
+  },
+  {
     "id": "kaki-rensei",
     "name": "夏期集中志望校錬成特訓",
     "icon": "🔥",

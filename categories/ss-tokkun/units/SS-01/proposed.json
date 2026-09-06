@@ -1,0 +1,22 @@
+{
+ "unit": "SS-01",
+ "source": "claude-vision",
+ "created": "2026-09-06",
+ "grades": {
+  "B3-(1)": true,
+  "B3-(2)": true,
+  "B3-(3)": true,
+  "B3-(4)": true,
+  "B3-(5)": true,
+  "B3-(6)": true,
+  "B3-(7)": true,
+  "B3-(8)": true,
+  "B3-(9)": false,
+  "B3-(10)": false,
+  "ST1-(2)": false,
+  "ST1-(4)": true,
+  "ST2-(3)①1つ目": false,
+  "ST2-(3)①2つ目": true,
+  "ST2-(3)②": false
+ }
+}
