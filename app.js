@@ -2396,6 +2396,28 @@ function attachPinchZoom(wrapperId, contentSelector, minScale = 1, maxScale = 4)
   let panStartX = 0, panStartY = 0;
   let panScrollL = 0, panScrollT = 0;
   let isPanning = false;
+  // ★慣性スクロール: 指を離した速度で滑らせ、減速して止まる（次のタッチで即停止）
+  let velX = 0, velY = 0, lastMoveX = 0, lastMoveY = 0, lastMoveT = 0;
+  let momentumId = null;
+  function stopMomentum() {
+    if (momentumId !== null) { cancelAnimationFrame(momentumId); momentumId = null; }
+  }
+  function startMomentum() {
+    if (Math.hypot(velX, velY) < 0.25) return;   // ゆっくり離した時は滑らせない(px/ms)
+    let vx = velX, vy = velY, prev = performance.now();
+    const step = now => {
+      const dt = Math.min(now - prev, 50); prev = now;
+      const decay = Math.pow(0.94, dt / 16.7);
+      vx *= decay; vy *= decay;
+      const bL = wrapper.scrollLeft, bT = wrapper.scrollTop;
+      wrapper.scrollLeft = bL + vx * dt;
+      wrapper.scrollTop = bT + vy * dt;
+      if (wrapper.scrollLeft === bL) vx = 0;   // 端に着いた軸は止める
+      if (wrapper.scrollTop === bT) vy = 0;
+      momentumId = Math.hypot(vx, vy) > 0.02 ? requestAnimationFrame(step) : null;
+    };
+    momentumId = requestAnimationFrame(step);
+  }
 
   function getContent() {
     return wrapper.querySelector(contentSelector);
@@ -2455,6 +2477,7 @@ function attachPinchZoom(wrapperId, contentSelector, minScale = 1, maxScale = 4)
   }
 
   wrapper.addEventListener('touchstart', e => {
+    stopMomentum();
     if (e.touches.length === 2) {
       isPinching = true; isPanning = false;
       startDist = getDist(e.touches[0], e.touches[1]);
@@ -2466,6 +2489,8 @@ function attachPinchZoom(wrapperId, contentSelector, minScale = 1, maxScale = 4)
       panStartY = e.touches[0].clientY;
       panScrollL = wrapper.scrollLeft;
       panScrollT = wrapper.scrollTop;
+      velX = 0; velY = 0;
+      lastMoveX = panStartX; lastMoveY = panStartY; lastMoveT = performance.now();
     }
   }, { passive: true });
 
@@ -2483,6 +2508,14 @@ function attachPinchZoom(wrapperId, contentSelector, minScale = 1, maxScale = 4)
       const dy = panStartY - e.touches[0].clientY;
       wrapper.scrollLeft = panScrollL + dx;
       wrapper.scrollTop = panScrollT + dy;
+      const now = performance.now();
+      const mdt = now - lastMoveT;
+      if (mdt > 0) {
+        const a = Math.min(1, mdt / 30);   // 速度は直近サンプル重視の移動平均
+        velX = velX * (1 - a) + ((lastMoveX - e.touches[0].clientX) / mdt) * a;
+        velY = velY * (1 - a) + ((lastMoveY - e.touches[0].clientY) / mdt) * a;
+      }
+      lastMoveX = e.touches[0].clientX; lastMoveY = e.touches[0].clientY; lastMoveT = now;
     }
   }, { passive: false });
 
@@ -2491,7 +2524,10 @@ function attachPinchZoom(wrapperId, contentSelector, minScale = 1, maxScale = 4)
       isPinching = false;
       if (scale > 0.95 && scale < 1.05) resetZoom();   // 100%付近はぴったり戻す（縮小はそのまま保持）
     }
-    if (e.touches.length === 0) isPanning = false;
+    if (e.touches.length === 0) {
+      if (isPanning && performance.now() - lastMoveT < 80) startMomentum();   // 止めてから離した時は滑らせない
+      isPanning = false;
+    }
   }, { passive: true });
 
   let lastTap = 0;
