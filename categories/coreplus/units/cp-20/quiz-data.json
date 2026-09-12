@@ -2,7 +2,8 @@
   "id": "cp-20",
   "title": "第II部第3節 公民・国際社会のプラス知識",
   "category": "coreplus",
-  "pages": [
+  "pages": [],
+  "_pages_backup": [
     {
       "id": 1,
       "type": "kakunin",
@@ -192,12 +193,242 @@
       ]
     }
   ],
-  "sectionBreakdown": {
-    "kakunin": [
-      1,
-      2,
-      3,
-      4
+  "xyz": {
+    "label": "コアプラス",
+    "spread": true,
+    "questionPages": [
+      "page_01_qmasked.jpg",
+      "page_02_qmasked.jpg",
+      "page_03_qmasked.jpg",
+      "page_04_qmasked.jpg"
+    ],
+    "answerPages": [
+      "page_01_answer.jpg",
+      "page_02_answer.jpg",
+      "page_03_answer.jpg",
+      "page_04_answer.jpg"
+    ],
+    "daimons": [
+      {
+        "id": "701",
+        "label": "701",
+        "qpage": 0,
+        "questions": [
+          {
+            "id": "701-①",
+            "label": "①",
+            "group": ""
+          },
+          {
+            "id": "701-き",
+            "label": "き",
+            "group": ""
+          },
+          {
+            "id": "701-②",
+            "label": "②",
+            "group": ""
+          },
+          {
+            "id": "701-③",
+            "label": "③",
+            "group": ""
+          }
+        ]
+      },
+      {
+        "id": "702",
+        "label": "702",
+        "qpage": 0,
+        "questions": [
+          {
+            "id": "702-①",
+            "label": "①",
+            "group": ""
+          },
+          {
+            "id": "702-②",
+            "label": "②",
+            "group": ""
+          }
+        ]
+      },
+      {
+        "id": "703",
+        "label": "703",
+        "qpage": 0,
+        "questions": [
+          {
+            "id": "703-①",
+            "label": "①",
+            "group": ""
+          },
+          {
+            "id": "703-②",
+            "label": "②",
+            "group": ""
+          }
+        ]
+      },
+      {
+        "id": "704",
+        "label": "704",
+        "qpage": 0,
+        "questions": [
+          {
+            "id": "704-①",
+            "label": "①",
+            "group": ""
+          },
+          {
+            "id": "704-②",
+            "label": "②",
+            "group": ""
+          },
+          {
+            "id": "704-③",
+            "label": "③",
+            "group": ""
+          }
+        ]
+      },
+      {
+        "id": "705",
+        "label": "705",
+        "qpage": 1,
+        "questions": [
+          {
+            "id": "705-①",
+            "label": "①",
+            "group": ""
+          },
+          {
+            "id": "705-②",
+            "label": "②",
+            "group": ""
+          },
+          {
+            "id": "705-③",
+            "label": "③",
+            "group": ""
+          }
+        ]
+      },
+      {
+        "id": "706",
+        "label": "706",
+        "qpage": 1,
+        "questions": [
+          {
+            "id": "706-①",
+            "label": "①",
+            "group": ""
+          },
+          {
+            "id": "706-②",
+            "label": "②",
+            "group": ""
+          },
+          {
+            "id": "706-③",
+            "label": "③",
+            "group": ""
+          },
+          {
+            "id": "706-④",
+            "label": "④",
+            "group": ""
+          }
+        ]
+      },
+      {
+        "id": "707",
+        "label": "707",
+        "qpage": 2,
+        "questions": [
+          {
+            "id": "707-①",
+            "label": "①",
+            "group": ""
+          },
+          {
+            "id": "707-②",
+            "label": "②",
+            "group": ""
+          }
+        ]
+      },
+      {
+        "id": "708",
+        "label": "708",
+        "qpage": 2,
+        "questions": [
+          {
+            "id": "708-①",
+            "label": "①",
+            "group": ""
+          },
+          {
+            "id": "708-は",
+            "label": "は",
+            "group": ""
+          },
+          {
+            "id": "708-②",
+            "label": "②",
+            "group": ""
+          }
+        ]
+      },
+      {
+        "id": "709",
+        "label": "709",
+        "qpage": 2,
+        "questions": [
+          {
+            "id": "709-①",
+            "label": "①",
+            "group": ""
+          },
+          {
+            "id": "709-②",
+            "label": "②",
+            "group": ""
+          },
+          {
+            "id": "709-③",
+            "label": "③",
+            "group": ""
+          },
+          {
+            "id": "709-④",
+            "label": "④",
+            "group": ""
+          },
+          {
+            "id": "709-⑤",
+            "label": "⑤",
+            "group": ""
+          }
+        ]
+      },
+      {
+        "id": "710",
+        "label": "710",
+        "qpage": 3,
+        "questions": [
+          {
+            "id": "710-①",
+            "label": "①",
+            "group": ""
+          },
+          {
+            "id": "710-②",
+            "label": "②",
+            "group": ""
+          }
+        ]
+      }
     ]
   }
 }

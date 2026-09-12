@@ -2,7 +2,8 @@
   "id": "cp-04",
   "title": "第4節 重要地名（岬・湾・その他）",
   "category": "coreplus",
-  "pages": [
+  "pages": [],
+  "_pages_backup": [
     {
       "id": 1,
       "type": "kakunin",
@@ -192,12 +193,270 @@
       ]
     }
   ],
-  "sectionBreakdown": {
-    "kakunin": [
-      1,
-      2,
-      3,
-      4
+  "xyz": {
+    "label": "コアプラス",
+    "spread": true,
+    "questionPages": [
+      "page_01_qmasked.jpg",
+      "page_02_qmasked.jpg",
+      "page_03_qmasked.jpg",
+      "page_04_qmasked.jpg"
+    ],
+    "answerPages": [
+      "page_01_answer.jpg",
+      "page_02_answer.jpg",
+      "page_03_answer.jpg",
+      "page_04_answer.jpg"
+    ],
+    "daimons": [
+      {
+        "id": "130",
+        "label": "130",
+        "qpage": 0,
+        "questions": [
+          {
+            "id": "130-ア",
+            "label": "ア",
+            "group": ""
+          },
+          {
+            "id": "130-と",
+            "label": "と",
+            "group": ""
+          },
+          {
+            "id": "130-イ",
+            "label": "イ",
+            "group": ""
+          },
+          {
+            "id": "130-ウ",
+            "label": "ウ",
+            "group": ""
+          }
+        ]
+      },
+      {
+        "id": "131",
+        "label": "131",
+        "qpage": 0,
+        "questions": [
+          {
+            "id": "131-オ",
+            "label": "オ",
+            "group": ""
+          },
+          {
+            "id": "131-と",
+            "label": "と",
+            "group": ""
+          },
+          {
+            "id": "131-キ",
+            "label": "キ",
+            "group": ""
+          }
+        ]
+      },
+      {
+        "id": "132",
+        "label": "132",
+        "qpage": 0,
+        "questions": [
+          {
+            "id": "132-①",
+            "label": "①",
+            "group": ""
+          },
+          {
+            "id": "132-②",
+            "label": "②",
+            "group": ""
+          },
+          {
+            "id": "132-③",
+            "label": "③",
+            "group": ""
+          },
+          {
+            "id": "132-④",
+            "label": "④",
+            "group": ""
+          },
+          {
+            "id": "132-⑤",
+            "label": "⑤",
+            "group": ""
+          }
+        ]
+      },
+      {
+        "id": "133",
+        "label": "133",
+        "qpage": 1,
+        "questions": [
+          {
+            "id": "133-ア",
+            "label": "ア",
+            "group": ""
+          },
+          {
+            "id": "133-イ",
+            "label": "イ",
+            "group": ""
+          },
+          {
+            "id": "133-ウ",
+            "label": "ウ",
+            "group": ""
+          },
+          {
+            "id": "133-エ",
+            "label": "エ",
+            "group": ""
+          }
+        ]
+      },
+      {
+        "id": "134",
+        "label": "134",
+        "qpage": 1,
+        "questions": [
+          {
+            "id": "134-オ",
+            "label": "オ",
+            "group": ""
+          },
+          {
+            "id": "134-カ",
+            "label": "カ",
+            "group": ""
+          },
+          {
+            "id": "134-キ",
+            "label": "キ",
+            "group": ""
+          }
+        ]
+      },
+      {
+        "id": "135",
+        "label": "135",
+        "qpage": 1,
+        "questions": [
+          {
+            "id": "135-①",
+            "label": "①",
+            "group": ""
+          },
+          {
+            "id": "135-②",
+            "label": "②",
+            "group": ""
+          },
+          {
+            "id": "135-③",
+            "label": "③",
+            "group": ""
+          }
+        ]
+      },
+      {
+        "id": "136",
+        "label": "136",
+        "qpage": 2,
+        "questions": [
+          {
+            "id": "136-ア",
+            "label": "ア",
+            "group": ""
+          },
+          {
+            "id": "136-お",
+            "label": "お",
+            "group": ""
+          },
+          {
+            "id": "136-イ",
+            "label": "イ",
+            "group": ""
+          },
+          {
+            "id": "136-ウ",
+            "label": "ウ",
+            "group": ""
+          },
+          {
+            "id": "136-ば",
+            "label": "ば",
+            "group": ""
+          }
+        ]
+      },
+      {
+        "id": "137",
+        "label": "137",
+        "qpage": 2,
+        "questions": [
+          {
+            "id": "137-キ",
+            "label": "キ",
+            "group": ""
+          },
+          {
+            "id": "137-ク",
+            "label": "ク",
+            "group": ""
+          },
+          {
+            "id": "137-ケ",
+            "label": "ケ",
+            "group": ""
+          }
+        ]
+      },
+      {
+        "id": "138",
+        "label": "138",
+        "qpage": 2,
+        "questions": [
+          {
+            "id": "138-①",
+            "label": "①",
+            "group": ""
+          },
+          {
+            "id": "138-④",
+            "label": "④",
+            "group": ""
+          },
+          {
+            "id": "138-③",
+            "label": "③",
+            "group": ""
+          },
+          {
+            "id": "138-②",
+            "label": "②",
+            "group": ""
+          },
+          {
+            "id": "138-ウ",
+            "label": "ウ",
+            "group": ""
+          },
+          {
+            "id": "138-エ",
+            "label": "エ",
+            "group": ""
+          },
+          {
+            "id": "138-オ",
+            "label": "オ",
+            "group": ""
+          }
+        ]
+      }
     ]
   }
 }

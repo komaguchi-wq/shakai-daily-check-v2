@@ -2,7 +2,8 @@
   "id": "cp-21",
   "title": "第II部第4節 日本の伝統文化のプラス知識",
   "category": "coreplus",
-  "pages": [
+  "pages": [],
+  "_pages_backup": [
     {
       "id": 1,
       "type": "kakunin",
@@ -140,10 +141,178 @@
       ]
     }
   ],
-  "sectionBreakdown": {
-    "kakunin": [
-      1,
-      2
+  "xyz": {
+    "label": "コアプラス",
+    "spread": true,
+    "questionPages": [
+      "page_01_qmasked.jpg",
+      "page_02_qmasked.jpg"
+    ],
+    "answerPages": [
+      "page_01_answer.jpg",
+      "page_02_answer.jpg"
+    ],
+    "daimons": [
+      {
+        "id": "711",
+        "label": "711",
+        "qpage": 0,
+        "questions": [
+          {
+            "id": "711",
+            "label": "―",
+            "group": ""
+          }
+        ]
+      },
+      {
+        "id": "712",
+        "label": "712",
+        "qpage": 0,
+        "questions": [
+          {
+            "id": "712-①",
+            "label": "①",
+            "group": ""
+          },
+          {
+            "id": "712-②",
+            "label": "②",
+            "group": ""
+          },
+          {
+            "id": "712-③",
+            "label": "③",
+            "group": ""
+          }
+        ]
+      },
+      {
+        "id": "713",
+        "label": "713",
+        "qpage": 0,
+        "questions": [
+          {
+            "id": "713",
+            "label": "―",
+            "group": ""
+          }
+        ]
+      },
+      {
+        "id": "714",
+        "label": "714",
+        "qpage": 0,
+        "questions": [
+          {
+            "id": "714-①",
+            "label": "①",
+            "group": ""
+          },
+          {
+            "id": "714-②",
+            "label": "②",
+            "group": ""
+          }
+        ]
+      },
+      {
+        "id": "715",
+        "label": "715",
+        "qpage": 0,
+        "questions": [
+          {
+            "id": "715-①",
+            "label": "①",
+            "group": ""
+          },
+          {
+            "id": "715-②",
+            "label": "②",
+            "group": ""
+          }
+        ]
+      },
+      {
+        "id": "716",
+        "label": "716",
+        "qpage": 0,
+        "questions": [
+          {
+            "id": "716-①",
+            "label": "①",
+            "group": ""
+          },
+          {
+            "id": "716-②",
+            "label": "②",
+            "group": ""
+          }
+        ]
+      },
+      {
+        "id": "717",
+        "label": "717",
+        "qpage": 0,
+        "questions": [
+          {
+            "id": "717",
+            "label": "―",
+            "group": ""
+          }
+        ]
+      },
+      {
+        "id": "718",
+        "label": "718",
+        "qpage": 0,
+        "questions": [
+          {
+            "id": "718",
+            "label": "―",
+            "group": ""
+          }
+        ]
+      },
+      {
+        "id": "719",
+        "label": "719",
+        "qpage": 1,
+        "questions": [
+          {
+            "id": "719-①",
+            "label": "①",
+            "group": ""
+          },
+          {
+            "id": "719-②",
+            "label": "②",
+            "group": ""
+          }
+        ]
+      },
+      {
+        "id": "720",
+        "label": "720",
+        "qpage": 1,
+        "questions": [
+          {
+            "id": "720-①",
+            "label": "①",
+            "group": ""
+          },
+          {
+            "id": "720-②",
+            "label": "②",
+            "group": ""
+          },
+          {
+            "id": "720-③",
+            "label": "③",
+            "group": ""
+          }
+        ]
+      }
     ]
   }
 }

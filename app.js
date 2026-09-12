@@ -2088,21 +2088,36 @@ function wsRegionOverlayHTML(pageIdx) {
   }).join("");
 }
 
+function wsmPageHTML(pt, file, i, total, base) {
+  const lbl = pt === "q" ? "問題" : "解答";
+  const banner = pt === "q" ? `<div class="wsm-target-banner" style="display:none"></div>` : "";
+  return `<div class="wsm-page" data-pt="${pt}" data-idx="${i}"${pt === "a" ? ' style="display:none"' : ""}>
+       <div class="wsm-page-label">${lbl} ${i + 1} / ${total}</div>${banner}
+       <div class="wsm-imgwrap"><img src="${base}${file}" loading="lazy" alt="${lbl}${i + 1}">${wsRegionOverlayHTML(i)}</div>
+     </div>`;
+}
+
 function renderWsPages() {
   const xyz = currentWsm;
   const base = unitImagesBase();
   const el = document.getElementById("wsm-pages-inner");
-  const q = xyz.questionPages.map((p, i) =>
-    `<div class="wsm-page" data-pt="q" data-idx="${i}">
-       <div class="wsm-page-label">問題 ${i + 1} / ${xyz.questionPages.length}</div>
-       <div class="wsm-target-banner" style="display:none"></div>
-       <div class="wsm-imgwrap"><img src="${base}${p}" loading="lazy" alt="問題${i + 1}">${wsRegionOverlayHTML(i)}</div>
-     </div>`).join("");
-  const a = xyz.answerPages.map((p, i) =>
-    `<div class="wsm-page" data-pt="a" data-idx="${i}" style="display:none">
-       <div class="wsm-page-label">解答 ${i + 1} / ${xyz.answerPages.length}</div>
-       <div class="wsm-imgwrap"><img src="${base}${p}" loading="lazy" alt="解答${i + 1}">${wsRegionOverlayHTML(i)}</div></div>`).join("");
-  el.innerHTML = q + a;
+  if (xyz.spread) {
+    // ★コアプラス等: 2ページを左右見開きで表示（印刷もB4横2面）
+    const rows = [];
+    for (const pt of ["q", "a"]) {
+      const files = pt === "q" ? xyz.questionPages : xyz.answerPages;
+      for (let i = 0; i < files.length; i += 2) {
+        let inner = wsmPageHTML(pt, files[i], i, files.length, base);
+        if (i + 1 < files.length) inner += wsmPageHTML(pt, files[i + 1], i + 1, files.length, base);
+        rows.push(`<div class="wsm-spread" data-pt="${pt}"${pt === "a" ? ' style="display:none"' : ""}>${inner}</div>`);
+      }
+    }
+    el.innerHTML = rows.join("");
+  } else {
+    const q = xyz.questionPages.map((p, i) => wsmPageHTML("q", p, i, xyz.questionPages.length, base)).join("");
+    const a = xyz.answerPages.map((p, i) => wsmPageHTML("a", p, i, xyz.answerPages.length, base)).join("");
+    el.innerHTML = q + a;
+  }
   applyWsTabVisibility();
   updateWsTargetBanners();
 }
@@ -2138,6 +2153,8 @@ function updateWsTargetBanners() {
 function applyWsTabVisibility() {
   document.querySelectorAll('#wsm-pages .wsm-page[data-pt="q"]').forEach(e => e.style.display = wsmShowingAnswer ? "none" : "");
   document.querySelectorAll('#wsm-pages .wsm-page[data-pt="a"]').forEach(e => e.style.display = wsmShowingAnswer ? "" : "none");
+  document.querySelectorAll('#wsm-pages .wsm-spread[data-pt="q"]').forEach(e => e.style.display = wsmShowingAnswer ? "none" : "flex");
+  document.querySelectorAll('#wsm-pages .wsm-spread[data-pt="a"]').forEach(e => e.style.display = wsmShowingAnswer ? "flex" : "none");
 }
 
 function updateWsTabUI() {
@@ -2210,6 +2227,35 @@ function drawWsRegionOverlays(ctx, pageIdx, idsSet) {
   });
 }
 
+// 見開き(2-up)用: 2ページを1枚のB4横キャンバスに合成
+async function composeSpreadDataURLs(files, base, perPageDraw) {
+  const urls = [];
+  for (let i = 0; i < files.length; i += 2) {
+    let img1, img2 = null;
+    try { img1 = await loadImage(base + files[i]); } catch (e) { continue; }
+    if (i + 1 < files.length) {
+      try { img2 = await loadImage(base + files[i + 1]); } catch (e) { img2 = null; }
+    }
+    const gap = Math.round(img1.width * 0.015);
+    const W = img1.width + gap + (img2 ? img2.width : img1.width);
+    const H = Math.max(img1.height, img2 ? img2.height : 0);
+    const cc = document.createElement("canvas");
+    cc.width = W; cc.height = H;
+    const ctx = cc.getContext("2d");
+    ctx.fillStyle = "#fff"; ctx.fillRect(0, 0, W, H);
+    ctx.drawImage(img1, 0, 0);
+    if (perPageDraw) { ctx.save(); perPageDraw(ctx, i, img1.width, img1.height); ctx.restore(); }
+    if (img2) {
+      ctx.save(); ctx.translate(img1.width + gap, 0);
+      ctx.drawImage(img2, 0, 0);
+      if (perPageDraw) perPageDraw(ctx, i + 1, img2.width, img2.height);
+      ctx.restore();
+    }
+    urls.push(cc.toDataURL("image/jpeg", 0.9));
+  }
+  return urls;
+}
+
 // モード別に問題ページを印刷（対象小問を赤文字で焼き込む）
 async function printWsMode(mode) {
   commitXyz();
@@ -2217,6 +2263,14 @@ async function printWsMode(mode) {
   if (!xyz) return;
   const ids = computeWsFilterIds(mode);
   const base = unitImagesBase();
+  if (xyz.spread) {
+    const urls = await composeSpreadDataURLs(xyz.questionPages, base, (ctx, idx, W, H) => {
+      if (ids) drawWsTargetText(ctx, wsTargetTextForPage(idx, ids), W, H);
+    });
+    if (urls.length === 0) { alert("画像の読み込みに失敗しました"); return; }
+    _openPrintOverlay(`${currentUnit.id} ${wsTitle()}（${WS_MODE_LABELS[mode]}）`, urls);
+    return;
+  }
   const dataURLs = [];
   for (let i = 0; i < xyz.questionPages.length; i++) {
     let img;
@@ -2240,6 +2294,12 @@ async function wsmPrint() {
   if (!xyz) return;
   if (!wsmShowingAnswer) { return printWsMode(wsmFilter || "all"); }
   const base = unitImagesBase();
+  if (xyz.spread) {
+    const urls = await composeSpreadDataURLs(xyz.answerPages, base, null);
+    if (urls.length === 0) { alert("画像の読み込みに失敗しました"); return; }
+    _openPrintOverlay(`${currentUnit.id} ${wsTitle()}（解答）`, urls);
+    return;
+  }
   const dataURLs = [];
   for (let i = 0; i < xyz.answerPages.length; i++) {
     let img;

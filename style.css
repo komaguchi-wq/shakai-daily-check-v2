@@ -1013,3 +1013,8 @@ body {
 /* 単元詳細のセクションカードにも同じ正誤棒グラフ（緑=60%以上/黄/灰） */
 .section-card .unit-card-bar { margin-top: 8px; }
 .section-card .unit-card-legend { margin-top: 4px; }
+
+
+/* コアプラス見開き（2ページ左右表示） */
+.wsm-spread { display: flex; gap: 6px; align-items: flex-start; }
+.wsm-spread .wsm-page { flex: 1 1 0; min-width: 0; }
