@@ -648,19 +648,28 @@
     "id": "WS-22",
     "title": "WS-22 歴史重要人物のまとめ",
     "subject": "Weekly SapiX",
-    "pageCount": 2,
-    "totalRegions": 0,
+    "pageCount": 4,
+    "totalRegions": 100,
     "sectionRegions": {
-      "kakunin": 0
+      "kakunin": 100
     },
     "sectionPages": {
       "1": "kakunin",
-      "2": "kakunin"
+      "2": "kakunin",
+      "3": "kakunin",
+      "4": "kakunin"
     },
     "xyzCount": 61,
     "pageRegionCounts": {
-      "1": 0,
-      "2": 0
-    }
+      "1": 25,
+      "2": 25,
+      "3": 26,
+      "4": 25
+    },
+    "rawTotalRegions": 101,
+    "rawKakuninRegions": 101,
+    "furiganaKeys": [
+      "3-7"
+    ]
   }
 ]
