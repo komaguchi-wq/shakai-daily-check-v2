@@ -643,5 +643,24 @@
       "4-44",
       "4-56"
     ]
+  },
+  {
+    "id": "WS-22",
+    "title": "WS-22 歴史重要人物のまとめ",
+    "subject": "Weekly SapiX",
+    "pageCount": 2,
+    "totalRegions": 0,
+    "sectionRegions": {
+      "kakunin": 0
+    },
+    "sectionPages": {
+      "1": "kakunin",
+      "2": "kakunin"
+    },
+    "xyzCount": 61,
+    "pageRegionCounts": {
+      "1": 0,
+      "2": 0
+    }
   }
 ]

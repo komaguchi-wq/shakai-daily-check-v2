@@ -747,7 +747,7 @@ function startReading(section, direct) {
 function renderReading() {
   const page = readingPages[readingIndex];
   document.getElementById("reading-title").textContent =
-    `${SECTION_LABELS[currentReadingSection]} (${currentUnit.id} ${currentUnit.title})`;
+    `${sectionDisplayLabel(currentReadingSection)} (${currentUnit.id} ${currentUnit.title})`;
   document.getElementById("reading-page-info").textContent = `p${page.id}`;
   document.getElementById("reading-indicator").textContent =
     `${readingIndex + 1} / ${readingPages.length}`;
