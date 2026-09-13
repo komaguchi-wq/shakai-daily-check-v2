@@ -1,0 +1,10 @@
+{
+ "unit": "SS-02",
+ "source": "claude-vision",
+ "created": "2026-09-13",
+ "grades": {
+  "ST1-(2)生産者": true,
+  "ST1-(2)消費者": false,
+  "ST1-(8)": true
+ }
+}

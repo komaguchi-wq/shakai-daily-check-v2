@@ -1,0 +1,628 @@
+{
+ "unitId": "SS-02",
+ "title": "出題形式別研究・実力診断・記述特訓",
+ "category": "ss-tokkun",
+ "imageBase": "https://komaguchi-wq.github.io/shakai-daily-check-v2-images-01/ss-tokkun/SS-02/",
+ "pages": [
+  {
+   "id": "cover",
+   "type": "description",
+   "image": "cover_01.jpg",
+   "width": 4000,
+   "height": 2815,
+   "regions": []
+  }
+ ],
+ "xyz": {
+  "label": "問題演習",
+  "questionPages": [
+   "q_01.jpg",
+   "q_02.jpg",
+   "q_03.jpg",
+   "q_04.jpg",
+   "q_05.jpg",
+   "q_06.jpg",
+   "q_07.jpg",
+   "q_08.jpg",
+   "q_09.jpg",
+   "q_10.jpg",
+   "q_11.jpg",
+   "q_12.jpg",
+   "q_13.jpg",
+   "q_14.jpg",
+   "q_15.jpg",
+   "q_16.jpg"
+  ],
+  "answerPages": [
+   "a_01.jpg",
+   "a_02.jpg",
+   "a_03.jpg",
+   "a_04.jpg",
+   "a_05.jpg",
+   "a_06.jpg",
+   "a_07.jpg",
+   "a_08.jpg",
+   "a_09.jpg",
+   "a_10.jpg"
+  ],
+  "daimons": [
+   {
+    "id": "A1",
+    "label": "A1（1〜2ページ・歴史の資料読解）",
+    "qpage": 0,
+    "questions": [
+     {
+      "id": "A1-(1)",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "A1-(2)",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "A1-(3)",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "A1-(4)",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "A1-(5)",
+      "label": "(5)",
+      "group": ""
+     },
+     {
+      "id": "A1-(6)①",
+      "label": "①",
+      "group": "(6)"
+     },
+     {
+      "id": "A1-(6)②",
+      "label": "②",
+      "group": "(6)"
+     },
+     {
+      "id": "A1-(7)あ",
+      "label": "あ",
+      "group": "(7)"
+     },
+     {
+      "id": "A1-(7)い",
+      "label": "い",
+      "group": "(7)"
+     },
+     {
+      "id": "A1-(8)",
+      "label": "(8)",
+      "group": ""
+     },
+     {
+      "id": "A1-(9)",
+      "label": "(9)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "A2",
+    "label": "A2（3ページ・地理の正誤選択）",
+    "qpage": 2,
+    "questions": [
+     {
+      "id": "A2-(1)",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "A2-(2)",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "A2-(3)",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "A2-(4)",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "A2-(5)",
+      "label": "(5)",
+      "group": ""
+     },
+     {
+      "id": "A2-(6)",
+      "label": "(6)",
+      "group": ""
+     },
+     {
+      "id": "A2-(7)",
+      "label": "(7)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "A3",
+    "label": "A3（4〜5ページ・地理の正誤選択）",
+    "qpage": 3,
+    "questions": [
+     {
+      "id": "A3-(1)",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "A3-(2)",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "A3-(3)",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "A3-(4)",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "A3-(5)",
+      "label": "(5)",
+      "group": ""
+     },
+     {
+      "id": "A3-(6)",
+      "label": "(6)",
+      "group": ""
+     },
+     {
+      "id": "A3-(7)",
+      "label": "(7)",
+      "group": ""
+     },
+     {
+      "id": "A3-(8)",
+      "label": "(8)",
+      "group": ""
+     },
+     {
+      "id": "A3-(9)",
+      "label": "(9)",
+      "group": ""
+     },
+     {
+      "id": "A3-(10)",
+      "label": "(10)",
+      "group": ""
+     },
+     {
+      "id": "A3-(11)",
+      "label": "(11)",
+      "group": ""
+     },
+     {
+      "id": "A3-(12)完答",
+      "label": "(12)順不同・完答",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "A4",
+    "label": "A4（6ページ・地理感覚を問う問題）",
+    "qpage": 5,
+    "questions": [
+     {
+      "id": "A4-A",
+      "label": "A",
+      "group": ""
+     },
+     {
+      "id": "A4-B",
+      "label": "B",
+      "group": ""
+     },
+     {
+      "id": "A4-C",
+      "label": "C",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "A5",
+    "label": "A5（6ページ・地理感覚を問う問題）",
+    "qpage": 5,
+    "questions": [
+     {
+      "id": "A5-(1)大",
+      "label": "[大]",
+      "group": "(1)"
+     },
+     {
+      "id": "A5-(1)小",
+      "label": "[小]",
+      "group": "(1)"
+     },
+     {
+      "id": "A5-(2)①A",
+      "label": "①A",
+      "group": "(2)"
+     },
+     {
+      "id": "A5-(2)①D",
+      "label": "①D",
+      "group": "(2)"
+     },
+     {
+      "id": "A5-(2)②B",
+      "label": "②B",
+      "group": "(2)"
+     },
+     {
+      "id": "A5-(2)②C",
+      "label": "②C",
+      "group": "(2)"
+     }
+    ]
+   },
+   {
+    "id": "B1",
+    "label": "B1（7ページ・実力診断テスト）",
+    "qpage": 6,
+    "questions": [
+     {
+      "id": "B1-(1)",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "B1-(2)",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "B1-(3)宮城県完答",
+      "label": "宮城県 完答",
+      "group": "(3)"
+     },
+     {
+      "id": "B1-(3)山形県完答",
+      "label": "山形県 完答",
+      "group": "(3)"
+     },
+     {
+      "id": "B1-(4)完答",
+      "label": "(4)完答",
+      "group": ""
+     },
+     {
+      "id": "B1-(5)完答",
+      "label": "(5)完答",
+      "group": ""
+     },
+     {
+      "id": "B1-(6)1",
+      "label": "1",
+      "group": "(6)"
+     },
+     {
+      "id": "B1-(6)2",
+      "label": "2",
+      "group": "(6)"
+     },
+     {
+      "id": "B1-(7)",
+      "label": "(7)",
+      "group": ""
+     },
+     {
+      "id": "B1-(8)",
+      "label": "(8)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "B2",
+    "label": "B2（8〜9ページ・実力診断テスト）",
+    "qpage": 7,
+    "questions": [
+     {
+      "id": "B2-(1)",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "B2-(2)",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "B2-(3)",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "B2-(4)",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "B2-(5)①",
+      "label": "①",
+      "group": "(5)"
+     },
+     {
+      "id": "B2-(5)②",
+      "label": "②",
+      "group": "(5)"
+     }
+    ]
+   },
+   {
+    "id": "B3",
+    "label": "B3（9〜12ページ・実力診断テスト）",
+    "qpage": 8,
+    "questions": [
+     {
+      "id": "B3-(1)",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "B3-(2)",
+      "label": "(2)",
+      "group": ""
+     },
+     {
+      "id": "B3-(3)",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "B3-(4)",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "B3-(5)",
+      "label": "(5)",
+      "group": ""
+     },
+     {
+      "id": "B3-(6)",
+      "label": "(6)",
+      "group": ""
+     },
+     {
+      "id": "B3-(7)",
+      "label": "(7)",
+      "group": ""
+     },
+     {
+      "id": "B3-(8)",
+      "label": "(8)",
+      "group": ""
+     },
+     {
+      "id": "B3-(9)",
+      "label": "(9)",
+      "group": ""
+     },
+     {
+      "id": "B3-(10)",
+      "label": "(10)",
+      "group": ""
+     },
+     {
+      "id": "B3-(11)",
+      "label": "(11)",
+      "group": ""
+     },
+     {
+      "id": "B3-(12)",
+      "label": "(12)",
+      "group": ""
+     },
+     {
+      "id": "B3-(13)",
+      "label": "(13)",
+      "group": ""
+     },
+     {
+      "id": "B3-(14)",
+      "label": "(14)",
+      "group": ""
+     },
+     {
+      "id": "B3-(15)",
+      "label": "(15)",
+      "group": ""
+     },
+     {
+      "id": "B3-(16)",
+      "label": "(16)",
+      "group": ""
+     },
+     {
+      "id": "B3-(17)①",
+      "label": "①",
+      "group": "(17)"
+     },
+     {
+      "id": "B3-(17)②",
+      "label": "②",
+      "group": "(17)"
+     },
+     {
+      "id": "B3-(18)",
+      "label": "(18)",
+      "group": ""
+     },
+     {
+      "id": "B3-(19)",
+      "label": "(19)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "ST1",
+    "label": "標準編①（13ページ・記述特訓講座）",
+    "qpage": 12,
+    "questions": [
+     {
+      "id": "ST1-(1)",
+      "label": "(1)",
+      "group": ""
+     },
+     {
+      "id": "ST1-(2)生産者",
+      "label": "生産者",
+      "group": "(2)"
+     },
+     {
+      "id": "ST1-(2)消費者",
+      "label": "消費者",
+      "group": "(2)"
+     },
+     {
+      "id": "ST1-(3)",
+      "label": "(3)",
+      "group": ""
+     },
+     {
+      "id": "ST1-(4)",
+      "label": "(4)",
+      "group": ""
+     },
+     {
+      "id": "ST1-(5)",
+      "label": "(5)",
+      "group": ""
+     },
+     {
+      "id": "ST1-(6)",
+      "label": "(6)",
+      "group": ""
+     },
+     {
+      "id": "ST1-(7)",
+      "label": "(7)",
+      "group": ""
+     },
+     {
+      "id": "ST1-(8)",
+      "label": "(8)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "ST2",
+    "label": "標準編②（14ページ・記述特訓講座）",
+    "qpage": 13,
+    "questions": [
+     {
+      "id": "ST2-(1)①",
+      "label": "①",
+      "group": "(1)"
+     },
+     {
+      "id": "ST2-(1)②",
+      "label": "②",
+      "group": "(1)"
+     },
+     {
+      "id": "ST2-(1)③",
+      "label": "③",
+      "group": "(1)"
+     },
+     {
+      "id": "ST2-(1)④",
+      "label": "④",
+      "group": "(1)"
+     },
+     {
+      "id": "ST2-(2)",
+      "label": "(2)",
+      "group": ""
+     }
+    ]
+   },
+   {
+    "id": "HT",
+    "label": "発展編（15ページ・記述特訓講座）",
+    "qpage": 14,
+    "questions": [
+     {
+      "id": "HT-問11",
+      "label": "1",
+      "group": "問1"
+     },
+     {
+      "id": "HT-問12",
+      "label": "2",
+      "group": "問1"
+     },
+     {
+      "id": "HT-問13",
+      "label": "3",
+      "group": "問1"
+     },
+     {
+      "id": "HT-問14",
+      "label": "4",
+      "group": "問1"
+     },
+     {
+      "id": "HT-問2",
+      "label": "問2",
+      "group": ""
+     },
+     {
+      "id": "HT-問3",
+      "label": "問3",
+      "group": ""
+     },
+     {
+      "id": "HT-問4",
+      "label": "問4",
+      "group": ""
+     },
+     {
+      "id": "HT-問5",
+      "label": "問5",
+      "group": ""
+     },
+     {
+      "id": "HT-問6",
+      "label": "問6",
+      "group": ""
+     },
+     {
+      "id": "HT-問7",
+      "label": "問7",
+      "group": ""
+     },
+     {
+      "id": "HT-問8",
+      "label": "問8",
+      "group": ""
+     }
+    ]
+   }
+  ]
+ }
+}

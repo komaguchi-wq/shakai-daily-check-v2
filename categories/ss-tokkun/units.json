@@ -7,5 +7,23 @@
   "totalRegions": 0,
   "sectionRegions": {},
   "xyzCount": 92
+ },
+ {
+  "id": "SS-02",
+  "title": "出題形式別研究・実力診断・記述特訓",
+  "subject": "SS特訓 志望校別講座 SS-02",
+  "pageCount": 16,
+  "totalRegions": 0,
+  "sectionRegions": {},
+  "xyzCount": 100
+ },
+ {
+  "id": "昼テスト-02",
+  "title": "社会白地図作業〜その1〜",
+  "subject": "SS特訓 昼テスト SS-02",
+  "pageCount": 2,
+  "totalRegions": 0,
+  "sectionRegions": {},
+  "xyzCount": 70
  }
 ]
