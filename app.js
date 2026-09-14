@@ -2126,7 +2126,7 @@ function renderWsPages() {
       `<div class="wsm-page wsm-kaisetsu-wrap" data-pt="a" id="wsm-kaisetsu">
          <div class="wsm-page-label">解説</div>
          <div class="kaisetsu-toolbar">
-           <span class="kaisetsu-toolbar-title">解説（前提知識 → 読み解き → 答え → 今回の答案から）</span>
+           <span class="kaisetsu-toolbar-title">解説（👀 まず見るところ → 📚 前提知識 → 🔍 こう読み解く → 答え → 今回）</span>
            <button type="button" class="kaisetsu-print-btn" onclick="printWsKaisetsu()">🖨 解説を印刷（B4横）</button>
          </div>
          <div class="kaisetsu" id="wsm-kaisetsu-body"><p class="kaisetsu-loading">解説を読み込み中…</p></div>
