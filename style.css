@@ -1018,3 +1018,86 @@ body {
 /* コアプラス見開き（2ページ左右表示） */
 .wsm-spread { display: flex; gap: 6px; align-items: flex-start; }
 .wsm-spread .wsm-page { flex: 1 1 0; min-width: 0; }
+
+/* ==============================
+   解説（解答タブ末尾・SS特訓 社会 2026-09-14〜）
+   画面: カード単位・余白多め。印刷: B4横2段組（別紙と同じ紙）でカードは段の途中で割らない
+   ============================== */
+.wsm-tab-jump { margin-left: auto; font-size: 13px; }
+.wsm-kaisetsu-wrap { margin-top: 8px; }
+.kaisetsu-toolbar {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap;
+  background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 8px 12px; margin-bottom: 10px;
+}
+.kaisetsu-toolbar-title { font-size: 13px; color: #555; }
+.kaisetsu-print-btn {
+  font-size: 14px; padding: 6px 12px; border-radius: 8px; border: 1px solid #1a6fb5; background: #eef4fb; color: #1a6fb5; font-weight: 600;
+}
+.kaisetsu-loading { color: #888; font-size: 14px; padding: 12px; }
+
+.kaisetsu { --k-ink:#222; --k-sub:#555; --k-line:#ddd; --k-acc:#1a6fb5; --k-warn:#c0392b; --k-ok:#2e8b57; --k-tag:#eef4fb;
+  color: var(--k-ink); line-height: 1.7; font-size: 16px; max-width: 900px; margin: 0 auto; -webkit-user-select: text; user-select: text; }
+.kaisetsu .toc { background:#fff; border:1px solid var(--k-line); border-radius:10px; padding:10px 16px; margin: 0 0 14px; font-size:14px; }
+.kaisetsu .toc ul { margin:4px 0 0; padding-left:20px; columns:2; }
+.kaisetsu .toc a { color: var(--k-acc); text-decoration: none; }
+.kaisetsu .daimon { margin-top: 26px; padding-top: 8px; border-top: 3px solid var(--k-acc); }
+.kaisetsu .daimon:first-of-type { margin-top: 0; }
+.kaisetsu .dtitle { font-size: 20px; margin: 6px 0 12px; color: var(--k-acc); font-weight: 700; }
+.kaisetsu .card { background:#fff; border:1px solid var(--k-line); border-radius:12px; padding:16px 18px; margin:0 0 18px; box-shadow: none; }
+.kaisetsu .card h2 { font-size:19px; margin:0 0 6px; display:flex; align-items:center; gap:10px; flex-wrap:wrap; font-weight:700; }
+.kaisetsu .type { display:inline-block; background:var(--k-tag); color:var(--k-acc); font-size:12px; padding:2px 8px; border-radius:999px; font-weight:600; }
+.kaisetsu .src { color:var(--k-sub); font-size:12px; margin-bottom:10px; }
+.kaisetsu h3 { font-size:15px; margin:14px 0 4px; padding-left:8px; border-left:4px solid var(--k-acc); font-weight:700; }
+.kaisetsu ol, .kaisetsu ul { margin:4px 0 4px 0; padding-left:22px; }
+.kaisetsu li { margin:2px 0; }
+.kaisetsu p { margin: 6px 0; }
+.kaisetsu .ans { background:#f2f8f2; border:1px solid #cfe6d3; border-radius:8px; padding:8px 12px; margin-top:10px; font-weight:600; }
+.kaisetsu .miss { background:#fff5f5; border:1px solid #f0c9c9; border-radius:8px; padding:8px 12px; margin-top:10px; }
+.kaisetsu .miss b { color: var(--k-warn); }
+.kaisetsu .ok { color: var(--k-ok); font-weight:600; }
+.kaisetsu .x { color: var(--k-warn); font-weight:600; }
+.kaisetsu .tip { background:#fffbe6; border:1px solid #f1e3a1; border-radius:8px; padding:8px 12px; margin-top:10px; font-size:15px; }
+.kaisetsu table { border-collapse:collapse; font-size:14px; margin:6px 0; max-width: 100%; }
+.kaisetsu td, .kaisetsu th { border:1px solid var(--k-line); padding:3px 10px; text-align:left; vertical-align: top; }
+.kaisetsu th { background:#f3f3f3; font-weight:600; }
+.kaisetsu .overview li { margin:4px 0; }
+
+/* 印刷（解説）: B4横・2段組。1段≈A4の幅で画面と同じ読みやすさ。カード・見出しは段またぎ禁止 */
+#print-overlay-body .kp { display: none; }
+@media print {
+  #print-overlay-body .kp { display: block !important; width: 100% !important; visibility: visible !important; background: #fff !important; }
+  #print-overlay-body .kp-title { font-size: 15pt; font-weight: 700; margin: 0 0 6mm; padding-bottom: 2mm; border-bottom: 2px solid #1a6fb5; }
+  #print-overlay-body .kaisetsu-print {
+    column-count: 2; column-gap: 12mm; column-fill: auto; column-rule: 1px solid #ccc;
+    max-width: none !important; font-size: 10.5pt !important; line-height: 1.6 !important; color: #000 !important;
+  }
+  #print-overlay-body .kaisetsu-print .toc { display: none; }
+  #print-overlay-body .kaisetsu-print .daimon { margin-top: 6mm; padding-top: 2mm; border-top: 2px solid #1a6fb5; break-inside: auto; }
+  #print-overlay-body .kaisetsu-print .daimon:first-of-type { margin-top: 0; }
+  #print-overlay-body .kaisetsu-print .dtitle { font-size: 13pt; margin: 2mm 0 4mm; break-after: avoid; }
+  /* カード自体は段をまたいでよい（余白の無駄を防ぐ）。見出し・答え・答案・コツ・箇条書き1項目・表の行は途中で割らない */
+  #print-overlay-body .kaisetsu-print .card {
+    break-inside: auto; page-break-inside: auto;
+    border: 1px solid #bbb; border-radius: 3mm; padding: 4mm 5mm; margin: 0 0 5mm; box-shadow: none;
+    orphans: 3; widows: 3;
+  }
+  #print-overlay-body .kaisetsu-print .card h2 { font-size: 12.5pt; break-after: avoid; page-break-after: avoid; }
+  #print-overlay-body .kaisetsu-print .card > .src { break-after: avoid; }
+  #print-overlay-body .kaisetsu-print h3 { font-size: 10.5pt; margin: 3mm 0 1mm; break-after: avoid; page-break-after: avoid; }
+  #print-overlay-body .kaisetsu-print li,
+  #print-overlay-body .kaisetsu-print tr,
+  #print-overlay-body .kaisetsu-print .ans,
+  #print-overlay-body .kaisetsu-print .miss,
+  #print-overlay-body .kaisetsu-print .tip { break-inside: avoid; page-break-inside: avoid; -webkit-column-break-inside: avoid; }
+  #print-overlay-body .kaisetsu-print p { orphans: 3; widows: 3; }
+  #print-overlay-body .kaisetsu-print .type { font-size: 8.5pt; border: 1px solid #9bbbe0; }
+  #print-overlay-body .kaisetsu-print .src { font-size: 8.5pt; }
+  #print-overlay-body .kaisetsu-print table { font-size: 9pt; }
+  #print-overlay-body .kaisetsu-print .ans, #print-overlay-body .kaisetsu-print .miss, #print-overlay-body .kaisetsu-print .tip { padding: 2mm 3mm; margin-top: 3mm; }
+  #print-overlay-body .kaisetsu-print .tip { font-size: 10pt; }
+  #print-overlay-body .kaisetsu-print .ans { background: #f2f8f2 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  #print-overlay-body .kaisetsu-print .miss { background: #fff5f5 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  #print-overlay-body .kaisetsu-print .tip { background: #fffbe6 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  #print-overlay-body .kaisetsu-print .ok { color: #2e8b57 !important; }
+  #print-overlay-body .kaisetsu-print .x, #print-overlay-body .kaisetsu-print .miss b { color: #c0392b !important; }
+}

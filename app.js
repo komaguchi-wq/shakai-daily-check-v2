@@ -1594,6 +1594,8 @@ function setupEventListeners() {
   });
   document.getElementById("wsm-tab-q").addEventListener("click", () => setWsTab(false));
   document.getElementById("wsm-tab-a").addEventListener("click", () => setWsTab(true));
+  const kj = document.getElementById("wsm-kaisetsu-jump");
+  if (kj) kj.addEventListener("click", jumpToWsKaisetsu);
   document.getElementById("wsm-print-btn").addEventListener("click", wsmPrint);
 
   // データバンク復習画面
@@ -2118,8 +2120,78 @@ function renderWsPages() {
     const a = xyz.answerPages.map((p, i) => wsmPageHTML("a", p, i, xyz.answerPages.length, base)).join("");
     el.innerHTML = q + a;
   }
+  // ★2026-09-14 解説（HTML断片 kaisetsu.html）: 解答タブの末尾に付ける（SS特訓 社会から）
+  if (xyz.kaisetsu) {
+    el.insertAdjacentHTML("beforeend",
+      `<div class="wsm-page wsm-kaisetsu-wrap" data-pt="a" id="wsm-kaisetsu">
+         <div class="wsm-page-label">解説</div>
+         <div class="kaisetsu-toolbar">
+           <span class="kaisetsu-toolbar-title">解説（前提知識 → 読み解き → 答え → 今回の答案から）</span>
+           <button type="button" class="kaisetsu-print-btn" onclick="printWsKaisetsu()">🖨 解説を印刷（B4横）</button>
+         </div>
+         <div class="kaisetsu" id="wsm-kaisetsu-body"><p class="kaisetsu-loading">解説を読み込み中…</p></div>
+       </div>`);
+    loadWsKaisetsu();
+  }
   applyWsTabVisibility();
   updateWsTargetBanners();
+}
+
+// 解説断片の取得（単元ごとに1回だけ fetch してキャッシュ）
+let _kaisetsuCache = {};
+function wsKaisetsuURL() {
+  const xyz = currentWsm;
+  if (!xyz || !xyz.kaisetsu) return null;
+  return `categories/${currentCategory.id}/units/${currentUnit.id}/${xyz.kaisetsu}`;
+}
+async function loadWsKaisetsu() {
+  const url = wsKaisetsuURL();
+  const body = document.getElementById("wsm-kaisetsu-body");
+  if (!url || !body) return;
+  try {
+    if (!_kaisetsuCache[url]) {
+      const res = await fetch(url, { cache: "no-cache" });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      _kaisetsuCache[url] = await res.text();
+    }
+    if (document.getElementById("wsm-kaisetsu-body") === body) {
+      body.innerHTML = _kaisetsuCache[url];
+      // 目次リンク(#A1 等)は location.hash（画面ルーティング）を変えずにブロック内スクロール
+      body.querySelectorAll(".toc a[href^='#']").forEach(a => a.addEventListener("click", ev => {
+        ev.preventDefault();
+        const target = body.querySelector(`[id="${a.getAttribute("href").slice(1)}"]`);
+        const pages = document.getElementById("wsm-pages");
+        if (target && pages) pages.scrollTop = pages.scrollTop + target.getBoundingClientRect().top - pages.getBoundingClientRect().top - 6;
+      }));
+    }
+  } catch (e) {
+    body.innerHTML = `<p class="kaisetsu-loading">解説を読み込めませんでした（${e.message}）</p>`;
+  }
+}
+// 「解説へ」ボタン: 解答タブに切り替えて解説ブロックまでスクロール
+function jumpToWsKaisetsu() {
+  if (!wsmShowingAnswer) setWsTab(true);
+  const el = document.getElementById("wsm-kaisetsu");
+  const pages = document.getElementById("wsm-pages");
+  if (el && pages) pages.scrollTop = pages.scrollTop + el.getBoundingClientRect().top - pages.getBoundingClientRect().top - 6;
+}
+// 解説の印刷: B4横・2段組（別紙と同じ紙）。画面の読みやすさ（カード単位・余白）を保ち、カードは段の途中で割らない
+async function printWsKaisetsu() {
+  const url = wsKaisetsuURL();
+  if (!url) return;
+  if (!_kaisetsuCache[url]) await loadWsKaisetsu();
+  const html = _kaisetsuCache[url];
+  if (!html) { alert("解説がまだ読み込めていません"); return; }
+  const ov = document.getElementById("print-overlay");
+  const body = document.getElementById("print-overlay-body");
+  if (!ov || !body) return;
+  _resetPrintOverlay();
+  const title = `${currentUnit.id} ${currentUnit.title || wsTitle()} 解説`;
+  body.innerHTML = `<div class="kp"><div class="kp-title">${title}</div><div class="kaisetsu kaisetsu-print">${html}</div></div>`;
+  let style = document.getElementById("dynamic-print-page");
+  if (!style) { style = document.createElement("style"); style.id = "dynamic-print-page"; document.head.appendChild(style); }
+  style.textContent = `@page { size: B4 landscape; margin: 12mm 12mm 12mm 12mm; }`;
+  requestAnimationFrame(() => { try { window.print(); } catch (e) { console.warn("print err", e); } });
 }
 
 function wsTargetTextForPage(idx, idsSet) {
@@ -2160,6 +2232,8 @@ function applyWsTabVisibility() {
 function updateWsTabUI() {
   document.getElementById("wsm-tab-q").classList.toggle("active", !wsmShowingAnswer);
   document.getElementById("wsm-tab-a").classList.toggle("active", wsmShowingAnswer);
+  const jump = document.getElementById("wsm-kaisetsu-jump");
+  if (jump) jump.style.display = (currentWsm && currentWsm.kaisetsu) ? "" : "none";
 }
 
 function setWsTab(showAnswer) {
