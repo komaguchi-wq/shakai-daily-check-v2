@@ -1362,7 +1362,8 @@
    "solved_03.jpg",
    "solved_04.jpg",
    "solved_05.jpg"
-  ]
+  ],
+  "kaisetsu": "kaisetsu.html"
  },
  "imageBase": "https://komaguchi-wq.github.io/shakai-daily-check-v2-images-01/daily-check/640-22/"
 }
