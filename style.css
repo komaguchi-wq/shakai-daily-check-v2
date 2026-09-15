@@ -1060,6 +1060,9 @@ body {
 .kaisetsu th { background:#f3f3f3; font-weight:700; }
 .kaisetsu .model { background:#f0f8f2; border:1px solid #bfe0c7; border-radius:10px; padding:10px 14px; margin-top:12px; }
 .kaisetsu .model b { color: var(--k-read); }
+.kaisetsu .card-fact { border-left: 6px solid #9aa7b8; padding-top: 14px; }
+.kaisetsu .card-fact .type { background:#f0f2f5; color:#556; }
+.kaisetsu .fact { margin: 4px 0 2px; padding: 2px 4px; }
 
 #print-overlay-body .kp { display: none; }
 @media print {
@@ -1098,6 +1101,8 @@ body {
   #print-overlay-body .kaisetsu-print .miss { background: #fff4f4 !important; }
   #print-overlay-body .kaisetsu-print .tip { background: #fffbe6 !important; font-size: 10pt; }
   #print-overlay-body .kaisetsu-print p { orphans: 3; widows: 3; }
+  #print-overlay-body .kaisetsu-print .card-fact { border-left: 1.5mm solid #9aa7b8; }
+  #print-overlay-body .kaisetsu-print .fact { break-inside: avoid; }
   #print-overlay-body .kaisetsu-print .ok { color: #2e8b57 !important; }
   #print-overlay-body .kaisetsu-print .x, #print-overlay-body .kaisetsu-print .miss b { color: #c0392b !important; }
 }
