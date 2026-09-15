@@ -1263,12 +1263,104 @@ function _setPrintPageGeometry(img) {
     `@media print { #print-overlay-body .pg img { max-height: ${maxH}mm !important; } }`;
 }
 
-function _openPrintOverlay(titleText, dataURLs) {
+// ===== 印刷の濃度補正（2026-09-15 ユーザー要望: スキャン系プリントの印刷が薄くて読みにくい）=====
+// 算数アプリ(math-quiz)の toMonoWhite と同じ式を、全印刷経路が通る _openPrintOverlay に共通適用する。
+//  1. 画像ごとに紙の明るさ(輝度の90パーセンタイル)を測り、紙より CUT 暗い所から先を文字とみなして
+//     t^GAMMA で黒へ寄せる（薄い印字ほど強く濃くする。網掛け・図の灰色塗りは中間グレーのまま）
+//  2. 細い印字は 3x3 最小値フィルタを半分だけ混ぜて芯を太らせる（JF-02 のような細線の薄いスキャン向け。
+//     全量混ぜると①②の中が潰れるので (L+min)/2 にとどめる）
+//  3. 彩度の高い画素（赤の対象文字・橙の枠や解答・赤ペン採点・青の罫線）は色をそのまま残す
+//  4. 変換後は JPEG(q0.85) にして iPad の印刷準備を軽くする。失敗したページは元画像のまま印刷を止めない
+// 切り分け用: URL に ?print=color を付けると補正なしで元画像のまま印刷する
+const PRINT_MONO = !/[?&]print=color/.test(location.search);
+const PRINT_MONO_CUT = 12;       // 紙の明るさ − これ以上暗い画素を文字とみなす
+const PRINT_MONO_BLACK = 70;     // この輝度以下は完全な黒
+const PRINT_MONO_GAMMA = 0.65;   // 薄い文字の持ち上げ量（小さいほど濃く）
+const PRINT_MONO_KEEP_SAT = 80;  // max-min がこれ以上の画素は色付きとして無加工
+function toMonoWhite(ctx, w, h) {
+  const id = ctx.getImageData(0, 0, w, h);
+  const d = id.data, n = w * h;
+  const lum = new Uint8ClampedArray(n);
+  const hist = new Uint32Array(256);
+  for (let i = 0, p = 0; i < n; i++, p += 4) {
+    const v = (d[p] * 299 + d[p + 1] * 587 + d[p + 2] * 114) / 1000 | 0;
+    lum[i] = v; hist[v]++;
+  }
+  let acc = 0, bg = 255;
+  for (let v = 0; v < 256; v++) { acc += hist[v]; if (acc >= n * 0.9) { bg = v; break; } }
+  const hi = Math.max(bg - PRINT_MONO_CUT, PRINT_MONO_BLACK + 20);
+  const lut = new Uint8ClampedArray(256);
+  for (let v = 0; v < 256; v++) {
+    let t = (hi - v) / (hi - PRINT_MONO_BLACK);
+    t = t < 0 ? 0 : t > 1 ? 1 : t;
+    lut[v] = 255 * (1 - Math.pow(t, PRINT_MONO_GAMMA));
+  }
+  // 3x3 最小値（横→縦の分離フィルタ）
+  const tmp = new Uint8ClampedArray(n), mn = new Uint8ClampedArray(n);
+  for (let y = 0; y < h; y++) {
+    const o = y * w;
+    for (let x = 0; x < w; x++) {
+      let m = lum[o + x];
+      if (x > 0 && lum[o + x - 1] < m) m = lum[o + x - 1];
+      if (x < w - 1 && lum[o + x + 1] < m) m = lum[o + x + 1];
+      tmp[o + x] = m;
+    }
+  }
+  for (let y = 0; y < h; y++) {
+    const o = y * w, up = o - w, dn = o + w;
+    for (let x = 0; x < w; x++) {
+      let m = tmp[o + x];
+      if (y > 0 && tmp[up + x] < m) m = tmp[up + x];
+      if (y < h - 1 && tmp[dn + x] < m) m = tmp[dn + x];
+      mn[o + x] = m;
+    }
+  }
+  for (let i = 0, p = 0; i < n; i++, p += 4) {
+    const r = d[p], g = d[p + 1], b = d[p + 2];
+    const mx = r > g ? (r > b ? r : b) : (g > b ? g : b);
+    const mi = r < g ? (r < b ? r : b) : (g < b ? g : b);
+    if (mx - mi >= PRINT_MONO_KEEP_SAT) continue;   // 色付きはそのまま
+    const v = lut[(lum[i] + mn[i]) >> 1];
+    d[p] = d[p + 1] = d[p + 2] = v;
+  }
+  ctx.putImageData(id, 0, 0);
+}
+function _loadPrintImage(u) {
+  return new Promise((res, rej) => { const im = new Image(); im.onload = () => res(im); im.onerror = rej; im.src = u; });
+}
+// dataURL の配列を1枚ずつ濃度補正して JPEG dataURL に置き換える（作業canvasは1枚を使い回し、
+// 各ページの後で width=0 で即解放＝iOS の canvas メモリ枯渇対策。算数アプリと同じ）
+async function _monoPrintDataURLs(urls) {
+  if (!PRINT_MONO) return urls;
+  const work = document.createElement("canvas");
+  const out = [];
+  for (const u of urls) {
+    let r = u;
+    try {
+      const im = await _loadPrintImage(u);
+      work.width = im.naturalWidth; work.height = im.naturalHeight;
+      const ctx = work.getContext("2d");
+      ctx.drawImage(im, 0, 0);
+      toMonoWhite(ctx, work.width, work.height);
+      const j = work.toDataURL("image/jpeg", 0.85);
+      if (j && j.length > 1000) r = j;    // iOS は空の canvas から "data:," を返すことがある
+    } catch (e) {
+      console.warn("print mono failed, using original image", e);
+    } finally {
+      work.width = 0; work.height = 0;
+    }
+    out.push(r);
+    await new Promise(r2 => setTimeout(r2, 0));   // 1ページごとに event loop へ戻す
+  }
+  return out;
+}
+
+async function _openPrintOverlay(titleText, dataURLs) {
   const ov = document.getElementById("print-overlay");
   const body = document.getElementById("print-overlay-body");
   if (!ov || !body) return;
   _resetPrintOverlay();
-  const urls = Array.isArray(dataURLs) ? dataURLs : [dataURLs];
+  const urls = await _monoPrintDataURLs(Array.isArray(dataURLs) ? dataURLs : [dataURLs]);
   _printActiveBlobURLs = urls.map(_dataURLtoBlobURL);
   body.innerHTML = _printActiveBlobURLs
     .map(u => `<div class="pg"><img class="pi" src="${u}"></div>`).join("");
