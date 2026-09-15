@@ -1265,17 +1265,33 @@ function _setPrintPageGeometry(img) {
 
 // ===== 印刷の濃度補正（2026-09-15 ユーザー要望: スキャン系プリントの印刷が薄くて読みにくい）=====
 // 算数アプリ(math-quiz)の toMonoWhite と同じ式を、全印刷経路が通る _openPrintOverlay に共通適用する。
-//  1. 画像ごとに紙の明るさ(輝度の90パーセンタイル)を測り、紙より CUT 暗い所から先を文字とみなして
-//     t^GAMMA で黒へ寄せる（薄い印字ほど強く濃くする。網掛け・図の灰色塗りは中間グレーのまま）
-//  2. 細い印字は 3x3 最小値フィルタを半分だけ混ぜて芯を太らせる（JF-02 のような細線の薄いスキャン向け。
-//     全量混ぜると①②の中が潰れるので (L+min)/2 にとどめる）
+//  1. 画像ごとに紙の明るさ(輝度の90パーセンタイル)を測り、紙より cut 暗い所から先を文字とみなして
+//     t^gamma で黒へ寄せる（薄い印字ほど強く濃くする。網掛け・図の灰色塗りは中間グレーのまま）
+//     cut を大きくすると文字のまわりの薄いにじみ(ハロー)が白に飛んで輪郭が締まる（12=算数と同じ／30=締め気味）
+//  2. bold>0 のとき 3x3 最小値フィルタを bold の割合だけ混ぜて芯を太らせる（0.5 だと太くて読みにくいと判断→既定は下記）
 //  3. 彩度の高い画素（赤の対象文字・橙の枠や解答・赤ペン採点・青の罫線）は色をそのまま残す
 //  4. 変換後は JPEG(q0.85) にして iPad の印刷準備を軽くする。失敗したページは元画像のまま印刷を止めない
-// 切り分け用: URL に ?print=color を付けると補正なしで元画像のまま印刷する
-const PRINT_MONO = !/[?&]print=color/.test(location.search);
-const PRINT_MONO_CUT = 12;       // 紙の明るさ − これ以上暗い画素を文字とみなす
+// 切り分け・調整用 URL パラメータ（カンマ区切りで併用可）:
+//   ?print=color        補正なし（元画像のまま印刷）
+//   ?print=bold25       太らせ 25%（bold0=太らせ無し, bold50=半分）
+//   ?print=cut30        輪郭締め量（cut12=算数と同じ, cut30=締め気味）
+//   ?print=gamma65      薄い文字の持ち上げ（小さいほど濃い。既定 65）
+const PRINT_DEFAULTS = { bold: 0, cut: 12, gamma: 0.65 };
+const PRINT_OPTS = (() => {
+  const o = { color: false, bold: PRINT_DEFAULTS.bold, cut: PRINT_DEFAULTS.cut, gamma: PRINT_DEFAULTS.gamma };
+  const m = location.search.match(/[?&]print=([^&]*)/);
+  if (!m) return o;
+  for (const t of decodeURIComponent(m[1]).split(",")) {
+    let mm;
+    if (t === "color") o.color = true;
+    else if ((mm = t.match(/^bold(\d+)$/))) o.bold = Math.min(100, +mm[1]) / 100;
+    else if ((mm = t.match(/^cut(\d+)$/))) o.cut = +mm[1];
+    else if ((mm = t.match(/^gamma(\d+)$/))) o.gamma = Math.max(10, +mm[1]) / 100;
+  }
+  return o;
+})();
+const PRINT_MONO = !PRINT_OPTS.color;
 const PRINT_MONO_BLACK = 70;     // この輝度以下は完全な黒
-const PRINT_MONO_GAMMA = 0.65;   // 薄い文字の持ち上げ量（小さいほど濃く）
 const PRINT_MONO_KEEP_SAT = 80;  // max-min がこれ以上の画素は色付きとして無加工
 function toMonoWhite(ctx, w, h) {
   const id = ctx.getImageData(0, 0, w, h);
@@ -1288,31 +1304,35 @@ function toMonoWhite(ctx, w, h) {
   }
   let acc = 0, bg = 255;
   for (let v = 0; v < 256; v++) { acc += hist[v]; if (acc >= n * 0.9) { bg = v; break; } }
-  const hi = Math.max(bg - PRINT_MONO_CUT, PRINT_MONO_BLACK + 20);
+  const hi = Math.max(bg - PRINT_OPTS.cut, PRINT_MONO_BLACK + 20);
   const lut = new Uint8ClampedArray(256);
   for (let v = 0; v < 256; v++) {
     let t = (hi - v) / (hi - PRINT_MONO_BLACK);
     t = t < 0 ? 0 : t > 1 ? 1 : t;
-    lut[v] = 255 * (1 - Math.pow(t, PRINT_MONO_GAMMA));
+    lut[v] = 255 * (1 - Math.pow(t, PRINT_OPTS.gamma));
   }
-  // 3x3 最小値（横→縦の分離フィルタ）
-  const tmp = new Uint8ClampedArray(n), mn = new Uint8ClampedArray(n);
-  for (let y = 0; y < h; y++) {
-    const o = y * w;
-    for (let x = 0; x < w; x++) {
-      let m = lum[o + x];
-      if (x > 0 && lum[o + x - 1] < m) m = lum[o + x - 1];
-      if (x < w - 1 && lum[o + x + 1] < m) m = lum[o + x + 1];
-      tmp[o + x] = m;
+  // 太らせ: 3x3 最小値（横→縦の分離フィルタ）を bold の割合で混ぜる。bold=0 なら計算しない
+  const b256 = Math.round(PRINT_OPTS.bold * 256);
+  let mn = null;
+  if (b256 > 0) {
+    const tmp = new Uint8ClampedArray(n); mn = new Uint8ClampedArray(n);
+    for (let y = 0; y < h; y++) {
+      const o = y * w;
+      for (let x = 0; x < w; x++) {
+        let m = lum[o + x];
+        if (x > 0 && lum[o + x - 1] < m) m = lum[o + x - 1];
+        if (x < w - 1 && lum[o + x + 1] < m) m = lum[o + x + 1];
+        tmp[o + x] = m;
+      }
     }
-  }
-  for (let y = 0; y < h; y++) {
-    const o = y * w, up = o - w, dn = o + w;
-    for (let x = 0; x < w; x++) {
-      let m = tmp[o + x];
-      if (y > 0 && tmp[up + x] < m) m = tmp[up + x];
-      if (y < h - 1 && tmp[dn + x] < m) m = tmp[dn + x];
-      mn[o + x] = m;
+    for (let y = 0; y < h; y++) {
+      const o = y * w, up = o - w, dn = o + w;
+      for (let x = 0; x < w; x++) {
+        let m = tmp[o + x];
+        if (y > 0 && tmp[up + x] < m) m = tmp[up + x];
+        if (y < h - 1 && tmp[dn + x] < m) m = tmp[dn + x];
+        mn[o + x] = m;
+      }
     }
   }
   for (let i = 0, p = 0; i < n; i++, p += 4) {
@@ -1320,7 +1340,8 @@ function toMonoWhite(ctx, w, h) {
     const mx = r > g ? (r > b ? r : b) : (g > b ? g : b);
     const mi = r < g ? (r < b ? r : b) : (g < b ? g : b);
     if (mx - mi >= PRINT_MONO_KEEP_SAT) continue;   // 色付きはそのまま
-    const v = lut[(lum[i] + mn[i]) >> 1];
+    const L = mn ? (lum[i] * (256 - b256) + mn[i] * b256) >> 8 : lum[i];
+    const v = lut[L];
     d[p] = d[p + 1] = d[p + 2] = v;
   }
   ctx.putImageData(id, 0, 0);
