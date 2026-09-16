@@ -1063,18 +1063,23 @@ body {
 .kaisetsu .card-fact { border-left: 6px solid #9aa7b8; padding-top: 14px; }
 .kaisetsu .card-fact .type { background:#f0f2f5; color:#556; }
 .kaisetsu .fact { margin: 4px 0 2px; padding: 2px 4px; }
+/* 算数の簡易図（文字で描く連除法・数直線・○の並び） */
+.kaisetsu pre.fig { font-family: Menlo, "Osaka-Mono", "MS Gothic", "Noto Sans Mono CJK JP", monospace; font-size:14px; line-height:1.5; background:#fafafa; border:1px dashed #cfd6de; border-radius:8px; padding:8px 12px; margin:6px 0 4px; white-space:pre; overflow-x:auto; }
 
 #print-overlay-body .kp { display: none; }
 @media print {
   #print-overlay-body .kp { display: block !important; width: 100% !important; visibility: visible !important; background: #fff !important; }
   #print-overlay-body .kp-title { font-size: 15pt; font-weight: 700; margin: 0 0 5mm; padding-bottom: 2mm; border-bottom: 2px solid #1a6fb5; }
   #print-overlay-body .kaisetsu-print {
-    column-count: 2; column-gap: 12mm; column-fill: auto; column-rule: 1px solid #ccc;
     max-width: none !important; font-size: 10.5pt !important; line-height: 1.65 !important; color: #000 !important;
   }
   #print-overlay-body .kaisetsu-print .toc { display: none; }
-  #print-overlay-body .kaisetsu-print .daimon { margin-top: 5mm; }
-  #print-overlay-body .kaisetsu-print .daimon:first-of-type { margin-top: 0; }
+  /* ★2026-09-16 大問（.daimon）ごとに2段組の箱を分け、区切りは必ず新しいページから始める（ユーザー要望） */
+  #print-overlay-body .kaisetsu-print .daimon {
+    column-count: 2; column-gap: 12mm; column-fill: auto; column-rule: 1px solid #ccc;
+    margin-top: 0; break-before: page; page-break-before: always;
+  }
+  #print-overlay-body .kaisetsu-print .daimon:first-of-type { break-before: auto; page-break-before: auto; }
   #print-overlay-body .kaisetsu-print .dtitle { font-size: 13pt; margin: 0 0 4mm; padding: 2mm 4mm; break-after: avoid; break-inside: avoid;
     background: #1a6fb5 !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   #print-overlay-body .kaisetsu-print .card {
@@ -1106,5 +1111,6 @@ body {
   #print-overlay-body .kaisetsu-print .ok { color: #2e8b57 !important; }
   #print-overlay-body .kaisetsu-print .x, #print-overlay-body .kaisetsu-print .miss b { color: #c0392b !important; }
 }
+#print-overlay-body .kaisetsu-print pre.fig { font-size: 9pt; line-height:1.4; page-break-inside: avoid; break-inside: avoid; background:#fff; }
 
 /* kaisetsu-css:end */
