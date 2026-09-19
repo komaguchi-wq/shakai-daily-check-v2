@@ -671,5 +671,30 @@
     "furiganaKeys": [
       "3-7"
     ]
+  },
+  {
+    "id": "WS-23",
+    "title": "WS-23 入試総合演習 資料問題：日本国憲法の条文",
+    "subject": "Weekly SapiX",
+    "pageCount": 4,
+    "totalRegions": 111,
+    "sectionRegions": {
+      "kakunin": 111
+    },
+    "sectionPages": {
+      "1": "kakunin",
+      "2": "kakunin",
+      "3": "kakunin",
+      "4": "kakunin"
+    },
+    "xyzCount": 65,
+    "pageRegionCounts": {
+      "1": 34,
+      "2": 27,
+      "3": 24,
+      "4": 26
+    },
+    "rawTotalRegions": 111,
+    "rawKakuninRegions": 111
   }
 ]
