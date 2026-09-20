@@ -1020,13 +1020,18 @@ body {
 .wsm-spread .wsm-page { flex: 1 1 0; min-width: 0; }
 
 /* kaisetsu-css:begin （scripts/kaisetsu/inject_css.py が生成。手で編集せず css/ を直して再注入） */
-.wsm-tab-jump { margin-left: auto; font-size: 13px; }
+#wsm-tab-k.active { color: #1a6fb5; }
 .wsm-kaisetsu-wrap { margin-top: 8px; }
 .kaisetsu-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap;
   background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 8px 12px; margin-bottom: 10px; }
 .kaisetsu-toolbar-title { font-size: 13px; color: #555; }
 .kaisetsu-print-btn { font-size: 14px; padding: 6px 12px; border-radius: 8px; border: 1px solid #1a6fb5; background: #eef4fb; color: #1a6fb5; font-weight: 600; }
 .kaisetsu-loading { color: #888; font-size: 14px; padding: 12px; }
+/* ★2026-09-20 問題選択（全問以外）の対象/対象外: 対象は赤い左帯・対象外は薄く。大問ごと対象なしは見出しも薄く */
+.kaisetsu-target-note { background: #fff4f4; border: 1px solid #f1caca; color: #c0392b; border-radius: 10px; padding: 8px 12px; margin-bottom: 10px; font-size: 14px; font-weight: 600; }
+.kaisetsu .card.k-on { border-left: 6px solid #ff3b30; }
+.kaisetsu .card.k-off { opacity: 0.38; }
+.kaisetsu .daimon.k-empty .dtitle, .kaisetsu .daimon.k-empty .card-overview, .kaisetsu .daimon.k-empty .card-summary { opacity: 0.38; }
 .kaisetsu { --k-ink:#222; --k-sub:#666; --k-line:#dfe3ea; --k-acc:#1a6fb5; --k-hint:#e0891a; --k-read:#2e8b57; --k-warn:#c0392b; --k-ok:#2e8b57;
   color: var(--k-ink); line-height: 1.85; font-size: 17px; max-width: 900px; margin: 0 auto; -webkit-user-select: text; user-select: text;
   font-family: -apple-system, "Hiragino Maru Gothic ProN", "Hiragino Sans", "Noto Sans JP", sans-serif; }
@@ -1070,6 +1075,10 @@ body {
 @media print {
   #print-overlay-body .kp { display: block !important; width: 100% !important; visibility: visible !important; background: #fff !important; }
   #print-overlay-body .kp-title { font-size: 15pt; font-weight: 700; margin: 0 0 5mm; padding-bottom: 2mm; border-bottom: 2px solid #1a6fb5; }
+  #print-overlay-body .kp-sub { font-size: 10.5pt; font-weight: 700; color: #c0392b; margin: -3mm 0 4mm; }
+  /* 画面用の対象/対象外の印は印刷では使わない（印刷は対象だけを流す） */
+  #print-overlay-body .kaisetsu-print .card.k-off { opacity: 1; }
+  #print-overlay-body .kaisetsu-print .card.k-on { border-left: 1px solid #bbb; }
   #print-overlay-body .kaisetsu-print {
     max-width: none !important; font-size: 10.5pt !important; line-height: 1.65 !important; color: #000 !important;
   }

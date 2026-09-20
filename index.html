@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>SAPIX社会 デイリーチェック v2</title>
-  <link rel="stylesheet" href="style.css?v=20260916a">
+  <link rel="stylesheet" href="style.css?v=20260920b">
 </head>
 <body>
   <!-- ユーザー選択画面 -->
@@ -73,7 +73,7 @@
       <div class="wsm-tabbar">
         <button class="wsm-tab active" id="wsm-tab-q">問題</button>
         <button class="wsm-tab" id="wsm-tab-a">解答</button>
-        <button class="wsm-tab wsm-tab-jump" id="wsm-kaisetsu-jump" style="display:none" title="解答タブ末尾の解説へ">解説へ ▼</button>
+        <button class="wsm-tab" id="wsm-tab-k" style="display:none" title="解説（右上の印刷で解説を印刷）">解説</button>
       </div>
       <div class="wsm-table-title" id="wsm-table-toggle" role="button"><span>正誤表（小問ごとに ○ / ✕）</span><span class="wsm-table-chev">▽ 広げる</span></div>
       <div id="wsm-proposal-banner" class="proposal-banner" style="display:none"></div>
@@ -290,6 +290,8 @@
     <div id="print-overlay-body"></div>
   </div>
 
-  <script src="app.js?v=20260915d"></script>
+  <script src="kaisetsu_filter.js?v=1"></script>
+
+  <script src="app.js?v=20260920b"></script>
 </body>
 </html>

@@ -1707,8 +1707,8 @@ function setupEventListeners() {
   });
   document.getElementById("wsm-tab-q").addEventListener("click", () => setWsTab(false));
   document.getElementById("wsm-tab-a").addEventListener("click", () => setWsTab(true));
-  const kj = document.getElementById("wsm-kaisetsu-jump");
-  if (kj) kj.addEventListener("click", jumpToWsKaisetsu);
+  const tk = document.getElementById("wsm-tab-k");
+  if (tk) tk.addEventListener("click", setWsTabKaisetsu);
   document.getElementById("wsm-print-btn").addEventListener("click", wsmPrint);
 
   // データバンク復習画面
@@ -1732,6 +1732,7 @@ function setupEventListeners() {
 //   大問/小問構造だけで成立。正誤は子が自己採点で ○/✕ 登録）
 // ==============================
 let wsmShowingAnswer = false;
+let wsmShowingKaisetsu = false; // ★2026-09-20 解説タブ（問題／解答／解説の横並び。解説中は wsmShowingAnswer も true）
 let pendingXyz = {};       // {subId: "correct"|"wrong"} 仮選択
 let xyzIdleTimer = null;
 let wsmDirect = false; // 単元一覧からモード選択へ直行した（戻るは単元一覧へ）
@@ -1903,6 +1904,7 @@ function setWsFilter(mode) {
   renderXyzTable();
   updateWsTargetBanners();
   updateWsModeBar();
+  applyKaisetsuFilterMarks();
 }
 
 
@@ -1911,6 +1913,7 @@ function startWsMode(mode) {
   wsmFilter = mode;
   wsmFilteredIds = computeWsFilterIds(mode);
   wsmShowingAnswer = false;
+  wsmShowingKaisetsu = false;
   pendingXyz = {};
   document.getElementById("wsmondai-title").textContent =
     wsmDirect && currentUnit.title ? `${currentUnit.id} ${currentUnit.title}` : `${currentUnit.id} ${wsTitle()}`;
@@ -2236,12 +2239,12 @@ function renderWsPages() {
   // ★2026-09-14 解説（HTML断片 kaisetsu.html）: 解答タブの末尾に付ける（SS特訓 社会から）
   if (xyz.kaisetsu) {
     el.insertAdjacentHTML("beforeend",
-      `<div class="wsm-page wsm-kaisetsu-wrap" data-pt="a" id="wsm-kaisetsu">
+      `<div class="wsm-page wsm-kaisetsu-wrap" data-pt="k" id="wsm-kaisetsu" style="display:none">
          <div class="wsm-page-label">解説</div>
          <div class="kaisetsu-toolbar">
-           <span class="kaisetsu-toolbar-title">解説（👀 まず見るところ → 📚 前提知識 → 🔍 こう読み解く → 答え → 今回）</span>
-           <button type="button" class="kaisetsu-print-btn" onclick="printWsKaisetsu()">🖨 解説を印刷（B4横）</button>
+           <span class="kaisetsu-toolbar-title">解説（👀 まず見るところ → 📚 前提知識 → 🔍 こう読み解く → 答え → 今回）。右上の「🖨 印刷」で解説を印刷（上の問題選択で絞った小問だけ・B4横）</span>
          </div>
+         <div class="kaisetsu-target-note" id="wsm-kaisetsu-note" style="display:none"></div>
          <div class="kaisetsu" id="wsm-kaisetsu-body"><p class="kaisetsu-loading">解説を読み込み中…</p></div>
        </div>`);
     loadWsKaisetsu();
@@ -2276,17 +2279,39 @@ async function loadWsKaisetsu() {
         const pages = document.getElementById("wsm-pages");
         if (target && pages) pages.scrollTop = pages.scrollTop + target.getBoundingClientRect().top - pages.getBoundingClientRect().top - 6;
       }));
+      applyKaisetsuFilterMarks();
     }
   } catch (e) {
     body.innerHTML = `<p class="kaisetsu-loading">解説を読み込めませんでした（${e.message}）</p>`;
   }
 }
-// 「解説へ」ボタン: 解答タブに切り替えて解説ブロックまでスクロール
-function jumpToWsKaisetsu() {
-  if (!wsmShowingAnswer) setWsTab(true);
-  const el = document.getElementById("wsm-kaisetsu");
-  const pages = document.getElementById("wsm-pages");
-  if (el && pages) pages.scrollTop = pages.scrollTop + el.getBoundingClientRect().top - pages.getBoundingClientRect().top - 6;
+// ★2026-09-20 解説の対象絞り込み（kaisetsu_filter.js・全アプリ共通）: 正誤表の小問 → {id, dm, dmLabel, group, label}
+function wsKaisetsuQuestions() {
+  const b = currentWsm;
+  const out = [];
+  ((b && b.daimons) || []).forEach(dm => (dm.questions || []).forEach(q =>
+    out.push({ id: q.id, dm: dm.id, dmLabel: dm.label || "", group: q.group || "", label: q.label || "" })));
+  return out;
+}
+// 画面の解説: 問題選択（全問以外）のときは対象外カードを薄くし、上に件数を出す
+function applyKaisetsuFilterMarks() {
+  const body = document.getElementById("wsm-kaisetsu-body");
+  const note = document.getElementById("wsm-kaisetsu-note");
+  if (!body || !window.KaisetsuFilter || !body.querySelector(".card")) return;
+  const r = KaisetsuFilter.markCards(body, wsKaisetsuQuestions(), wsmFilteredIds);
+  if (!note) return;
+  if (!wsmFilteredIds) { note.style.display = "none"; note.textContent = ""; return; }
+  note.style.display = "";
+  note.textContent = `${WS_MODE_SHORT[wsmFilter] || wsmFilter}: 対象の解説 ${r.kept} / ${r.total} 問（薄いカードは対象外。印刷は対象の問だけ・全体像は含む）`;
+}
+// 「解説」タブ: 問題／解答／解説の3タブ目（2026-09-20・旧「解説へ▼」ジャンプは廃止）
+function setWsTabKaisetsu() {
+  if (wsmShowingKaisetsu) return;
+  wsmShowingAnswer = true;
+  wsmShowingKaisetsu = true;
+  applyWsTabVisibility();
+  updateWsTabUI();
+  document.getElementById("wsm-pages").scrollTop = 0;
 }
 // 解説の印刷: B4横・2段組（別紙と同じ紙）。画面の読みやすさ（カード単位・余白）を保ち、カードは段の途中で割らない
 async function printWsKaisetsu() {
@@ -2299,8 +2324,16 @@ async function printWsKaisetsu() {
   const body = document.getElementById("print-overlay-body");
   if (!ov || !body) return;
   _resetPrintOverlay();
+  // ★2026-09-20 上の問題選択（全問以外）なら対象の小問のカードだけ残す（大問見出し・全体像・まとめは残す）
+  let printHTML = html, sub = "";
+  if (wsmFilteredIds && window.KaisetsuFilter) {
+    const r = KaisetsuFilter.filterHTML(html, wsKaisetsuQuestions(), wsmFilteredIds);
+    if (r.kept === 0) { alert("いまの問題選択に対象の解説はありません（「全ての問題」に戻すか、別の選択にしてください）"); return; }
+    printHTML = r.html;
+    sub = `${WS_MODE_SHORT[wsmFilter] || wsmFilter}の解説（${r.kept} / ${r.total} 問）`;
+  }
   const title = `${currentUnit.id} ${currentUnit.title || wsTitle()} 解説`;
-  body.innerHTML = `<div class="kp"><div class="kp-title">${title}</div><div class="kaisetsu kaisetsu-print">${html}</div></div>`;
+  body.innerHTML = `<div class="kp"><div class="kp-title">${title}</div>${sub ? `<div class="kp-sub">${sub}</div>` : ""}<div class="kaisetsu kaisetsu-print">${printHTML}</div></div>`;
   let style = document.getElementById("dynamic-print-page");
   if (!style) { style = document.createElement("style"); style.id = "dynamic-print-page"; document.head.appendChild(style); }
   style.textContent = `@page { size: B4 landscape; margin: 12mm 12mm 12mm 12mm; }`;
@@ -2354,22 +2387,28 @@ function updateWsTargetBanners() {
 }
 
 function applyWsTabVisibility() {
-  document.querySelectorAll('#wsm-pages .wsm-page[data-pt="q"]').forEach(e => e.style.display = wsmShowingAnswer ? "none" : "");
-  document.querySelectorAll('#wsm-pages .wsm-page[data-pt="a"]').forEach(e => e.style.display = wsmShowingAnswer ? "" : "none");
-  document.querySelectorAll('#wsm-pages .wsm-spread[data-pt="q"]').forEach(e => e.style.display = wsmShowingAnswer ? "none" : "flex");
-  document.querySelectorAll('#wsm-pages .wsm-spread[data-pt="a"]').forEach(e => e.style.display = wsmShowingAnswer ? "flex" : "none");
+  const showA = wsmShowingAnswer && !wsmShowingKaisetsu, showQ = !wsmShowingAnswer && !wsmShowingKaisetsu;
+  document.querySelectorAll('#wsm-pages .wsm-page[data-pt="q"]').forEach(e => e.style.display = showQ ? "" : "none");
+  document.querySelectorAll('#wsm-pages .wsm-page[data-pt="a"]').forEach(e => e.style.display = showA ? "" : "none");
+  document.querySelectorAll('#wsm-pages .wsm-spread[data-pt="q"]').forEach(e => e.style.display = showQ ? "flex" : "none");
+  document.querySelectorAll('#wsm-pages .wsm-spread[data-pt="a"]').forEach(e => e.style.display = showA ? "flex" : "none");
+  document.querySelectorAll('#wsm-pages .wsm-page[data-pt="k"]').forEach(e => e.style.display = wsmShowingKaisetsu ? "" : "none");
 }
 
 function updateWsTabUI() {
-  document.getElementById("wsm-tab-q").classList.toggle("active", !wsmShowingAnswer);
-  document.getElementById("wsm-tab-a").classList.toggle("active", wsmShowingAnswer);
-  const jump = document.getElementById("wsm-kaisetsu-jump");
-  if (jump) jump.style.display = (currentWsm && currentWsm.kaisetsu) ? "" : "none";
+  document.getElementById("wsm-tab-q").classList.toggle("active", !wsmShowingAnswer && !wsmShowingKaisetsu);
+  document.getElementById("wsm-tab-a").classList.toggle("active", wsmShowingAnswer && !wsmShowingKaisetsu);
+  const tk = document.getElementById("wsm-tab-k");
+  if (tk) {
+    tk.style.display = (currentWsm && currentWsm.kaisetsu) ? "" : "none";
+    tk.classList.toggle("active", wsmShowingKaisetsu);
+  }
 }
 
 function setWsTab(showAnswer) {
-  if (wsmShowingAnswer === showAnswer) return;
+  if (wsmShowingAnswer === showAnswer && !wsmShowingKaisetsu) return;
   wsmShowingAnswer = showAnswer;
+  wsmShowingKaisetsu = false;
   applyWsTabVisibility();
   updateWsTabUI();
   document.getElementById("wsm-pages").scrollTop = 0;
@@ -2497,6 +2536,7 @@ async function wsmPrint() {
   commitXyz();
   const xyz = currentWsm;
   if (!xyz) return;
+  if (wsmShowingKaisetsu) { return printWsKaisetsu(); }   // ★2026-09-20 解説タブ中の右上「印刷」＝解説（対象の問だけ）
   if (!wsmShowingAnswer) { return printWsMode(wsmFilter || "all"); }
   const base = unitImagesBase();
   if (xyz.spread) {
