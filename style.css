@@ -953,6 +953,15 @@ body {
 
 /* 知識の総完成（Weekly SapiX）: 空らん番号バッジ＋フィルタ対象の赤下線ハイライト */
 .wsm-imgwrap { position: relative; }
+/* 余白カット（xyz.crops）: 枠の外をかくして中身だけ見せる */
+.wsm-imgwrap.wsm-cropped {
+  overflow: hidden; background: #fff; border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.wsm-imgwrap.wsm-cropped img {
+  position: absolute; max-width: none; height: auto;
+  border-radius: 0; box-shadow: none;
+}
 .wsm-qnum {
   position: absolute; z-index: 2;
   transform: translate(-55%, -50%);

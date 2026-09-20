@@ -2206,12 +2206,25 @@ function wsRegionOverlayHTML(pageIdx) {
   }).join("");
 }
 
+// ★2026-09-20 余白カット: xyz.crops[i]={x,y,w,h,W,H} があるページは、その枠だけを表示する（画像本体は変更しない）
+function wsmCrop(i) {
+  const c = currentWsm && currentWsm.crops && currentWsm.crops[i];
+  return (c && c.w > 0 && c.h > 0) ? c : null;
+}
+function wsmCropImgHTML(i, imgTag) {
+  const c = wsmCrop(i);
+  if (!c) return `<div class="wsm-imgwrap">${imgTag}${wsRegionOverlayHTML(i)}</div>`;
+  const pct = v => (v * 100).toFixed(3) + "%";
+  const st = `width:${pct(c.W / c.w)};left:${pct(-c.x / c.w)};top:${pct(-c.y / c.h)}`;
+  return `<div class="wsm-imgwrap wsm-cropped" style="aspect-ratio:${c.w}/${c.h}">${imgTag.replace("<img ", `<img style="${st}" `)}</div>`;
+}
+
 function wsmPageHTML(pt, file, i, total, base) {
   const lbl = pt === "q" ? "問題" : "解答";
   const banner = pt === "q" ? `<div class="wsm-target-banner" style="display:none"></div>` : "";
   return `<div class="wsm-page" data-pt="${pt}" data-idx="${i}"${pt === "a" ? ' style="display:none"' : ""}>
        <div class="wsm-page-label">${lbl} ${i + 1} / ${total}</div>${banner}
-       <div class="wsm-imgwrap"><img src="${base}${file}" loading="lazy" alt="${lbl}${i + 1}">${wsRegionOverlayHTML(i)}</div>
+       ${wsmCropImgHTML(i, `<img src="${base}${file}" loading="lazy" alt="${lbl}${i + 1}">`)}
      </div>`;
 }
 
@@ -2474,11 +2487,24 @@ function drawWsRegionOverlays(ctx, pageIdx, idsSet) {
 // 見開き(2-up)用: 2ページを1枚のB4横キャンバスに合成
 async function composeSpreadDataURLs(files, base, perPageDraw) {
   const urls = [];
+  // 余白カット（xyz.crops）があるページは、その枠だけを切り出して並べる
+  const cropped = async (idx) => {
+    const img = await loadImage(base + files[idx]);
+    const c = wsmCrop(idx);
+    if (!c) return img;
+    const k = img.width / c.W;            // 画像の実寸とデータ上の寸法の比
+    const cv = document.createElement("canvas");
+    cv.width = Math.round(c.w * k); cv.height = Math.round(c.h * k);
+    const x = cv.getContext("2d");
+    x.fillStyle = "#fff"; x.fillRect(0, 0, cv.width, cv.height);
+    x.drawImage(img, -Math.round(c.x * k), -Math.round(c.y * k));
+    return cv;
+  };
   for (let i = 0; i < files.length; i += 2) {
     let img1, img2 = null;
-    try { img1 = await loadImage(base + files[i]); } catch (e) { continue; }
+    try { img1 = await cropped(i); } catch (e) { continue; }
     if (i + 1 < files.length) {
-      try { img2 = await loadImage(base + files[i + 1]); } catch (e) { img2 = null; }
+      try { img2 = await cropped(i + 1); } catch (e) { img2 = null; }
     }
     const gap = Math.round(img1.width * 0.015);
     const W = img1.width + gap + (img2 ? img2.width : img1.width);
