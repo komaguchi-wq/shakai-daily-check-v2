@@ -1043,8 +1043,12 @@ body {
 .kaisetsu .dtitle { font-size: 20px; margin: 0 0 14px; padding: 8px 14px; color: #fff; background: var(--k-acc); border-radius: 10px; font-weight: 700; }
 .kaisetsu .card { background:#fff; border:1px solid var(--k-line); border-radius:14px; padding:18px 20px 16px; margin:0 0 20px; box-shadow: 0 1px 3px rgba(0,0,0,.05); }
 .kaisetsu .card-overview, .kaisetsu .card-summary { background:#f6f8fb; }
-.kaisetsu .card h2 { font-size:20px; margin:0 0 10px; display:flex; align-items:center; gap:10px; flex-wrap:wrap; font-weight:700; line-height:1.4; }
-.kaisetsu .qid { display:inline-block; background:var(--k-acc); color:#fff; font-size:15px; padding:2px 10px; border-radius:8px; font-weight:700; letter-spacing:.02em; }
+.kaisetsu .card h2 { font-size:20px; margin:0 0 10px; display:flex; align-items:center; gap:12px; flex-wrap:wrap; font-weight:700; line-height:1.4; }
+/* ★2026-09-20 ユーザー要望: どの問題の解説か一目で分かるように小問番号（qid）を大きく */
+.kaisetsu .qid { display:inline-block; background:var(--k-acc); color:#fff; font-size:24px; line-height:1.25; padding:5px 16px; border-radius:10px; font-weight:800; letter-spacing:.03em; box-shadow:0 2px 0 rgba(0,0,0,.18); white-space:nowrap; }
+.kaisetsu .card-overview .qid, .kaisetsu .card-summary .qid { font-size:19px; padding:3px 12px; font-weight:700; box-shadow:none; }
+.kaisetsu .card { border-top:4px solid var(--k-acc); }
+.kaisetsu .card-overview, .kaisetsu .card-summary { border-top-color:#9aa7b8; }
 .kaisetsu .type { display:inline-block; background:#eef4fb; color:var(--k-acc); font-size:12.5px; padding:2px 9px; border-radius:999px; font-weight:600; }
 .kaisetsu .src { color:var(--k-sub); font-size:12.5px; margin:-4px 0 8px; }
 .kaisetsu h3 { font-size:16px; margin:14px 0 6px; padding:4px 10px; border-left:5px solid var(--k-acc); background:#f3f7fc; border-radius:0 8px 8px 0; font-weight:700; }
@@ -1055,6 +1059,10 @@ body {
 .kaisetsu li { margin:4px 0; }
 .kaisetsu li::marker { color: var(--k-sub); font-weight:700; }
 .kaisetsu p { margin: 6px 0; }
+/* ★2026-09-20 ユーザー要望: 各説明のポイント（<b>）を太字＋黄色マーカーで目立たせる */
+.kaisetsu b, .kaisetsu strong { font-weight:800; color:#a4261a; background:linear-gradient(transparent 55%, #fff1a0 55%); padding:0 2px; border-radius:2px; box-decoration-break:clone; -webkit-box-decoration-break:clone; }
+.kaisetsu .toc b, .kaisetsu th b, .kaisetsu .ans b, .kaisetsu .model b { background:none; padding:0; color:inherit; }
+.kaisetsu .model b { color: var(--k-read); }
 .kaisetsu .ans { background:#f0f8f2; border:1px solid #bfe0c7; border-radius:10px; padding:10px 14px; margin-top:12px; font-weight:700; font-size:17px; }
 .kaisetsu .miss { background:#fff4f4; border:1px solid #f1caca; border-radius:10px; padding:10px 14px; margin-top:10px; }
 .kaisetsu .miss b, .kaisetsu .x { color: var(--k-warn); }
@@ -1096,8 +1104,14 @@ body {
     border: 1px solid #bbb; border-radius: 3mm; padding: 4mm 5mm 3mm; margin: 0 0 5mm; box-shadow: none;
   }
   #print-overlay-body .kaisetsu-print .card-overview, #print-overlay-body .kaisetsu-print .card-summary { background: #f6f8fb !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  #print-overlay-body .kaisetsu-print .card h2 { font-size: 12.5pt; break-after: avoid; page-break-after: avoid; margin-bottom: 2mm; }
-  #print-overlay-body .kaisetsu-print .qid { font-size: 9.5pt; background: #1a6fb5 !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; padding: 0.5mm 2.5mm; }
+  #print-overlay-body .kaisetsu-print .card h2 { font-size: 13pt; break-after: avoid; page-break-after: avoid; margin-bottom: 2mm; }
+  /* ★2026-09-20 小問番号を大きく（白黒印刷でも黒帯に白抜きで目立つ） */
+  #print-overlay-body .kaisetsu-print .qid { font-size: 13pt; background: #1a6fb5 !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; padding: 0.8mm 3.5mm; border-radius: 2mm; box-shadow: none; }
+  #print-overlay-body .kaisetsu-print .card-overview .qid, #print-overlay-body .kaisetsu-print .card-summary .qid { font-size: 11pt; }
+  #print-overlay-body .kaisetsu-print .card { border-top: 0.8mm solid #1a6fb5; }
+  /* ★2026-09-20 ポイント（<b>）は太字＋下線。白黒印刷でも残るように色に頼らない */
+  #print-overlay-body .kaisetsu-print b, #print-overlay-body .kaisetsu-print strong { font-weight: 800; color: #000 !important; background: none !important; padding: 0; text-decoration: underline; text-decoration-thickness: 1.2pt; text-underline-offset: 2pt; }
+  #print-overlay-body .kaisetsu-print .ans b, #print-overlay-body .kaisetsu-print .model b, #print-overlay-body .kaisetsu-print th b { text-decoration: none; }
   #print-overlay-body .kaisetsu-print .src { font-size: 8.5pt; break-after: avoid; }
   #print-overlay-body .kaisetsu-print h3 { font-size: 10.5pt; margin: 3mm 0 1.5mm; padding: 1mm 3mm; break-after: avoid; page-break-after: avoid; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   #print-overlay-body .kaisetsu-print h3 { background: #f3f7fc !important; }
