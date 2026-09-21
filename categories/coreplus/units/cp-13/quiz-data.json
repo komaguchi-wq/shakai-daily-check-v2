@@ -660,28 +660,13 @@
             "group": ""
           },
           {
-            "id": "567-B",
-            "label": "B",
-            "group": ""
-          },
-          {
-            "id": "567-C",
-            "label": "C",
-            "group": ""
-          },
-          {
-            "id": "567-ま",
-            "label": "ま",
+            "id": "567-②",
+            "label": "②",
             "group": ""
           },
           {
             "id": "567-③",
             "label": "③",
-            "group": ""
-          },
-          {
-            "id": "567-A",
-            "label": "A",
             "group": ""
           }
         ]
@@ -692,28 +677,13 @@
         "qpage": 1,
         "questions": [
           {
-            "id": "568-A",
-            "label": "A",
-            "group": ""
-          },
-          {
-            "id": "568-B",
-            "label": "B",
-            "group": ""
-          },
-          {
-            "id": "568-C",
-            "label": "C",
+            "id": "568-①",
+            "label": "①",
             "group": ""
           },
           {
             "id": "568-②",
             "label": "②",
-            "group": ""
-          },
-          {
-            "id": "568-の",
-            "label": "の",
             "group": ""
           },
           {
@@ -729,18 +699,13 @@
         "qpage": 2,
         "questions": [
           {
-            "id": "569-A",
-            "label": "A",
+            "id": "569-①",
+            "label": "①",
             "group": ""
           },
           {
-            "id": "569-B",
-            "label": "B",
-            "group": ""
-          },
-          {
-            "id": "569-C",
-            "label": "C",
+            "id": "569-②",
+            "label": "②",
             "group": ""
           }
         ]
@@ -756,11 +721,6 @@
             "group": ""
           },
           {
-            "id": "570-の",
-            "label": "の",
-            "group": ""
-          },
-          {
             "id": "570-②",
             "label": "②",
             "group": ""
@@ -773,18 +733,13 @@
         "qpage": 4,
         "questions": [
           {
-            "id": "571-A",
-            "label": "A",
+            "id": "571-①",
+            "label": "①",
             "group": ""
           },
           {
-            "id": "571-B",
-            "label": "B",
-            "group": ""
-          },
-          {
-            "id": "571-C",
-            "label": "C",
+            "id": "571-②",
+            "label": "②",
             "group": ""
           }
         ]
@@ -800,23 +755,8 @@
             "group": ""
           },
           {
-            "id": "572-A",
-            "label": "A",
-            "group": ""
-          },
-          {
-            "id": "572-B",
-            "label": "B",
-            "group": ""
-          },
-          {
             "id": "572-②",
             "label": "②",
-            "group": ""
-          },
-          {
-            "id": "572-C",
-            "label": "C",
             "group": ""
           }
         ]
@@ -832,13 +772,8 @@
             "group": ""
           },
           {
-            "id": "573-か",
-            "label": "か",
-            "group": ""
-          },
-          {
-            "id": "573-な",
-            "label": "な",
+            "id": "573-B",
+            "label": "B",
             "group": ""
           },
           {
@@ -855,11 +790,6 @@
             "id": "573-E",
             "label": "E",
             "group": ""
-          },
-          {
-            "id": "573-の",
-            "label": "の",
-            "group": ""
           }
         ]
       },
@@ -874,33 +804,13 @@
             "group": ""
           },
           {
-            "id": "574-A",
-            "label": "A",
-            "group": ""
-          },
-          {
-            "id": "574-B",
-            "label": "B",
-            "group": ""
-          },
-          {
-            "id": "574-C",
-            "label": "C",
-            "group": ""
-          },
-          {
             "id": "574-②",
             "label": "②",
             "group": ""
           },
           {
-            "id": "574-お",
-            "label": "お",
-            "group": ""
-          },
-          {
-            "id": "574-の",
-            "label": "の",
+            "id": "574-③",
+            "label": "③",
             "group": ""
           }
         ]
@@ -911,28 +821,13 @@
         "qpage": 7,
         "questions": [
           {
-            "id": "575-B",
-            "label": "B",
-            "group": ""
-          },
-          {
-            "id": "575-C",
-            "label": "C",
+            "id": "575-①",
+            "label": "①",
             "group": ""
           },
           {
             "id": "575-②",
             "label": "②",
-            "group": ""
-          },
-          {
-            "id": "575-A",
-            "label": "A",
-            "group": ""
-          },
-          {
-            "id": "575-D",
-            "label": "D",
             "group": ""
           }
         ]
@@ -948,23 +843,8 @@
             "group": ""
           },
           {
-            "id": "576-A",
-            "label": "A",
-            "group": ""
-          },
-          {
-            "id": "576-B",
-            "label": "B",
-            "group": ""
-          },
-          {
-            "id": "576-C",
-            "label": "C",
-            "group": ""
-          },
-          {
-            "id": "576-D",
-            "label": "D",
+            "id": "576-②",
+            "label": "②",
             "group": ""
           }
         ]
@@ -977,41 +857,6 @@
           {
             "id": "577-①",
             "label": "①",
-            "group": ""
-          },
-          {
-            "id": "577-A",
-            "label": "A",
-            "group": ""
-          },
-          {
-            "id": "577-B",
-            "label": "B",
-            "group": ""
-          },
-          {
-            "id": "577-C",
-            "label": "C",
-            "group": ""
-          },
-          {
-            "id": "577-D",
-            "label": "D",
-            "group": ""
-          },
-          {
-            "id": "577-E",
-            "label": "E",
-            "group": ""
-          },
-          {
-            "id": "577-F",
-            "label": "F",
-            "group": ""
-          },
-          {
-            "id": "577-き",
-            "label": "き",
             "group": ""
           },
           {
@@ -1032,13 +877,8 @@
         "qpage": 10,
         "questions": [
           {
-            "id": "578-A",
-            "label": "A",
-            "group": ""
-          },
-          {
-            "id": "578-B",
-            "label": "B",
+            "id": "578-①",
+            "label": "①",
             "group": ""
           },
           {
@@ -1078,11 +918,6 @@
           {
             "id": "580-②",
             "label": "②",
-            "group": ""
-          },
-          {
-            "id": "580-B",
-            "label": "B",
             "group": ""
           }
         ]
