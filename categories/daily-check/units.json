@@ -1073,5 +1073,25 @@
       "6": 35
     },
     "xyzPrimary": true
+  },
+  {
+    "id": "640-24",
+    "title": "歴史用語のまとめ④　大正時代〜現代",
+    "subject": "6年社会 デイリーサピックス",
+    "pageCount": 6,
+    "totalRegions": 45,
+    "sectionRegions": {
+      "coreplus": 45
+    },
+    "sectionPages": {
+      "5": "coreplus",
+      "6": "coreplus"
+    },
+    "xyzCount": 154,
+    "pageRegionCounts": {
+      "5": 10,
+      "6": 35
+    },
+    "xyzPrimary": true
   }
 ]
