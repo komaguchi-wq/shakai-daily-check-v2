@@ -34,10 +34,14 @@
   const isDigit = (c) => !!c && DIGIT.test(c);
   // 短い方が長い方の先頭にあるとき、数字が続いていないか（"(1)"→"(12)" や "問1"→"問12" は不一致）
   function boundaryOK(short, long) {
-    return !(isDigit(short[short.length - 1]) && isDigit(long[short.length]));
+    const a = short[short.length - 1], b = long[short.length];
+    if (!(isDigit(a) && isDigit(b))) return true;
+    // 漢数字の直後に算用数字（大問「一」＋小問「1」＝「一 1」）は別の番号なので一致とみなす（kakomon で先行導入・2026-09-23 原本に統合）
+    return /[0-9]/.test(a) !== /[0-9]/.test(b);
   }
   function groupOf(p) {
-    let m = /^(.*\))/.exec(p);
+    // 群は「(2)」のような数字括弧だけ（「信濃川(千曲川)」のような地名の括弧は群にしない＝次の「・」項目に引き継がない）
+    let m = /^(.*\([0-9０-９]+\))/.exec(p);
     if (m) return m[1];
     m = RE_ITEM_END.exec(p);
     return m ? m[1] : '';
@@ -76,7 +80,9 @@
   function formsOf(q) {
     const g = norm(q.group), l = norm(q.label);
     const fs = [];
-    for (const f of [g + l, l]) if (f && !fs.some((x) => x.f === f)) fs.push({ f, exact: false });
+    // ★2026-09-23: 群が範囲（「1〜8」など）のときは 群+ラベル（"1〜82"）を作らない（「B2 1」が 2〜8 まで前方一致で覆ってしまう）
+    const gl = /[〜~～]/.test(g) ? '' : g + l;
+    for (const f of [gl, l]) if (f && !fs.some((x) => x.f === f)) fs.push({ f, exact: false });
     if (g && !fs.some((x) => x.f === g)) fs.push({ f: g, exact: true });
     return fs.length ? fs : [{ f: '', exact: false }];
   }
@@ -108,9 +114,12 @@
   function coveredIds(qidText, questions, index) {
     const full = norm(qidText);
     if (!full) return null;
+    // ★2026-09-23: 「B2 1」のように大問IDの直後に半角空白があれば区切りとみなす（数字の続きでも不一致にしない）
+    const spaced = String(qidText == null ? '' : qidText).replace(/\s+/g, ' ').trim();
+    const spacedN = norm(spaced.replace(/ /g, '\u0001')).replace(/\u0001/g, ' ');
     let hit = null;
     for (const e of index) {
-      if (full.startsWith(e.key) && boundaryOK(e.key, full)) { hit = e; break; }
+      if (full.startsWith(e.key) && (boundaryOK(e.key, full) || spacedN.startsWith(e.key + ' '))) { hit = e; break; }
     }
     if (!hit) return null;
     const tokens = expandRest(full.slice(hit.key.length));
