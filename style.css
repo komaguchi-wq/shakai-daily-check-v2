@@ -953,6 +953,10 @@ body {
 
 /* 知識の総完成（Weekly SapiX）: 空らん番号バッジ＋フィルタ対象の赤下線ハイライト */
 .wsm-imgwrap { position: relative; }
+/* ★2026-09-24 対象小問のラベルに赤い丸（qpos.json・SS特訓/Weekly/640-21〜） */
+.wsm-tboxes { position: absolute; inset: 0; pointer-events: none; }
+.wsm-tring { position: absolute; box-sizing: border-box; border: 3px solid #ff3b30; border-radius: 50%; }
+@media (max-width: 767px) { .wsm-tring { border-width: 2px; } }
 /* 余白カット（xyz.crops）: 枠の外をかくして中身だけ見せる */
 .wsm-imgwrap.wsm-cropped {
   overflow: hidden; background: #fff; border-radius: 6px;

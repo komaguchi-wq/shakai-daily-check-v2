@@ -1922,6 +1922,7 @@ function startWsMode(mode) {
   restoreWsmTableHeight();
   loadXyzProposals();   // AI正誤提案バナー
   renderWsPages();
+  loadWsSubRects().then(r => { if (r) updateWsTargetBoxes(); });
   updateWsTabUI();
   showScreen("screen-wsmondai");
   document.getElementById("wsm-pages").scrollTop = 0;
@@ -2213,10 +2214,89 @@ function wsmCrop(i) {
 }
 function wsmCropImgHTML(i, imgTag) {
   const c = wsmCrop(i);
-  if (!c) return `<div class="wsm-imgwrap">${imgTag}${wsRegionOverlayHTML(i)}</div>`;
+  const layer = `<div class="wsm-tboxes" data-idx="${i}"></div>`;   // ★2026-09-24 対象小問の赤丸（qpos.json）
+  if (!c) return `<div class="wsm-imgwrap">${imgTag}${wsRegionOverlayHTML(i)}${layer}</div>`;
   const pct = v => (v * 100).toFixed(3) + "%";
   const st = `width:${pct(c.W / c.w)};left:${pct(-c.x / c.w)};top:${pct(-c.y / c.h)}`;
-  return `<div class="wsm-imgwrap wsm-cropped" style="aspect-ratio:${c.w}/${c.h}">${imgTag.replace("<img ", `<img style="${st}" `)}</div>`;
+  return `<div class="wsm-imgwrap wsm-cropped" style="aspect-ratio:${c.w}/${c.h}">${imgTag.replace("<img ", `<img style="${st}" `)}${layer}</div>`;
+}
+
+// ★2026-09-24 対象小問のラベル「(1)」「①」に赤い丸（理科v2の loadWsSubRects を移植・位置は qpos.json）。
+//   qpos.json は scripts/daily_print/detect_qpos.py が OCR で作る（SS特訓・Weekly 入試総合演習・640-21〜の演習/レベル型）。
+//   番号列が読み順でそろった大問だけ入っている。小問の位置が無く大問見出し（A1 等）だけあるときは見出しに丸。
+//   位置が無い教材は従来どおり上のバナーだけ（誤った場所を囲まない）。知識の総完成（合成ブロック）は赤下線のまま
+let _subRectsCache = {};
+function wsmBlockKeyOf() {
+  if (!quizData || !currentWsm) return "";
+  return Object.keys(quizData).find(k => quizData[k] === currentWsm) || "";
+}
+function wsSubRectsKey() {
+  const bk = wsmBlockKeyOf();
+  return currentCategory && currentUnit && bk ? `${currentCategory.id}/${currentUnit.id}/${bk}` : "";
+}
+async function loadWsSubRects() {
+  const key = wsSubRectsKey();
+  if (!key) return null;
+  if (key in _subRectsCache) return _subRectsCache[key];
+  _subRectsCache[key] = null;
+  const rects = {};
+  const bk = wsmBlockKeyOf();
+  try {
+    const res = await fetch(`categories/${currentCategory.id}/units/${currentUnit.id}/qpos.json`, { cache: "no-cache" });
+    if (res.ok) {
+      const j = await res.json();
+      if (j && j.subs && (j.block || "xyz") === bk) {
+        const pageWH = {};
+        (j.pages || []).forEach(p => { pageWH[p.i] = p; });
+        (currentWsm.daimons || []).forEach(dm => (dm.questions || []).forEach(q => {
+          const s = j.subs[q.id];
+          const p = s || (j.daimons && j.daimons[String(dm.id)]);
+          if (!p) return;
+          const wh = pageWH[p.page] || {};
+          rects[q.id] = [{ qpage: p.page, ring: true, sub: !!s, cx: p.x, cy: p.y, W: wh.W || 1000, H: wh.H || 700 }];
+        }));
+      }
+    }
+  } catch (e) { console.warn("qpos 読み込み失敗", e); }
+  _subRectsCache[key] = Object.keys(rects).length ? rects : null;
+  return _subRectsCache[key];
+}
+function wsTargetRectsForPage(idx, idsSet) {
+  const rects = _subRectsCache[wsSubRectsKey()];
+  if (!rects || !idsSet) return [];
+  const out = [];
+  idsSet.forEach(id => (rects[id] || []).forEach(r => { if (r.qpage === idx) out.push(r); }));
+  return out;
+}
+function updateWsTargetBoxes() {
+  document.querySelectorAll('#wsm-pages .wsm-tboxes').forEach(layer => {
+    const idx = parseInt(layer.dataset.idx);
+    const rs = wsTargetRectsForPage(idx, wsmFilteredIds);
+    const c = wsmCrop(idx);
+    layer.innerHTML = rs.map(r => {
+      // 寸法は算数 drawTargetRings と同じ（小問=少し左・少し小さめ／大問見出し=そのまま）
+      let w = 0.033 * (r.sub ? 0.92 : 1.15), h = 0.033 * r.W / r.H, cx = r.cx - (r.sub ? 0.006 : 0), cy = r.cy;
+      if (c) {   // 余白カット表示: 画像座標 → 枠内の割合へ
+        cx = (cx * c.W - c.x) / c.w; cy = (cy * c.H - c.y) / c.h; w = w * c.W / c.w; h = h * c.H / c.h;
+      }
+      return `<span class="wsm-tring" style="left:${((cx - w / 2) * 100).toFixed(2)}%;top:${((cy - h / 2) * 100).toFixed(2)}%;width:${(w * 100).toFixed(2)}%;height:${(h * 100).toFixed(2)}%"></span>`;
+    }).join("");
+  });
+}
+// 印刷用: 赤丸を canvas に焼き込む
+function drawWsTargetBoxes(ctx, idx, idsSet, W, H) {
+  const rs = wsTargetRectsForPage(idx, idsSet);
+  if (!rs.length) return;
+  ctx.save();
+  ctx.strokeStyle = "#ff3b30";
+  ctx.lineWidth = Math.max(6, Math.round(W * 0.0022));
+  rs.forEach(r => {
+    const rr = Math.max(9, W * 0.0165);
+    ctx.beginPath();
+    ctx.ellipse((r.cx - (r.sub ? 0.006 : 0)) * W, r.cy * H, rr * (r.sub ? 0.92 : 1.15), rr, 0, 0, Math.PI * 2);
+    ctx.stroke();
+  });
+  ctx.restore();
 }
 
 function wsmPageHTML(pt, file, i, total, base) {
@@ -2397,6 +2477,7 @@ function updateWsTargetBanners() {
     el.classList.toggle("target", !!(wsmFilteredIds && wsmFilteredIds.has(el.dataset.qid))));
   document.querySelectorAll('#wsm-pages .wsm-qnum').forEach(el =>
     el.classList.toggle("target", !!(wsmFilteredIds && wsmFilteredIds.has(el.dataset.qid))));
+  updateWsTargetBoxes();
 }
 
 function applyWsTabVisibility() {
@@ -2533,6 +2614,7 @@ async function printWsMode(mode) {
   if (!xyz) return;
   const ids = computeWsFilterIds(mode);
   const base = unitImagesBase();
+  if (ids) await loadWsSubRects();
   if (xyz.spread) {
     const urls = await composeSpreadDataURLs(xyz.questionPages, base, (ctx, idx, W, H) => {
       if (ids) drawWsTargetText(ctx, wsTargetTextForPage(idx, ids), W, H);
@@ -2550,7 +2632,7 @@ async function printWsMode(mode) {
     const ctx = cc.getContext("2d");
     ctx.drawImage(img, 0, 0);
     drawWsRegionOverlays(ctx, i, ids);
-    if (ids) drawWsTargetText(ctx, wsTargetTextForPage(i, ids), cc.width, cc.height);
+    if (ids) { drawWsTargetText(ctx, wsTargetTextForPage(i, ids), cc.width, cc.height); drawWsTargetBoxes(ctx, i, ids, cc.width, cc.height); }
     dataURLs.push(cc.toDataURL("image/jpeg", 0.92));
   }
   if (dataURLs.length === 0) { alert("画像の読み込みに失敗しました"); return; }
