@@ -1153,5 +1153,10 @@
       "wsj_a_08.jpg",
       "wsj_a_09.jpg"
     ]
-  }
+  },
+  "chishikiSolvedPages": [
+    "solved_2026-09-25_01.jpg",
+    "solved_2026-09-25_02.jpg",
+    "solved_2026-09-25_03.jpg"
+  ]
 }

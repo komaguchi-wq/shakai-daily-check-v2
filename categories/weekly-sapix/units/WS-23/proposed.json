@@ -1,0 +1,10 @@
+{
+ "unit": "WS-23",
+ "id": "2026-09-25-seigo-WS-23-chishiki-ambiguous",
+ "source": "知識の総完成（印が曖昧な2問だけ仮入力）",
+ "created": "2026-09-25",
+ "grades": {
+  "p2-14": true,
+  "p4-17": false
+ }
+}
