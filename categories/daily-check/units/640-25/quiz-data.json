@@ -1,0 +1,1032 @@
+{
+ "id": "640-25",
+ "title": "歴史人物のまとめ①　旧石器時代〜安土桃山時代",
+ "category": "daily-check",
+ "pages": [
+  {
+   "id": 1,
+   "type": "description",
+   "containsSections": [
+    "description"
+   ],
+   "src_phys_page": 1,
+   "width": 4239,
+   "height": 3006,
+   "image": "page_01.jpg",
+   "regions": []
+  },
+  {
+   "id": 2,
+   "type": "description",
+   "containsSections": [
+    "description"
+   ],
+   "src_phys_page": 2,
+   "width": 4230,
+   "height": 3006,
+   "image": "page_02.jpg",
+   "regions": []
+  },
+  {
+   "id": 3,
+   "type": "description",
+   "containsSections": [
+    "description"
+   ],
+   "src_phys_page": 3,
+   "width": 4257,
+   "height": 3006,
+   "image": "page_03.jpg",
+   "regions": []
+  },
+  {
+   "id": 4,
+   "type": "description",
+   "containsSections": [
+    "description"
+   ],
+   "src_phys_page": 4,
+   "width": 4254,
+   "height": 3006,
+   "image": "page_04.jpg",
+   "regions": []
+  }
+ ],
+ "sectionBreakdown": {
+  "description": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "dailystep": [],
+  "kakunin": [],
+  "coreplus": []
+ },
+ "xyz": {
+  "label": "入試問題演習・歴史人物のまとめ",
+  "questionPages": [
+   "kxyz_q_01.jpg",
+   "kxyz_q_02.jpg",
+   "kxyz_q_03.jpg",
+   "kxyz_q_04.jpg",
+   "kxyz_q_05.jpg",
+   "kxyz_q_06.jpg",
+   "kxyz_q_07.jpg"
+  ],
+  "answerPages": [
+   "kxyz_a_01.jpg",
+   "kxyz_a_02.jpg",
+   "kxyz_a_03.jpg",
+   "kxyz_a_04.jpg",
+   "kxyz_a_05.jpg",
+   "solved_01.jpg",
+   "solved_02.jpg",
+   "solved_03.jpg"
+  ],
+  "daimons": [
+   {
+    "id": "演習1",
+    "qpage": 0,
+    "questions": [
+     {
+      "id": "演習1-(1)",
+      "label": "(1)",
+      "group": "(1)"
+     },
+     {
+      "id": "演習1-(2)",
+      "label": "(2)",
+      "group": "(2)"
+     },
+     {
+      "id": "演習1-(3)",
+      "label": "(3)",
+      "group": "(3)"
+     },
+     {
+      "id": "演習1-(4)",
+      "label": "(4)",
+      "group": "(4)"
+     },
+     {
+      "id": "演習1-(5)",
+      "label": "(5)",
+      "group": "(5)"
+     },
+     {
+      "id": "演習1-(6)",
+      "label": "(6)",
+      "group": "(6)"
+     },
+     {
+      "id": "演習1-(7)",
+      "label": "(7)",
+      "group": "(7)"
+     },
+     {
+      "id": "演習1-(8)D",
+      "label": "(8)D",
+      "group": "(8)"
+     },
+     {
+      "id": "演習1-(8)F",
+      "label": "(8)F",
+      "group": "(8)"
+     },
+     {
+      "id": "演習1-(9)①",
+      "label": "(9)①",
+      "group": "(9)"
+     },
+     {
+      "id": "演習1-(9)②",
+      "label": "(9)②",
+      "group": "(9)"
+     },
+     {
+      "id": "演習1-(10)",
+      "label": "(10)",
+      "group": "(10)"
+     }
+    ],
+    "label": "1ページ 入試問題演習（歴史編）"
+   },
+   {
+    "id": "演習2",
+    "qpage": 1,
+    "questions": [
+     {
+      "id": "演習2-(1)",
+      "label": "(1)",
+      "group": "(1)"
+     },
+     {
+      "id": "演習2-(2)A",
+      "label": "(2)A",
+      "group": "(2)"
+     },
+     {
+      "id": "演習2-(2)B",
+      "label": "(2)B",
+      "group": "(2)"
+     },
+     {
+      "id": "演習2-(3)①[A]",
+      "label": "(3)①[A]",
+      "group": "(3)"
+     },
+     {
+      "id": "演習2-(3)①[B]",
+      "label": "(3)①[B]",
+      "group": "(3)"
+     },
+     {
+      "id": "演習2-(3)①[C]",
+      "label": "(3)①[C]",
+      "group": "(3)"
+     },
+     {
+      "id": "演習2-(3)①[D]",
+      "label": "(3)①[D]",
+      "group": "(3)"
+     },
+     {
+      "id": "演習2-(3)②a",
+      "label": "(3)②a",
+      "group": "(3)"
+     },
+     {
+      "id": "演習2-(3)②b",
+      "label": "(3)②b",
+      "group": "(3)"
+     },
+     {
+      "id": "演習2-(3)②c",
+      "label": "(3)②c",
+      "group": "(3)"
+     },
+     {
+      "id": "演習2-(3)③",
+      "label": "(3)③",
+      "group": "(3)"
+     },
+     {
+      "id": "演習2-(3)④",
+      "label": "(3)④",
+      "group": "(3)"
+     },
+     {
+      "id": "演習2-(3)⑤",
+      "label": "(3)⑤",
+      "group": "(3)"
+     },
+     {
+      "id": "演習2-(4)",
+      "label": "(4)",
+      "group": "(4)"
+     }
+    ],
+    "label": "2ページ 入試問題演習（地理編）"
+   },
+   {
+    "id": "演習3",
+    "qpage": 2,
+    "questions": [
+     {
+      "id": "演習3-(1)1",
+      "label": "(1)1",
+      "group": "(1)"
+     },
+     {
+      "id": "演習3-(1)2",
+      "label": "(1)2",
+      "group": "(1)"
+     },
+     {
+      "id": "演習3-(1)3",
+      "label": "(1)3",
+      "group": "(1)"
+     },
+     {
+      "id": "演習3-(1)4",
+      "label": "(1)4",
+      "group": "(1)"
+     },
+     {
+      "id": "演習3-(2)",
+      "label": "(2)",
+      "group": "(2)"
+     },
+     {
+      "id": "演習3-(3)",
+      "label": "(3)",
+      "group": "(3)"
+     },
+     {
+      "id": "演習3-(4)",
+      "label": "(4)",
+      "group": "(4)"
+     },
+     {
+      "id": "演習3-(5)",
+      "label": "(5)",
+      "group": "(5)"
+     },
+     {
+      "id": "演習3-(6)",
+      "label": "(6)",
+      "group": "(6)"
+     },
+     {
+      "id": "演習3-(7)番号",
+      "label": "(7)番号",
+      "group": "(7)"
+     },
+     {
+      "id": "演習3-(7)理由",
+      "label": "(7)理由",
+      "group": "(7)"
+     }
+    ],
+    "label": "3ページ 入試問題演習（公民編）"
+   },
+   {
+    "id": "レベル1",
+    "qpage": 3,
+    "questions": [
+     {
+      "id": "レベル1-1",
+      "label": "1",
+      "group": ""
+     },
+     {
+      "id": "レベル1-2",
+      "label": "2",
+      "group": ""
+     },
+     {
+      "id": "レベル1-3",
+      "label": "3",
+      "group": ""
+     },
+     {
+      "id": "レベル1-4",
+      "label": "4",
+      "group": ""
+     },
+     {
+      "id": "レベル1-5",
+      "label": "5",
+      "group": ""
+     },
+     {
+      "id": "レベル1-6",
+      "label": "6",
+      "group": ""
+     },
+     {
+      "id": "レベル1-7",
+      "label": "7",
+      "group": ""
+     },
+     {
+      "id": "レベル1-8",
+      "label": "8",
+      "group": ""
+     },
+     {
+      "id": "レベル1-9",
+      "label": "9",
+      "group": ""
+     },
+     {
+      "id": "レベル1-10",
+      "label": "10",
+      "group": ""
+     },
+     {
+      "id": "レベル1-11",
+      "label": "11",
+      "group": ""
+     },
+     {
+      "id": "レベル1-12",
+      "label": "12",
+      "group": ""
+     },
+     {
+      "id": "レベル1-13",
+      "label": "13",
+      "group": ""
+     },
+     {
+      "id": "レベル1-14",
+      "label": "14",
+      "group": ""
+     },
+     {
+      "id": "レベル1-15",
+      "label": "15",
+      "group": ""
+     },
+     {
+      "id": "レベル1-16",
+      "label": "16",
+      "group": ""
+     },
+     {
+      "id": "レベル1-17",
+      "label": "17",
+      "group": ""
+     },
+     {
+      "id": "レベル1-18",
+      "label": "18",
+      "group": ""
+     },
+     {
+      "id": "レベル1-19",
+      "label": "19",
+      "group": ""
+     },
+     {
+      "id": "レベル1-20",
+      "label": "20",
+      "group": ""
+     }
+    ],
+    "label": "4ページ レベル1（最頻出20問）"
+   },
+   {
+    "id": "レベル2(1)",
+    "qpage": 4,
+    "questions": [
+     {
+      "id": "レベル2(1)-1",
+      "label": "1",
+      "group": ""
+     },
+     {
+      "id": "レベル2(1)-2",
+      "label": "2",
+      "group": ""
+     },
+     {
+      "id": "レベル2(1)-3",
+      "label": "3",
+      "group": ""
+     },
+     {
+      "id": "レベル2(1)-4",
+      "label": "4",
+      "group": ""
+     },
+     {
+      "id": "レベル2(1)-5",
+      "label": "5",
+      "group": ""
+     },
+     {
+      "id": "レベル2(1)-6",
+      "label": "6",
+      "group": ""
+     },
+     {
+      "id": "レベル2(1)-7",
+      "label": "7",
+      "group": ""
+     },
+     {
+      "id": "レベル2(1)-8",
+      "label": "8",
+      "group": ""
+     },
+     {
+      "id": "レベル2(1)-9",
+      "label": "9",
+      "group": ""
+     },
+     {
+      "id": "レベル2(1)-10",
+      "label": "10",
+      "group": ""
+     },
+     {
+      "id": "レベル2(1)-11",
+      "label": "11",
+      "group": ""
+     },
+     {
+      "id": "レベル2(1)-12",
+      "label": "12",
+      "group": ""
+     },
+     {
+      "id": "レベル2(1)-13",
+      "label": "13",
+      "group": ""
+     },
+     {
+      "id": "レベル2(1)-14",
+      "label": "14",
+      "group": ""
+     },
+     {
+      "id": "レベル2(1)-15",
+      "label": "15",
+      "group": ""
+     },
+     {
+      "id": "レベル2(1)-16",
+      "label": "16",
+      "group": ""
+     },
+     {
+      "id": "レベル2(1)-17",
+      "label": "17",
+      "group": ""
+     },
+     {
+      "id": "レベル2(1)-18",
+      "label": "18",
+      "group": ""
+     },
+     {
+      "id": "レベル2(1)-19",
+      "label": "19",
+      "group": ""
+     },
+     {
+      "id": "レベル2(1)-20",
+      "label": "20",
+      "group": ""
+     }
+    ],
+    "label": "5ページ レベル2 1〜20"
+   },
+   {
+    "id": "レベル2(2)",
+    "qpage": 5,
+    "questions": [
+     {
+      "id": "レベル2(2)-21",
+      "label": "21",
+      "group": ""
+     },
+     {
+      "id": "レベル2(2)-22",
+      "label": "22",
+      "group": ""
+     },
+     {
+      "id": "レベル2(2)-23観阿弥",
+      "label": "23観阿弥",
+      "group": "23"
+     },
+     {
+      "id": "レベル2(2)-23世阿弥",
+      "label": "23世阿弥",
+      "group": "23"
+     },
+     {
+      "id": "レベル2(2)-24",
+      "label": "24",
+      "group": ""
+     },
+     {
+      "id": "レベル2(2)-25",
+      "label": "25",
+      "group": ""
+     },
+     {
+      "id": "レベル2(2)-26",
+      "label": "26",
+      "group": ""
+     },
+     {
+      "id": "レベル2(2)-27",
+      "label": "27",
+      "group": ""
+     },
+     {
+      "id": "レベル2(2)-28",
+      "label": "28",
+      "group": ""
+     },
+     {
+      "id": "レベル2(2)-29",
+      "label": "29",
+      "group": ""
+     },
+     {
+      "id": "レベル2(2)-30",
+      "label": "30",
+      "group": ""
+     }
+    ],
+    "label": "6ページ レベル2 21〜30"
+   },
+   {
+    "id": "レベル3(1)",
+    "qpage": 5,
+    "questions": [
+     {
+      "id": "レベル3(1)-1",
+      "label": "1",
+      "group": ""
+     },
+     {
+      "id": "レベル3(1)-2",
+      "label": "2",
+      "group": ""
+     },
+     {
+      "id": "レベル3(1)-3蘇我蝦夷",
+      "label": "3蘇我蝦夷",
+      "group": "3"
+     },
+     {
+      "id": "レベル3(1)-3蘇我入鹿",
+      "label": "3蘇我入鹿",
+      "group": "3"
+     },
+     {
+      "id": "レベル3(1)-4",
+      "label": "4",
+      "group": ""
+     },
+     {
+      "id": "レベル3(1)-5",
+      "label": "5",
+      "group": ""
+     },
+     {
+      "id": "レベル3(1)-6",
+      "label": "6",
+      "group": ""
+     },
+     {
+      "id": "レベル3(1)-7",
+      "label": "7",
+      "group": ""
+     },
+     {
+      "id": "レベル3(1)-8",
+      "label": "8",
+      "group": ""
+     },
+     {
+      "id": "レベル3(1)-9",
+      "label": "9",
+      "group": ""
+     },
+     {
+      "id": "レベル3(1)-10",
+      "label": "10",
+      "group": ""
+     }
+    ],
+    "label": "6ページ レベル3 1〜10"
+   },
+   {
+    "id": "レベル3(2)",
+    "qpage": 6,
+    "questions": [
+     {
+      "id": "レベル3(2)-11",
+      "label": "11",
+      "group": ""
+     },
+     {
+      "id": "レベル3(2)-12",
+      "label": "12",
+      "group": ""
+     },
+     {
+      "id": "レベル3(2)-13",
+      "label": "13",
+      "group": ""
+     },
+     {
+      "id": "レベル3(2)-14",
+      "label": "14",
+      "group": ""
+     },
+     {
+      "id": "レベル3(2)-15",
+      "label": "15",
+      "group": ""
+     },
+     {
+      "id": "レベル3(2)-16",
+      "label": "16",
+      "group": ""
+     },
+     {
+      "id": "レベル3(2)-17",
+      "label": "17",
+      "group": ""
+     },
+     {
+      "id": "レベル3(2)-18運慶",
+      "label": "18運慶",
+      "group": "18"
+     },
+     {
+      "id": "レベル3(2)-18快慶",
+      "label": "18快慶",
+      "group": "18"
+     },
+     {
+      "id": "レベル3(2)-19",
+      "label": "19",
+      "group": ""
+     },
+     {
+      "id": "レベル3(2)-20",
+      "label": "20",
+      "group": ""
+     },
+     {
+      "id": "レベル3(2)-21",
+      "label": "21",
+      "group": ""
+     },
+     {
+      "id": "レベル3(2)-22",
+      "label": "22",
+      "group": ""
+     },
+     {
+      "id": "レベル3(2)-23",
+      "label": "23",
+      "group": ""
+     },
+     {
+      "id": "レベル3(2)-24",
+      "label": "24",
+      "group": ""
+     },
+     {
+      "id": "レベル3(2)-25",
+      "label": "25",
+      "group": ""
+     },
+     {
+      "id": "レベル3(2)-26",
+      "label": "26",
+      "group": ""
+     },
+     {
+      "id": "レベル3(2)-27",
+      "label": "27",
+      "group": ""
+     },
+     {
+      "id": "レベル3(2)-28",
+      "label": "28",
+      "group": ""
+     },
+     {
+      "id": "レベル3(2)-29",
+      "label": "29",
+      "group": ""
+     },
+     {
+      "id": "レベル3(2)-30",
+      "label": "30",
+      "group": ""
+     }
+    ],
+    "label": "7ページ レベル3 11〜30"
+   }
+  ],
+  "solvedPages": [
+   "solved_01.jpg",
+   "solved_02.jpg",
+   "solved_03.jpg"
+  ]
+ },
+ "dctest": {
+  "label": "デイリーチェック（640-24の確認）",
+  "questionPages": [
+   "dc_q_01.jpg"
+  ],
+  "answerPages": [
+   "dc_a_01.jpg",
+   "solved_05.jpg"
+  ],
+  "daimons": [
+   {
+    "id": "DC",
+    "label": "デイリーチェック 1〜35",
+    "qpage": 0,
+    "questions": [
+     {
+      "id": "DC-1",
+      "label": "1",
+      "group": "1〜18"
+     },
+     {
+      "id": "DC-2",
+      "label": "2",
+      "group": "1〜18"
+     },
+     {
+      "id": "DC-3",
+      "label": "3",
+      "group": "1〜18"
+     },
+     {
+      "id": "DC-4",
+      "label": "4",
+      "group": "1〜18"
+     },
+     {
+      "id": "DC-5",
+      "label": "5",
+      "group": "1〜18"
+     },
+     {
+      "id": "DC-6",
+      "label": "6",
+      "group": "1〜18"
+     },
+     {
+      "id": "DC-7",
+      "label": "7",
+      "group": "1〜18"
+     },
+     {
+      "id": "DC-8",
+      "label": "8",
+      "group": "1〜18"
+     },
+     {
+      "id": "DC-9",
+      "label": "9",
+      "group": "1〜18"
+     },
+     {
+      "id": "DC-10",
+      "label": "10",
+      "group": "1〜18"
+     },
+     {
+      "id": "DC-11",
+      "label": "11",
+      "group": "1〜18"
+     },
+     {
+      "id": "DC-12",
+      "label": "12",
+      "group": "1〜18"
+     },
+     {
+      "id": "DC-13",
+      "label": "13",
+      "group": "1〜18"
+     },
+     {
+      "id": "DC-14",
+      "label": "14",
+      "group": "1〜18"
+     },
+     {
+      "id": "DC-15",
+      "label": "15",
+      "group": "1〜18"
+     },
+     {
+      "id": "DC-16",
+      "label": "16",
+      "group": "1〜18"
+     },
+     {
+      "id": "DC-17",
+      "label": "17",
+      "group": "1〜18"
+     },
+     {
+      "id": "DC-18",
+      "label": "18",
+      "group": "1〜18"
+     },
+     {
+      "id": "DC-19",
+      "label": "19",
+      "group": "19〜35"
+     },
+     {
+      "id": "DC-20",
+      "label": "20",
+      "group": "19〜35"
+     },
+     {
+      "id": "DC-21",
+      "label": "21",
+      "group": "19〜35"
+     },
+     {
+      "id": "DC-22",
+      "label": "22",
+      "group": "19〜35"
+     },
+     {
+      "id": "DC-23",
+      "label": "23",
+      "group": "19〜35"
+     },
+     {
+      "id": "DC-24",
+      "label": "24",
+      "group": "19〜35"
+     },
+     {
+      "id": "DC-25",
+      "label": "25",
+      "group": "19〜35"
+     },
+     {
+      "id": "DC-26",
+      "label": "26",
+      "group": "19〜35"
+     },
+     {
+      "id": "DC-27",
+      "label": "27",
+      "group": "19〜35"
+     },
+     {
+      "id": "DC-28",
+      "label": "28",
+      "group": "19〜35"
+     },
+     {
+      "id": "DC-29",
+      "label": "29",
+      "group": "19〜35"
+     },
+     {
+      "id": "DC-30",
+      "label": "30",
+      "group": "19〜35"
+     },
+     {
+      "id": "DC-31",
+      "label": "31",
+      "group": "19〜35"
+     },
+     {
+      "id": "DC-32",
+      "label": "32",
+      "group": "19〜35"
+     },
+     {
+      "id": "DC-33",
+      "label": "33",
+      "group": "19〜35"
+     },
+     {
+      "id": "DC-34",
+      "label": "34",
+      "group": "19〜35"
+     },
+     {
+      "id": "DC-35",
+      "label": "35",
+      "group": "19〜35"
+     }
+    ]
+   }
+  ],
+  "solvedPages": [
+   "solved_05.jpg"
+  ],
+  "generatedBy": "_scratch/rebuild_640_25_cpdc.py + finish_640_25.py",
+  "generatedAt": "2026-09-29"
+ },
+ "cptest": {
+  "label": "コアプラス確認テスト 640-25",
+  "questionPages": [
+   "cp_q_01.jpg"
+  ],
+  "answerPages": [
+   "cp_a_01.jpg",
+   "solved_04.jpg"
+  ],
+  "daimons": [
+   {
+    "id": "CP1",
+    "label": "大問1 (1)〜(8)",
+    "qpage": 0,
+    "questions": [
+     {
+      "id": "CP1-(1)",
+      "label": "(1)",
+      "group": "大問1"
+     },
+     {
+      "id": "CP1-(2)",
+      "label": "(2)",
+      "group": "大問1"
+     },
+     {
+      "id": "CP1-(3)",
+      "label": "(3)",
+      "group": "大問1"
+     },
+     {
+      "id": "CP1-(4)",
+      "label": "(4)",
+      "group": "大問1"
+     },
+     {
+      "id": "CP1-(5)",
+      "label": "(5)",
+      "group": "大問1"
+     },
+     {
+      "id": "CP1-(6)",
+      "label": "(6)",
+      "group": "大問1"
+     },
+     {
+      "id": "CP1-(7)",
+      "label": "(7)",
+      "group": "大問1"
+     },
+     {
+      "id": "CP1-(8)",
+      "label": "(8)",
+      "group": "大問1"
+     }
+    ]
+   },
+   {
+    "id": "CP2",
+    "label": "大問2 (1)(2)",
+    "qpage": 0,
+    "questions": [
+     {
+      "id": "CP2-(1)",
+      "label": "(1)",
+      "group": "大問2"
+     },
+     {
+      "id": "CP2-(2)",
+      "label": "(2)",
+      "group": "大問2"
+     }
+    ]
+   }
+  ],
+  "solvedPages": [
+   "solved_04.jpg"
+  ],
+  "generatedBy": "_scratch/rebuild_640_25_cpdc.py + finish_640_25.py",
+  "generatedAt": "2026-09-29"
+ },
+ "imageBase": "https://komaguchi-wq.github.io/shakai-daily-check-v2-images-01/daily-check/640-25/"
+}

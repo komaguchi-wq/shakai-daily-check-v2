@@ -582,6 +582,13 @@ function renderUnitDetail() {
     if (sec === "kakunin" && hasXyz && quizData.xyz.keepQuiz) list.appendChild(buildXyzCard(quizData.xyz));
   });
 
+  // ★2026-09-29 授業内テスト（採点済みの デイリーチェック／コアプラス確認テスト）の正誤表カード（640-25〜・理科v2 と同じ dctest/cptest ブロック）。
+  //   記録キーは xyz と同じ `xyz-{小問id}`（小問id は DC-1 / CP1-(1) のように接頭辞付きで衝突しない）
+  TEST_BLOCK_KEYS.forEach(bk => {
+    const b = quizData && quizData[bk];
+    if (b && Array.isArray(b.daimons) && b.daimons.length > 0) list.appendChild(buildXyzCard(b, TEST_BLOCK_META[bk].icon));
+  });
+
   // データバンク単元: 復習（問題/解答タブ）カードを説明文の後に出す。
   // xyz(正誤表付き)がある単元は上の kakunin 分岐で X/Y/Z カードが出るため、こちらは出さない
   if (quizData && !quizData.xyz && quizData.review
@@ -1839,8 +1846,15 @@ function buildChishikiWsmBlock() {
   };
 }
 
-// 単元詳細の正誤表カード（xyzブロック / 知識の総完成の合成ブロック共用）
-function buildXyzCard(block) {
+// ★2026-09-29 授業内テストのブロック（quiz-data.json のキー名）。表示順もこの順
+const TEST_BLOCK_KEYS = ["dctest", "cptest"];
+const TEST_BLOCK_META = {
+  dctest: { icon: "📒", defaultLabel: "デイリーチェック" },
+  cptest: { icon: "📗", defaultLabel: "コアプラス確認テスト" },
+};
+
+// 単元詳細の正誤表カード（xyzブロック / 知識の総完成の合成ブロック / 授業内テストブロック共用）
+function buildXyzCard(block, icon) {
   const xyz = block;
   let good = 0, total = 0, attempted = 0;
   xyz.daimons.forEach(dm => dm.questions.forEach(q => {
@@ -1853,7 +1867,7 @@ function buildXyzCard(block) {
   const card = document.createElement("div");
   card.className = "section-card";
   card.innerHTML = `
-    <div class="section-card-icon">✏️</div>
+    <div class="section-card-icon">${icon || "✏️"}</div>
     <div class="section-card-body">
       <div class="section-card-title">${xyz.label || "授業の確認問題"}</div>
       <div class="section-card-meta">問題${xyz.questionPages.length}ページ ・ 全${total}問</div>${xyzBar}
