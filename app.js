@@ -2621,6 +2621,12 @@ async function composeSpreadDataURLs(files, base, perPageDraw) {
   return urls;
 }
 
+// ★2026-10-02 ユーザー要望: コアプラスは B4 横の見開き印刷だと字が小さい → 印刷だけ 1ページずつ A4 縦にする
+//   （画面の見開き表示はそのまま。縦長の画像は _setPrintPageGeometry が A4 縦にする）
+function wsmPrintAsSpread(xyz) {
+  return !!(xyz && xyz.spread) && !(currentCategory && currentCategory.id === "coreplus");
+}
+
 // モード別に問題ページを印刷（対象小問を赤文字で焼き込む）
 async function printWsMode(mode) {
   commitXyz();
@@ -2629,7 +2635,7 @@ async function printWsMode(mode) {
   const ids = computeWsFilterIds(mode);
   const base = unitImagesBase();
   if (ids) await loadWsSubRects();
-  if (xyz.spread) {
+  if (wsmPrintAsSpread(xyz)) {
     const urls = await composeSpreadDataURLs(xyz.questionPages, base, (ctx, idx, W, H) => {
       if (ids) drawWsTargetText(ctx, wsTargetTextForPage(idx, ids), W, H);
     });
@@ -2661,7 +2667,7 @@ async function wsmPrint() {
   if (wsmShowingKaisetsu) { return printWsKaisetsu(); }   // ★2026-09-20 解説タブ中の右上「印刷」＝解説（対象の問だけ）
   if (!wsmShowingAnswer) { return printWsMode(wsmFilter || "all"); }
   const base = unitImagesBase();
-  if (xyz.spread) {
+  if (wsmPrintAsSpread(xyz)) {
     const urls = await composeSpreadDataURLs(xyz.answerPages, base, null);
     if (urls.length === 0) { alert("画像の読み込みに失敗しました"); return; }
     _openPrintOverlay(`${currentUnit.id} ${wsTitle()}（解答）`, urls);
