@@ -1314,54 +1314,6 @@
     ],
     "daimons": [
       {
-        "id": "139",
-        "label": "139",
-        "qpage": 0,
-        "questions": [
-          {
-            "id": "139",
-            "label": "―",
-            "group": ""
-          }
-        ]
-      },
-      {
-        "id": "140",
-        "label": "140",
-        "qpage": 0,
-        "questions": [
-          {
-            "id": "140",
-            "label": "―",
-            "group": ""
-          }
-        ]
-      },
-      {
-        "id": "141",
-        "label": "141",
-        "qpage": 0,
-        "questions": [
-          {
-            "id": "141",
-            "label": "―",
-            "group": ""
-          }
-        ]
-      },
-      {
-        "id": "142",
-        "label": "142",
-        "qpage": 0,
-        "questions": [
-          {
-            "id": "142",
-            "label": "―",
-            "group": ""
-          }
-        ]
-      },
-      {
         "id": "143",
         "label": "143",
         "qpage": 0,
