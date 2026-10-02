@@ -660,13 +660,28 @@
             "group": ""
           },
           {
-            "id": "567-②",
-            "label": "②",
+            "id": "567-②A",
+            "label": "②A",
             "group": ""
           },
           {
-            "id": "567-③",
-            "label": "③",
+            "id": "567-②B",
+            "label": "②B",
+            "group": ""
+          },
+          {
+            "id": "567-②C",
+            "label": "②C",
+            "group": ""
+          },
+          {
+            "id": "567-③A",
+            "label": "③A",
+            "group": ""
+          },
+          {
+            "id": "567-③B",
+            "label": "③B",
             "group": ""
           }
         ]
@@ -677,18 +692,48 @@
         "qpage": 1,
         "questions": [
           {
-            "id": "568-①",
-            "label": "①",
+            "id": "568-①A",
+            "label": "①A",
             "group": ""
           },
           {
-            "id": "568-②",
-            "label": "②",
+            "id": "568-①B",
+            "label": "①B",
             "group": ""
           },
           {
-            "id": "568-③",
-            "label": "③",
+            "id": "568-①C",
+            "label": "①C",
+            "group": ""
+          },
+          {
+            "id": "568-②A",
+            "label": "②A",
+            "group": ""
+          },
+          {
+            "id": "568-②B",
+            "label": "②B",
+            "group": ""
+          },
+          {
+            "id": "568-②C",
+            "label": "②C",
+            "group": ""
+          },
+          {
+            "id": "568-③A",
+            "label": "③A",
+            "group": ""
+          },
+          {
+            "id": "568-③B",
+            "label": "③B",
+            "group": ""
+          },
+          {
+            "id": "568-③C",
+            "label": "③C",
             "group": ""
           }
         ]
@@ -699,13 +744,28 @@
         "qpage": 2,
         "questions": [
           {
-            "id": "569-①",
-            "label": "①",
+            "id": "569-①A",
+            "label": "①A",
             "group": ""
           },
           {
-            "id": "569-②",
-            "label": "②",
+            "id": "569-①B",
+            "label": "①B",
+            "group": ""
+          },
+          {
+            "id": "569-②A",
+            "label": "②A",
+            "group": ""
+          },
+          {
+            "id": "569-②B",
+            "label": "②B",
+            "group": ""
+          },
+          {
+            "id": "569-②C",
+            "label": "②C",
             "group": ""
           }
         ]
@@ -733,8 +793,18 @@
         "qpage": 4,
         "questions": [
           {
-            "id": "571-①",
-            "label": "①",
+            "id": "571-①A",
+            "label": "①A",
+            "group": ""
+          },
+          {
+            "id": "571-①B",
+            "label": "①B",
+            "group": ""
+          },
+          {
+            "id": "571-①C",
+            "label": "①C",
             "group": ""
           },
           {
@@ -750,13 +820,28 @@
         "qpage": 5,
         "questions": [
           {
-            "id": "572-①",
-            "label": "①",
+            "id": "572-①A",
+            "label": "①A",
             "group": ""
           },
           {
-            "id": "572-②",
-            "label": "②",
+            "id": "572-①B",
+            "label": "①B",
+            "group": ""
+          },
+          {
+            "id": "572-②A",
+            "label": "②A",
+            "group": ""
+          },
+          {
+            "id": "572-②B",
+            "label": "②B",
+            "group": ""
+          },
+          {
+            "id": "572-②C",
+            "label": "②C",
             "group": ""
           }
         ]
@@ -799,18 +884,38 @@
         "qpage": 6,
         "questions": [
           {
-            "id": "574-①",
-            "label": "①",
+            "id": "574-①A",
+            "label": "①A",
             "group": ""
           },
           {
-            "id": "574-②",
-            "label": "②",
+            "id": "574-①B",
+            "label": "①B",
             "group": ""
           },
           {
-            "id": "574-③",
-            "label": "③",
+            "id": "574-①C",
+            "label": "①C",
+            "group": ""
+          },
+          {
+            "id": "574-②A",
+            "label": "②A",
+            "group": ""
+          },
+          {
+            "id": "574-②B",
+            "label": "②B",
+            "group": ""
+          },
+          {
+            "id": "574-③A",
+            "label": "③A",
+            "group": ""
+          },
+          {
+            "id": "574-③B",
+            "label": "③B",
             "group": ""
           }
         ]
@@ -821,13 +926,38 @@
         "qpage": 7,
         "questions": [
           {
-            "id": "575-①",
-            "label": "①",
+            "id": "575-①A",
+            "label": "①A",
             "group": ""
           },
           {
-            "id": "575-②",
-            "label": "②",
+            "id": "575-①B",
+            "label": "①B",
+            "group": ""
+          },
+          {
+            "id": "575-①C",
+            "label": "①C",
+            "group": ""
+          },
+          {
+            "id": "575-②A",
+            "label": "②A",
+            "group": ""
+          },
+          {
+            "id": "575-②B",
+            "label": "②B",
+            "group": ""
+          },
+          {
+            "id": "575-②C",
+            "label": "②C",
+            "group": ""
+          },
+          {
+            "id": "575-②D",
+            "label": "②D",
             "group": ""
           }
         ]
@@ -843,8 +973,23 @@
             "group": ""
           },
           {
-            "id": "576-②",
-            "label": "②",
+            "id": "576-②A",
+            "label": "②A",
+            "group": ""
+          },
+          {
+            "id": "576-②B",
+            "label": "②B",
+            "group": ""
+          },
+          {
+            "id": "576-②C",
+            "label": "②C",
+            "group": ""
+          },
+          {
+            "id": "576-②D",
+            "label": "②D",
             "group": ""
           }
         ]
@@ -855,18 +1000,63 @@
         "qpage": 9,
         "questions": [
           {
-            "id": "577-①",
-            "label": "①",
+            "id": "577-①A",
+            "label": "①A",
             "group": ""
           },
           {
-            "id": "577-②",
-            "label": "②",
+            "id": "577-①B",
+            "label": "①B",
             "group": ""
           },
           {
-            "id": "577-③",
-            "label": "③",
+            "id": "577-①C",
+            "label": "①C",
+            "group": ""
+          },
+          {
+            "id": "577-①D",
+            "label": "①D",
+            "group": ""
+          },
+          {
+            "id": "577-①E",
+            "label": "①E",
+            "group": ""
+          },
+          {
+            "id": "577-①F",
+            "label": "①F",
+            "group": ""
+          },
+          {
+            "id": "577-②A",
+            "label": "②A",
+            "group": ""
+          },
+          {
+            "id": "577-②B",
+            "label": "②B",
+            "group": ""
+          },
+          {
+            "id": "577-③A",
+            "label": "③A",
+            "group": ""
+          },
+          {
+            "id": "577-③B",
+            "label": "③B",
+            "group": ""
+          },
+          {
+            "id": "577-③C",
+            "label": "③C",
+            "group": ""
+          },
+          {
+            "id": "577-③D",
+            "label": "③D",
             "group": ""
           }
         ]
@@ -877,13 +1067,23 @@
         "qpage": 10,
         "questions": [
           {
-            "id": "578-①",
-            "label": "①",
+            "id": "578-①A",
+            "label": "①A",
             "group": ""
           },
           {
-            "id": "578-②",
-            "label": "②",
+            "id": "578-①B",
+            "label": "①B",
+            "group": ""
+          },
+          {
+            "id": "578-②A",
+            "label": "②A",
+            "group": ""
+          },
+          {
+            "id": "578-②B",
+            "label": "②B",
             "group": ""
           }
         ]
@@ -916,8 +1116,13 @@
             "group": ""
           },
           {
-            "id": "580-②",
-            "label": "②",
+            "id": "580-②A",
+            "label": "②A",
+            "group": ""
+          },
+          {
+            "id": "580-②B",
+            "label": "②B",
             "group": ""
           }
         ]
