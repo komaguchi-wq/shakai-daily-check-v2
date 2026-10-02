@@ -518,7 +518,12 @@
         "questions": [
           {
             "id": "689",
-            "label": "―",
+            "label": "①",
+            "group": ""
+          },
+          {
+            "id": "689-②",
+            "label": "②",
             "group": ""
           }
         ]

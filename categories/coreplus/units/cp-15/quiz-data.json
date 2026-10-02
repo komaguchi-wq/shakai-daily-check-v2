@@ -808,18 +808,13 @@
         "qpage": 3,
         "questions": [
           {
-            "id": "614-①",
-            "label": "①",
-            "group": ""
-          },
-          {
             "id": "614-A",
-            "label": "A",
+            "label": "①A",
             "group": ""
           },
           {
             "id": "614-B",
-            "label": "B",
+            "label": "①B",
             "group": ""
           },
           {
