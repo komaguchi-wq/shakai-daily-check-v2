@@ -1347,6 +1347,7 @@ function toMonoWhite(ctx, w, h) {
     const mx = r > g ? (r > b ? r : b) : (g > b ? g : b);
     const mi = r < g ? (r < b ? r : b) : (g < b ? g : b);
     if (mx - mi >= PRINT_MONO_KEEP_SAT) continue;   // 色付きはそのまま
+    if (r === mx && mx - mi >= 25) continue;       // ★2026-10-04 赤文字のふちの薄い赤も残す（白黒補正で灰色に沈むと赤い下敷きごしに輪郭が透ける）
     const L = mn ? (lum[i] * (256 - b256) + mn[i] * b256) >> 8 : lum[i];
     const v = lut[L];
     d[p] = d[p + 1] = d[p + 2] = v;
