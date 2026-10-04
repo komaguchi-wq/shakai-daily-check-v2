@@ -2290,7 +2290,8 @@ function updateWsTargetBoxes() {
     const c = wsmCrop(idx);
     layer.innerHTML = rs.map(r => {
       // 寸法は算数 drawTargetRings と同じ（小問=少し左・少し小さめ／大問見出し=そのまま）
-      let w = 0.033 * (r.sub ? 0.92 : 1.15), h = 0.033 * r.W / r.H, cx = r.cx - (r.sub ? 0.006 : 0), cy = r.cy;
+      // ★2026-10-04 丸の中心はラベルの中心のまま（左に W×0.6% 寄せるのは算数だけ。「(1)」が丸の右に寄って見えた＝ユーザー指摘）
+      let w = 0.033 * (r.sub ? 0.92 : 1.15), h = 0.033 * r.W / r.H, cx = r.cx, cy = r.cy;
       if (c) {   // 余白カット表示: 画像座標 → 枠内の割合へ
         cx = (cx * c.W - c.x) / c.w; cy = (cy * c.H - c.y) / c.h; w = w * c.W / c.w; h = h * c.H / c.h;
       }
@@ -2308,7 +2309,7 @@ function drawWsTargetBoxes(ctx, idx, idsSet, W, H) {
   rs.forEach(r => {
     const rr = Math.max(9, W * 0.0165);
     ctx.beginPath();
-    ctx.ellipse((r.cx - (r.sub ? 0.006 : 0)) * W, r.cy * H, rr * (r.sub ? 0.92 : 1.15), rr, 0, 0, Math.PI * 2);
+    ctx.ellipse(r.cx * W, r.cy * H, rr * (r.sub ? 0.92 : 1.15), rr, 0, 0, Math.PI * 2);   // ★2026-10-04 左寄せ廃止（理社）
     ctx.stroke();
   });
   ctx.restore();
