@@ -18,15 +18,6 @@
   "xyzCount": 100
  },
  {
-  "id": "昼テスト-02",
-  "title": "社会科地図作業〜その①〜",
-  "subject": "SS特訓 昼テスト SS-02",
-  "pageCount": 2,
-  "totalRegions": 0,
-  "sectionRegions": {},
-  "xyzCount": 70
- },
- {
   "id": "SS-03",
   "title": "出題形式別研究・実力診断・記述特訓",
   "subject": "SS特訓 志望校別講座 SS-03",
@@ -34,5 +25,23 @@
   "totalRegions": 0,
   "sectionRegions": {},
   "xyzCount": 123
+ },
+ {
+  "id": "SS-04",
+  "title": "出題形式別研究・実力診断・記述特訓",
+  "subject": "SS特訓 志望校別講座 SS-04",
+  "pageCount": 16,
+  "totalRegions": 0,
+  "sectionRegions": {},
+  "xyzCount": 133
+ },
+ {
+  "id": "昼テスト-02",
+  "title": "社会科地図作業〜その①〜",
+  "subject": "SS特訓 昼テスト SS-02",
+  "pageCount": 2,
+  "totalRegions": 0,
+  "sectionRegions": {},
+  "xyzCount": 70
  }
 ]
