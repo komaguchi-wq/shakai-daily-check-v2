@@ -2227,9 +2227,9 @@ function wsmCrop(i) {
   const c = currentWsm && currentWsm.crops && currentWsm.crops[i];
   return (c && c.w > 0 && c.h > 0) ? c : null;
 }
-function wsmCropImgHTML(i, imgTag) {
+function wsmCropImgHTML(i, imgTag, pt = "q") {
   const c = wsmCrop(i);
-  const layer = `<div class="wsm-tboxes" data-idx="${i}"></div>`;   // ★2026-09-24 対象小問の赤丸（qpos.json）
+  const layer = `<div class="wsm-tboxes" data-idx="${i}" data-pt="${pt}"></div>`;   // ★2026-09-24 対象小問の赤丸（qpos.json）／★2026-10-04 解答ページは青（data-pt=a）
   if (!c) return `<div class="wsm-imgwrap">${imgTag}${wsRegionOverlayHTML(i)}${layer}</div>`;
   const pct = v => (v * 100).toFixed(3) + "%";
   const st = `width:${pct(c.W / c.w)};left:${pct(-c.x / c.w)};top:${pct(-c.y / c.h)}`;
@@ -2270,15 +2270,40 @@ async function loadWsSubRects() {
           const wh = pageWH[p.page] || {};
           rects[q.id] = [{ qpage: p.page, ring: true, sub: !!s, cx: p.x, cy: p.y, W: wh.W || 1000, H: wh.H || 700 }];
         }));
+        // ★2026-10-04 answerMap（qpos_answer_map.py）: 解答ページの添字 → 同じ紙面の問題ページの添字。無い解答ページには印を出さない
+        if (j.answerMap) Object.defineProperty(rects, "__answerMap", { value: j.answerMap, enumerable: false });
+        // ★2026-10-04 解答ページ自体を OCR した位置（qpos.answer・detect_qpos.py）: 解答冊子（別紙）は問題と紙面が違うので、こちらを優先する
+        if (j.answer && j.answer.subs) {
+          const arects = {}, apWH = {};
+          (j.answer.pages || []).forEach(p => { apWH[p.i] = p; });
+          (currentWsm.daimons || []).forEach(dm => (dm.questions || []).forEach(q => {
+            const s = j.answer.subs[q.id];
+            const p = s || (j.answer.daimons && j.answer.daimons[String(dm.id)]);
+            if (!p) return;
+            const wh = apWH[p.page] || {};
+            arects[q.id] = [{ qpage: p.page, ring: true, sub: !!s, cx: p.x, cy: p.y, W: wh.W || 1000, H: wh.H || 700 }];
+          }));
+          if (Object.keys(arects).length) Object.defineProperty(rects, "__a", { value: arects, enumerable: false });
+        }
       }
     }
   } catch (e) { console.warn("qpos 読み込み失敗", e); }
   _subRectsCache[key] = Object.keys(rects).length ? rects : null;
   return _subRectsCache[key];
 }
-function wsTargetRectsForPage(idx, idsSet) {
+function wsTargetRectsForPage(idx, idsSet, pt) {
   const rects = _subRectsCache[wsSubRectsKey()];
   if (!rects || !idsSet) return [];
+  if (pt === "a" && rects.__a) {   // ★2026-10-04 解答ページ自体の位置（qpos.answer）があればそれを使う
+    const out = [];
+    idsSet.forEach(id => (rects.__a[id] || []).forEach(r => { if (r.qpage === idx) out.push(r); }));
+    return out;
+  }
+  if (pt === "a") {   // ★2026-10-04 解答ページ: 問題と同じ紙面のページだけ（answerMap）。以前は同じ添字の印をそのまま出していた＝Weekly 等でページがずれていた
+    const m = rects.__answerMap;
+    if (!m || m[String(idx)] == null) return [];
+    idx = m[String(idx)];
+  }
   const out = [];
   idsSet.forEach(id => (rects[id] || []).forEach(r => { if (r.qpage === idx) out.push(r); }));
   return out;
@@ -2286,8 +2311,10 @@ function wsTargetRectsForPage(idx, idsSet) {
 function updateWsTargetBoxes() {
   document.querySelectorAll('#wsm-pages .wsm-tboxes').forEach(layer => {
     const idx = parseInt(layer.dataset.idx);
-    const rs = wsTargetRectsForPage(idx, wsmFilteredIds);
+    const pt = layer.dataset.pt || "q";
+    const rs = wsTargetRectsForPage(idx, wsmFilteredIds, pt);
     const c = wsmCrop(idx);
+    const cls = pt === "a" ? " wsm-tring-a" : "";   // ★2026-10-04 解答ページは青（赤い下敷きで隠しても見える）
     layer.innerHTML = rs.map(r => {
       // 寸法は算数 drawTargetRings と同じ（小問=少し左・少し小さめ／大問見出し=そのまま）
       // ★2026-10-04 丸の中心はラベルの中心のまま（左に W×0.6% 寄せるのは算数だけ。「(1)」が丸の右に寄って見えた＝ユーザー指摘）
@@ -2295,16 +2322,16 @@ function updateWsTargetBoxes() {
       if (c) {   // 余白カット表示: 画像座標 → 枠内の割合へ
         cx = (cx * c.W - c.x) / c.w; cy = (cy * c.H - c.y) / c.h; w = w * c.W / c.w; h = h * c.H / c.h;
       }
-      return `<span class="wsm-tring" style="left:${((cx - w / 2) * 100).toFixed(2)}%;top:${((cy - h / 2) * 100).toFixed(2)}%;width:${(w * 100).toFixed(2)}%;height:${(h * 100).toFixed(2)}%"></span>`;
+      return `<span class="wsm-tring${cls}" style="left:${((cx - w / 2) * 100).toFixed(2)}%;top:${((cy - h / 2) * 100).toFixed(2)}%;width:${(w * 100).toFixed(2)}%;height:${(h * 100).toFixed(2)}%"></span>`;
     }).join("");
   });
 }
 // 印刷用: 赤丸を canvas に焼き込む
-function drawWsTargetBoxes(ctx, idx, idsSet, W, H) {
-  const rs = wsTargetRectsForPage(idx, idsSet);
+function drawWsTargetBoxes(ctx, idx, idsSet, W, H, pt) {
+  const rs = wsTargetRectsForPage(idx, idsSet, pt || "q");
   if (!rs.length) return;
   ctx.save();
-  ctx.strokeStyle = "#ff3b30";
+  ctx.strokeStyle = pt === "a" ? "#0a5fd6" : "#ff3b30";   // ★2026-10-04 解答ページは青
   ctx.lineWidth = Math.max(6, Math.round(W * 0.0022));
   rs.forEach(r => {
     const rr = Math.max(9, W * 0.0165);
@@ -2320,7 +2347,7 @@ function wsmPageHTML(pt, file, i, total, base) {
   const banner = pt === "q" ? `<div class="wsm-target-banner" style="display:none"></div>` : "";
   return `<div class="wsm-page" data-pt="${pt}" data-idx="${i}"${pt === "a" ? ' style="display:none"' : ""}>
        <div class="wsm-page-label">${lbl} ${i + 1} / ${total}</div>${banner}
-       ${wsmCropImgHTML(i, `<img src="${base}${file}" loading="lazy" alt="${lbl}${i + 1}">`)}
+       ${wsmCropImgHTML(i, `<img src="${base}${file}" loading="lazy" alt="${lbl}${i + 1}">`, pt)}
      </div>`;
 }
 
@@ -2684,6 +2711,7 @@ async function wsmPrint() {
     const ctx = cc.getContext("2d");
     ctx.drawImage(img, 0, 0);
     drawWsRegionOverlays(ctx, i, null);
+    if (wsmFilteredIds) drawWsTargetBoxes(ctx, i, wsmFilteredIds, cc.width, cc.height, "a");   // ★2026-10-04 解答の印刷もフィルタ中は青い印
     dataURLs.push(cc.toDataURL("image/jpeg", 0.92));
   }
   if (dataURLs.length === 0) { alert("画像の読み込みに失敗しました"); return; }

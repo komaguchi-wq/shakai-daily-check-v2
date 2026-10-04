@@ -956,6 +956,7 @@ body {
 /* ★2026-09-24 対象小問のラベルに赤い丸（qpos.json・SS特訓/Weekly/640-21〜） */
 .wsm-tboxes { position: absolute; inset: 0; pointer-events: none; }
 .wsm-tring { position: absolute; box-sizing: border-box; border: 3px solid #ff3b30; border-radius: 50%; }
+.wsm-tring.wsm-tring-a { border-color: #0a5fd6; }   /* ★2026-10-04 解答ページの印は青（赤い下敷きで隠しても見える） */
 @media (max-width: 767px) { .wsm-tring { border-width: 2px; } }
 /* 余白カット（xyz.crops）: 枠の外をかくして中身だけ見せる */
 .wsm-imgwrap.wsm-cropped {
