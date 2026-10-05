@@ -17,178 +17,6 @@
       "imageMasked": "page_01_qmasked.jpg",
       "regions": [
         {
-          "x": 1135,
-          "y": 131,
-          "w": 328,
-          "h": 44
-        },
-        {
-          "x": 1132,
-          "y": 135,
-          "w": 331,
-          "h": 75
-        },
-        {
-          "x": 1132,
-          "y": 280,
-          "w": 331,
-          "h": 45
-        },
-        {
-          "x": 1134,
-          "y": 323,
-          "w": 329,
-          "h": 34
-        },
-        {
-          "x": 1132,
-          "y": 474,
-          "w": 331,
-          "h": 45
-        },
-        {
-          "x": 1130,
-          "y": 518,
-          "w": 333,
-          "h": 35
-        },
-        {
-          "x": 1131,
-          "y": 553,
-          "w": 332,
-          "h": 38
-        },
-        {
-          "x": 1131,
-          "y": 960,
-          "w": 332,
-          "h": 47
-        },
-        {
-          "x": 1132,
-          "y": 1007,
-          "w": 331,
-          "h": 35
-        },
-        {
-          "x": 1132,
-          "y": 1299,
-          "w": 331,
-          "h": 47
-        },
-        {
-          "x": 1131,
-          "y": 1335,
-          "w": 332,
-          "h": 46
-        },
-        {
-          "x": 1131,
-          "y": 1543,
-          "w": 332,
-          "h": 45
-        },
-        {
-          "x": 1131,
-          "y": 1585,
-          "w": 332,
-          "h": 77
-        },
-        {
-          "x": 1132,
-          "y": 1782,
-          "w": 331,
-          "h": 47
-        },
-        {
-          "x": 1132,
-          "y": 1827,
-          "w": 331,
-          "h": 36
-        },
-        {
-          "x": 1131,
-          "y": 1860,
-          "w": 332,
-          "h": 43
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "type": "kakunin",
-      "containsSections": [
-        "kakunin"
-      ],
-      "src_phys_page": 2,
-      "width": 1532,
-      "height": 2173,
-      "image": "page_02_answer.jpg",
-      "imageMasked": "page_02_qmasked.jpg",
-      "regions": [
-        {
-          "x": 1063,
-          "y": 127,
-          "w": 400,
-          "h": 48
-        },
-        {
-          "x": 1008,
-          "y": 136,
-          "w": 455,
-          "h": 459
-        },
-        {
-          "x": 1007,
-          "y": 578,
-          "w": 426,
-          "h": 37
-        },
-        {
-          "x": 1063,
-          "y": 911,
-          "w": 370,
-          "h": 46
-        },
-        {
-          "x": 1066,
-          "y": 944,
-          "w": 367,
-          "h": 62
-        },
-        {
-          "x": 1063,
-          "y": 991,
-          "w": 370,
-          "h": 35
-        },
-        {
-          "x": 1061,
-          "y": 1102,
-          "w": 402,
-          "h": 47
-        },
-        {
-          "x": 1062,
-          "y": 1151,
-          "w": 401,
-          "h": 34
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "type": "kakunin",
-      "containsSections": [
-        "kakunin"
-      ],
-      "src_phys_page": 3,
-      "width": 1532,
-      "height": 2169,
-      "image": "page_03_answer.jpg",
-      "imageMasked": "page_03_qmasked.jpg",
-      "regions": [
-        {
           "x": 1130,
           "y": 271,
           "w": 333,
@@ -257,16 +85,16 @@
       ]
     },
     {
-      "id": 4,
+      "id": 2,
       "type": "kakunin",
       "containsSections": [
         "kakunin"
       ],
-      "src_phys_page": 4,
+      "src_phys_page": 2,
       "width": 1532,
       "height": 2171,
-      "image": "page_04_answer.jpg",
-      "imageMasked": "page_04_qmasked.jpg",
+      "image": "page_02_answer.jpg",
+      "imageMasked": "page_02_qmasked.jpg",
       "regions": [
         {
           "x": 1011,
@@ -337,16 +165,16 @@
       ]
     },
     {
-      "id": 5,
+      "id": 3,
       "type": "kakunin",
       "containsSections": [
         "kakunin"
       ],
-      "src_phys_page": 5,
+      "src_phys_page": 3,
       "width": 1532,
       "height": 2169,
-      "image": "page_05_answer.jpg",
-      "imageMasked": "page_05_qmasked.jpg",
+      "image": "page_03_answer.jpg",
+      "imageMasked": "page_03_qmasked.jpg",
       "regions": [
         {
           "x": 1138,
@@ -417,16 +245,16 @@
       ]
     },
     {
-      "id": 6,
+      "id": 4,
       "type": "kakunin",
       "containsSections": [
         "kakunin"
       ],
-      "src_phys_page": 6,
+      "src_phys_page": 4,
       "width": 1532,
       "height": 2171,
-      "image": "page_06_answer.jpg",
-      "imageMasked": "page_06_qmasked.jpg",
+      "image": "page_04_answer.jpg",
+      "imageMasked": "page_04_qmasked.jpg",
       "regions": [
         {
           "x": 1069,
@@ -509,16 +337,16 @@
       ]
     },
     {
-      "id": 7,
+      "id": 5,
       "type": "kakunin",
       "containsSections": [
         "kakunin"
       ],
-      "src_phys_page": 7,
+      "src_phys_page": 5,
       "width": 1532,
       "height": 2169,
-      "image": "page_07_answer.jpg",
-      "imageMasked": "page_07_qmasked.jpg",
+      "image": "page_05_answer.jpg",
+      "imageMasked": "page_05_qmasked.jpg",
       "regions": [
         {
           "x": 1123,
@@ -607,16 +435,16 @@
       ]
     },
     {
-      "id": 8,
+      "id": 6,
       "type": "kakunin",
       "containsSections": [
         "kakunin"
       ],
-      "src_phys_page": 8,
+      "src_phys_page": 6,
       "width": 1532,
       "height": 2171,
-      "image": "page_08_answer.jpg",
-      "imageMasked": "page_08_qmasked.jpg",
+      "image": "page_06_answer.jpg",
+      "imageMasked": "page_06_qmasked.jpg",
       "regions": [
         {
           "x": 1070,
@@ -705,16 +533,16 @@
       ]
     },
     {
-      "id": 9,
+      "id": 7,
       "type": "kakunin",
       "containsSections": [
         "kakunin"
       ],
-      "src_phys_page": 9,
+      "src_phys_page": 7,
       "width": 1532,
       "height": 2169,
-      "image": "page_09_answer.jpg",
-      "imageMasked": "page_09_qmasked.jpg",
+      "image": "page_07_answer.jpg",
+      "imageMasked": "page_07_qmasked.jpg",
       "regions": [
         {
           "x": 1065,
@@ -773,16 +601,16 @@
       ]
     },
     {
-      "id": 10,
+      "id": 8,
       "type": "kakunin",
       "containsSections": [
         "kakunin"
       ],
-      "src_phys_page": 10,
+      "src_phys_page": 8,
       "width": 1532,
       "height": 2171,
-      "image": "page_10_answer.jpg",
-      "imageMasked": "page_10_qmasked.jpg",
+      "image": "page_08_answer.jpg",
+      "imageMasked": "page_08_qmasked.jpg",
       "regions": [
         {
           "x": 1068,
@@ -847,16 +675,16 @@
       ]
     },
     {
-      "id": 11,
+      "id": 9,
       "type": "kakunin",
       "containsSections": [
         "kakunin"
       ],
-      "src_phys_page": 11,
+      "src_phys_page": 9,
       "width": 1532,
       "height": 2169,
-      "image": "page_11_answer.jpg",
-      "imageMasked": "page_11_qmasked.jpg",
+      "image": "page_09_answer.jpg",
+      "imageMasked": "page_09_qmasked.jpg",
       "regions": [
         {
           "x": 1128,
@@ -957,9 +785,7 @@
       "page_06_qmasked.jpg",
       "page_07_qmasked.jpg",
       "page_08_qmasked.jpg",
-      "page_09_qmasked.jpg",
-      "page_10_qmasked.jpg",
-      "page_11_qmasked.jpg"
+      "page_09_qmasked.jpg"
     ],
     "answerPages": [
       "page_01_answer.jpg",
@@ -970,222 +796,13 @@
       "page_06_answer.jpg",
       "page_07_answer.jpg",
       "page_08_answer.jpg",
-      "page_09_answer.jpg",
-      "page_10_answer.jpg",
-      "page_11_answer.jpg"
+      "page_09_answer.jpg"
     ],
     "daimons": [
       {
-        "id": "359",
-        "label": "359",
-        "qpage": 0,
-        "questions": [
-          {
-            "id": "359-①",
-            "label": "①",
-            "group": ""
-          },
-          {
-            "id": "359-②",
-            "label": "②",
-            "group": ""
-          }
-        ]
-      },
-      {
-        "id": "360",
-        "label": "360",
-        "qpage": 0,
-        "questions": [
-          {
-            "id": "360-①",
-            "label": "①",
-            "group": ""
-          },
-          {
-            "id": "360-②",
-            "label": "②",
-            "group": ""
-          }
-        ]
-      },
-      {
-        "id": "361",
-        "label": "361",
-        "qpage": 0,
-        "questions": [
-          {
-            "id": "361-①",
-            "label": "①",
-            "group": ""
-          },
-          {
-            "id": "361-②",
-            "label": "②",
-            "group": ""
-          },
-          {
-            "id": "361-③",
-            "label": "③",
-            "group": ""
-          }
-        ]
-      },
-      {
-        "id": "362",
-        "label": "362",
-        "qpage": 0,
-        "questions": [
-          {
-            "id": "362-①",
-            "label": "①",
-            "group": ""
-          },
-          {
-            "id": "362-②",
-            "label": "②",
-            "group": ""
-          }
-        ]
-      },
-      {
-        "id": "363",
-        "label": "363",
-        "qpage": 0,
-        "questions": [
-          {
-            "id": "363-①",
-            "label": "①",
-            "group": ""
-          },
-          {
-            "id": "363-②",
-            "label": "②",
-            "group": ""
-          }
-        ]
-      },
-      {
-        "id": "364",
-        "label": "364",
-        "qpage": 0,
-        "questions": [
-          {
-            "id": "364-①",
-            "label": "①",
-            "group": ""
-          },
-          {
-            "id": "364-②",
-            "label": "②",
-            "group": ""
-          },
-          {
-            "id": "364-③",
-            "label": "③",
-            "group": ""
-          }
-        ]
-      },
-      {
-        "id": "365",
-        "label": "365",
-        "qpage": 0,
-        "questions": [
-          {
-            "id": "365-①",
-            "label": "①",
-            "group": ""
-          },
-          {
-            "id": "365-②",
-            "label": "②",
-            "group": ""
-          },
-          {
-            "id": "365-③",
-            "label": "③",
-            "group": ""
-          }
-        ]
-      },
-      {
-        "id": "366",
-        "label": "366",
-        "qpage": 1,
-        "questions": [
-          {
-            "id": "366-①",
-            "label": "①",
-            "group": ""
-          },
-          {
-            "id": "366-②",
-            "label": "②",
-            "group": ""
-          },
-          {
-            "id": "366-③",
-            "label": "③",
-            "group": ""
-          }
-        ]
-      },
-      {
-        "id": "367",
-        "label": "367",
-        "qpage": 1,
-        "questions": [
-          {
-            "id": "367",
-            "label": "―",
-            "group": ""
-          }
-        ]
-      },
-      {
-        "id": "368",
-        "label": "368",
-        "qpage": 1,
-        "questions": [
-          {
-            "id": "368-①",
-            "label": "①",
-            "group": ""
-          },
-          {
-            "id": "368-②",
-            "label": "②",
-            "group": ""
-          },
-          {
-            "id": "368-③",
-            "label": "③",
-            "group": ""
-          }
-        ]
-      },
-      {
-        "id": "369",
-        "label": "369",
-        "qpage": 1,
-        "questions": [
-          {
-            "id": "369-①",
-            "label": "①",
-            "group": ""
-          },
-          {
-            "id": "369-②",
-            "label": "②",
-            "group": ""
-          }
-        ]
-      },
-      {
         "id": "370",
         "label": "370",
-        "qpage": 2,
+        "qpage": 0,
         "questions": [
           {
             "id": "370-①",
@@ -1202,7 +819,7 @@
       {
         "id": "371",
         "label": "371",
-        "qpage": 2,
+        "qpage": 0,
         "questions": [
           {
             "id": "371-A",
@@ -1239,7 +856,7 @@
       {
         "id": "372",
         "label": "372",
-        "qpage": 2,
+        "qpage": 0,
         "questions": [
           {
             "id": "372-①A",
@@ -1266,7 +883,7 @@
       {
         "id": "373",
         "label": "373",
-        "qpage": 3,
+        "qpage": 1,
         "questions": [
           {
             "id": "373",
@@ -1278,7 +895,7 @@
       {
         "id": "374",
         "label": "374",
-        "qpage": 3,
+        "qpage": 1,
         "questions": [
           {
             "id": "374-①",
@@ -1315,7 +932,7 @@
       {
         "id": "375",
         "label": "375",
-        "qpage": 3,
+        "qpage": 1,
         "questions": [
           {
             "id": "375-①",
@@ -1332,7 +949,7 @@
       {
         "id": "376",
         "label": "376",
-        "qpage": 3,
+        "qpage": 1,
         "questions": [
           {
             "id": "376-①",
@@ -1354,7 +971,7 @@
       {
         "id": "377",
         "label": "377",
-        "qpage": 3,
+        "qpage": 1,
         "questions": [
           {
             "id": "377",
@@ -1366,7 +983,7 @@
       {
         "id": "378",
         "label": "378",
-        "qpage": 4,
+        "qpage": 2,
         "questions": [
           {
             "id": "378-①",
@@ -1403,7 +1020,7 @@
       {
         "id": "379",
         "label": "379",
-        "qpage": 4,
+        "qpage": 2,
         "questions": [
           {
             "id": "379",
@@ -1415,7 +1032,7 @@
       {
         "id": "380",
         "label": "380",
-        "qpage": 4,
+        "qpage": 2,
         "questions": [
           {
             "id": "380",
@@ -1427,7 +1044,7 @@
       {
         "id": "381",
         "label": "381",
-        "qpage": 4,
+        "qpage": 2,
         "questions": [
           {
             "id": "381",
@@ -1439,7 +1056,7 @@
       {
         "id": "382",
         "label": "382",
-        "qpage": 4,
+        "qpage": 2,
         "questions": [
           {
             "id": "382-①",
@@ -1456,7 +1073,7 @@
       {
         "id": "383",
         "label": "383",
-        "qpage": 5,
+        "qpage": 3,
         "questions": [
           {
             "id": "383-①",
@@ -1478,7 +1095,7 @@
       {
         "id": "384",
         "label": "384",
-        "qpage": 5,
+        "qpage": 3,
         "questions": [
           {
             "id": "384-①",
@@ -1495,7 +1112,7 @@
       {
         "id": "385",
         "label": "385",
-        "qpage": 5,
+        "qpage": 3,
         "questions": [
           {
             "id": "385-①",
@@ -1512,7 +1129,7 @@
       {
         "id": "386",
         "label": "386",
-        "qpage": 5,
+        "qpage": 3,
         "questions": [
           {
             "id": "386-①",
@@ -1544,7 +1161,7 @@
       {
         "id": "387",
         "label": "387",
-        "qpage": 5,
+        "qpage": 3,
         "questions": [
           {
             "id": "387-①",
@@ -1566,7 +1183,7 @@
       {
         "id": "388",
         "label": "388",
-        "qpage": 5,
+        "qpage": 3,
         "questions": [
           {
             "id": "388-①",
@@ -1598,7 +1215,7 @@
       {
         "id": "389",
         "label": "389",
-        "qpage": 6,
+        "qpage": 4,
         "questions": [
           {
             "id": "389-①",
@@ -1630,7 +1247,7 @@
       {
         "id": "390",
         "label": "390",
-        "qpage": 6,
+        "qpage": 4,
         "questions": [
           {
             "id": "390-①",
@@ -1652,7 +1269,7 @@
       {
         "id": "391",
         "label": "391",
-        "qpage": 6,
+        "qpage": 4,
         "questions": [
           {
             "id": "391-①",
@@ -1689,7 +1306,7 @@
       {
         "id": "392",
         "label": "392",
-        "qpage": 6,
+        "qpage": 4,
         "questions": [
           {
             "id": "392",
@@ -1701,7 +1318,7 @@
       {
         "id": "393",
         "label": "393",
-        "qpage": 6,
+        "qpage": 4,
         "questions": [
           {
             "id": "393",
@@ -1713,7 +1330,7 @@
       {
         "id": "394",
         "label": "394",
-        "qpage": 7,
+        "qpage": 5,
         "questions": [
           {
             "id": "394-①",
@@ -1730,7 +1347,7 @@
       {
         "id": "395",
         "label": "395",
-        "qpage": 7,
+        "qpage": 5,
         "questions": [
           {
             "id": "395",
@@ -1742,7 +1359,7 @@
       {
         "id": "396",
         "label": "396",
-        "qpage": 7,
+        "qpage": 5,
         "questions": [
           {
             "id": "396-①",
@@ -1774,7 +1391,7 @@
       {
         "id": "397",
         "label": "397",
-        "qpage": 7,
+        "qpage": 5,
         "questions": [
           {
             "id": "397-①",
@@ -1796,7 +1413,7 @@
       {
         "id": "398",
         "label": "398",
-        "qpage": 7,
+        "qpage": 5,
         "questions": [
           {
             "id": "398",
@@ -1808,7 +1425,7 @@
       {
         "id": "399",
         "label": "399",
-        "qpage": 7,
+        "qpage": 5,
         "questions": [
           {
             "id": "399",
@@ -1820,7 +1437,7 @@
       {
         "id": "400",
         "label": "400",
-        "qpage": 7,
+        "qpage": 5,
         "questions": [
           {
             "id": "400",
@@ -1832,7 +1449,7 @@
       {
         "id": "401",
         "label": "401",
-        "qpage": 8,
+        "qpage": 6,
         "questions": [
           {
             "id": "401",
@@ -1844,7 +1461,7 @@
       {
         "id": "402",
         "label": "402",
-        "qpage": 8,
+        "qpage": 6,
         "questions": [
           {
             "id": "402",
@@ -1856,7 +1473,7 @@
       {
         "id": "403",
         "label": "403",
-        "qpage": 8,
+        "qpage": 6,
         "questions": [
           {
             "id": "403",
@@ -1868,7 +1485,7 @@
       {
         "id": "404",
         "label": "404",
-        "qpage": 8,
+        "qpage": 6,
         "questions": [
           {
             "id": "404-①",
@@ -1885,7 +1502,7 @@
       {
         "id": "405",
         "label": "405",
-        "qpage": 8,
+        "qpage": 6,
         "questions": [
           {
             "id": "405-①",
@@ -1902,7 +1519,7 @@
       {
         "id": "406",
         "label": "406",
-        "qpage": 8,
+        "qpage": 6,
         "questions": [
           {
             "id": "406",
@@ -1914,7 +1531,7 @@
       {
         "id": "407",
         "label": "407",
-        "qpage": 8,
+        "qpage": 6,
         "questions": [
           {
             "id": "407-①",
@@ -1931,7 +1548,7 @@
       {
         "id": "408",
         "label": "408",
-        "qpage": 9,
+        "qpage": 7,
         "questions": [
           {
             "id": "408-①",
@@ -1953,7 +1570,7 @@
       {
         "id": "409",
         "label": "409",
-        "qpage": 9,
+        "qpage": 7,
         "questions": [
           {
             "id": "409-①",
@@ -1980,7 +1597,7 @@
       {
         "id": "410",
         "label": "410",
-        "qpage": 9,
+        "qpage": 7,
         "questions": [
           {
             "id": "410",
@@ -1992,7 +1609,7 @@
       {
         "id": "411",
         "label": "411",
-        "qpage": 9,
+        "qpage": 7,
         "questions": [
           {
             "id": "411-①",
@@ -2009,7 +1626,7 @@
       {
         "id": "412",
         "label": "412",
-        "qpage": 9,
+        "qpage": 7,
         "questions": [
           {
             "id": "412-①",
@@ -2036,7 +1653,7 @@
       {
         "id": "413",
         "label": "413",
-        "qpage": 10,
+        "qpage": 8,
         "questions": [
           {
             "id": "413-①",
@@ -2063,7 +1680,7 @@
       {
         "id": "414",
         "label": "414",
-        "qpage": 10,
+        "qpage": 8,
         "questions": [
           {
             "id": "414-①",
@@ -2085,7 +1702,7 @@
       {
         "id": "415",
         "label": "415",
-        "qpage": 10,
+        "qpage": 8,
         "questions": [
           {
             "id": "415",
@@ -2097,7 +1714,7 @@
       {
         "id": "416",
         "label": "416",
-        "qpage": 10,
+        "qpage": 8,
         "questions": [
           {
             "id": "416-①",
@@ -2114,7 +1731,7 @@
       {
         "id": "417",
         "label": "417",
-        "qpage": 10,
+        "qpage": 8,
         "questions": [
           {
             "id": "417-①",
@@ -2131,7 +1748,7 @@
       {
         "id": "418",
         "label": "418",
-        "qpage": 10,
+        "qpage": 8,
         "questions": [
           {
             "id": "418",
@@ -2143,7 +1760,7 @@
       {
         "id": "419",
         "label": "419",
-        "qpage": 10,
+        "qpage": 8,
         "questions": [
           {
             "id": "419-①",

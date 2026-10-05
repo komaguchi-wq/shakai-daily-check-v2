@@ -47,22 +47,22 @@
     "id": "cp-04",
     "title": "第4節 重要地名（岬・湾・その他）",
     "subject": "コアプラス",
-    "pageCount": 4,
+    "pageCount": 10,
     "totalRegions": 0,
     "sectionRegions": {},
     "sectionPages": {},
-    "xyzCount": 47,
+    "xyzCount": 132,
     "pageRegionCounts": {}
   },
   {
     "id": "cp-05",
     "title": "第5節 第1次産業",
     "subject": "コアプラス",
-    "pageCount": 18,
+    "pageCount": 12,
     "totalRegions": 0,
     "sectionRegions": {},
     "sectionPages": {},
-    "xyzCount": 229,
+    "xyzCount": 144,
     "pageRegionCounts": {}
   },
   {
@@ -91,22 +91,22 @@
     "id": "cp-08",
     "title": "第8節 古代（旧石器〜平安時代）",
     "subject": "コアプラス",
-    "pageCount": 9,
+    "pageCount": 11,
     "totalRegions": 0,
     "sectionRegions": {},
     "sectionPages": {},
-    "xyzCount": 118,
+    "xyzCount": 144,
     "pageRegionCounts": {}
   },
   {
     "id": "cp-09",
     "title": "第9節 中世（鎌倉〜室町時代）",
     "subject": "コアプラス",
-    "pageCount": 11,
+    "pageCount": 9,
     "totalRegions": 0,
     "sectionRegions": {},
     "sectionPages": {},
-    "xyzCount": 151,
+    "xyzCount": 125,
     "pageRegionCounts": {}
   },
   {

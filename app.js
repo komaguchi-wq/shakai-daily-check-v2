@@ -171,6 +171,46 @@ async function flushSyncQueue() {
   }
 }
 
+// ★2026-10-05 コアプラス（cp-01〜21）の単元の区切りを本の「第N節」に合わせて直した（scripts/coreplus_resplit_shakai.py・問143〜164→cp-04・問359〜369→cp-08）。
+//   ○×の記録は tracking[unitId] に入るので、旧い区切りで記録した unitId（GAS に残る・端末の localStorage に残る）を
+//   問題番号（xyz-{番号}-…・番号は本全体で一意）で新しい単元へ引き直す。GAS は追記専用なので書き換えず、読むときに直す（理科 2026-10-04 と同じ）
+const CP_NUM_UNITS = [[1,60,"cp-01"],[61,94,"cp-02"],[95,129,"cp-03"],[130,164,"cp-04"],[165,223,"cp-05"],[224,268,"cp-06"],[269,309,"cp-07"],[310,369,"cp-08"],[370,419,"cp-09"],[420,486,"cp-10"],[487,546,"cp-11"],[547,566,"cp-12"],[567,580,"cp-13"],[581,600,"cp-14"],[601,625,"cp-15"],[626,645,"cp-16"],[646,660,"cp-17"],[661,680,"cp-18"],[681,700,"cp-19"],[701,710,"cp-20"],[711,720,"cp-21"]];
+function cpCanonicalUnit(unitId, key) {
+  if (!/^cp-\d\d$/.test(String(unitId))) return unitId;
+  const m = /^xyz-(\d+)/.exec(String(key));
+  if (!m) return unitId;
+  const n = Number(m[1]);
+  for (const [lo, hi, u] of CP_NUM_UNITS) if (n >= lo && n <= hi) return u;
+  return unitId;
+}
+function cpResplitMigratedKey() { return `shakai-cp-resplit-20261005-${currentUser}`; }
+// 端末に残る tracking／未送信イベントの unitId を一度だけ引き直す（記録の中身は変えない）
+function migrateCoreplusResplit() {
+  if (!currentUser) return;
+  try {
+    if (localStorage.getItem(cpResplitMigratedKey()) === "1") return;
+    const tr = getTracking(); let changed = false;
+    for (const u of Object.keys(tr)) {
+      if (!/^cp-\d\d$/.test(u)) continue;
+      for (const k of Object.keys(tr[u])) {
+        const nu = cpCanonicalUnit(u, k);
+        if (nu === u) continue;
+        const src = tr[u][k]; const dst = (tr[nu] = tr[nu] || {})[k];
+        if (!dst || (src && src.attempts > dst.attempts)) tr[nu][k] = src;   // 同じ小問が両方にあれば attempts の多い方（autoSyncFromSheets と同じ決め方）
+        delete tr[u][k]; changed = true;
+      }
+    }
+    if (changed) setTracking(tr);
+    const evs = getEvents(); let evChanged = false;
+    for (const ev of evs) {
+      const nu = cpCanonicalUnit(ev.unitId, ev.key);
+      if (nu !== ev.unitId) { ev.unitId = nu; evChanged = true; }
+    }
+    if (evChanged) setEvents(evs);
+    localStorage.setItem(cpResplitMigratedKey(), "1");
+  } catch (e) { console.warn("migrateCoreplusResplit failed:", e.message); }
+}
+
 // 起動時自動復元: 未送信分を flush → GAS から全件 GET → イベント再構築でカウンタ更新
 async function autoSyncFromSheets() {
   if (!SHEETS_API_URL || !currentUser) return;
@@ -185,10 +225,11 @@ async function autoSyncFromSheets() {
     const remote = {};
     for (const e of json.entries) {
       const k = decodeSyncKey(e.key);
-      if (!remote[e.unitId]) remote[e.unitId] = {};
-      if (!remote[e.unitId][k]) remote[e.unitId][k] = { attempts: 0, correct: 0 };
-      remote[e.unitId][k].attempts++;
-      if (e.correct) remote[e.unitId][k].correct++;
+      const uid = cpCanonicalUnit(e.unitId, k);   // ★2026-10-05 コアプラスの旧い区切りの unitId を引き直す
+      if (!remote[uid]) remote[uid] = {};
+      if (!remote[uid][k]) remote[uid][k] = { attempts: 0, correct: 0 };
+      remote[uid][k].attempts++;
+      if (e.correct) remote[uid][k].correct++;
     }
     // マージ: キーごとに attempts の多い方を採用（多端末対応）
     const local = getTracking();
@@ -372,6 +413,7 @@ function selectUser(user) {
   try { localStorage.setItem('study-user', user); } catch (e) {}
   document.getElementById("header-user-name").textContent = user;
   migrateLegacyTrackingToEvents();
+  migrateCoreplusResplit();   // ★2026-10-05 コアプラスの単元の区切り直し
   loadCategories();
   autoSyncFromSheets();  // バックグラウンドで最新データ取得＋マージ
 }
