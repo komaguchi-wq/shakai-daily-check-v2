@@ -2267,10 +2267,21 @@ async function loadWsSubRects() {
         (currentWsm.daimons || []).forEach(dm => (dm.questions || []).forEach(q => {
           const s = j.subs[q.id];
           const p = s || (j.daimons && j.daimons[String(dm.id)]);
-          if (!p) return;
-          const wh = pageWH[p.page] || {};
-          rects[q.id] = [{ qpage: p.page, ring: true, sub: !!s, cx: p.x, cy: p.y, W: wh.W || 1000, H: wh.H || 700 }];
+          const list = [];
+          if (p) {
+            const wh = pageWH[p.page] || {};
+            list.push({ qpage: p.page, ring: true, sub: !!s, cx: p.x, cy: p.y, W: wh.W || 1000, H: wh.H || 700 });
+          }
+          // ★2026-10-05 コアプラス（scripts/coreplus_struct/coreplus_qpos.py --app shakai）: 本文側の問題番号（★95・qpos.dmq）にも、その問のどれかが対象なら丸（理科v2と同じ）
+          const dq = j.dmq && j.dmq[String(dm.id)];
+          if (dq) {
+            const wh = pageWH[dq.page] || {};
+            list.push({ qpage: dq.page, ring: true, sub: false, dmKey: String(dm.id), cx: dq.x, cy: dq.y, W: wh.W || 1000, H: wh.H || 700 });
+          }
+          if (list.length) rects[q.id] = list;
         }));
+        // ★2026-10-05 answerSame=true（コアプラス: 解答ページ page_NN_answer は問題ページ page_NN_qmasked と同じ紙面・同じ位置）→ 解答ページにも同じ位置に青丸
+        if (j.answerSame) Object.defineProperty(rects, "__answerSame", { value: true, enumerable: false });
         // ★2026-10-04 answerMap（qpos_answer_map.py）: 解答ページの添字 → 同じ紙面の問題ページの添字。無い解答ページには印を出さない
         if (j.answerMap) Object.defineProperty(rects, "__answerMap", { value: j.answerMap, enumerable: false });
         // ★2026-10-04 解答ページ自体を OCR した位置（qpos.answer・detect_qpos.py）: 解答冊子（別紙）は問題と紙面が違うので、こちらを優先する
@@ -2300,13 +2311,17 @@ function wsTargetRectsForPage(idx, idsSet, pt) {
     idsSet.forEach(id => (rects.__a[id] || []).forEach(r => { if (r.qpage === idx) out.push(r); }));
     return out;
   }
-  if (pt === "a") {   // ★2026-10-04 解答ページ: 問題と同じ紙面のページだけ（answerMap）。以前は同じ添字の印をそのまま出していた＝Weekly 等でページがずれていた
-    const m = rects.__answerMap;
+  if (pt === "a" && !rects.__answerSame) {   // ★2026-10-04 解答ページ: 問題と同じ紙面のページだけ（answerMap）。以前は同じ添字の印をそのまま出していた＝Weekly 等でページがずれていた
+    const m = rects.__answerMap;                // ★2026-10-05 コアプラス（answerSame）は同じ添字のまま
     if (!m || m[String(idx)] == null) return [];
     idx = m[String(idx)];
   }
-  const out = [];
-  idsSet.forEach(id => (rects[id] || []).forEach(r => { if (r.qpage === idx) out.push(r); }));
+  const out = [], seen = new Set();
+  idsSet.forEach(id => (rects[id] || []).forEach(r => {
+    if (r.qpage !== idx) return;
+    if (r.dmKey) { const k = "dm:" + r.dmKey; if (seen.has(k)) return; seen.add(k); }   // ★2026-10-05 同じ問の本文側の番号の丸は1つだけ
+    out.push(r);
+  }));
   return out;
 }
 function updateWsTargetBoxes() {
