@@ -1890,8 +1890,9 @@ function buildChishikiWsmBlock() {
 }
 
 // ★2026-09-29 授業内テストのブロック（quiz-data.json のキー名）。表示順もこの順
-const TEST_BLOCK_KEYS = ["dctest", "wctest", "cptest"];
+const TEST_BLOCK_KEYS = ["pointseiri", "dctest", "wctest", "cptest"];
 const TEST_BLOCK_META = {
+  pointseiri: { icon: "📖", defaultLabel: "ポイントの整理（人物まとめ）" },   // ★2026-10-07 640-25/26 の人物まとめ＝人物名・太字を空らん（解答はオレンジ＝赤い下敷きで隠れる）。scripts/pointseiri/build.py
   dctest: { icon: "📒", defaultLabel: "デイリーチェック" },
   wctest: { icon: "📝", defaultLabel: "ウィークリーチェック" },   // ★2026-10-03 WS-25〜（土特の採点済み WC＝前回WSの確認・理科v2 と同じキー）
   cptest: { icon: "📗", defaultLabel: "コアプラス確認テスト" },
@@ -2300,7 +2301,9 @@ async function loadWsSubRects() {
   const rects = {};
   const bk = wsmBlockKeyOf();
   try {
-    const res = await fetch(`categories/${currentCategory.id}/units/${currentUnit.id}/qpos.json`, { cache: "no-cache" });
+    // ★2026-10-07 ブロック別の qpos_{block}.json（pointseiri など・印刷束 build_bundle.py と同じ探し方）があればそれを優先
+    let res = bk && bk !== "xyz" ? await fetch(`categories/${currentCategory.id}/units/${currentUnit.id}/qpos_${bk}.json`, { cache: "no-cache" }) : null;
+    if (!res || !res.ok) res = await fetch(`categories/${currentCategory.id}/units/${currentUnit.id}/qpos.json`, { cache: "no-cache" });
     if (res.ok) {
       const j = await res.json();
       if (j && j.subs && (j.block || "xyz") === bk) {
