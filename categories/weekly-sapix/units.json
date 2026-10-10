@@ -754,5 +754,29 @@
    "1-21",
    "3-17"
   ]
+ },
+ {
+  "id": "WS-26",
+  "title": "WS-26 入試総合演習 わたしたちのくらしと政治",
+  "subject": "Weekly SapiX",
+  "pageCount": 2,
+  "totalRegions": 88,
+  "sectionRegions": {
+   "kakunin": 88
+  },
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin"
+  },
+  "xyzCount": 85,
+  "pageRegionCounts": {
+   "1": 45,
+   "2": 44
+  },
+  "rawTotalRegions": 89,
+  "rawKakuninRegions": 89,
+  "furiganaKeys": [
+   "1-42"
+  ]
  }
 ]
