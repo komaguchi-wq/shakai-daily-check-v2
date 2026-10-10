@@ -1376,5 +1376,10 @@
   "generatedAt": "2026-10-03",
   "note": "統合スキャン idx19（実施済み・赤採点 92/100）の赤を除去し解答らんを白塗り。解答は別紙①左の解答表（右下の赤メモは白塗り）",
   "kaisetsu": "kaisetsu_wctest.html"
- }
+ },
+ "chishikiSolvedPages": [
+  "solved_2026-10-10_01.jpg",
+  "solved_2026-10-10_02.jpg",
+  "solved_2026-10-10_03.jpg"
+ ]
 }
