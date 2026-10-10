@@ -1006,7 +1006,8 @@
       "wsj_a_07.jpg",
       "wsj_a_08.jpg",
       "wsj_a_09.jpg"
-    ]
+    ],
+    "kaisetsu": "kaisetsu.html"
   },
   "wctest": {
     "label": "ウィークリーチェック（WS-25の確認）",
@@ -1131,6 +1132,7 @@
     ],
     "generatedBy": "_scratch/ws26/make_wctest.py",
     "generatedAt": "2026-10-10",
-    "note": "統合スキャン idx19（実施済み・赤採点 90/100）の赤を除去し解答らんを白塗り。解答は別紙①左の解答表（左下の赤メモは白塗り）"
+    "note": "統合スキャン idx19（実施済み・赤採点 90/100）の赤を除去し解答らんを白塗り。解答は別紙①左の解答表（左下の赤メモは白塗り）",
+    "kaisetsu": "kaisetsu_wctest.html"
   }
 }
