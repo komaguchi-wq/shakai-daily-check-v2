@@ -2270,6 +2270,20 @@ function wsmCrop(i) {
   const c = currentWsm && currentWsm.crops && currentWsm.crops[i];
   return (c && c.w > 0 && c.h > 0) ? c : null;
 }
+// ★2026-10-10 1ページずつの印刷（コアプラス=A4縦・2026-10-02〜）にも同じ余白カットを適用する。
+//   赤丸・青丸・赤文字を描き込んだあとの canvas を枠で切り出す（見開き印刷 composeSpreadDataURLs の cropped() と同じ計算）。
+//   ★これが無いと cp-14〜21（正方形スキャン）は左右の白余白ごと A4 に収められ、本文が約6割の幅に縮んで印刷される（ユーザー指摘 2026-10-10）
+function wsmCropCanvas(cc, i) {
+  const c = wsmCrop(i);
+  if (!c) return cc;
+  const k = cc.width / c.W;            // 画像の実寸とデータ上の寸法の比
+  const cv = document.createElement("canvas");
+  cv.width = Math.round(c.w * k); cv.height = Math.round(c.h * k);
+  const x = cv.getContext("2d");
+  x.fillStyle = "#fff"; x.fillRect(0, 0, cv.width, cv.height);
+  x.drawImage(cc, -Math.round(c.x * k), -Math.round(c.y * k));
+  return cv;
+}
 function wsmCropImgHTML(i, imgTag, pt = "q") {
   const c = wsmCrop(i);
   const layer = `<div class="wsm-tboxes" data-idx="${i}" data-pt="${pt}"></div>`;   // ★2026-09-24 対象小問の赤丸（qpos.json）／★2026-10-04 解答ページは青（data-pt=a）
@@ -2742,7 +2756,7 @@ async function printWsMode(mode) {
     ctx.drawImage(img, 0, 0);
     drawWsRegionOverlays(ctx, i, ids);
     if (ids) { drawWsTargetText(ctx, wsTargetTextForPage(i, ids), cc.width, cc.height); drawWsTargetBoxes(ctx, i, ids, cc.width, cc.height); }
-    dataURLs.push(cc.toDataURL("image/jpeg", 0.92));
+    dataURLs.push(wsmCropCanvas(cc, i).toDataURL("image/jpeg", 0.92));   // ★2026-10-10 余白カット（xyz.crops）
   }
   if (dataURLs.length === 0) { alert("画像の読み込みに失敗しました"); return; }
   _openPrintOverlay(`${currentUnit.id} ${wsTitle()}（${WS_MODE_LABELS[mode]}）`, dataURLs);
@@ -2772,7 +2786,7 @@ async function wsmPrint() {
     ctx.drawImage(img, 0, 0);
     drawWsRegionOverlays(ctx, i, null);
     if (wsmFilteredIds) drawWsTargetBoxes(ctx, i, wsmFilteredIds, cc.width, cc.height, "a");   // ★2026-10-04 解答の印刷もフィルタ中は青い印
-    dataURLs.push(cc.toDataURL("image/jpeg", 0.92));
+    dataURLs.push(wsmCropCanvas(cc, i).toDataURL("image/jpeg", 0.92));   // ★2026-10-10 余白カット（xyz.crops）
   }
   if (dataURLs.length === 0) { alert("画像の読み込みに失敗しました"); return; }
   _openPrintOverlay(`${currentUnit.id} ${wsTitle()}（解答）`, dataURLs);
