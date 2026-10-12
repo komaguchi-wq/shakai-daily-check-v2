@@ -957,6 +957,9 @@ body {
 .wsm-tboxes { position: absolute; inset: 0; pointer-events: none; }
 .wsm-tring { position: absolute; box-sizing: border-box; border: 3px solid #ff3b30; border-radius: 50%; }
 .wsm-tring.wsm-tring-a { border-color: #0a5fd6; }   /* ★2026-10-04 解答ページの印は青（赤い下敷きで隠しても見える） */
+/* ★2026-10-12 空らんの下線に沿ったバー（歴史人物まとめ・qpos.subs[*].ul）。丸は名前を書くときにじゃま＝下線を赤く */
+.wsm-tbar { position: absolute; box-sizing: border-box; background: rgba(255, 59, 48, 0.85); border-radius: 2px; min-height: 3px; }
+.wsm-tbar.wsm-tring-a { background: rgba(10, 95, 214, 0.85); }
 @media (max-width: 767px) { .wsm-tring { border-width: 2px; } }
 /* 余白カット（xyz.crops）: 枠の外をかくして中身だけ見せる */
 .wsm-imgwrap.wsm-cropped {

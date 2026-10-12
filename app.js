@@ -184,6 +184,30 @@ function cpCanonicalUnit(unitId, key) {
   return unitId;
 }
 function cpResplitMigratedKey() { return `shakai-cp-resplit-20261005-${currentUser}`; }
+
+// ★2026-10-12 歴史人物まとめ cp-jinbutsu: 正誤表を「人物の行」1つ（xyz-PS1-4）から「名前（xyz-PS1-4n）＋出来事の行（xyz-PS1-4e2…）」に分けた
+//   （ユーザー指摘: 名前は書けて出来事が書けなくても印が名前側にしか付かない）。旧い行単位の記録は GAS に残るので読むときに捨て、
+//   端末の tracking／未送信イベントからも一度だけ消す（記録の中身は正誤の再読み取り分を scripts/confirm_grade_proposals.py で書き直し済み）
+function isJinbutsuLegacyKey(unitId, key) { return unitId === "cp-jinbutsu" && /^xyz-PS\d+-\d+$/.test(String(key)); }
+function jinbutsuSplitMigratedKey() { return `shakai-jinbutsu-split-20261012-${currentUser}`; }
+function migrateJinbutsuSplit() {
+  if (!currentUser) return;
+  try {
+    if (localStorage.getItem(jinbutsuSplitMigratedKey()) === "1") return;
+    const tr = getTracking(); let changed = false;
+    if (tr["cp-jinbutsu"]) {
+      for (const k of Object.keys(tr["cp-jinbutsu"])) if (isJinbutsuLegacyKey("cp-jinbutsu", k)) { delete tr["cp-jinbutsu"][k]; changed = true; }
+    }
+    if (changed) setTracking(tr);
+    const evs = getEvents(), cur = getCursor();
+    const keep = evs.filter(ev => !isJinbutsuLegacyKey(ev.unitId, ev.key));
+    if (keep.length !== evs.length) {
+      const sentKept = evs.slice(0, cur).filter(ev => !isJinbutsuLegacyKey(ev.unitId, ev.key)).length;   // 送信済みの位置を消した分だけ戻す
+      setEvents(keep); setCursor(sentKept);
+    }
+    localStorage.setItem(jinbutsuSplitMigratedKey(), "1");
+  } catch (e) { console.warn("migrateJinbutsuSplit failed:", e); }
+}
 // 端末に残る tracking／未送信イベントの unitId を一度だけ引き直す（記録の中身は変えない）
 function migrateCoreplusResplit() {
   if (!currentUser) return;
@@ -226,6 +250,7 @@ async function autoSyncFromSheets() {
     for (const e of json.entries) {
       const k = decodeSyncKey(e.key);
       const uid = cpCanonicalUnit(e.unitId, k);   // ★2026-10-05 コアプラスの旧い区切りの unitId を引き直す
+      if (isJinbutsuLegacyKey(uid, k)) continue;   // ★2026-10-12 歴史人物まとめの旧い行単位の記録は捨てる
       if (!remote[uid]) remote[uid] = {};
       if (!remote[uid][k]) remote[uid][k] = { attempts: 0, correct: 0 };
       remote[uid][k].attempts++;
@@ -459,6 +484,7 @@ function selectUser(user) {
   document.getElementById("header-user-name").textContent = user;
   migrateLegacyTrackingToEvents();
   migrateCoreplusResplit();   // ★2026-10-05 コアプラスの単元の区切り直し
+  migrateJinbutsuSplit();     // ★2026-10-12 歴史人物まとめの正誤表の分割（旧キーを捨てる）
   loadCategories();
   autoSyncFromSheets();  // バックグラウンドで最新データ取得＋マージ
 }
@@ -2371,7 +2397,12 @@ async function loadWsSubRects() {
           const s = j.subs[q.id];
           const p = s || (j.daimons && j.daimons[String(dm.id)]);
           const list = [];
-          if (p) {
+          if (s && Array.isArray(s.ul) && s.ul.length) {
+            // ★2026-10-12 空らんの下線に沿った赤いバー（歴史人物まとめ cp-jinbutsu・scripts/pointseiri/build.py の qpos.markStyle=underline）。
+            //   丸は人物名を書くときにじゃまになる（ユーザー指摘）ので、下線を赤くする
+            const wh = pageWH[s.page] || {};
+            s.ul.forEach(u => list.push({ qpage: s.page, bar: true, cx: u.x, cy: u.y, w: u.w, W: wh.W || 1000, H: wh.H || 700 }));
+          } else if (p) {
             const wh = pageWH[p.page] || {};
             list.push({ qpage: p.page, ring: true, sub: !!s, cx: p.x, cy: p.y, W: wh.W || 1000, H: wh.H || 700 });
           }
@@ -2396,6 +2427,10 @@ async function loadWsSubRects() {
             const p = s || (j.answer.daimons && j.answer.daimons[String(dm.id)]);
             if (!p) return;
             const wh = apWH[p.page] || {};
+            if (s && Array.isArray(s.ul) && s.ul.length) {   // ★2026-10-12 解答ページも同じ下線に青いバー
+              arects[q.id] = s.ul.map(u => ({ qpage: s.page, bar: true, cx: u.x, cy: u.y, w: u.w, W: wh.W || 1000, H: wh.H || 700 }));
+              return;
+            }
             arects[q.id] = [{ qpage: p.page, ring: true, sub: !!s, cx: p.x, cy: p.y, W: wh.W || 1000, H: wh.H || 700 }];
           }));
           if (Object.keys(arects).length) Object.defineProperty(rects, "__a", { value: arects, enumerable: false });
@@ -2435,6 +2470,11 @@ function updateWsTargetBoxes() {
     const c = wsmCrop(idx);
     const cls = pt === "a" ? " wsm-tring-a" : "";   // ★2026-10-04 解答ページは青（赤い下敷きで隠しても見える）
     layer.innerHTML = rs.map(r => {
+      if (r.bar) {   // ★2026-10-12 空らんの下線に沿ったバー（太さは紙面の幅の 0.33%＝B4横 4240px で 14px）
+        let w = r.w, h = 0.0033 * r.W / r.H, cx = r.cx, cy = r.cy;
+        if (c) { cx = (cx * c.W - c.x) / c.w; cy = (cy * c.H - c.y) / c.h; w = w * c.W / c.w; h = h * c.H / c.h; }
+        return `<span class="wsm-tbar${cls}" style="left:${((cx - w / 2) * 100).toFixed(2)}%;top:${((cy - h / 2) * 100).toFixed(2)}%;width:${(w * 100).toFixed(2)}%;height:${(h * 100).toFixed(2)}%"></span>`;
+      }
       // 寸法は算数 drawTargetRings と同じ（小問=少し左・少し小さめ／大問見出し=そのまま）
       // ★2026-10-04 丸の中心はラベルの中心のまま（左に W×0.6% 寄せるのは算数だけ。「(1)」が丸の右に寄って見えた＝ユーザー指摘）
       let w = 0.033 * (r.sub ? 0.92 : 1.15), h = 0.033 * r.W / r.H, cx = r.cx, cy = r.cy;
@@ -2452,7 +2492,13 @@ function drawWsTargetBoxes(ctx, idx, idsSet, W, H, pt) {
   ctx.save();
   ctx.strokeStyle = pt === "a" ? "#0a5fd6" : "#ff3b30";   // ★2026-10-04 解答ページは青
   ctx.lineWidth = Math.max(6, Math.round(W * 0.0022));
+  ctx.fillStyle = ctx.strokeStyle;
   rs.forEach(r => {
+    if (r.bar) {   // ★2026-10-12 空らんの下線に沿ったバー
+      const bh = Math.max(6, W * 0.0033), bw = r.w * W;
+      ctx.fillRect(r.cx * W - bw / 2, r.cy * H - bh / 2, bw, bh);
+      return;
+    }
     const rr = Math.max(9, W * 0.0165);
     ctx.beginPath();
     ctx.ellipse(r.cx * W, r.cy * H, rr * (r.sub ? 0.92 : 1.15), rr, 0, 0, Math.PI * 2);   // ★2026-10-04 左寄せ廃止（理社）
