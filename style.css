@@ -1148,6 +1148,7 @@ body {
   /* ★2026-10-12 知識問題カードは短いので丸ごと分割しない・見出し(h2)も途中で割らない（コアプラス cp-17 の印刷で見出しだけが段末に残った） */
   #print-overlay-body .kaisetsu-print .card-fact { break-inside: avoid; page-break-inside: avoid; -webkit-column-break-inside: avoid; }
   #print-overlay-body .kaisetsu-print .card h2 { break-inside: avoid; page-break-inside: avoid; -webkit-column-break-inside: avoid; }
+  #print-overlay-body .kaisetsu-print .card-summary { break-inside: avoid; page-break-inside: avoid; -webkit-column-break-inside: avoid; }
   #print-overlay-body .kaisetsu-print .ok { color: #2e8b57 !important; }
   #print-overlay-body .kaisetsu-print .x, #print-overlay-body .kaisetsu-print .miss b { color: #c0392b !important; }
 }
