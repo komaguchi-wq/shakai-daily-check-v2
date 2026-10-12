@@ -1367,11 +1367,13 @@ function _closePrintOverlay() {
 // ★高さ上限は vh(画面基準)ではなく物理mmで指定する。vh だと iOS Safari の印刷で
 //   画面px→紙mm 換算が端末ごとに狂い、特定iPadで「次ページが前ページに食い込む」
 //   ドリフトが出る(算数アプリで実際に発生→mm化で解消)。
-function _setPrintPageGeometry(img) {
+function _setPrintPageGeometry(img, forced) {
   const portrait = !!(img && img.naturalHeight > img.naturalWidth);
-  const pageSize = portrait ? "A4 portrait" : "B4 landscape";
+  let pageSize = portrait ? "A4 portrait" : "B4 landscape";
   // 印刷可能高(mm)=用紙高-余白10mm。A4縦=297-10=287→285、B4横=257-10=247→245(安全側)。
-  const maxH = portrait ? 285 : 245;
+  let maxH = portrait ? 285 : 245;
+  if (forced === "B4 portrait") { pageSize = forced; maxH = 350; }   // ★2026-10-13 歴史人物まとめ（1列=B4縦1面・xyz.printPages.pageSize）
+  else if (forced === "A4 portrait" || forced === "B4 landscape") { pageSize = forced; maxH = forced === "A4 portrait" ? 285 : 245; }
   let style = document.getElementById("dynamic-print-page");
   if (!style) {
     style = document.createElement("style");
@@ -1497,7 +1499,7 @@ async function _monoPrintDataURLs(urls) {
   return out;
 }
 
-async function _openPrintOverlay(titleText, dataURLs) {
+async function _openPrintOverlay(titleText, dataURLs, pageSize) {
   const ov = document.getElementById("print-overlay");
   const body = document.getElementById("print-overlay-body");
   if (!ov || !body) return;
@@ -1512,7 +1514,7 @@ async function _openPrintOverlay(titleText, dataURLs) {
     ? im.decode().catch(() => {})
     : new Promise(r => { im.onload = r; im.onerror = r; if (im.complete) r(); }));
   Promise.all(waits).then(() => {
-    _setPrintPageGeometry(imgs[0]);  // 向き判定は先頭画像の実寸で
+    _setPrintPageGeometry(imgs[0], pageSize);  // 向き判定は先頭画像の実寸で（pageSize 指定があればそれ）
     requestAnimationFrame(() => {
       try { window.print(); } catch (e) { console.warn("print err", e); }
     });
@@ -2388,8 +2390,13 @@ async function loadWsSubRects() {
     // ★2026-10-07 ブロック別の qpos_{block}.json（pointseiri など・印刷束 build_bundle.py と同じ探し方）があればそれを優先
     let res = bk && bk !== "xyz" ? await fetch(`categories/${currentCategory.id}/units/${currentUnit.id}/qpos_${bk}.json`, { cache: "no-cache" }) : null;
     if (!res || !res.ok) res = await fetch(`categories/${currentCategory.id}/units/${currentUnit.id}/qpos.json`, { cache: "no-cache" });
-    if (res.ok) {
-      const j = await res.json();
+    if (res.ok) { const j = await res.json(); _subRectsCache[key] = wsRectsFromQpos(j, bk); }   // ★2026-10-13 変換は wsRectsFromQpos（印刷用 qpos_print.json と共用）
+  } catch (e) { console.warn("qpos 読み込み失敗", e); }
+  return _subRectsCache[key];
+}
+// ★2026-10-13 qpos の JSON → {小問id: [印]}（__answerSame/__answerMap/__a は enumerable でない属性）。loadWsSubRects と loadWsPrintRects が使う
+function wsRectsFromQpos(j, bk) {
+  const rects = {};
       if (j && j.subs && (j.block || "xyz") === bk) {
         const pageWH = {};
         (j.pages || []).forEach(p => { pageWH[p.i] = p; });
@@ -2436,13 +2443,24 @@ async function loadWsSubRects() {
           if (Object.keys(arects).length) Object.defineProperty(rects, "__a", { value: arects, enumerable: false });
         }
       }
-    }
-  } catch (e) { console.warn("qpos 読み込み失敗", e); }
-  _subRectsCache[key] = Object.keys(rects).length ? rects : null;
-  return _subRectsCache[key];
+  return Object.keys(rects).length ? rects : null;
 }
-function wsTargetRectsForPage(idx, idsSet, pt) {
-  const rects = _subRectsCache[wsSubRectsKey()];
+// ★2026-10-13 印刷用の面（xyz.printPages: 歴史人物まとめ＝1列=B4縦1面）の印の位置 qpos_print.json
+let _printRectsCache = {};
+async function loadWsPrintRects() {
+  const xyz = currentWsm, pp = xyz && xyz.printPages;
+  if (!pp || !pp.qpos || !currentCategory || !currentUnit) return null;
+  const key = `${currentCategory.id}/${currentUnit.id}/${pp.qpos}`;
+  if (key in _printRectsCache) return _printRectsCache[key];
+  _printRectsCache[key] = null;
+  try {
+    const res = await fetch(`categories/${currentCategory.id}/units/${currentUnit.id}/${pp.qpos}`, { cache: "no-cache" });
+    if (res.ok) _printRectsCache[key] = wsRectsFromQpos(await res.json(), wsmBlockKeyOf());
+  } catch (e) { console.warn("qpos_print 読み込み失敗", e); }
+  return _printRectsCache[key];
+}
+function wsTargetRectsForPage(idx, idsSet, pt, rectsOverride) {
+  const rects = rectsOverride || _subRectsCache[wsSubRectsKey()];
   if (!rects || !idsSet) return [];
   if (pt === "a" && rects.__a) {   // ★2026-10-04 解答ページ自体の位置（qpos.answer）があればそれを使う
     const out = [];
@@ -2486,8 +2504,8 @@ function updateWsTargetBoxes() {
   });
 }
 // 印刷用: 赤丸を canvas に焼き込む
-function drawWsTargetBoxes(ctx, idx, idsSet, W, H, pt) {
-  const rs = wsTargetRectsForPage(idx, idsSet, pt || "q");
+function drawWsTargetBoxes(ctx, idx, idsSet, W, H, pt, rectsOverride) {
+  const rs = wsTargetRectsForPage(idx, idsSet, pt || "q", rectsOverride);
   if (!rs.length) return;
   ctx.save();
   ctx.strokeStyle = pt === "a" ? "#0a5fd6" : "#ff3b30";   // ★2026-10-04 解答ページは青
@@ -2676,7 +2694,8 @@ function updateWsTargetBanners() {
     const idx = parseInt(pageEl.dataset.idx);
     const banner = pageEl.querySelector(".wsm-target-banner");
     if (!banner) return;
-    const txt = wsTargetTextForPage(idx, wsmFilteredIds);
+    // ★2026-10-13 xyz.noTargetBanner（歴史人物まとめ）: 「対象 …」に人物名が出て内容バレ → 出さない（印は下線バーで足りる）
+    const txt = (currentWsm && currentWsm.noTargetBanner) ? "" : wsTargetTextForPage(idx, wsmFilteredIds);
     if (txt) { banner.textContent = txt; banner.style.display = ""; }
     else { banner.style.display = "none"; banner.textContent = ""; }
   });
@@ -2829,6 +2848,25 @@ async function printWsMode(mode) {
   const ids = computeWsFilterIds(mode);
   const base = unitImagesBase();
   if (ids) await loadWsSubRects();
+  // ★2026-10-13 xyz.printPages（歴史人物まとめ: 1列=B4縦1面・ユーザー指示「印刷の既定をB4縦に」）: 画面とは別の面を印刷。印は qpos_print.json・バナーなし
+  if (xyz.printPages && Array.isArray(xyz.printPages.q) && xyz.printPages.q.length) {
+    const prects = ids ? await loadWsPrintRects() : null;
+    const urls = [];
+    for (let i = 0; i < xyz.printPages.q.length; i++) {
+      let img;
+      try { img = await loadImage(base + xyz.printPages.q[i]); } catch (e) { continue; }
+      const cc = document.createElement("canvas");
+      cc.width = img.width; cc.height = img.height;
+      const ctx = cc.getContext("2d");
+      ctx.drawImage(img, 0, 0);
+      if (ids && !xyz.noTargetBanner) drawWsTargetText(ctx, wsTargetTextForPage(i, ids), cc.width, cc.height);
+      if (ids && prects) drawWsTargetBoxes(ctx, i, ids, cc.width, cc.height, "q", prects);
+      urls.push(cc.toDataURL("image/jpeg", 0.92));
+    }
+    if (urls.length === 0) { alert("画像の読み込みに失敗しました"); return; }
+    _openPrintOverlay(`${currentUnit.id} ${wsTitle()}（${WS_MODE_LABELS[mode]}）`, urls, xyz.printPages.pageSize);
+    return;
+  }
   if (wsmPrintAsSpread(xyz)) {
     const urls = await composeSpreadDataURLs(xyz.questionPages, base, (ctx, idx, W, H) => {
       if (ids) drawWsTargetText(ctx, wsTargetTextForPage(idx, ids), W, H);
@@ -2846,7 +2884,7 @@ async function printWsMode(mode) {
     const ctx = cc.getContext("2d");
     ctx.drawImage(img, 0, 0);
     drawWsRegionOverlays(ctx, i, ids);
-    if (ids) { drawWsTargetText(ctx, wsTargetTextForPage(i, ids), cc.width, cc.height); drawWsTargetBoxes(ctx, i, ids, cc.width, cc.height); }
+    if (ids) { if (!xyz.noTargetBanner) drawWsTargetText(ctx, wsTargetTextForPage(i, ids), cc.width, cc.height); drawWsTargetBoxes(ctx, i, ids, cc.width, cc.height); }
     dataURLs.push(wsmCropCanvas(cc, i).toDataURL("image/jpeg", 0.92));   // ★2026-10-10 余白カット（xyz.crops）
   }
   if (dataURLs.length === 0) { alert("画像の読み込みに失敗しました"); return; }
@@ -2861,6 +2899,23 @@ async function wsmPrint() {
   if (wsmShowingKaisetsu) { return printWsKaisetsu(); }   // ★2026-09-20 解説タブ中の右上「印刷」＝解説（対象の問だけ）
   if (!wsmShowingAnswer) { return printWsMode(wsmFilter || "all"); }
   const base = unitImagesBase();
+  if (xyz.printPages && Array.isArray(xyz.printPages.a) && xyz.printPages.a.length) {   // ★2026-10-13 解答も印刷用の面（1列=B4縦1面＋解いた用紙）・フィルタ中は青い下線
+    const prects = wsmFilteredIds ? await loadWsPrintRects() : null;
+    const urls = [];
+    for (let i = 0; i < xyz.printPages.a.length; i++) {
+      let img;
+      try { img = await loadImage(base + xyz.printPages.a[i]); } catch (e) { continue; }
+      const cc = document.createElement("canvas");
+      cc.width = img.width; cc.height = img.height;
+      const ctx = cc.getContext("2d");
+      ctx.drawImage(img, 0, 0);
+      if (wsmFilteredIds && prects) drawWsTargetBoxes(ctx, i, wsmFilteredIds, cc.width, cc.height, "a", prects);
+      urls.push(cc.toDataURL("image/jpeg", 0.92));
+    }
+    if (urls.length === 0) { alert("画像の読み込みに失敗しました"); return; }
+    _openPrintOverlay(`${currentUnit.id} ${wsTitle()}（解答）`, urls, xyz.printPages.pageSize);
+    return;
+  }
   if (wsmPrintAsSpread(xyz)) {
     const urls = await composeSpreadDataURLs(xyz.answerPages, base, null);
     if (urls.length === 0) { alert("画像の読み込みに失敗しました"); return; }
