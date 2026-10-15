@@ -208,6 +208,29 @@ function migrateJinbutsuSplit() {
     localStorage.setItem(jinbutsuSplitMigratedKey(), "1");
   } catch (e) { console.warn("migrateJinbutsuSplit failed:", e); }
 }
+// ★2026-10-15 コアプラス cp-13（第13節 歴史重要史料・567〜580）: 10-05 の青✓スキャン（✓＝×）で76問すべてに✓が付いていたが、
+//   本人確認で「まだ解いていない範囲に付けた印」と分かった → その回の記録76件（GAS の date が CP13_RESET_DATE の行）を未解答に戻す。
+//   GAS は追記専用なので読むときに捨て（シート events_さと の該当行はユーザーが手で削除）、端末の tracking からも一度だけ消す。
+//   消すのは 567〜580 で attempts 1・correct 0 のものだけ（この回以外の記録が GAS に無いことは 2026-10-15 に確認済み）。
+const CP13_RESET_DATE = "2026-10-05T04:38:12.032240+00:00";
+function isCp13ResetKey(unitId, key) { return unitId === "cp-13" && /^xyz-(56[7-9]|57\d|580)-/.test(String(key)); }
+function isCp13ResetRow(unitId, key, date) { return isCp13ResetKey(unitId, key) && String(date) === CP13_RESET_DATE; }
+function cp13ResetMigratedKey() { return `shakai-cp13-reset-20261015-${currentUser}`; }
+function migrateCp13Reset() {
+  if (!currentUser) return;
+  try {
+    if (localStorage.getItem(cp13ResetMigratedKey()) === "1") return;
+    const tr = getTracking(); let changed = false;
+    if (tr["cp-13"]) {
+      for (const k of Object.keys(tr["cp-13"])) {
+        const t = tr["cp-13"][k] || {};
+        if (isCp13ResetKey("cp-13", k) && t.attempts === 1 && t.correct === 0) { delete tr["cp-13"][k]; changed = true; }
+      }
+    }
+    if (changed) setTracking(tr);
+    localStorage.setItem(cp13ResetMigratedKey(), "1");
+  } catch (e) { console.warn("migrateCp13Reset failed:", e); }
+}
 // 端末に残る tracking／未送信イベントの unitId を一度だけ引き直す（記録の中身は変えない）
 function migrateCoreplusResplit() {
   if (!currentUser) return;
@@ -251,6 +274,7 @@ async function autoSyncFromSheets() {
       const k = decodeSyncKey(e.key);
       const uid = cpCanonicalUnit(e.unitId, k);   // ★2026-10-05 コアプラスの旧い区切りの unitId を引き直す
       if (isJinbutsuLegacyKey(uid, k)) continue;   // ★2026-10-12 歴史人物まとめの旧い行単位の記録は捨てる
+      if (isCp13ResetRow(uid, k, e.date)) continue;   // ★2026-10-15 cp-13 の 10-05 の「全部✓」の回（76件）は捨てる
       if (!remote[uid]) remote[uid] = {};
       if (!remote[uid][k]) remote[uid][k] = { attempts: 0, correct: 0 };
       remote[uid][k].attempts++;
@@ -485,6 +509,7 @@ function selectUser(user) {
   migrateLegacyTrackingToEvents();
   migrateCoreplusResplit();   // ★2026-10-05 コアプラスの単元の区切り直し
   migrateJinbutsuSplit();     // ★2026-10-12 歴史人物まとめの正誤表の分割（旧キーを捨てる）
+  migrateCp13Reset();         // ★2026-10-15 cp-13 の 10-05 の「全部✓」の回を未解答に戻す
   loadCategories();
   autoSyncFromSheets();  // バックグラウンドで最新データ取得＋マージ
 }
