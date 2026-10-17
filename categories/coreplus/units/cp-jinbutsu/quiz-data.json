@@ -20,7 +20,9 @@
    "solved_2026-10-11_02.jpg",
    "solved_2026-10-12_01.jpg",
    "solved_2026-10-12_02.jpg",
-   "solved_2026-10-12_03.jpg"
+   "solved_2026-10-12_03.jpg",
+   "solved_2026-10-17_01.jpg",
+   "solved_2026-10-17_02.jpg"
   ],
   "daimons": [
    {
@@ -1579,7 +1581,9 @@
     "solved_2026-10-11_02.jpg",
     "solved_2026-10-12_01.jpg",
     "solved_2026-10-12_02.jpg",
-    "solved_2026-10-12_03.jpg"
+    "solved_2026-10-12_03.jpg",
+    "solved_2026-10-17_01.jpg",
+    "solved_2026-10-17_02.jpg"
    ],
    "qpos": "qpos_print.json",
    "pageSize": "B4 portrait",
