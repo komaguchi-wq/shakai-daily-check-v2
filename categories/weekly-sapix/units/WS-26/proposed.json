@@ -1,0 +1,12 @@
+{
+ "unit": "WS-26",
+ "id": "2026-10-17-seigo-WS-26-chishiki-ambiguous",
+ "source": "知識の総完成 ❷ の採点印なし欄（答えが正答と違うが印なし＝親の採点漏れの可能性）だけ仮入力",
+ "created": "2026-10-17",
+ "grades": {
+  "p2-18": false,
+  "p2-21": false,
+  "p2-30": false,
+  "p2-35": true
+ }
+}
