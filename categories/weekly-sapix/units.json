@@ -778,5 +778,24 @@
   "furiganaKeys": [
    "1-42"
   ]
+ },
+ {
+  "id": "WS-27",
+  "title": "WS-27 入試総合演習 地図の見方",
+  "subject": "Weekly SapiX",
+  "pageCount": 2,
+  "totalRegions": 86,
+  "sectionRegions": {
+   "kakunin": 86
+  },
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin"
+  },
+  "xyzCount": 80,
+  "pageRegionCounts": {
+   "1": 46,
+   "2": 40
+  }
  }
 ]
