@@ -81,7 +81,8 @@
     const g = norm(q.group), l = norm(q.label);
     const fs = [];
     // ★2026-09-23: 群が範囲（「1〜8」など）のときは 群+ラベル（"1〜82"）を作らない（「B2 1」が 2〜8 まで前方一致で覆ってしまう）
-    const gl = /[〜~～]/.test(g) ? '' : g + l;
+    // ★2026-10-18 ラベルが群の番号で始まる（group '1'・label '1親藩'）ときは 群+ラベル（'11親藩'）を作らない（「11」のカードが拾ってしまう）
+    const gl = (/[〜~～]/.test(g) || (g && l.startsWith(g))) ? '' : g + l;
     for (const f of [gl, l]) if (f && !fs.some((x) => x.f === f)) fs.push({ f, exact: false });
     if (g && !fs.some((x) => x.f === g)) fs.push({ f: g, exact: true });
     return fs.length ? fs : [{ f: '', exact: false }];
