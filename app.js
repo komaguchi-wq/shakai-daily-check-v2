@@ -2859,10 +2859,17 @@ async function composeSpreadDataURLs(files, base, perPageDraw) {
   return urls;
 }
 
-// ★2026-10-02 ユーザー要望: コアプラスは B4 横の見開き印刷だと字が小さい → 印刷だけ 1ページずつ A4 縦にする
-//   （画面の見開き表示はそのまま。縦長の画像は _setPrintPageGeometry が A4 縦にする）
+// ★2026-10-02 ユーザー要望: コアプラスは B4 横の見開き印刷だと字が小さい → 印刷だけ 1ページずつ出す
+//   （画面の見開き表示はそのまま）
 function wsmPrintAsSpread(xyz) {
   return !!(xyz && xyz.spread) && !(currentCategory && currentCategory.id === "coreplus");
+}
+// ★2026-10-19 ユーザー指摘「コアプラスの社会を B4 縦で印刷しても A4 サイズにしかならない」
+//   原因: 1ページ印刷の高さ上限が A4 縦(285mm)固定で、用紙を B4 にしても画像が A4 の高さで止まっていた。
+//   → コアプラスの1ページ印刷は B4 縦（@page B4 portrait・高さ上限 350mm）。ページ画像は縦横比 1.417＝B4 と同じなので
+//     余白 5mm でちょうど紙いっぱいになる（A4 に印刷しても幅 100% で収まる）。
+function wsmSinglePagePaper() {
+  return (currentCategory && currentCategory.id === "coreplus") ? "B4 portrait" : undefined;
 }
 
 // モード別に問題ページを印刷（対象小問を赤文字で焼き込む）
@@ -2913,7 +2920,7 @@ async function printWsMode(mode) {
     dataURLs.push(wsmCropCanvas(cc, i).toDataURL("image/jpeg", 0.92));   // ★2026-10-10 余白カット（xyz.crops）
   }
   if (dataURLs.length === 0) { alert("画像の読み込みに失敗しました"); return; }
-  _openPrintOverlay(`${currentUnit.id} ${wsTitle()}（${WS_MODE_LABELS[mode]}）`, dataURLs);
+  _openPrintOverlay(`${currentUnit.id} ${wsTitle()}（${WS_MODE_LABELS[mode]}）`, dataURLs, wsmSinglePagePaper());
 }
 
 // 問題画面ヘッダーの印刷: 表示中タブを印刷（問題タブは現フィルタの赤文字付き）
@@ -2960,7 +2967,7 @@ async function wsmPrint() {
     dataURLs.push(wsmCropCanvas(cc, i).toDataURL("image/jpeg", 0.92));   // ★2026-10-10 余白カット（xyz.crops）
   }
   if (dataURLs.length === 0) { alert("画像の読み込みに失敗しました"); return; }
-  _openPrintOverlay(`${currentUnit.id} ${wsTitle()}（解答）`, dataURLs);
+  _openPrintOverlay(`${currentUnit.id} ${wsTitle()}（解答）`, dataURLs, wsmSinglePagePaper());
 }
 
 // ==============================
