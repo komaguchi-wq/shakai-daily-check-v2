@@ -1589,7 +1589,8 @@
    "pageSize": "B4 portrait",
    "note": "印刷用 1列=B4縦1面（print_b4_portrait.py と同じ描き直し）。a には解いた用紙（solved_*）を --write 時に続ける"
   },
-  "noTargetBanner": true
+  "noTargetBanner": true,
+  "kaisetsu": "kaisetsu.html"
  },
  "imageBase": "https://komaguchi-wq.github.io/shakai-daily-check-v2-images-01/coreplus/cp-jinbutsu/",
  "sources": [
