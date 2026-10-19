@@ -1092,6 +1092,7 @@ body {
 .kaisetsu .model b { color: var(--k-read); }
 .kaisetsu .card-fact { border-left: 6px solid #9aa7b8; padding-top: 14px; }
 .kaisetsu .card-fact .type { background:#f0f2f5; color:#556; }
+.kaisetsu .era { display:inline-block; background:#fff3e0; color:#8a4b00; border:1px solid #f0c27a; font-size:12.5px; padding:1px 9px; border-radius:999px; font-weight:700; }   /* ★2026-10-19 時代ラベル（社会DS 640-21〜26 から） */
 .kaisetsu .fact { margin: 4px 0 2px; padding: 2px 4px; }
 /* 算数の簡易図（文字で描く連除法・数直線・○の並び） */
 .kaisetsu pre.fig { font-family: Menlo, "Osaka-Mono", "MS Gothic", "Noto Sans Mono CJK JP", monospace; font-size:14px; line-height:1.5; background:#fafafa; border:1px dashed #cfd6de; border-radius:8px; padding:8px 12px; margin:6px 0 4px; white-space:pre; overflow-x:auto; }
@@ -1135,6 +1136,7 @@ body {
   #print-overlay-body .kaisetsu-print h3.h-hint { background: #fff6e8 !important; }
   #print-overlay-body .kaisetsu-print h3.h-read { background: #eef8f1 !important; }
   #print-overlay-body .kaisetsu-print .type { font-size: 8.5pt; border: 1px solid #9bbbe0; }
+  #print-overlay-body .kaisetsu-print .era { font-size: 8.5pt; border: 1px solid #c9a36a; background: #fff !important; color: #000 !important; padding: 0 2mm; border-radius: 2mm; }   /* ★2026-10-19 時代ラベル */
   #print-overlay-body .kaisetsu-print table { font-size: 9pt; }
   #print-overlay-body .kaisetsu-print li, #print-overlay-body .kaisetsu-print tr,
   #print-overlay-body .kaisetsu-print .hint, #print-overlay-body .kaisetsu-print .ans, #print-overlay-body .kaisetsu-print .miss,
