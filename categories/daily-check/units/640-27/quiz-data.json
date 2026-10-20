@@ -816,7 +816,8 @@
    "solved_01.jpg",
    "solved_02.jpg",
    "solved_03.jpg"
-  ]
+  ],
+  "kaisetsu": "kaisetsu.html"
  },
  "dctest": {
   "label": "デイリーチェック（640-26の確認）",
@@ -1015,7 +1016,8 @@
    "solved_05.jpg"
   ],
   "generatedBy": "_scratch/rebuild_640_27_cpdc.py + finish_640_27.py",
-  "generatedAt": "2026-10-20"
+  "generatedAt": "2026-10-20",
+  "kaisetsu": "kaisetsu_dctest.html"
  },
  "cptest": {
   "label": "コアプラス確認テスト 640-27",
@@ -1096,7 +1098,8 @@
    "solved_04.jpg"
   ],
   "generatedBy": "_scratch/rebuild_640_27_cpdc.py + finish_640_27.py",
-  "generatedAt": "2026-10-20"
+  "generatedAt": "2026-10-20",
+  "kaisetsu": "kaisetsu_cptest.html"
  },
  "imageBase": "https://komaguchi-wq.github.io/shakai-daily-check-v2-images-01/daily-check/640-27/"
 }
