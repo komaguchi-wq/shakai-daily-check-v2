@@ -797,5 +797,24 @@
    "1": 46,
    "2": 40
   }
+ },
+ {
+  "id": "WS-28",
+  "title": "WS-28 入試総合演習 時代・年代の並べかえ",
+  "subject": "Weekly SapiX",
+  "pageCount": 2,
+  "totalRegions": 196,
+  "sectionRegions": {
+   "kakunin": 196
+  },
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin"
+  },
+  "xyzCount": 93,
+  "pageRegionCounts": {
+   "1": 144,
+   "2": 52
+  }
  }
 ]
