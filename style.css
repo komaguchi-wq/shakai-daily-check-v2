@@ -970,16 +970,7 @@ body {
   position: absolute; max-width: none; height: auto;
   border-radius: 0; box-shadow: none;
 }
-.wsm-qnum {
-  position: absolute; z-index: 2;
-  transform: translate(-55%, -50%);
-  font-size: 11px; font-weight: 700; line-height: 1;
-  color: #007aff; background: rgba(255,255,255,0.92);
-  border: 1.5px solid #007aff; border-radius: 4px;
-  padding: 2px 3px;
-  pointer-events: none; white-space: nowrap;
-}
-.wsm-qnum.target { color: #ff3b30; border-color: #ff3b30; }
+/* .wsm-qnum（知識の総完成の番号バッジ）は 2026-10-26 廃止＝答えを隠していた。対象は .wsm-uline の赤下線だけ */
 .wsm-uline {
   position: absolute; z-index: 1; display: none;
   height: 5px; transform: translateY(-50%);

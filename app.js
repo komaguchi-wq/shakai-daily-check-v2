@@ -2342,8 +2342,8 @@ function commitXyz() {
   if (scr && scr.classList.contains("active")) renderXyzTable();
 }
 
-// 知識の総完成: 空らん位置に小さな番号バッジ（正誤表と紙面の対応付け）＋
-// フィルタ対象の空らんは下線部を赤バーでハイライト（四角で囲わない・ユーザー確定 2026-09-05）
+// 知識の総完成: フィルタ対象の空らんは下線部を赤バーでハイライト（四角で囲わない・ユーザー確定 2026-09-05）
+// ★2026-10-26 空らん位置の番号バッジ（.wsm-qnum）は廃止＝答えの一部を隠していた（ユーザー指摘）。下線だけで対象が分かる
 // 位置は黒い下線に合わせる: region下端+4px（下線は下端の3〜7px下に実測で分布）
 const WSM_ULINE_OFFSET = 4;
 function wsRegionOverlayHTML(pageIdx) {
@@ -2358,8 +2358,7 @@ function wsRegionOverlayHTML(pageIdx) {
     if (!r) return "";
     const left = (r.x / W * 100).toFixed(2), width = (r.w / W * 100).toFixed(2);
     const topLine = ((r.y + r.h + WSM_ULINE_OFFSET) / H * 100).toFixed(2);
-    return `<span class="wsm-qnum" data-qid="${q.id}" style="left:${left}%;top:${topLine}%">${q.label}</span>` +
-      `<span class="wsm-uline" data-qid="${q.id}" style="left:${left}%;top:${topLine}%;width:${width}%"></span>`;
+    return `<span class="wsm-uline" data-qid="${q.id}" style="left:${left}%;top:${topLine}%;width:${width}%"></span>`;
   }).join("");
 }
 
@@ -2724,10 +2723,8 @@ function updateWsTargetBanners() {
     if (txt) { banner.textContent = txt; banner.style.display = ""; }
     else { banner.style.display = "none"; banner.textContent = ""; }
   });
-  // 知識の総完成: フィルタ対象の空らんは下線を赤ハイライト＋番号バッジも赤に
+  // 知識の総完成: フィルタ対象の空らんは下線を赤ハイライト（番号バッジは 2026-10-26 廃止）
   document.querySelectorAll('#wsm-pages .wsm-uline').forEach(el =>
-    el.classList.toggle("target", !!(wsmFilteredIds && wsmFilteredIds.has(el.dataset.qid))));
-  document.querySelectorAll('#wsm-pages .wsm-qnum').forEach(el =>
     el.classList.toggle("target", !!(wsmFilteredIds && wsmFilteredIds.has(el.dataset.qid))));
   updateWsTargetBoxes();
 }
@@ -2783,37 +2780,22 @@ function drawWsTargetText(ctx, text, W, H) {
   ctx.fillText(text, x + padding, y + padding);
 }
 
-// 知識の総完成: 印刷用に番号バッジ（＋フィルタ対象の赤下線）をcanvasへ焼き込む
+// 知識の総完成: 印刷用にフィルタ対象の赤下線をcanvasへ焼き込む（番号バッジは 2026-10-26 廃止＝答えを隠していた）
 function drawWsRegionOverlays(ctx, pageIdx, idsSet) {
   const xyz = currentWsm;
-  if (!xyz || !xyz.regionPages) return;
+  if (!xyz || !xyz.regionPages || !idsSet) return;
   const page = xyz.regionPages[pageIdx];
   if (!page) return;
   const dm = xyz.daimons[pageIdx];
   const sx = ctx.canvas.width / page.width, sy = ctx.canvas.height / page.height;
   const fs = Math.max(14, Math.round(ctx.canvas.width * 0.013));
-  ctx.textBaseline = "middle";
   dm.questions.forEach(q => {
     const r = q.region;
-    if (!r) return;
+    if (!r || !idsSet.has(q.id)) return;
     const x = r.x * sx, w = r.w * sx, yb = (r.y + r.h + WSM_ULINE_OFFSET) * sy;   // yb = 下線の位置
-    const isTarget = !!(idsSet && idsSet.has(q.id));
-    if (isTarget) {
-      ctx.fillStyle = "rgba(255,59,48,0.8)";
-      const bh = Math.max(4, fs * 0.3);
-      ctx.fillRect(x, yb - bh / 2, w, bh);
-    }
-    ctx.font = `bold ${fs}px sans-serif`;
-    const tw = ctx.measureText(q.label).width;
-    const bw = tw + fs * 0.5, bh2 = fs * 1.25;
-    const bx = x - bw * 0.55, by = yb - bh2 / 2;
-    ctx.fillStyle = "rgba(255,255,255,0.92)";
-    ctx.fillRect(bx, by, bw, bh2);
-    ctx.strokeStyle = isTarget ? "#ff3b30" : "#007aff";
-    ctx.lineWidth = Math.max(1.5, fs * 0.09);
-    ctx.strokeRect(bx, by, bw, bh2);
-    ctx.fillStyle = isTarget ? "#ff3b30" : "#007aff";
-    ctx.fillText(q.label, bx + fs * 0.25, by + bh2 / 2);
+    ctx.fillStyle = "rgba(255,59,48,0.8)";
+    const bh = Math.max(4, fs * 0.3);
+    ctx.fillRect(x, yb - bh / 2, w, bh);
   });
 }
 
