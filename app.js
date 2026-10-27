@@ -1984,6 +1984,8 @@ function buildChishikiWsmBlock() {
     answerPages: pages.map(p => p.image).concat(quizData.chishikiSolvedPages || []),
     daimons, keyMap,
     regionPages: pages,   // 番号バッジ・下線ハイライトのオーバーレイ描画用（regions + width/height）
+    // ★2026-10-28 知識の総完成の解説（quiz-data.json chishikiKaisetsu="kaisetsu_chishiki.html"・1空らん=1カード・qid「1ページ 5」）
+    kaisetsu: quizData.chishikiKaisetsu || null,
   };
 }
 
