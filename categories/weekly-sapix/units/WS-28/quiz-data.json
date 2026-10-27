@@ -1798,5 +1798,6 @@
     "generatedAt": "2026-10-24",
     "note": "統合スキャン idx15（実施済み・赤採点 88/100）の赤を除去し解答らん（左右2表）を白塗り。解答は別紙①左の解答表。各4点×25問",
     "kaisetsu": "kaisetsu_wctest.html"
-  }
+  },
+  "chishikiKaisetsu": "kaisetsu_chishiki.html"
 }
