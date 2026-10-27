@@ -699,9 +699,14 @@
       "group": ""
      },
      {
-      "id": "レベル3(1)-12",
-      "label": "12",
-      "group": ""
+      "id": "レベル3(1)-12農場",
+      "label": "12農場",
+      "group": "12"
+     },
+     {
+      "id": "レベル3(1)-12村",
+      "label": "12村",
+      "group": "12"
      },
      {
       "id": "レベル3(1)-13",
@@ -863,7 +868,8 @@
    "solved_01.jpg",
    "solved_02.jpg",
    "solved_03.jpg"
-  ]
+  ],
+  "kaisetsu": "kaisetsu.html"
  },
  "dctest": {
   "label": "デイリーチェック（640-27の確認）",
@@ -1062,7 +1068,8 @@
    "solved_05.jpg"
   ],
   "generatedBy": "_scratch/rebuild_640_28_cpdc.py + finish_640_28.py",
-  "generatedAt": "2026-10-27"
+  "generatedAt": "2026-10-27",
+  "kaisetsu": "kaisetsu_dctest.html"
  },
  "cptest": {
   "label": "コアプラス確認テスト 640-28",
@@ -1183,7 +1190,8 @@
    "solved_04.jpg"
   ],
   "generatedBy": "_scratch/rebuild_640_28_cpdc.py + finish_640_28.py",
-  "generatedAt": "2026-10-27"
+  "generatedAt": "2026-10-27",
+  "kaisetsu": "kaisetsu_cptest.html"
  },
  "imageBase": "https://komaguchi-wq.github.io/shakai-daily-check-v2-images-01/daily-check/640-28/"
 }
