@@ -701,7 +701,8 @@
    "solved_02.jpg",
    "solved_03.jpg"
   ],
-  "note": "7ページ（レベル3 11〜30）の問題面はスキャンに無く、別紙⑥の答えを消して仮置き（2026-10-29・再スキャン待ち）"
+  "note": "7ページ（レベル3 11〜30）の問題面はスキャンに無く、別紙⑥の答えを消して仮置き（2026-10-29・再スキャン待ち）",
+  "kaisetsu": "kaisetsu.html"
  },
  "dctest": {
   "label": "デイリーチェック（640-28の確認）",
@@ -900,7 +901,8 @@
    "solved_05.jpg"
   ],
   "generatedBy": "_scratch/rebuild_640_29_cpdc.py + finish_640_29.py",
-  "generatedAt": "2026-10-29"
+  "generatedAt": "2026-10-29",
+  "kaisetsu": "kaisetsu_dctest.html"
  },
  "cptest": {
   "label": "コアプラス確認テスト 640-29",
@@ -986,7 +988,8 @@
    "solved_04.jpg"
   ],
   "generatedBy": "_scratch/rebuild_640_29_cpdc.py + finish_640_29.py",
-  "generatedAt": "2026-10-29"
+  "generatedAt": "2026-10-29",
+  "kaisetsu": "kaisetsu_cptest.html"
  },
  "imageBase": "https://komaguchi-wq.github.io/shakai-daily-check-v2-images-01/daily-check/640-29/"
 }
