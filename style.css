@@ -1158,6 +1158,11 @@ body {
   #print-overlay-body .kaisetsu-print .fact { break-inside: avoid; }
   #print-overlay-body .kaisetsu-print .ok { color: #2e8b57 !important; }
   #print-overlay-body .kaisetsu-print .x, #print-overlay-body .kaisetsu-print .miss b { color: #c0392b !important; }
+  /* ★2026-10-30 並べかえ型（社会 WS-28 知識の総完成）: 表（順・出来事・時代・どんな出来事か）を持つ知識カードは1段に収まらないので段をまたいでよい（行 tr は切らない）。
+     :has() の分の詳細度が extra/shakai-daily-check-v2.css の .card-fact 分割禁止より高いので順序に関係なく効く */
+  #print-overlay-body .kaisetsu-print .card-fact:has(.fact table), #print-overlay-body .kaisetsu-print .fact:has(table) { break-inside: auto; page-break-inside: auto; -webkit-column-break-inside: auto; }
+  #print-overlay-body .kaisetsu-print .fact table { width: 100%; }
+  #print-overlay-body .kaisetsu-print .fact table th { break-after: avoid; }
 }
 #print-overlay-body .kaisetsu-print pre.fig { font-size: 9pt; line-height:1.4; page-break-inside: avoid; break-inside: avoid; background:#fff; }
 @media print {
