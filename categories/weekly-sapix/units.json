@@ -816,5 +816,36 @@
    "1": 144,
    "2": 52
   }
+ },
+ {
+  "id": "WS-29",
+  "title": "WS-29 入試総合演習 国際連合と国際協力",
+  "subject": "Weekly SapiX",
+  "pageCount": 2,
+  "totalRegions": 104,
+  "sectionRegions": {
+   "kakunin": 104
+  },
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin"
+  },
+  "xyzCount": 91,
+  "pageRegionCounts": {
+   "1": 45,
+   "2": 67
+  },
+  "rawTotalRegions": 112,
+  "rawKakuninRegions": 112,
+  "furiganaKeys": [
+   "1-27",
+   "1-30",
+   "2-8",
+   "2-19",
+   "2-36",
+   "2-55",
+   "2-56",
+   "2-58"
+  ]
  }
 ]
