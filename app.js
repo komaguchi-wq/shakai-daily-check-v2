@@ -2783,7 +2783,7 @@ function drawWsTargetText(ctx, text, W, H) {
 }
 
 // 知識の総完成: 印刷用にフィルタ対象の赤下線をcanvasへ焼き込む（番号バッジは 2026-10-26 廃止＝答えを隠していた）
-function drawWsRegionOverlays(ctx, pageIdx, idsSet) {
+function drawWsRegionOverlays(ctx, pageIdx, idsSet, pt) {
   const xyz = currentWsm;
   if (!xyz || !xyz.regionPages || !idsSet) return;
   const page = xyz.regionPages[pageIdx];
@@ -2795,7 +2795,7 @@ function drawWsRegionOverlays(ctx, pageIdx, idsSet) {
     const r = q.region;
     if (!r || !idsSet.has(q.id)) return;
     const x = r.x * sx, w = r.w * sx, yb = (r.y + r.h + WSM_ULINE_OFFSET) * sy;   // yb = 下線の位置
-    ctx.fillStyle = "rgba(255,59,48,0.8)";
+    ctx.fillStyle = pt === "a" ? "rgba(10,95,214,0.8)" : "rgba(255,59,48,0.8)";   // ★2026-11-05 解答ページは青（赤い下敷きで隠しても見える・ユーザー指示）
     const bh = Math.max(4, fs * 0.3);
     ctx.fillRect(x, yb - bh / 2, w, bh);
   });
@@ -2946,7 +2946,7 @@ async function wsmPrint() {
     cc.width = img.width; cc.height = img.height;
     const ctx = cc.getContext("2d");
     ctx.drawImage(img, 0, 0);
-    drawWsRegionOverlays(ctx, i, null);
+    drawWsRegionOverlays(ctx, i, wsmFilteredIds, "a");   // ★2026-11-05 知識の総完成: 解答の印刷もフィルタ中（50%未満＆未解答など）の空らんに青い下線（ユーザー指示）
     if (wsmFilteredIds) drawWsTargetBoxes(ctx, i, wsmFilteredIds, cc.width, cc.height, "a");   // ★2026-10-04 解答の印刷もフィルタ中は青い印
     dataURLs.push(wsmCropCanvas(cc, i).toDataURL("image/jpeg", 0.92));   // ★2026-10-10 余白カット（xyz.crops）
   }

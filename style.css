@@ -978,6 +978,7 @@ body {
   pointer-events: none;
 }
 .wsm-uline.target { display: block; }
+.wsm-page[data-pt="a"] .wsm-uline.target { background: rgba(10, 95, 214, 0.8); }   /* ★2026-11-05 解答タブの対象の下線は青（赤い下敷きで隠しても見える・ユーザー指示） */
 
 /* AI正誤提案バナー（正誤表の上） */
 .proposal-banner {
