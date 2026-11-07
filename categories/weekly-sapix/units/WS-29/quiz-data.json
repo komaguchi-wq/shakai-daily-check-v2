@@ -1325,5 +1325,8 @@
     "note": "統合スキャン idx18（実施済み・赤採点 90/100）の赤を除去し解答らん（左右2表）を白塗り・鉛筆の年号メモと名前を白塗り。解答は別紙①左の解答表（点数メモは白塗り）。1は各5点×12問（並べかえ完答）・2は各8点×5問",
     "kaisetsu": "kaisetsu_wctest.html"
   },
+  "chishikiSolvedPages": [
+    "solved_2026-11-07_01.jpg"
+  ],
   "chishikiKaisetsu": "kaisetsu_chishiki.html"
 }
