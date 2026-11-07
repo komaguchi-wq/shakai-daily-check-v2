@@ -1979,6 +1979,8 @@ function buildChishikiWsmBlock() {
   });
   return {
     label: "知識の総完成",
+    // ★2026-11-07 ユーザー指示「WS-01〜24 くらいが B4横になっていない」: 縦向きの面（見開きの半分＝1536×2165）は2面ずつ見開きで表示・印刷（B4横）
+    spread: pages.length > 1 && (pages[0].width || 0) < (pages[0].height || 1),
     questionPages: pages.map(p => p.imageMasked || p.image),
     // 解いた原本（採点済みスキャン）は解答タブ末尾に表示（quiz-data.json chishikiSolvedPages）
     answerPages: pages.map(p => p.image).concat(quizData.chishikiSolvedPages || []),
@@ -2783,14 +2785,15 @@ function drawWsTargetText(ctx, text, W, H) {
 }
 
 // 知識の総完成: 印刷用にフィルタ対象の赤下線をcanvasへ焼き込む（番号バッジは 2026-10-26 廃止＝答えを隠していた）
-function drawWsRegionOverlays(ctx, pageIdx, idsSet, pt) {
+function drawWsRegionOverlays(ctx, pageIdx, idsSet, pt, pw, ph) {
   const xyz = currentWsm;
   if (!xyz || !xyz.regionPages || !idsSet) return;
   const page = xyz.regionPages[pageIdx];
   if (!page) return;
   const dm = xyz.daimons[pageIdx];
-  const sx = ctx.canvas.width / page.width, sy = ctx.canvas.height / page.height;
-  const fs = Math.max(14, Math.round(ctx.canvas.width * 0.013));
+  const W = pw || ctx.canvas.width, H = ph || ctx.canvas.height;   // ★2026-11-07 見開き合成ではページ1面ぶんの幅・高さを渡す
+  const sx = W / page.width, sy = H / page.height;
+  const fs = Math.max(14, Math.round(W * 0.013));
   dm.questions.forEach(q => {
     const r = q.region;
     if (!r || !idsSet.has(q.id)) return;
@@ -2885,6 +2888,11 @@ async function printWsMode(mode) {
   }
   if (wsmPrintAsSpread(xyz)) {
     const urls = await composeSpreadDataURLs(xyz.questionPages, base, (ctx, idx, W, H) => {
+      if (xyz.regionPages) {   // ★2026-11-07 知識の総完成の見開き: 空らんの赤い下線＋対象の印（1ページ印刷と同じ）
+        drawWsRegionOverlays(ctx, idx, ids, "q", W, H);
+        if (ids) { if (!xyz.noTargetBanner) drawWsTargetText(ctx, wsTargetTextForPage(idx, ids), W, H); drawWsTargetBoxes(ctx, idx, ids, W, H); }
+        return;
+      }
       if (ids) drawWsTargetText(ctx, wsTargetTextForPage(idx, ids), W, H);
     });
     if (urls.length === 0) { alert("画像の読み込みに失敗しました"); return; }
@@ -2933,7 +2941,11 @@ async function wsmPrint() {
     return;
   }
   if (wsmPrintAsSpread(xyz)) {
-    const urls = await composeSpreadDataURLs(xyz.answerPages, base, null);
+    const urls = await composeSpreadDataURLs(xyz.answerPages, base, xyz.regionPages ? (ctx, idx, W, H) => {
+      // ★2026-11-07 知識の総完成の見開き: 解答も対象の空らんに青い下線（赤い下敷きで隠しても見える）
+      drawWsRegionOverlays(ctx, idx, wsmFilteredIds, "a", W, H);
+      if (wsmFilteredIds) drawWsTargetBoxes(ctx, idx, wsmFilteredIds, W, H, "a");
+    } : null);
     if (urls.length === 0) { alert("画像の読み込みに失敗しました"); return; }
     _openPrintOverlay(`${currentUnit.id} ${wsTitle()}（解答）`, urls);
     return;
