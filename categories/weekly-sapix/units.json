@@ -847,5 +847,24 @@
    "2-56",
    "2-58"
   ]
+ },
+ {
+  "id": "WS-30",
+  "title": "WS-30 入試総合演習 日本の工業のまとめ",
+  "subject": "Weekly SapiX",
+  "pageCount": 2,
+  "totalRegions": 95,
+  "sectionRegions": {
+   "kakunin": 95
+  },
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin"
+  },
+  "xyzCount": 93,
+  "pageRegionCounts": {
+   "1": 35,
+   "2": 60
+  }
  }
 ]
