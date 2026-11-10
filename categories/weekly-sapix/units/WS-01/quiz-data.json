@@ -918,5 +918,9 @@
       4
     ]
   },
-  "chishikiKaisetsu": "kaisetsu_chishiki.html"
+  "chishikiKaisetsu": "kaisetsu_chishiki.html",
+  "chishikiSolvedPages": [
+    "solved_2026-11-10_01.jpg",
+    "solved_2026-11-10_02.jpg"
+  ]
 }
