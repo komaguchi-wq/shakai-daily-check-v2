@@ -7,7 +7,8 @@
     "totalRegions": 0,
     "hasReview": true,
     "sectionRegions": {},
-    "xyzCount": 24
+    "xyzCount": 286,
+    "shiryoCount": 262
   },
   {
     "id": "DB-02",
@@ -17,7 +18,8 @@
     "totalRegions": 0,
     "hasReview": true,
     "sectionRegions": {},
-    "xyzCount": 25
+    "xyzCount": 442,
+    "shiryoCount": 417
   },
   {
     "id": "DB-03",
@@ -27,7 +29,8 @@
     "totalRegions": 0,
     "hasReview": true,
     "sectionRegions": {},
-    "xyzCount": 24
+    "xyzCount": 227,
+    "shiryoCount": 203
   },
   {
     "id": "DB-04",
@@ -37,7 +40,8 @@
     "totalRegions": 0,
     "hasReview": true,
     "sectionRegions": {},
-    "xyzCount": 21
+    "xyzCount": 396,
+    "shiryoCount": 375
   },
   {
     "id": "DB-05",

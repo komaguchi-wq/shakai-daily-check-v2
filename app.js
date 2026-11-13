@@ -716,6 +716,12 @@ function renderUnitDetail() {
       else startReading(sec, true);
     });
     list.appendChild(card);
+    // ★2026-11-13 データバンク資料の書き起こし（quiz-data.json の shiryo ブロック・scripts/databank_text/build.py --write）:
+    //   説明文（原本スキャン）のすぐ後ろに「資料の空らん」カード。問題タブ=空らん／解答タブ=オレンジの答え・正誤表は空らん1つ=小問1つ（記録キー xyz-S{ページ}-{見出し}-{番号}）。
+    //   対象の印は空らんの下線に赤いバー（qpos_shiryo.json markStyle=underline・歴史人物まとめと同じ）。「対象 …」バナーなし（noTargetBanner）
+    if (sec === "description" && quizData.shiryo && Array.isArray(quizData.shiryo.daimons) && quizData.shiryo.daimons.length > 0) {
+      list.appendChild(buildXyzCard(quizData.shiryo, "🟧"));
+    }
     // ★keepQuiz（WS実戦演習など）: 既存クイズカードを残したまま X/Y/Z カードを後ろに併設
     if (sec === "kakunin" && hasXyz && quizData.xyz.keepQuiz) list.appendChild(buildXyzCard(quizData.xyz));
   });
