@@ -1086,6 +1086,10 @@ body {
 .kaisetsu .card-fact .type { background:#f0f2f5; color:#556; }
 .kaisetsu .era { display:inline-block; background:#fff3e0; color:#8a4b00; border:1px solid #f0c27a; font-size:12.5px; padding:1px 9px; border-radius:999px; font-weight:700; }   /* ★2026-10-19 時代ラベル（社会DS 640-21〜26 から） */
 .kaisetsu .fact { margin: 4px 0 2px; padding: 2px 4px; }
+/* ★2026-11-13 地図の「ここを読む」図（scripts/kaisetsu/mapfig.py・社会 NS-01 から）: 問題の地図の切り出し＋赤い印。キャプションは ❶❷… */
+.kaisetsu figure.mapfig { margin:10px 0 8px; }
+.kaisetsu figure.mapfig img { display:block; width:100%; max-width:760px; height:auto; margin:0 auto; border:1px solid #c9d0d9; border-radius:8px; background:#fff; }
+.kaisetsu figure.mapfig figcaption { max-width:760px; margin:6px auto 0; font-size:14.5px; line-height:1.6; color:#333; background:#fff6f5; border-left:5px solid #de261a; border-radius:0 8px 8px 0; padding:6px 12px; }
 /* 算数の簡易図（文字で描く連除法・数直線・○の並び） */
 .kaisetsu pre.fig { font-family: Menlo, "Osaka-Mono", "MS Gothic", "Noto Sans Mono CJK JP", monospace; font-size:14px; line-height:1.5; background:#fafafa; border:1px dashed #cfd6de; border-radius:8px; padding:8px 12px; margin:6px 0 4px; white-space:pre; overflow-x:auto; }
 /* ★2026-10-05 漢字の要 同音異義語の語カード（.card-dougon）: 決め手の字(em)を赤・字のイメージ・意味＋例文・なぜその字か */
@@ -1165,6 +1169,9 @@ body {
   #print-overlay-body .kaisetsu-print .fact table { width: 100%; }
   #print-overlay-body .kaisetsu-print .fact table th { break-after: avoid; }
 }
+#print-overlay-body .kaisetsu-print figure.mapfig { margin: 2mm 0; page-break-inside: avoid; break-inside: avoid; -webkit-column-break-inside: avoid; }
+#print-overlay-body .kaisetsu-print figure.mapfig img { display:block; max-width:100%; max-height:95mm; width:auto; height:auto; margin:0 auto; border:0.2mm solid #999; border-radius:0; }
+#print-overlay-body .kaisetsu-print figure.mapfig figcaption { font-size: 9pt; line-height:1.45; background:#fff; border-left:1mm solid #de261a; padding:1mm 2mm; margin-top:1mm; max-width:none; }
 #print-overlay-body .kaisetsu-print pre.fig { font-size: 9pt; line-height:1.4; page-break-inside: avoid; break-inside: avoid; background:#fff; }
 @media print {
   /* 同音異義語・語彙の語カード（★2026-10-28 画面と同じ配色: 決め手の字=赤・例文=青＋赤い下線・なぜその字か=◆オレンジ） */
