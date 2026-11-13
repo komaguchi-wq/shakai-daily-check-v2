@@ -1358,5 +1358,9 @@
     "note": "結合スキャン idx19（029200 p20・実施済み・赤採点 92/100）の赤を除去し解答らん（左右2表）を白塗り・鉛筆のメモを白塗り（名前らんは空欄）。解答は別紙①左の解答表（idx21・029200 p22）。1 は 13問・2 は 12問の各4点",
     "kaisetsu": "kaisetsu_wctest.html"
   },
+  "chishikiSolvedPages": [
+    "solved_2026-11-13_01.jpg",
+    "solved_2026-11-13_02.jpg"
+  ],
   "chishikiKaisetsu": "kaisetsu_chishiki.html"
 }
