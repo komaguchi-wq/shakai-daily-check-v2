@@ -866,5 +866,24 @@
    "1": 35,
    "2": 60
   }
+ },
+ {
+  "id": "WS-31",
+  "title": "WS-31 入試総合演習 地域の歴史〜沖縄・北海道・東京〜",
+  "subject": "Weekly SapiX",
+  "pageCount": 2,
+  "totalRegions": 68,
+  "sectionRegions": {
+   "kakunin": 68
+  },
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin"
+  },
+  "xyzCount": 97,
+  "pageRegionCounts": {
+   "1": 38,
+   "2": 30
+  }
  }
 ]
