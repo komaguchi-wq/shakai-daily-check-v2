@@ -29,7 +29,7 @@ let currentReadingSection = null;
 let currentSection = null;
 
 // クイズ対象セクション（dailystep=オレンジマスク / kakunin・coreplus=回答らんへ解答移植して小問マスク）
-const QUIZ_TYPES = new Set(["dailystep", "kakunin", "coreplus"]);
+const QUIZ_TYPES = new Set(["dailystep", "kakunin", "coreplus", "coreplus:dc", "coreplus:cp"]);
 // セクション表示順: 説明文 → デイリーステップ → 授業の確認問題 → コアプラス＋デイリーチェック
 const SECTION_ORDER = ["description", "dailystep", "kakunin", "coreplus"];
 
@@ -38,6 +38,10 @@ const SECTION_META = {
   dailystep: { label: "デイリーステップ", icon: "📋" },
   kakunin: { label: "授業の確認問題", icon: "✏️" },
   coreplus: { label: "コアプラス＋デイリーチェック", icon: "🔑" },
+  // ★2026-11-25 ユーザー指示: デイリーチェックとコアプラス確認テストを別カードに（旧マスク式の単元・ページの testKind で分ける）。
+  //   「coreplus:dc」＝ type coreplus のうち testKind==="dc" のページだけ。正誤キー {ページid}-{番号} は変わらない
+  "coreplus:dc": { label: "デイリーチェック", icon: "📒" },
+  "coreplus:cp": { label: "コアプラス確認テスト", icon: "📗" },
 };
 // 旧コードとの互換性
 const SECTION_LABELS = Object.fromEntries(
@@ -47,6 +51,7 @@ const SECTION_LABELS = Object.fromEntries(
 // weekly-sapix の kakunin は紙面どおり「知識の総完成」と表示（他カテゴリは従来ラベル）
 function sectionDisplayLabel(sec) {
   if (sec === "kakunin" && currentCategory && currentCategory.id === "weekly-sapix") return "知識の総完成";
+  if (sec && sec.includes(":") && quizData) { const p = getSectionPages(sec).find(pg => pg.testLabel); if (p) return p.testLabel; }
   return (SECTION_META[sec] || { label: sec }).label;
 }
 
@@ -621,6 +626,10 @@ async function openUnit(unit) {
 
 // セクションごとのページ集合（containsSections も考慮）
 function getSectionPages(section) {
+  if (section && section.includes(":")) {   // ★2026-11-25 "coreplus:dc" ＝ coreplus のうち testKind が dc のページ
+    const [base, kind] = section.split(":");
+    return getSectionPages(base).filter(p => p.testKind === kind);
+  }
   return quizData.pages.filter(p =>
     p.type === section || (p.containsSections && p.containsSections.includes(section)));
 }
@@ -653,7 +662,11 @@ function renderUnitDetail() {
 
   const hasXyz = !!(quizData && quizData.xyz && Array.isArray(quizData.xyz.daimons) && quizData.xyz.daimons.length > 0);
   const isWS = !!(currentCategory && currentCategory.id === "weekly-sapix");
-  SECTION_ORDER.forEach(sec => {
+  // ★2026-11-25 coreplus のページ全部に testKind（dc／cp）がある単元は、デイリーチェック→コアプラス確認テストの2枚に分ける
+  const cpPages = getSectionPages("coreplus");
+  const splitTests = cpPages.length > 0 && cpPages.every(p => p.testKind === "dc" || p.testKind === "cp");
+  const sectionOrder = SECTION_ORDER.flatMap(sec => (sec === "coreplus" && splitTests) ? ["coreplus:dc", "coreplus:cp"] : [sec]);
+  sectionOrder.forEach(sec => {
     // ★2026-09-05 Weekly SapiX「知識の総完成」を reveal式クイズ→wsm方式（問題/解答タブ＋正誤表）へ変更。
     //   ブロックは pages/regions から合成（正誤キーは従来と同一＝過去の○×引き継ぎ）。
     //   WS-20 は入試実戦演習(xyz)カードを後ろに併設
@@ -879,7 +892,7 @@ function renderSectionDetail() {
 }
 
 function getPageLabel(page) {
-  const sec = SECTION_LABELS[page.type] || page.type;
+  const sec = page.testLabel || SECTION_LABELS[page.type] || page.type;   // ★2026-11-25 testLabel（デイリーチェック／コアプラス確認テストを分けた単元）
   return `${sec} p${page.id}`;
 }
 

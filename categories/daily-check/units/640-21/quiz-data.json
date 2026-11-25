@@ -124,7 +124,9 @@
    "image": "page_05_answer.jpg",
    "imageMasked": "page_05_qmasked.jpg",
    "width": 4254,
-   "height": 3006
+   "height": 3006,
+   "testKind": "cp",
+   "testLabel": "コアプラス確認テスト 640-21"
   },
   {
    "id": 6,
@@ -294,7 +296,9 @@
    "image": "page_06_answer.jpg",
    "imageMasked": "page_06_qmasked.jpg",
    "width": 4263,
-   "height": 3006
+   "height": 3006,
+   "testKind": "dc",
+   "testLabel": "デイリーチェック（N64-09の確認）"
   }
  ],
  "sectionBreakdown": {
