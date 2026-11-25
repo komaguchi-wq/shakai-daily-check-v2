@@ -668,6 +668,9 @@ function renderUnitDetail() {
     // 授業の確認問題: xyzデータがあれば X/Y/Z方式カード（問題/解答タブ + 正誤表）。
     // 無い単元は従来のマスク方式カードのまま（段階移行できるよう両対応）。
     if (sec === "kakunin" && hasXyz && !quizData.xyz.keepQuiz) {
+      // ★2026-11-25 ユーザー指示: 640-21〜 の「入試問題演習」と「◯◯のまとめ」は別々に解く → xyz.parts があればカードを分けて並べる
+      const parts = buildXyzPartBlocks(quizData.xyz);
+      if (parts) { parts.forEach(pb => list.appendChild(buildXyzCard(pb, pb._icon))); return; }
       list.appendChild(buildXyzCard(quizData.xyz));
       return;
     }
@@ -2005,6 +2008,50 @@ const TEST_BLOCK_META = {
   cptest: { icon: "📗", defaultLabel: "コアプラス確認テスト" },
 };
 
+// ★2026-11-25 xyz.parts（quiz-data.json）: 1つの xyz ブロックを複数のカードに分けて見せる（640-21〜 入試問題演習／◯◯のまとめ）。
+//   parts: [{id, label, icon?, daimons:[大問id…], answerPages:[解答ページのファイル名…]}]（作成・点検は scripts/shakai_xyz_parts.py）
+//   データ（小問id・記録キー xyz-…・ページの添字・qpos.json・kaisetsu.html）は xyz のまま変えない。
+//   カードごとの派生ブロックは「見せる大問・ページ」をしぼるだけ（_showQ/_showA）＝過去の○×・同期・印刷束の道具に影響しない。
+//   どの part にも入らない大問があるときは分けない（従来の1カード）
+function buildXyzPartBlocks(xyz) {
+  if (!xyz || !Array.isArray(xyz.parts) || xyz.parts.length < 2) return null;
+  const covered = new Set();
+  const blocks = xyz.parts.map(p => {
+    const ids = new Set(p.daimons || []);
+    const daimons = xyz.daimons.filter(dm => ids.has(dm.id));
+    daimons.forEach(dm => covered.add(dm.id));
+    return Object.assign({}, xyz, {
+      label: p.label, daimons, _partId: p.id, _parentKey: "xyz", _icon: p.icon || "✏️", _dmIds: ids,
+      _showQ: new Set(daimons.map(dm => dm.qpage)),
+      _showA: new Set((p.answerPages || []).map(f => xyz.answerPages.indexOf(f)).filter(i => i >= 0)),
+    });
+  });
+  // どの part にも入っていない解答ページ（あとから足した解いた用紙など）は消えないよう全部のカードに出す
+  const assigned = new Set();
+  blocks.forEach(b => b._showA.forEach(i => assigned.add(i)));
+  xyz.answerPages.forEach((f, i) => { if (!assigned.has(i)) blocks.forEach(b => b._showA.add(i)); });
+  if (blocks.some(b => b.daimons.length === 0) || xyz.daimons.some(dm => !covered.has(dm.id))) return null;
+  return blocks;
+}
+// 派生ブロックで見せるページか（pt: "q" 問題／"a" 解答。ふつうのブロックは全部 true）
+function wsmPageVisible(pt, i, block) {
+  const b = block || currentWsm;
+  const s = b && (pt === "q" ? b._showQ : b._showA);
+  return !s || s.has(i);
+}
+// 解説（kaisetsu.html）も派生ブロックの大問だけにする（大問ごとの <div class="daimon" id="大問id"> と目次）
+function wsKaisetsuScoped(html) {
+  const b = currentWsm;
+  if (!b || !b._dmIds || !html) return html;
+  const d = document.createElement("div");
+  d.innerHTML = html;
+  d.querySelectorAll(".daimon[id]").forEach(e => { if (!b._dmIds.has(e.id)) e.remove(); });
+  d.querySelectorAll(".toc a[href^='#']").forEach(a => {
+    if (!b._dmIds.has(a.getAttribute("href").slice(1))) (a.closest("li") || a).remove();
+  });
+  return d.innerHTML;
+}
+
 // 単元詳細の正誤表カード（xyzブロック / 知識の総完成の合成ブロック / 授業内テストブロック共用）
 function buildXyzCard(block, icon) {
   const xyz = block;
@@ -2022,7 +2069,7 @@ function buildXyzCard(block, icon) {
     <div class="section-card-icon">${icon || "✏️"}</div>
     <div class="section-card-body">
       <div class="section-card-title">${xyz.label || "授業の確認問題"}</div>
-      <div class="section-card-meta">問題${xyz.questionPages.length}ページ ・ 全${total}問</div>${xyzBar}
+      <div class="section-card-meta">問題${xyz._showQ ? xyz._showQ.size : xyz.questionPages.length}ページ ・ 全${total}問</div>${xyzBar}
     </div>
     <div class="section-card-stats">
       <div class="section-card-stats-main">${good}/${total}</div>
@@ -2407,11 +2454,13 @@ function wsmCropImgHTML(i, imgTag, pt = "q") {
 let _subRectsCache = {};
 function wsmBlockKeyOf() {
   if (!quizData || !currentWsm) return "";
+  if (currentWsm._parentKey) return currentWsm._parentKey;   // ★2026-11-25 xyz.parts の派生ブロック
   return Object.keys(quizData).find(k => quizData[k] === currentWsm) || "";
 }
 function wsSubRectsKey() {
   const bk = wsmBlockKeyOf();
-  return currentCategory && currentUnit && bk ? `${currentCategory.id}/${currentUnit.id}/${bk}` : "";
+  const part = currentWsm && currentWsm._partId ? `#${currentWsm._partId}` : "";   // 印は派生ブロックの小問ぶんだけ作るので別々に持つ
+  return currentCategory && currentUnit && bk ? `${currentCategory.id}/${currentUnit.id}/${bk}${part}` : "";
 }
 async function loadWsSubRects() {
   const key = wsSubRectsKey();
@@ -2559,11 +2608,11 @@ function drawWsTargetBoxes(ctx, idx, idsSet, W, H, pt, rectsOverride) {
   ctx.restore();
 }
 
-function wsmPageHTML(pt, file, i, total, base) {
+function wsmPageHTML(pt, file, i, total, base, no) {
   const lbl = pt === "q" ? "問題" : "解答";
   const banner = pt === "q" ? `<div class="wsm-target-banner" style="display:none"></div>` : "";
   return `<div class="wsm-page" data-pt="${pt}" data-idx="${i}"${pt === "a" ? ' style="display:none"' : ""}>
-       <div class="wsm-page-label">${lbl} ${i + 1} / ${total}</div>${banner}
+       <div class="wsm-page-label">${lbl} ${(no == null ? i : no) + 1} / ${total}</div>${banner}
        ${wsmCropImgHTML(i, `<img src="${base}${file}" loading="lazy" alt="${lbl}${i + 1}">`, pt)}
      </div>`;
 }
@@ -2585,8 +2634,11 @@ function renderWsPages() {
     }
     el.innerHTML = rows.join("");
   } else {
-    const q = xyz.questionPages.map((p, i) => wsmPageHTML("q", p, i, xyz.questionPages.length, base)).join("");
-    const a = xyz.answerPages.map((p, i) => wsmPageHTML("a", p, i, xyz.answerPages.length, base)).join("");
+    // ★2026-11-25 xyz.parts の派生ブロックは見せるページだけ（data-idx は元の添字のまま＝印・対象バナーがずれない）
+    const qi = xyz.questionPages.map((p, i) => i).filter(i => wsmPageVisible("q", i));
+    const ai = xyz.answerPages.map((p, i) => i).filter(i => wsmPageVisible("a", i));
+    const q = qi.map((i, n) => wsmPageHTML("q", xyz.questionPages[i], i, qi.length, base, n)).join("");
+    const a = ai.map((i, n) => wsmPageHTML("a", xyz.answerPages[i], i, ai.length, base, n)).join("");
     el.innerHTML = q + a;
   }
   // ★2026-09-14 解説（HTML断片 kaisetsu.html）: 解答タブの末尾に付ける（SS特訓 社会から）
@@ -2624,7 +2676,7 @@ async function loadWsKaisetsu() {
       _kaisetsuCache[url] = await res.text();
     }
     if (document.getElementById("wsm-kaisetsu-body") === body) {
-      body.innerHTML = _kaisetsuCache[url];
+      body.innerHTML = wsKaisetsuScoped(_kaisetsuCache[url]);
       // 目次リンク(#A1 等)は location.hash（画面ルーティング）を変えずにブロック内スクロール
       body.querySelectorAll(".toc a[href^='#']").forEach(a => a.addEventListener("click", ev => {
         ev.preventDefault();
@@ -2671,7 +2723,7 @@ async function printWsKaisetsu() {
   const url = wsKaisetsuURL();
   if (!url) return;
   if (!_kaisetsuCache[url]) await loadWsKaisetsu();
-  const html = _kaisetsuCache[url];
+  const html = wsKaisetsuScoped(_kaisetsuCache[url]);
   if (!html) { alert("解説がまだ読み込めていません"); return; }
   const ov = document.getElementById("print-overlay");
   const body = document.getElementById("print-overlay-body");
@@ -2685,7 +2737,7 @@ async function printWsKaisetsu() {
     printHTML = r.html;
     sub = `${WS_MODE_SHORT[wsmFilter] || wsmFilter}の解説（${r.kept} / ${r.total} 問）`;
   }
-  const title = `${currentUnit.id} ${currentUnit.title || wsTitle()} 解説`;
+  const title = `${currentUnit.id} ${(currentWsm && currentWsm._partId) ? wsTitle() : (currentUnit.title || wsTitle())} 解説`;
   body.innerHTML = `<div class="kp"><div class="kp-title">${title}</div>${sub ? `<div class="kp-sub">${sub}</div>` : ""}<div class="kaisetsu kaisetsu-print">${printHTML}</div></div>`;
   let style = document.getElementById("dynamic-print-page");
   if (!style) { style = document.createElement("style"); style.id = "dynamic-print-page"; document.head.appendChild(style); }
@@ -2907,6 +2959,7 @@ async function printWsMode(mode) {
   }
   const dataURLs = [];
   for (let i = 0; i < xyz.questionPages.length; i++) {
+    if (!wsmPageVisible("q", i)) continue;
     let img;
     try { img = await loadImage(base + xyz.questionPages[i]); } catch (e) { continue; }
     const cc = document.createElement("canvas");
@@ -2958,6 +3011,7 @@ async function wsmPrint() {
   }
   const dataURLs = [];
   for (let i = 0; i < xyz.answerPages.length; i++) {
+    if (!wsmPageVisible("a", i)) continue;
     let img;
     try { img = await loadImage(base + xyz.answerPages[i]); } catch (e) { continue; }
     const cc = document.createElement("canvas");

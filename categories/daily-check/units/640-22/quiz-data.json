@@ -1363,7 +1363,50 @@
    "solved_04.jpg",
    "solved_05.jpg"
   ],
-  "kaisetsu": "kaisetsu.html"
+  "kaisetsu": "kaisetsu.html",
+  "parts": [
+   {
+    "id": "enshu",
+    "label": "入試問題演習",
+    "icon": "✏️",
+    "daimons": [
+     "演習1",
+     "演習2",
+     "演習3"
+    ],
+    "answerPages": [
+     "kxyz_a_01.jpg",
+     "solved_01.jpg",
+     "solved_02.jpg",
+     "solved_03.jpg",
+     "solved_04.jpg",
+     "solved_05.jpg"
+    ]
+   },
+   {
+    "id": "matome",
+    "label": "歴史用語のまとめ",
+    "icon": "🗂",
+    "daimons": [
+     "レベル1",
+     "レベル2(1)",
+     "レベル2(2)",
+     "レベル3(1)",
+     "レベル3(2)",
+     "レベル3(3)",
+     "年代",
+     "図版"
+    ],
+    "answerPages": [
+     "kxyz_a_02.jpg",
+     "kxyz_a_03.jpg",
+     "kxyz_a_04.jpg",
+     "kxyz_a_05.jpg",
+     "kxyz_a_06.jpg",
+     "kxyz_a_07.jpg"
+    ]
+   }
+  ]
  },
  "imageBase": "https://komaguchi-wq.github.io/shakai-daily-check-v2-images-01/daily-check/640-22/"
 }

@@ -877,7 +877,52 @@
    "solved_02.jpg",
    "solved_03.jpg"
   ],
-  "kaisetsu": "kaisetsu.html"
+  "kaisetsu": "kaisetsu.html",
+  "parts": [
+   {
+    "id": "enshu",
+    "label": "入試問題演習",
+    "icon": "✏️",
+    "daimons": [
+     "演習1",
+     "演習2",
+     "演習3"
+    ],
+    "answerPages": [
+     "kxyz_a_01.jpg",
+     "solved_01.jpg",
+     "solved_02.jpg",
+     "solved_03.jpg",
+     "solved_2026-10-31_01.jpg",
+     "solved_2026-10-31_02.jpg",
+     "solved_2026-10-31_03.jpg"
+    ]
+   },
+   {
+    "id": "matome",
+    "label": "地理用語のまとめ②",
+    "icon": "🗂",
+    "daimons": [
+     "レベル1",
+     "レベル2(1)",
+     "レベル2(2)",
+     "レベル3(1)",
+     "レベル3(2)"
+    ],
+    "answerPages": [
+     "kxyz_a_02.jpg",
+     "kxyz_a_03.jpg",
+     "kxyz_a_04.jpg",
+     "kxyz_a_05.jpg",
+     "kxyz_a_06.jpg",
+     "solved_2026-10-29_01.jpg",
+     "solved_2026-10-29_02.jpg",
+     "solved_2026-10-29_03.jpg",
+     "solved_2026-10-29_04.jpg",
+     "solved_2026-10-29_05.jpg"
+    ]
+   }
+  ]
  },
  "dctest": {
   "label": "デイリーチェック（640-27の確認）",
