@@ -975,7 +975,8 @@
       "wsj_a_07.jpg",
       "wsj_a_08.jpg",
       "wsj_a_09.jpg"
-    ]
+    ],
+    "kaisetsu": "kaisetsu.html"
   },
   "wctest": {
     "label": "ウィークリーチェック（WS-31の確認）",
@@ -1125,6 +1126,8 @@
     ],
     "generatedBy": "_scratch/ws32/make_wctest.py",
     "generatedAt": "2026-11-28",
-    "note": "統合スキャン idx21（実施済み・赤採点 88/100）の赤を除去し解答らん（左右2表）を白塗り・鉛筆のメモと名前を白塗り。解答は別紙①左の解答表（idx22）。1 は 13問・2 は 12問の各4点"
-  }
+    "note": "統合スキャン idx21（実施済み・赤採点 88/100）の赤を除去し解答らん（左右2表）を白塗り・鉛筆のメモと名前を白塗り。解答は別紙①左の解答表（idx22）。1 は 13問・2 は 12問の各4点",
+    "kaisetsu": "kaisetsu_wctest.html"
+  },
+  "chishikiKaisetsu": "kaisetsu_chishiki.html"
 }
