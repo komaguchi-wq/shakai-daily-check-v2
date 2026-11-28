@@ -885,5 +885,24 @@
    "1": 38,
    "2": 30
   }
+ },
+ {
+  "id": "WS-32",
+  "title": "WS-32 入試総合演習 第二次世界大戦後の世界",
+  "subject": "Weekly SapiX",
+  "pageCount": 2,
+  "totalRegions": 71,
+  "sectionRegions": {
+   "kakunin": 71
+  },
+  "sectionPages": {
+   "1": "kakunin",
+   "2": "kakunin"
+  },
+  "xyzCount": 101,
+  "pageRegionCounts": {
+   "1": 38,
+   "2": 33
+  }
  }
 ]
